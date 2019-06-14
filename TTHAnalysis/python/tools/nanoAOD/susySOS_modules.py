@@ -1,6 +1,6 @@
 conf = dict(
-    muPt = 5, 
-    elePt = 7, 
+    muPt = 3, 
+    elePt = 5, 
     #        miniRelIso = 0.4,  # we use Iperbolic, see old cfg run_susySOS_cfg.py
     sip3d = 2.5, 
     dxy =  0.05, 
@@ -8,25 +8,27 @@ conf = dict(
     minMet = 50.,
     ip3d = 0.0175,
     iperbolic_iso_0 = 20.,
-    iperbloic_iso_1 = 300.,
+    iperbolic_iso_1 = 300.,
     eleId = "mvaFall17V2noIso_WPL", ## CHECK
 )
 susySOS_skim_cut =  ("nMuon + nElectron >= 2 &&" + ##if heppy option fast
-        "MET_pt > {minMet}"
+        "MET_pt > {minMet}  &&"+
        "Sum$(Muon_pt > {muPt} && Muon_sip3d < {sip3d}) +"
        "Sum$(Electron_pt > {muPt}  && Electron_sip3d < {sip3d} && Electron_{eleId}) >= 2").format(**conf) ## && Muon_miniPFRelIso_all < {miniRelIso} && Electron_miniPFRelIso_all < {miniRelIso}  #mettere qui MET_pt>50 #cp dal cfg la selezione
 #cut  = ttH_skim_cut
-muonSelection     = lambda l : abs(l.eta) < 2.4 and l.pt > conf["muPt"]  and l.sip3d < conf["sip3d"] and abs(l.dxy) < conf["dxy"] and abs(l.dz) < conf["dz"]  and l.relIso03*l.pt < ( conf["iperbolic_iso_0"]+conf["iperbolic_iso_1"]/l.pt) and abs(l.ip3D) < conf["ip3d"] ##is it relIso03?  ##and l.miniPFRelIso_all < conf["miniRelIso"]
-electronSelection = lambda l : abs(l.eta) < 2.5 and l.pt > conf["elePt"]  and l.sip3d < conf["sip3d"] and abs(l.dxy) < conf["dxy"] and abs(l.dz) < conf["dz"] and l.relIso03*l.pt < ( conf["iperbolic_iso_0"]+conf["iperbolic_iso_1"]/l.pt) and abs(l.ip3D) < conf["ip3d"] ##is it relIso03? ##and l.miniPFRelIso_all < conf["miniRelIso"]
+muonSelection     = lambda l : abs(l.eta) < 2.4 and l.pt > conf["muPt"]  and l.sip3d < conf["sip3d"] and abs(l.dxy) < conf["dxy"] and abs(l.dz) < conf["dz"]  and l.pfRelIso03_all*l.pt < ( conf["iperbolic_iso_0"]+conf["iperbolic_iso_1"]/l.pt) and abs(l.ip3d) < conf["ip3d"] ##is it relIso03?  ##and l.miniPFRelIso_all < conf["miniRelIso"]##l.relIso03*l.pt
+electronSelection = lambda l : abs(l.eta) < 2.5 and l.pt > conf["elePt"]  and l.sip3d < conf["sip3d"] and abs(l.dxy) < conf["dxy"] and abs(l.dz) < conf["dz"] and l.pfRelIso03_all*l.pt < ( conf["iperbolic_iso_0"]+conf["iperbolic_iso_1"]/l.pt) and abs(l.ip3d) < conf["ip3d"] ##is it relIso03? ##and l.miniPFRelIso_all < conf["miniRelIso"] #l.relIso03*l.pt
+
+#muonSelection     = lambda l : abs(l.eta) < 2.4 and l.pt > conf["muPt"]  and l.sip3d < conf["sip3d"] and abs(l.dxy) < conf["dxy"] and abs(l.dz) < conf["dz"]  and ( ( l.pfIsolationR03.sumChargedHadronPt + max( l.pfIsolationR03.sumNeutralHadronEt +  l.pfIsolationR03.sumPhotonEt -  l.pfIsolationR03.sumPUPt/2,0.0) ) < ( conf["iperbolic_iso_0"]+conf["iperbolic_iso_1"]/l.pt)) and abs(l.ip3D) < conf["ip3d"] ##is it relIso03?  ##and l.miniPFRelIso_all < conf["miniRelIso"]##l.relIso03*l.pt
+#electronSelection = lambda l : abs(l.eta) < 2.5 and l.pt > conf["elePt"]  and l.sip3d < conf["sip3d"] and abs(l.dxy) < conf["dxy"] and abs(l.dz) < conf["dz"] and ( (l.chargedHadronIsoR(0.3) + max(l.neutralHadronIsoR(0.3)+l.photonIsoR(0.3)-l.rho*ele.EffectiveArea03,0)) < ( conf["iperbolic_iso_0"]+conf["iperbolic_iso_1"]/l.pt) ) and abs(l.ip3D) < conf["ip3d"] ##is it relIso03? ##and l.miniPFRelIso_all < conf["miniRelIso"] #l.relIso03*l.pt
 
 from CMGTools.TTHAnalysis.tools.nanoAOD.ttHPrescalingLepSkimmer import ttHPrescalingLepSkimmer
 # NB: do not wrap lepSkim a lambda, as we modify the configuration in the cfg itself 
-lepSkim = ttHPrescalingLepSkimmer(5, 
+lepSkim = ttHPrescalingLepSkimmer(0, ##do not apply prescale
                                   muonSel = muonSelection, electronSel = electronSelection,
                                   minLeptonsNoPrescale = 2, # things with less than 2 leptons are rejected irrespectively of the prescale
-                                  prescaleFactor = 1, ##do not apply prescale ##does it do any skimming then?
                                   minLeptons = 2, requireSameSignPair = False,
-                                  jetSel = lambda j : j.pt > 25 and abs(j.eta) < 2.4, 
+                                  jetSel = lambda j : j.pt > 25 and abs(j.eta) < 2.4  and j.jetId > 0, 
                                   minJets = 0, minMET = 0)
 
 from PhysicsTools.NanoAODTools.postprocessing.modules.common.collectionMerger import collectionMerger
@@ -52,10 +54,10 @@ lepFR = ttHLepQCDFakeRateAnalyzer(jetSel = lambda j : j.pt > 25 and abs(j.eta) <
                                   pairSel = lambda pair : deltaR(pair[0].eta, pair[0].phi, pair[1].eta, pair[1].phi) > 0.7,
                                   maxLeptons = 1, requirePair = True)
 
-ttH_sequence_step1_FR = [m for m in ttH_sequence_step1 if m != lepSkim] + [ lepFR ]
-ttH_skim_cut_FR = ("nMuon + nElectron >= 1 && nJet >= 1 && Sum$(Jet_pt > 25 && abs(Jet_eta)<2.4) >= 1 &&" + 
-       "Sum$(Muon_pt > {muPt} && Muon_miniPFRelIso_all < {miniRelIso} && Muon_sip3d < {sip3d}) +"
-       "Sum$(Electron_pt > {muPt} && Electron_miniPFRelIso_all < {miniRelIso} && Electron_sip3d < {sip3d} && Electron_{eleId}) >= 1").format(**conf)
+#susySOS_sequence_step1_FR = [m for m in susySOS_sequence_step1 if m != lepSkim] + [ lepFR ]
+#ttH_skim_cut_FR = ("nMuon + nElectron >= 1 && nJet >= 1 && Sum$(Jet_pt > 25 && abs(Jet_eta)<2.4) >= 1 &&" + 
+#       "Sum$(Muon_pt > {muPt} && Muon_miniPFRelIso_all < {miniRelIso} && Muon_sip3d < {sip3d}) +"
+#       "Sum$(Electron_pt > {muPt} && Electron_miniPFRelIso_all < {miniRelIso} && Electron_sip3d < {sip3d} && Electron_{eleId}) >= 1").format(**conf)
 
 
 #==== items below are normally run as friends ====
@@ -95,7 +97,7 @@ recleaner_step1 = lambda : CombinedObjectTaggerForCleaning("InternalRecl",
                                        tightLeptonSel = tightLeptonSel,
                                        FOTauSel = foTauSel,
                                        tightTauSel = tightTauSel,
-                                       selectJet = lambda jet: abs(jet.eta)<2.4 and jet.pt > 25, # FIXME need to select on pt or ptUp or ptDown
+                                       selectJet = lambda jet: abs(jet.eta)<2.4 and jet.pt > 25 and j.jetId > 0, # FIXME need to select on pt or ptUp or ptDown
                                        coneptdef = lambda lep: conept_TTH(lep))
 recleaner_step2_mc = lambda : fastCombinedObjectRecleaner(label="Recl", inlabel="_InternalRecl",
                                        cleanTausWithLooseLeptons=True,

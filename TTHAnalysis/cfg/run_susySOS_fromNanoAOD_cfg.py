@@ -28,15 +28,15 @@ if getHeppyOption("nanoPreProcessor"):
 else:
     if year == 2018:
         from CMGTools.RootTools.samples.samples_13TeV_RunIIAutumn18NanoAODv4 import samples as mcSamples_
-        from CMGTools.RootTools.samples.samples_13TeV_DATA2018_NanoAOD import samples as allData
+        from CMGTools.RootTools.samples.samples_13TeV_DATA2018_NanoAOD import dataSamples_1June2019 as allData
         from CMGTools.RootTools.samples.triggers_13TeV_DATA2018 import all_triggers as triggers
     elif year == 2017:
         from CMGTools.RootTools.samples.samples_13TeV_RunIIFall17NanoAODv4 import samples as mcSamples_
-        from CMGTools.RootTools.samples.samples_13TeV_DATA2017_NanoAOD import samples as allData
+        from CMGTools.RootTools.samples.samples_13TeV_DATA2017_NanoAOD import dataSamples_1June2019 as allData
         from CMGTools.RootTools.samples.triggers_13TeV_DATA2017 import all_triggers as triggers
     elif year == 2016:
         from CMGTools.RootTools.samples.samples_13TeV_RunIISummer16NanoAODv4 import samples as mcSamples_
-        from CMGTools.RootTools.samples.samples_13TeV_DATA2016_NanoAOD import samples as allData
+        from CMGTools.RootTools.samples.samples_13TeV_DATA2016_NanoAOD import dataSamples_1June2019 as allData
         from CMGTools.RootTools.samples.triggers_13TeV_DATA2016 import all_triggers as triggers
 
 
@@ -104,7 +104,7 @@ if year == 2018:
 #            "WZTo2L2Q",
 
             ##signal SUSY
-            "SMS_TChiWZ"
+            "SMS_TChiWZ",
             
 ##relics from tth             
 ##            "TT[WZ]_LO$",
@@ -125,7 +125,7 @@ if year == 2018:
 ##conf db e cercare stream dato il nome del trigger
 
 elif year == 2017:
-    mcSamples = byCompName(mcSamples_ [
+    mcSamples = byCompName(mcSamples_, [
 ##        "DYJetsToLL_M50$", "TT(Lep|Semi)_pow", "TTHnobb_pow",
         
         ##main bkgs
@@ -187,7 +187,7 @@ elif year == 2017:
         "TTZToLLNuNu_amc",
         "TTZToLLNuNu_m1to10",
         "TTGJets",
-        "TGJets_lep"
+        "TGJets_lep",
 
 #more to be included
 #            "ZZTo2L2Q," 
@@ -199,7 +199,7 @@ elif year == 2017:
 
 
         ##signal SUSY
-        "SMS_TChiWZ"
+        "SMS_TChiWZ",
 
     ])
 
@@ -306,7 +306,7 @@ elif year == 2016:
         "TTWToLNu", "TTWToLNu_ext",  #_fxfx
         "TTZToLLNuNu", "TTZToLLNuNu_ext", "TTZToLLNuNu_ext2", #_amc
         "TTZToLLNuNu_m1to10",
-        "TTGJets", "TTGJets_ext"
+        "TTGJets", "TTGJets_ext",
        # "TGJets_lep" #missing
 
 #more to be included
@@ -320,7 +320,7 @@ elif year == 2016:
 
 
         ##signal SUSY
-        "SMS_TChiWZ"
+        "SMS_TChiWZ",
 
 ###        "DYJetsToLL_M50$", "TT(Lep|Semi)_pow" 
     ])

@@ -166,5 +166,11 @@ recleaner_step2_data = lambda : fastCombinedObjectRecleaner(label="Recl", inlabe
 from CMGTools.TTHAnalysis.tools.eventVars_2lss import EventVars2LSS
 eventVars = lambda : EventVars2LSS('','Recl', doSystJEC=False)
 
+from CMGTools.TTHAnalysis.tools.objTagger import ObjTagger
+isMatchRightCharge = lambda : ObjTagger('isMatchRightCharge','LepGood', [lambda l,g : (l.genPartFlav==1 or l.genPartFlav == 15) and (g.pdgId*l.pdgId > 0) ], linkColl='GenPart',linkVar='genPartIdx')
+mcMatchId     = lambda : ObjTagger('mcMatchId','LepGood', [lambda l : (l.genPartFlav==1 or l.genPartFlav == 15) ])
+mcPromptGamma = lambda : ObjTagger('mcPromptGamma','LepGood', [lambda l : (l.genPartFlav==22)])
+mcMatch_seq   = [ isMatchRightCharge, mcMatchId ,mcPromptGamma]
+
 from PhysicsTools.NanoAODTools.postprocessing.modules.jme.jetmetUncertainties import jetmetUncertainties2016, jetmetUncertainties2017, jetmetUncertainties2018
 

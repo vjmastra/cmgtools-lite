@@ -20,7 +20,8 @@ dowhat = "plots"
 
 ##P0="/eos/cms/store/cmst3/group/tthlep/peruzzi/"
 #P0="/eos/cms/store/cmst3/group/tthlep/peruzzi/"
-P0="/eos/home-v/vtavolar/SusySOS/"
+#P0="/eos/home-v/vtavolar/SusySOS/"
+P0="/eos/cms/store/cmst3/group/tthlep/peruzzi/NanoTrees_SOS_170619_v5pre/"
 #if 'cmsco01'   in os.environ['HOSTNAME']: P0="/data1/peruzzi"
 nCores = 8
 if 'fanae' in os.environ['HOSTNAME']: 

@@ -28,7 +28,7 @@ if 'fanae' in os.environ['HOSTNAME']:
     nCores = 22
     submit = 'sbatch -p  short -c %d --wrap "{command}"'%nCores
     P0     = "/pool/ciencias/userstorage/sscruz/NanoAOD/"
-TREESALL = "--xf THQ_LHE,THW_LHE,TTWW,TTTW,TTWH   --F Friends {P}/recleaner/{cname}_Friend.root" 
+TREESALL = "--xf THQ_LHE,THW_LHE,TTWW,TTTW,TTWH   --Fs {P}/recleaner" 
 ##TREESALL = "--xf THQ_LHE,THW_LHE,TTWW,TTTW,TTWH  --Fs {P}/1_lepJetBTagDeepFlav_v1  --Fs {P}/2_triggerSequence_v2 --Fs {P}/3_recleaner_v1 --FMCs {P}/4_btag --FMCs {P}/4_leptonSFs_v0 --FMCs {P}/0_mcFlags_v0" 
 ##TREESONLYFULL = "-P "+P0+"/NanoTrees_TTH_300519_v5pre/%s "%(YEAR,)
 ###TREESONLYFULL = "-P "+P0+"/NanoTrees_SOS_170619_v5pre/%s "%(YEAR,)

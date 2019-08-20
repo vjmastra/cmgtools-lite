@@ -9,15 +9,16 @@ conf = dict(
     ip3d = 0.0175,
     iperbolic_iso_0 = 20.,
     iperbolic_iso_1 = 300.,
-    eleId = "mvaFall17V2noIso_WPL", ## CHECK
+#    eleId = "mvaFall17V2noIso_WPL", ## CHECK
+#    muonId = "softMvaId" ###looseId
 )
 susySOS_skim_cut =  ("nMuon + nElectron >= 2 &&" + ##if heppy option fast
         "MET_pt > {minMet}  &&"+
-       "Sum$(Muon_pt > {muPt} && Muon_sip3d < {sip3d}) +"
-       "Sum$(Electron_pt > {elePt}  && Electron_sip3d < {sip3d} && Electron_{eleId}) >= 2").format(**conf) ## && Muon_miniPFRelIso_all < {miniRelIso} && Electron_miniPFRelIso_all < {miniRelIso}  #mettere qui MET_pt>50 #cp dal cfg la selezione
+       "Sum$(Muon_pt > {muPt}) +"
+       "Sum$(Electron_pt > {elePt}) >= 2").format(**conf) ## && Muon_miniPFRelIso_all < {miniRelIso} && Electron_miniPFRelIso_all < {miniRelIso}  #mettere qui MET_pt>50 #cp dal cfg la selezione
 #cut  = ttH_skim_cut
 muonSelection     = lambda l : abs(l.eta) < 2.4 and l.pt > conf["muPt"]  and l.sip3d < conf["sip3d"] and abs(l.dxy) < conf["dxy"] and abs(l.dz) < conf["dz"]  and l.pfRelIso03_all*l.pt < ( conf["iperbolic_iso_0"]+conf["iperbolic_iso_1"]/l.pt) and abs(l.ip3d) < conf["ip3d"] ##is it relIso03?  ##and l.miniPFRelIso_all < conf["miniRelIso"]##l.relIso03*l.pt
-electronSelection = lambda l : abs(l.eta) < 2.5 and l.pt > conf["elePt"]  and l.sip3d < conf["sip3d"] and abs(l.dxy) < conf["dxy"] and abs(l.dz) < conf["dz"] and l.pfRelIso03_all*l.pt < ( conf["iperbolic_iso_0"]+conf["iperbolic_iso_1"]/l.pt) and abs(l.ip3d) < conf["ip3d"] ##is it relIso03? ##and l.miniPFRelIso_all < conf["miniRelIso"] #l.relIso03*l.pt
+electronSelection = lambda l : abs(l.eta) < 2.5 and l.pt > conf["elePt"]  and l.sip3d < conf["sip3d"] and abs(l.dxy) < conf["dxy"] and abs(l.dz) < conf["dz"] and l.pfRelIso03_all*l.pt < ( conf["iperbolic_iso_0"]+conf["iperbolic_iso_1"]/l.pt) and abs(l.ip3d) < conf["ip3d"]  ##is it relIso03? ##and l.miniPFRelIso_all < conf["miniRelIso"] #l.relIso03*l.pt
 
 #muonSelection     = lambda l : abs(l.eta) < 2.4 and l.pt > conf["muPt"]  and l.sip3d < conf["sip3d"] and abs(l.dxy) < conf["dxy"] and abs(l.dz) < conf["dz"]  and ( ( l.pfIsolationR03.sumChargedHadronPt + max( l.pfIsolationR03.sumNeutralHadronEt +  l.pfIsolationR03.sumPhotonEt -  l.pfIsolationR03.sumPUPt/2,0.0) ) < ( conf["iperbolic_iso_0"]+conf["iperbolic_iso_1"]/l.pt)) and abs(l.ip3D) < conf["ip3d"] ##is it relIso03?  ##and l.miniPFRelIso_all < conf["miniRelIso"]##l.relIso03*l.pt
 #electronSelection = lambda l : abs(l.eta) < 2.5 and l.pt > conf["elePt"]  and l.sip3d < conf["sip3d"] and abs(l.dxy) < conf["dxy"] and abs(l.dz) < conf["dz"] and ( (l.chargedHadronIsoR(0.3) + max(l.neutralHadronIsoR(0.3)+l.photonIsoR(0.3)-l.rho*ele.EffectiveArea03,0)) < ( conf["iperbolic_iso_0"]+conf["iperbolic_iso_1"]/l.pt) ) and abs(l.ip3D) < conf["ip3d"] ##is it relIso03? ##and l.miniPFRelIso_all < conf["miniRelIso"] #l.relIso03*l.pt
@@ -114,12 +115,121 @@ def SOSTightID2018(lep):
                 return mvaRaw > 2.359
 
 
+def susyEleIdParametrization(p1,p2,pt,year):
+    if year ==  2016 or year ==2018:
+        return p1 + p2*(pt-25.)
+    else:
+        return p1 + (p2/15.)*(pt-10.)
+
+def VLooseFOEleID(lep,year):# from https://twiki.cern.ch/twiki/pub/CMS/SUSLeptonSF/Run2_SUSYwp_EleCB_MVA_8Jan19.pdf
+    if year == 2016:
+        cuts = dict(cEB = [-0.259, -0.388, 0.109, -0.388], 
+                    oEB = [-0.256, -0.696, 0.106, -0.696],
+                    EE  = [-1.630, -1.219, 0.148, -1.219],
+                    IdVersion = "mvaFall17V2noIso") 
+    elif year == 2017:
+        cuts = dict(cEB = [-0.135, -0.930, 0.043, -0.887], 
+                    oEB = [-0.417, -0.930, 0.040, -0.890],
+                    EE  = [-0.470, -0.942, 0.032, -0.910],
+                    IdVersion = "mvaFall17V1noIso") 
+    elif year == 2018:
+        cuts = dict(cEB = [+0.053, -0.106, 0.062, -0.106], 
+                    oEB = [-0.434, -0.769, 0.038, -0.769],
+                    EE  = [-0.956, -1.461, 0.042, -1.461],
+                    IdVersion = "mvaFall17V2noIso") 
+    else:
+        print "Year not in [2016,2017,2018], returning False"
+        return False
+    mvaValue = getattr(lep, cuts["IdVersion"]) if year==2017 else  calculateRawMVA(getattr(lep, cuts["IdVersion"])) ##raw for 2016 and 2018, normalized for 2017
+    if abs(lep.eta<0.8):
+        if lep.pt<10:
+            return mvaValue > cuts["cEB"][0]
+        elif lep.pt<25:
+            return mvaValue > susyEleIdParametrization( cuts["cEB"][1],  cuts["cEB"][2], lep.pt, year)
+        else:
+            return mvaValue >  cuts["cEB"][3]
+    elif abs(lep.eta>=0.8) and abs(lep.eta<1.479):
+        if lep.pt<10:
+            return mvaValue > cuts["oEB"][0]
+        elif lep.pt<25:
+            return mvaValue > susyEleIdParametrization( cuts["oEB"][1],  cuts["oEB"][2], lep.pt, year)
+        else:
+            return mvaValue >  cuts["oEB"][3]
+    elif abs(lep.eta>=1.479):
+        if lep.pt<10:
+            return mvaValue > cuts["EE"][0]
+        elif lep.pt<25:
+            return mvaValue > susyEleIdParametrization( cuts["EE"][1],  cuts["EE"][2], lep.pt, year)
+        else:
+            return mvaValue >  cuts["EE"][3]
 
 
-clean_and_FO_selection_SOS = lambda lep : lep.jetBTagCSV < 0.46 ##using std csv, what about deep?
+
+def tightEleID(lep,year):# from https://twiki.cern.ch/twiki/pub/CMS/SUSLeptonSF/Run2_SUSYwp_EleCB_MVA_8Jan19.pdf
+    if year == 2016:
+        cuts = dict(cEB = [3.447, 0.063, 4.392], 
+                    oEB = [2.522, 0.058, 3.392],
+                    EE  = [1.555, 0.075, 2.680],
+                    IdVersion = "mvaFall17V2noIso") 
+    elif year == 2017:
+        cuts = dict(cEB = [0.200, 0.032, 0.680], 
+                    oEB = [0.100, 0.025, 0.475],
+                    EE  = [-0.100, 0.028, 0.320],
+                    IdVersion = "mvaFall17V1noIso") 
+    elif year == 2018:
+        cuts = dict(cEB = [4.277, 0.112, 4.277], 
+                    oEB = [3.152, 0.060, 3.152],
+                    EE  = [2.359, 0.087, 2.359],
+                    IdVersion = "mvaFall17V2noIso") 
+    else:
+        print "Year not in [2016,2017,2018], returning False"
+        return False
+    mvaValue = getattr(lep, cuts["IdVersion"]) if year==2017 else  calculateRawMVA(getattr(lep, cuts["IdVersion"])) ##raw for 2016 and 2018, normalized for 2017
+    if lep.pt<10:
+        return True ## to be FIXED  XXXXXXXX    
+    if abs(lep.eta<0.8):
+        if lep.pt<25:
+            return mvaValue > susyEleIdParametrization( cuts["cEB"][0],  cuts["cEB"][1], lep.pt, year)
+        elif lep.pt<40: #2016 has flat cut between 25 and 40
+            if year == 2016:
+                return mvaValue >  cuts["cEB"][1]
+            else:
+                return mvaValue >  cuts["cEB"][2]
+        else:
+            return mvaValue >  cuts["cEB"][2]
+
+    elif abs(lep.eta>=0.8) and abs(lep.eta<1.479):
+        if lep.pt<25:
+            return mvaValue > susyEleIdParametrization( cuts["oEB"][0],  cuts["oEB"][1], lep.pt, year)
+        elif lep.pt<40:
+            if year == 2016:
+                return mvaValue >  cuts["oEB"][1]
+            else:
+                return mvaValue >  cuts["oEB"][2]
+        else:
+            return mvaValue >  cuts["oEB"][2]
+    elif abs(lep.eta>=1.479):
+        if lep.pt<25:
+            return mvaValue > susyEleIdParametrization( cuts["EE"][0],  cuts["EE"][1], lep.pt, year)
+        elif lep.pt<40:
+            if year == 2016:
+                return mvaValue >  cuts["EE"][1]
+            else:
+                return mvaValue >  cuts["EE"][2]
+        else:
+            return mvaValue >  cuts["EE"][2]
+
+
+
+
+def clean_and_FO_selection_SOS(lep, year):
+    bTagCut = 0.2217 if year==2016 else 0.1552 if year==2017 else 0.1241
+    return lep.btagDeepB < bTagCut and ( (abs(lep.pdgId)==11 and VLooseFOEleID(lep, year) and lep.lostHits==0 and lep.convVeto)
+                                         or (abs(lep.pdgId)==13 and lep.softId ) )
+
 
 ##tightLeptonSel = lambda lep : clean_and_FO_selection_TTH(lep) and (abs(lep.pdgId)!=13 or lep.mediumId>0) and lep.mvaTTH > 0.90
-tightLeptonSel_SOS = lambda lep : clean_and_FO_selection_SOS(lep) and ((abs(lep.pdgId)==13 or SOSTightID2018(lep) ) and lep.pfRelIso03_all<0.5 and (lep.pfRelIso03_all*lep.pt)<5. and abs(lep.ip3d)<0.01 and lep.sip3d<2)
+tightLeptonSel_SOS = lambda lep,year : clean_and_FO_selection_SOS(lep,year) and ((abs(lep.pdgId)==13 or tightEleID(lep, year) ) and lep.pfRelIso03_all<0.5 and (lep.pfRelIso03_all*lep.pt)<5. and abs(lep.ip3d)<0.01 and lep.sip3d<2)
 
 
 # (abs(lep.pdgId)!=13 or lep.mediumId>0) and lep.mvaTTH > 0.90
@@ -137,9 +247,12 @@ from CMGTools.TTHAnalysis.tools.combinedObjectTaggerForCleaning import CombinedO
 from CMGTools.TTHAnalysis.tools.nanoAOD.fastCombinedObjectRecleaner import fastCombinedObjectRecleaner
 recleaner_step1 = lambda : CombinedObjectTaggerForCleaning("InternalRecl",
                                        #looseLeptonSel = lambda lep : lep.miniPFRelIso_all < 0.4 and lep.sip3d < 8,
-                                       cleaningLeptonSel = clean_and_FO_selection_SOS,
-                                       FOLeptonSel = clean_and_FO_selection_SOS,
-                                       tightLeptonSel = tightLeptonSel_SOS,
+
+                                       looseLeptonSel = lambda lep : (abs(lep.pdgId==11) and (VLooseFOEleID(lep, year) and lep.lostHits<=1)) or (abs(lep.pdgId==13) and lep.looseId),
+
+                                       cleaningLeptonSel = lambda lep,year : clean_and_FO_selection_SOS(lep, year), #veryLooseFO wp
+                                       FOLeptonSel = lambda lep,year : clean_and_FO_selection_SOS(lep, year), #veryLooseFO wp
+                                       tightLeptonSel = tightLeptonSel_SOS, #tight wp
                                        FOTauSel = foTauSel,
                                        tightTauSel = tightTauSel,
                                        selectJet = lambda jet: abs(jet.eta)<2.4 and jet.pt > 25 and jet.jetId > 0, # FIXME need to select on pt or ptUp or ptDown

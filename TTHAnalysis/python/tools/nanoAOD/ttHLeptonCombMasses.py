@@ -6,7 +6,7 @@ class ttHLeptonCombMasses( Module ):
         self.leptonsAndSels = leptonsAndSels[:]
         self.maxLeps = maxLeps
         self.postfix = postfix
-        self.branches = [ 'm2l','m3l','m4l', 'mZ1', 'mZ1SFSS', 'mZ2', 'mZZ', 'minMllSFOS', 'maxMllSFOS', 'minMllAFOS','minMllAFAS' ]
+        self.branches = [ 'm2l', 'm3l','m4l', 'mZ1', 'mZ1SFSS', 'mZ2', 'mZZ', 'minMllSFOS', 'maxMllSFOS', 'minMllAFOS','minMllAFAS' ]
 
     def beginFile(self, inputFile, outputFile, inputTree, wrappedOutputTree):
         self.wrappedOutputTree = wrappedOutputTree

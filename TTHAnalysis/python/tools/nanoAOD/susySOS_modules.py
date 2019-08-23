@@ -13,7 +13,7 @@ conf = dict(
 #    muonId = "softMvaId" ###looseId
 )
 susySOS_skim_cut =  ("nMuon + nElectron >= 2 &&" + ##if heppy option fast
-        "MET_pt > {minMet}  &&"+
+###        "MET_pt > {minMet}  &&"+
        "Sum$(Muon_pt > {muPt}) +"
        "Sum$(Electron_pt > {elePt}) >= 2").format(**conf) ## && Muon_miniPFRelIso_all < {miniRelIso} && Electron_miniPFRelIso_all < {miniRelIso}  #mettere qui MET_pt>50 #cp dal cfg la selezione
 #cut  = ttH_skim_cut
@@ -190,9 +190,9 @@ def tightEleID(lep,year):# from https://twiki.cern.ch/twiki/pub/CMS/SUSLeptonSF/
     if abs(lep.eta<0.8):
         if lep.pt<25:
             return mvaValue > susyEleIdParametrization( cuts["cEB"][0],  cuts["cEB"][1], lep.pt, year)
-        elif lep.pt<40: #2016 has flat cut between 25 and 40
+        elif lep.pt<40: #2016 still has slope between 25 and 40
             if year == 2016:
-                return mvaValue >  cuts["cEB"][1]
+                return mvaValue > susyEleIdParametrization( cuts["cEB"][0],  cuts["cEB"][1], lep.pt, year)
             else:
                 return mvaValue >  cuts["cEB"][2]
         else:
@@ -286,4 +286,28 @@ mcPromptGamma = lambda : ObjTagger('mcPromptGamma','LepGood', [lambda l : (l.gen
 mcMatch_seq   = [ isMatchRightCharge, mcMatchId ,mcPromptGamma]
 
 from PhysicsTools.NanoAODTools.postprocessing.modules.jme.jetmetUncertainties import jetmetUncertainties2016, jetmetUncertainties2017, jetmetUncertainties2018
+
+isVLFOEle = lambda : ObjTagger('isVLFOEle', "Electron", [lambda lep,year : (VLooseFOEleID(lep, year)) ])
+isTightEle = lambda : ObjTagger('isTightEle', "Electron", [lambda lep,year : (tightEleID(lep, year)) ])
+isTightLepDY = lambda : ObjTagger('isTightLepDY', "LepGood", [   lambda lep,year : clean_and_FO_selection_SOS(lep,year) and 
+                                                                 (
+                                                                     (abs(lep.pdgId)==13 or tightEleID(lep, year) 
+                                                                  ) 
+                                                                     and lep.pfRelIso03_all<0.5 
+                                                                     and (lep.pfRelIso03_all*lep.pt)<5. 
+                                                                     and abs(lep.ip3d)<0.01)    ]) #no sip3d cut
+isTightLepTT = lambda : ObjTagger('isTightLepTT', "LepGood", [ lambda lep,year : clean_and_FO_selection_SOS(lep,year) and 
+                                                                  ( 
+                                                                      (abs(lep.pdgId)==13 or tightEleID(lep, year) 
+                                                                   ) 
+                                                                      and lep.pfRelIso03_all<0.5 
+                                                                      and ( 
+                                                                          (lep.pfRelIso03_all*lep.pt)<5. or lep.pfRelIso03_all<0.1 ) 
+                                                                      and abs(lep.ip3d)<0.01 
+                                                                      and lep.sip3d<2)      ]) #relax iso cut
+isTightLepVV = lambda : ObjTagger('isTightLepVV', "LepGood", [ lambda lep,year : clean_and_FO_selection_SOS(lep,year) and ((abs(lep.pdgId)==13 or tightEleID(lep, year) ) and lep.pfRelIso03_all<0.5 and ( (lep.pfRelIso03_all*lep.pt)<5. or lep.pfRelIso03_all<0.1 ) and abs(lep.ip3d)<0.01 and lep.sip3d<2)      ]) #relax iso cut
+isTightLepWZ = lambda : ObjTagger('isTightLepWZ', "LepGood", [ lambda lep,year : clean_and_FO_selection_SOS(lep,year) and ((abs(lep.pdgId)==13 or tightEleID(lep, year) ) and lep.pfRelIso03_all<0.5 and ( (lep.pfRelIso03_all*lep.pt)<5. or lep.pfRelIso03_all<0.1 ) and abs(lep.ip3d)<0.01 and lep.sip3d<2)      ]) #relax iso cut
+
+eleSel_seq = [isVLFOEle, isTightEle]
+tightLepCR_seq = [isTightLepDY,isTightLepTT,isTightLepVV,isTightLepWZ]
 

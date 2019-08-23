@@ -138,14 +138,14 @@ QCD_EMs = [
 ##QCD_Pt170to250_bcToE = kreator.makeMCComponent("QCD_Pt170to250_bcToE", "/QCD_Pt_170to250_bcToE_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root", 2126)
 ##QCD_Pt250toInf_bcToE = kreator.makeMCComponent("QCD_Pt250toInf_bcToE", "/QCD_Pt_250toInf_bcToE_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root", 563.1)
 ##
-##QCD_bcToE = [
+QCD_bcToE = [
 ##   QCD_Pt15to20_bcToE,
 ##   QCD_Pt20to30_bcToE,
 ##   QCD_Pt30to80_bcToE,
 ##   QCD_Pt80to170_bcToE,
 ##   QCD_Pt170to250_bcToE,
 ##   QCD_Pt250toInf_bcToE,
-##]
+]
 
 # ====== W + Jets ======
 WJetsToLNu_LO = kreator.makeMCComponent("WJetsToLNu_LO","/WJetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/MINIAODSIM", "CMS", ".*root", 3* 20508.9)
@@ -427,8 +427,7 @@ SMS_TChiWZ
 # ----------------------------- summary ----------------------------------------
 
 
-##mcSamples = QCDPt + QCDHT + QCD_Mus + QCD_EMs + QCD_bcToE + Ws + DYs + VJetsQQHT + TTs + Ts + TTXs + TTXXs + DiBosons + TriBosons + Higgs + SignalSUSY
-mcSamples = QCDPt + QCDHT + QCD_Mus + QCD_EMs + Ws + DYs + VJetsQQHT + TTs + Ts + TTXs + TTXXs + DiBosons + TriBosons + Higgs + SignalSUSY
+mcSamples = QCDPt + QCDHT + QCD_Mus + QCD_EMs + QCD_bcToE + Ws + DYs + VJetsQQHT + TTs + Ts + TTXs + TTXXs + DiBosons + TriBosons + Higgs + SignalSUSY
 
 
 samples = mcSamples

@@ -27,15 +27,15 @@ if getHeppyOption("nanoPreProcessor"):
         from CMGTools.RootTools.samples.triggers_13TeV_DATA2016 import all_triggers as triggers
 else:
     if year == 2018:
-        from CMGTools.RootTools.samples.samples_13TeV_RunIIAutumn18NanoAODv4 import samples as mcSamples_
+        from CMGTools.RootTools.samples.samples_13TeV_RunIIAutumn18NanoAODv5 import samples as mcSamples_
         from CMGTools.RootTools.samples.samples_13TeV_DATA2018_NanoAOD import dataSamples_1June2019 as allData
         from CMGTools.RootTools.samples.triggers_13TeV_DATA2018 import all_triggers as triggers
     elif year == 2017:
-        from CMGTools.RootTools.samples.samples_13TeV_RunIIFall17NanoAODv4 import samples as mcSamples_
+        from CMGTools.RootTools.samples.samples_13TeV_RunIIFall17NanoAODv5 import samples as mcSamples_
         from CMGTools.RootTools.samples.samples_13TeV_DATA2017_NanoAOD import dataSamples_1June2019 as allData
         from CMGTools.RootTools.samples.triggers_13TeV_DATA2017 import all_triggers as triggers
     elif year == 2016:
-        from CMGTools.RootTools.samples.samples_13TeV_RunIISummer16NanoAODv4 import samples as mcSamples_
+        from CMGTools.RootTools.samples.samples_13TeV_RunIISummer16NanoAODv5 import samples as mcSamples_
         from CMGTools.RootTools.samples.samples_13TeV_DATA2016_NanoAOD import dataSamples_1June2019 as allData
         from CMGTools.RootTools.samples.triggers_13TeV_DATA2016 import all_triggers as triggers
 

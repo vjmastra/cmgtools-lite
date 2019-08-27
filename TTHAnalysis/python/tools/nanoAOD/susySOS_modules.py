@@ -98,17 +98,17 @@ def SOSTightID2018(lep):
         return lep.mvaFall17V2noIso_WPL
     else: #susy tight at higher, from https://twiki.cern.ch/twiki/pub/CMS/SUSLeptonSF/Run2_SUSYwp_EleCB_MVA_8Jan19.pdf
         mvaRaw = calculateRawMVA(lep.mvaFall17V2noIso)
-        if abs(lep.eta<0.8):
+        if abs(lep.eta)<0.8:
             if lep.pt<25:
                 return mvaRaw > 4.277 + 0.112*(lep.pt - 25)
             else:
                 return mvaRaw > 4.277
-        elif abs(lep.eta>=0.8) and abs(lep.eta<1.479):
+        elif abs(lep.eta)>=0.8 and abs(lep.eta)<1.479:
             if lep.pt<25:
                 return mvaRaw > 3.152 + 0.60*(lep.pt - 25)
             else:
                 return mvaRaw > 3.152
-        elif abs(lep.eta>=1.479):
+        elif abs(lep.eta)>=1.479:
             if lep.pt<25:
                 return mvaRaw > 2.359 + 0.89*(lep.pt - 25)
             else:
@@ -141,21 +141,21 @@ def VLooseFOEleID(lep,year):# from https://twiki.cern.ch/twiki/pub/CMS/SUSLepton
         print "Year not in [2016,2017,2018], returning False"
         return False
     mvaValue = getattr(lep, cuts["IdVersion"]) if year==2017 else  calculateRawMVA(getattr(lep, cuts["IdVersion"])) ##raw for 2016 and 2018, normalized for 2017
-    if abs(lep.eta<0.8):
+    if abs(lep.eta)<0.8:
         if lep.pt<10:
             return mvaValue > cuts["cEB"][0]
         elif lep.pt<25:
             return mvaValue > susyEleIdParametrization( cuts["cEB"][1],  cuts["cEB"][2], lep.pt, year)
         else:
             return mvaValue >  cuts["cEB"][3]
-    elif abs(lep.eta>=0.8) and abs(lep.eta<1.479):
+    elif abs(lep.eta)>=0.8 and abs(lep.eta)<1.479:
         if lep.pt<10:
             return mvaValue > cuts["oEB"][0]
         elif lep.pt<25:
             return mvaValue > susyEleIdParametrization( cuts["oEB"][1],  cuts["oEB"][2], lep.pt, year)
         else:
             return mvaValue >  cuts["oEB"][3]
-    elif abs(lep.eta>=1.479):
+    elif abs(lep.eta)>=1.479:
         if lep.pt<10:
             return mvaValue > cuts["EE"][0]
         elif lep.pt<25:
@@ -187,7 +187,7 @@ def tightEleID(lep,year):# from https://twiki.cern.ch/twiki/pub/CMS/SUSLeptonSF/
     mvaValue = getattr(lep, cuts["IdVersion"]) if year==2017 else  calculateRawMVA(getattr(lep, cuts["IdVersion"])) ##raw for 2016 and 2018, normalized for 2017
     if lep.pt<10:
         return True ## to be FIXED  XXXXXXXX    
-    if abs(lep.eta<0.8):
+    if abs(lep.eta)<0.8:
         if lep.pt<25:
             return mvaValue > susyEleIdParametrization( cuts["cEB"][0],  cuts["cEB"][1], lep.pt, year)
         elif lep.pt<40: #2016 still has slope between 25 and 40
@@ -198,7 +198,7 @@ def tightEleID(lep,year):# from https://twiki.cern.ch/twiki/pub/CMS/SUSLeptonSF/
         else:
             return mvaValue >  cuts["cEB"][2]
 
-    elif abs(lep.eta>=0.8) and abs(lep.eta<1.479):
+    elif abs(lep.eta)>=0.8 and abs(lep.eta)<1.479:
         if lep.pt<25:
             return mvaValue > susyEleIdParametrization( cuts["oEB"][0],  cuts["oEB"][1], lep.pt, year)
         elif lep.pt<40:
@@ -208,7 +208,7 @@ def tightEleID(lep,year):# from https://twiki.cern.ch/twiki/pub/CMS/SUSLeptonSF/
                 return mvaValue >  cuts["oEB"][2]
         else:
             return mvaValue >  cuts["oEB"][2]
-    elif abs(lep.eta>=1.479):
+    elif abs(lep.eta)>=1.479:
         if lep.pt<25:
             return mvaValue > susyEleIdParametrization( cuts["EE"][0],  cuts["EE"][1], lep.pt, year)
         elif lep.pt<40:
@@ -224,7 +224,13 @@ def tightEleID(lep,year):# from https://twiki.cern.ch/twiki/pub/CMS/SUSLeptonSF/
 
 def clean_and_FO_selection_SOS(lep, year):
     bTagCut = 0.2217 if year==2016 else 0.1552 if year==2017 else 0.1241
-    return lep.btagDeepB < bTagCut and ( (abs(lep.pdgId)==11 and VLooseFOEleID(lep, year) and lep.lostHits==0 and lep.convVeto)
+#    print "btagDeepB ",lep.btagDeepB
+ #   print "jetBTagDeepCSV ",lep.jetBTagDeepCSV
+    return lep.jetBTagDeepCSV < bTagCut and ( (abs(lep.pdgId)==11 and VLooseFOEleID(lep, year) and lep.lostHits==0 and lep.convVeto)
+                                         or (abs(lep.pdgId)==13 and lep.softId ) )
+
+def clean_and_FO_selection_SOS_noBtag(lep, year):
+    return ( (abs(lep.pdgId)==11 and VLooseFOEleID(lep, year) and lep.lostHits==0 and lep.convVeto)
                                          or (abs(lep.pdgId)==13 and lep.softId ) )
 
 
@@ -236,7 +242,12 @@ tightLeptonSel_SOS = lambda lep,year : clean_and_FO_selection_SOS(lep,year) and 
 
 
 
+fullCleaningLeptonSel_noBtag = lambda lep,year :( (abs(lep.pdgId)==11 and (VLooseFOEleID(lep, year) and lep.lostHits<=1)) or (abs(lep.pdgId)==13 and lep.looseId)) and clean_and_FO_selection_SOS_noBtag(lep, year) #veryLooseFO wp
+fullTightLeptonSel_noBtag = lambda lep,year : ((abs(lep.pdgId)==11 and (VLooseFOEleID(lep, year) and lep.lostHits<=1)) or (abs(lep.pdgId)==13 and lep.looseId)) and clean_and_FO_selection_SOS_noBtag(lep, year) and ((abs(lep.pdgId)==13 or tightEleID(lep, year) ) and lep.pfRelIso03_all<0.5 and (lep.pfRelIso03_all*lep.pt)<5. and abs(lep.ip3d)<0.01 and lep.sip3d<2) #veryLooseFO wp
 
+
+fullCleaningLeptonSel = lambda lep,year : ((abs(lep.pdgId)==11 and (VLooseFOEleID(lep, year) and lep.lostHits<=1)) or (abs(lep.pdgId)==13 and lep.looseId)) and clean_and_FO_selection_SOS(lep, year) #veryLooseFO wp
+fullTightLeptonSel = lambda lep,year : ((abs(lep.pdgId)==11 and (VLooseFOEleID(lep, year) and lep.lostHits<=1)) or (abs(lep.pdgId)==13 and lep.looseId)) and clean_and_FO_selection_SOS(lep, year) and ((abs(lep.pdgId)==13 or tightEleID(lep, year) ) and lep.pfRelIso03_all<0.5 and (lep.pfRelIso03_all*lep.pt)<5. and abs(lep.ip3d)<0.01 and lep.sip3d<2) #veryLooseFO wp
 
 
 from CMGTools.TTHAnalysis.tools.functionsTTH import tauID_oldDMdR0p3wLT2017v2_WP # FIXME get rid of this after validation
@@ -287,8 +298,27 @@ mcMatch_seq   = [ isMatchRightCharge, mcMatchId ,mcPromptGamma]
 
 from PhysicsTools.NanoAODTools.postprocessing.modules.jme.jetmetUncertainties import jetmetUncertainties2016, jetmetUncertainties2017, jetmetUncertainties2018
 
-isVLFOEle = lambda : ObjTagger('isVLFOEle', "Electron", [lambda lep,year : (VLooseFOEleID(lep, year)) ])
-isTightEle = lambda : ObjTagger('isTightEle', "Electron", [lambda lep,year : (tightEleID(lep, year)) ])
+from CMGTools.TTHAnalysis.tools.nanoAOD.lepJetBTagAdder import eleJetBTagDeepCSV, muonJetBTagDeepCSV
+
+isVLFOEle = lambda : ObjTagger('isVLFOEle', "Electron", [lambda lep,year : (VLooseFOEleID(lep, year)) and electronSelection(lep) ])
+isTightEle = lambda : ObjTagger('isTightEle', "Electron", [lambda lep,year : (tightEleID(lep, year)) and electronSelection(lep) ])
+isCleanEle_noBtag = lambda : ObjTagger('isCleanEle_noBtag', "Electron", [ lambda lep,year: fullCleaningLeptonSel_noBtag(lep,year) and electronSelection(lep)  ])
+isCleanMu_noBtag = lambda : ObjTagger('isCleanMu_noBtag', "Muon", [ lambda lep,year: fullCleaningLeptonSel_noBtag(lep,year) and muonSelection(lep) ])
+
+isTightSOSEle_noBtag = lambda : ObjTagger('isTightSOSEle_noBtag', "Electron", [ lambda lep,year: fullTightLeptonSel_noBtag(lep,year) and electronSelection(lep) ])
+isTightSOSMu_noBtag = lambda : ObjTagger('isTightSOSMu_noBtag', "Muon", [ lambda lep,year: fullTightLeptonSel_noBtag(lep,year) and muonSelection(lep) ])
+
+isCleanEle = lambda : ObjTagger('isCleanEle', "Electron", [ lambda lep,year: fullCleaningLeptonSel(lep,year) and electronSelection(lep) ])
+isCleanMu = lambda : ObjTagger('isCleanMu', "Muon", [ lambda lep,year: fullCleaningLeptonSel(lep,year) and muonSelection(lep) ])
+
+isTightSOSEle = lambda : ObjTagger('isTightSOSEle', "Electron", [ lambda lep,year: fullTightLeptonSel(lep,year) and electronSelection(lep) ])
+isTightSOSMu = lambda : ObjTagger('isTightSOSMu', "Muon", [ lambda lep,year: fullTightLeptonSel(lep,year) and muonSelection(lep) ])
+
+isTightSOSLepGood = lambda : ObjTagger('isTightSOSLepGood', "LepGood", [ fullTightLeptonSel ])
+
+
+
+
 isTightLepDY = lambda : ObjTagger('isTightLepDY', "LepGood", [   lambda lep,year : clean_and_FO_selection_SOS(lep,year) and 
                                                                  (
                                                                      (abs(lep.pdgId)==13 or tightEleID(lep, year) 

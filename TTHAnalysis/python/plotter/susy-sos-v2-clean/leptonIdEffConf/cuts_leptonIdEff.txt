@@ -1,0 +1,9 @@
+alwaystrue:	1
+muonDen:	(Muon_genPartFlav==1 || Muon_genPartFlav==15) && Muon_looseId==1 && Muon_pt > 3.5	; Disable=True 
+muonPt:		Muon_pt > 3.5 && Muon_pt < 30.0	; Disable=True
+muonBarrel:	fabs(Muon_eta) < 1.2	; Disable=True
+muonEndcap:	fabs(Muon_eta) > 1.2 && fabs(Muon_eta) < 2.4	; Disable=True
+eleDen:		(Electron_genPartFlav==1 || Electron_genPartFlav==15) && Electron_pt > 5.0	; Disable=True
+elePt:		Electron_pt > 5.0 && Electron_pt < 30.0	; Disable=True
+eleBarrel:	fabs(Electron_eta) < 1.47	; Disable=True
+eleEndcap:	fabs(Electron_eta) > 1.47 && fabs(Electron_eta) < 2.5	; Disable=True

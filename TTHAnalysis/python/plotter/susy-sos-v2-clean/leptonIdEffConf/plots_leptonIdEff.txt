@@ -1,0 +1,73 @@
+# Denominator = muons from Z/W/tau that pass the loose ID
+muonPtEff_Soft		: (Muon_softId==1)\:Muon_pt	: 20,0.0,100.0	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.95, YMax=1.005
+muonPtEff_FO		: (Muon_softId==1 && Muon_isCleanMu_noBtag==1)\:Muon_pt	: 20,0.0,100.0	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+muonPtEff_TightSOS	: (Muon_softId==1 && Muon_isCleanMu_noBtag==1 && Muon_isTightSOSMu_noBtag==1)\:Muon_pt	: 20,0.0,100.0	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
+muonPtEff_Soft_PtRes	: (Muon_softId==1)\:Muon_pt	: 30,0.0,30.0	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.95, YMax=1.005
+muonPtEff_FO_PtRes	: (Muon_softId==1 && Muon_isCleanMu_noBtag==1)\:Muon_pt	: 30,0.0,30.0	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+muonPtEff_TightSOS_PtRes: (Muon_softId==1 && Muon_isCleanMu_noBtag==1 && Muon_isTightSOSMu_noBtag==1)\:Muon_pt	: 30,0.0,30.0	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
+muonPtEff_Soft_Barrel		: (Muon_softId==1)\:Muon_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.95, YMax=1.005
+muonPtEff_FO_Barrel		: (Muon_softId==1 && Muon_isCleanMu_noBtag==1)\:Muon_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+muonPtEff_TightSOS_Barrel	: (Muon_softId==1 && Muon_isCleanMu_noBtag==1 && Muon_isTightSOSMu_noBtag==1)\:Muon_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
+muonPtEff_Soft_Endcap		: (Muon_softId==1)\:Muon_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.95, YMax=1.005
+muonPtEff_FO_Endcap		: (Muon_softId==1 && Muon_isCleanMu_noBtag==1)\:Muon_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+muonPtEff_TightSOS_Endcap	: (Muon_softId==1 && Muon_isCleanMu_noBtag==1 && Muon_isTightSOSMu_noBtag==1)\:Muon_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
+muonEtaEff_Soft		: (Muon_softId==1)\:Muon_eta	: 25,-2.5,2.5	; XTitle="#eta(#mu)", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.95, YMax=1.005
+muonEtaEff_FO	: (Muon_softId==1 && Muon_isCleanMu_noBtag==1)\:Muon_eta	: 25,-2.5,2.5	; XTitle="#eta(#mu)", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+muonEtaEff_TightSOS	: (Muon_softId==1 && Muon_isCleanMu_noBtag==1 && Muon_isTightSOSMu_noBtag==1)\:Muon_eta	: 25,-2.5,2.5	; XTitle="#eta(#mu)", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
+muonEtaEff_Soft_PtRes		: (Muon_softId==1)\:Muon_eta	: 25,-2.5,2.5	; XTitle="#eta(#mu)", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.95, YMax=1.005
+muonEtaEff_FO_PtRes		: (Muon_softId==1 && Muon_isCleanMu_noBtag==1)\:Muon_eta	: 25,-2.5,2.5	; XTitle="#eta(#mu)", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+muonEtaEff_TightSOS_PtRes	: (Muon_softId==1 && Muon_isCleanMu_noBtag==1 && Muon_isTightSOSMu_noBtag==1)\:Muon_eta	: 25,-2.5,2.5	; XTitle="#eta(#mu)", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
+
+# Denominator = electrons from Z/W/tau
+elePtEff_VLFO		: (Electron_isVLFOEle==1)\:Electron_pt : 20,0.0,100.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightWPL	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WPL==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: 20,0.0,100.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightWP80	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP80==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: 20,0.0,100.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightWP90	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP90==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: 20,0.0,100.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_FO		: (Electron_isCleanEle_noBtag==1)\:Electron_pt	: 20,0.0,100.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightSOS	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP80==1 && Electron_isTightSOSEle_noBtag==1) || (Electron_pt > 10.0 && Electron_isTightSOSEle_noBtag==1))\:Electron_pt	: 20,0.0,100.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
+elePtEff_VLFO_Barrel		: (Electron_isVLFOEle==1)\:Electron_pt : [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightWPL_Barrel	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WPL==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightWP80_Barrel	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP80==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightWP90_Barrel	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP90==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_FO_Barrel		: (Electron_isCleanEle_noBtag==1)\:Electron_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightSOS_Barrel	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP80==1 && Electron_isTightSOSEle_noBtag==1) || (Electron_pt > 10.0 && Electron_isTightSOSEle_noBtag==1))\:Electron_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
+elePtEff_VLFO_Endcap		: (Electron_isVLFOEle==1)\:Electron_pt : [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightWPL_Endcap	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WPL==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightWP80_Endcap	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP80==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightWP90_Endcap	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP90==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_FO_Endcap		: (Electron_isCleanEle_noBtag==1)\:Electron_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightSOS_Endcap	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP80==1 && Electron_isTightSOSEle_noBtag==1) || (Electron_pt > 10.0 && Electron_isTightSOSEle_noBtag==1))\:Electron_pt	: [0.0,5.0,12.5,16.0,20.0,25.0,30.0]	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
+elePtEff_VLFO_PtRes		: (Electron_isVLFOEle==1)\:Electron_pt : 30,0.0,30.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightWPL_PtRes		: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WPL==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: 30,0.0,30.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightWP80_PtRes	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP80==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: 30,0.0,30.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightWP90_PtRes	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP90==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: 30,0.0,30.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_FO_PtRes		: (Electron_isCleanEle_noBtag==1)\:Electron_pt	: 30,0.0,30.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+elePtEff_TightSOS_PtRes		: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP80==1 && Electron_isTightSOSEle_noBtag==1) || (Electron_pt > 10.0 && Electron_isTightSOSEle_noBtag==1))\:Electron_pt	: 30,0.0,30.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
+eleEtaEff_VLFO		: (Electron_isVLFOEle==1)\:Electron_eta : 25,-2.5,2.5	; XTitle="#eta", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+eleEtaEff_TightWPL	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WPL==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_eta	: 25,-2.5,2.5	; XTitle="#eta", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+eleEtaEff_TightWP80	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP80==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_eta	: 25,-2.5,2.5	; XTitle="#eta", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+eleEtaEff_TightWP90	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP90==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_eta	: 25,-2.5,2.5	; XTitle="#eta", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+eleEtaEff_FO		: (Electron_isCleanEle_noBtag==1)\:Electron_eta	: 25,-2.5,2.5	; XTitle="#eta", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+eleEtaEff_TightSOS	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP80==1 && Electron_isTightSOSEle_noBtag==1) || (Electron_pt > 10.0 && Electron_isTightSOSEle_noBtag==1))\:Electron_eta	: 25,-2.5,2.5	; XTitle="#eta", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
+eleEtaEff_VLFO_PtRes		: (Electron_isVLFOEle==1)\:Electron_eta : 25,-2.5,2.5	; XTitle="#eta", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+eleEtaEff_TightWPL_PtRes	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WPL==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_eta	: 25,-2.5,2.5	; XTitle="#eta", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+eleEtaEff_TightWP80_PtRes	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP80==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_eta	: 25,-2.5,2.5	; XTitle="#eta", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+eleEtaEff_TightWP90_PtRes	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP90==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_eta	: 25,-2.5,2.5	; XTitle="#eta", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+eleEtaEff_FO_PtRes		: (Electron_isCleanEle_noBtag==1)\:Electron_eta	: 25,-2.5,2.5	; XTitle="#eta", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+eleEtaEff_TightSOS_PtRes	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP80==1 && Electron_isTightSOSEle_noBtag==1) || (Electron_pt > 10.0 && Electron_isTightSOSEle_noBtag==1))\:Electron_eta	: 25,-2.5,2.5	; XTitle="#eta", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
+
+# Debugging plots
+debug_muonPt	: Muon_pt	: 20,0.0,100.0	; XTitle="p_{T}(#mu) [GeV]", Logy
+debug_elePt	: Electron_pt	: 20,0.0,100.0	; XTitle="p_{T}(e) [GeV]", Logy

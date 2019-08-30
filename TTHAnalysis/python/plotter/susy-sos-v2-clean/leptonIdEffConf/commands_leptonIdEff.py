@@ -35,6 +35,6 @@ else :
     command = command + " --sP ^"+sys.argv[1]+".*\(?\<\![\(Res\)\(Barrel\)\(Endcap\)]\)$ --out "+directory+"/"+sys.argv[1]+"Eff.root"
 
 if sys.argv[2]=="2017" :
-    command = command + " --mcc mcc_leptonIdEff_2017.txt"
+    command = command + " --mcc susy-sos-v2-clean/leptonIdEffConf/mcc_leptonIdEff_2017.txt"
 
 print command

@@ -1,4 +1,6 @@
 # Denominator = muons from Z/W/tau that pass the loose ID
+muonPtEff_FOnoBtag	: (Muon_isCleanMu_noBtag==1)\:Muon_pt		: 20,0.0,100.0	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
 muonPtEff_Soft		: (Muon_softId==1)\:Muon_pt		: 20,0.0,100.0	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
 muonPtEff_FO		: (Muon_isCleanMu==1)\:Muon_pt		: 20,0.0,100.0	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
 muonPtEff_TightSOS	: (Muon_isTightSOSMu==1)\:Muon_pt	: 20,0.0,100.0	; XTitle="p_{T}(#mu) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
@@ -25,6 +27,8 @@ muonEtaEff_TightSOS_PtRes	: (Muon_isTightSOSMu==1)\:Muon_eta	: 25,-2.5,2.5	; XTi
 
 
 # Denominator = electrons from Z/W/tau
+elePtEff_FOnoBtag		: (Electron_isCleanEle_noBtag==1)\:Electron_pt	: 20,0.0,100.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
+
 elePtEff_VLFO		: (Electron_isVLFOEle==1)\:Electron_pt : 20,0.0,100.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
 elePtEff_TightWPL	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WPL==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: 20,0.0,100.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005
 elePtEff_TightWP80	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP80==1) || (Electron_pt > 10.0 && Electron_isTightEle==1))\:Electron_pt	: 20,0.0,100.0	; XTitle="p_{T}(e) [GeV]", YTitle="Efficiency", Legend='BR', Profile1D=True, YMin=0.0, YMax=1.005

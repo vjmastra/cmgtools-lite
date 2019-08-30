@@ -30,3 +30,6 @@ lepJetBTagDeepFlavC = lambda : lepJetBTagAdder("btagDeepFlavC", "jetBTagDeepFlav
 
 eleJetBTagDeepCSV = lambda : lepJetBTagAdder("btagDeepB", "jetBTagDeepCSV", "Electron")
 muonJetBTagDeepCSV = lambda : lepJetBTagAdder("btagDeepB", "jetBTagDeepCSV", "Muon")
+
+eleJetBTagCSV = lambda : lepJetBTagAdder("btagCSVV2", "jetBTagCSV", "Electron")
+muonJetBTagCSV = lambda : lepJetBTagAdder("btagCSVV2", "jetBTagCSV", "Muon")

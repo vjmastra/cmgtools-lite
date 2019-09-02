@@ -75,3 +75,12 @@ eleEtaEff_TightSOS_PtRes	: ((Electron_pt < 10.0 && Electron_mvaFall17V2noIso_WP8
 # Debugging plots
 debug_muonPt	: Muon_pt	: 20,0.0,100.0	; XTitle="p_{T}(#mu) [GeV]", Logy
 debug_elePt	: Electron_pt	: 20,0.0,100.0	; XTitle="p_{T}(e) [GeV]", Logy
+
+debug_muonPtVsBtagCSV		: Muon_jetBTagCSV\:Muon_pt		: 20,0.0,100.0,12,-0.1,1.1	; XTitle="p_{T}(#mu) [GeV]", YTitle="CSV"
+debug_muonPtVsExtBtagCSV	: Muon_jetBTagCSV\:Muon_pt		: 20,0.0,100.0,22,-105.0,5.0	; XTitle="p_{T}(#mu) [GeV]", YTitle="CSV"
+debug_muonPtVsBtagDeepCSV	: Muon_jetBTagDeepCSV\:Muon_pt		: 20,0.0,100.0,12,-0.1,1.1	; XTitle="p_{T}(#mu) [GeV]", YTitle="DeepCSV"
+debug_muonPtVsExtBtagDeepCSV	: Muon_jetBTagDeepCSV\:Muon_pt		: 20,0.0,100.0,22,-105.0,5.0	; XTitle="p_{T}(#mu) [GeV]", YTitle="DeepCSV"
+debug_elePtVsBtagCSV		: Electron_jetBTagCSV\:Electron_pt	: 20,0.0,100.0,12,-0.1,1.1	; XTitle="p_{T}(e) [GeV]", YTitle="CSV"
+debug_elePtVsExtBtagCSV		: Electron_jetBTagCSV\:Electron_pt	: 20,0.0,100.0,22,-105.0,5.0	; XTitle="p_{T}(e) [GeV]", YTitle="CSV"
+debug_elePtVsBtagDeepCSV	: Electron_jetBTagDeepCSV\:Electron_pt	: 20,0.0,100.0,12,-0.1,1.1	; XTitle="p_{T}(e) [GeV]", YTitle="DeepCSV"
+debug_elePtVsExtBtagDeepCSV	: Electron_jetBTagDeepCSV\:Electron_pt	: 20,0.0,100.0,22,-105.0,5.0	; XTitle="p_{T}(e) [GeV]", YTitle="DeepCSV"

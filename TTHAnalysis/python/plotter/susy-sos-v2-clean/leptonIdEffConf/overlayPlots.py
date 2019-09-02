@@ -32,8 +32,8 @@ parser.add_argument("--pdir", dest="pdir", default="susy-sos-v2-clean/leptonIdEf
 parser.add_argument("--moretext", dest="moretext", default="", help="Suffix for the folder name")
 args = parser.parse_args()
 
-IDmuonArr = ["Soft","FO","TightSOS"]
-IDeleArr = ["VLFO","TightWP80","TightWP90","TightWPL","FO","TightSOS"]
+IDmuonArr = ["Soft","FO","TightSOS","FOnoBtag"]
+IDeleArr = ["VLFO","TightWP80","TightWP90","TightWPL","FO","TightSOS","FOnoBtag"]
 if sys.argv[1] == "muon":
     for ID in args.ID:
         if ID not in IDmuonArr: raise RuntimeError( "ID '{}' doesn't exist!".format(ID) )
@@ -55,6 +55,7 @@ outFile = ROOT.TFile(args.pdir+"overlayPlots/"+sys.argv[1]+"/"+sys.argv[1]+"Over
 
 for ID,kinRes,var in [(ID,kinRes,var) for ID in IDArr for kinRes in kinResArr for var in variableArr]:
     if var == "Eta" and kinRes in ["_Barrel","_Endcap"]: continue
+    if ID == "FO_noBtag" and kinRes != "" and var != "_Pt": continue
     print ID, kinRes, var
     name = "{particle}{variable}Eff_{ID}{kinRes}".format(particle=sys.argv[1],variable=var,ID=ID,kinRes=kinRes)
     canvas = ROOT.TCanvas(name,name)

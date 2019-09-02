@@ -19,16 +19,14 @@ dowhat = "plots"
 #dowhat = "yields" 
 #dowhat = "ntuple"
 
-P0="/eos/cms/store/cmst3/group/tthlep/peruzzi/NanoTrees_SOS_170619_v5pre/"
+P0="/eos/cms/store/cmst3/group/tthlep/peruzzi/NanoTrees_SOS_230819_v5/"
 nCores = 8
-TREESALL = "--Fs {P}/recleaner " 
-TREESONLYSKIM = "-P "+P0+"%s "%(YEAR,) # Why?
-TREESONLYFULL = "-P "+P0+"%s "%(YEAR,)
+TREESALL = " --Fs {P}/recleaner -P "+P0+"%s "%(YEAR,)
 
 def base(selection):
-    CORE=' '.join([TREESALL,TREESONLYSKIM])
-    CORE+=" -f -j %d --split-factor=-1 --year %s --s2v -L susy-sos-v2-clean/functionsSOS.cc -L susy-sos-v2-clean/functionsSF.cc --tree NanoAOD --mcc susy-sos-v2-clean/lepchoice-ttH-FO.txt --mcc susy-sos-v2-clean/mcc_triggerdefs.txt "%(nCores,YEAR) # --neg"
-    if YEAR == "2017": CORE += " --mcc ttH-multilepton/mcc-METFixEE2017.txt "
+    CORE=TREESALL
+    CORE+=" -f -j %d --split-factor=-1 --year %s --s2v -L susy-sos-v2-clean/functionsSOS.cc -L susy-sos-v2-clean/functionsSF.cc --tree NanoAOD --mcc susy-sos-v2-clean/mcc_sos.txt --mcc susy-sos-v2-clean/mcc_triggerdefs.txt "%(nCores,YEAR) # --neg"
+    if YEAR == "2017": CORE += " --mcc susy-sos-v2-clean/mcc_METFixEE2017.txt "
     RATIO= " --maxRatioRange 0.0  1.99 --ratioYNDiv 505 "
     RATIO2=" --showRatio --attachRatioPanel --fixRatioRange "
     LEGEND=" --legendColumns 2 --legendWidth 0.25 "
@@ -37,37 +35,28 @@ def base(selection):
     if dowhat == "plots": CORE+=LUMI+RATIO+RATIO2+LEGEND+LEGEND2+SPAM+" --showMCError "
 
     if selection=='2los':
-        GO="%s susy-sos-v2-clean/mca-2los.txt susy-sos-v2-clean/2los_cuts.txt "%CORE
+        GO="%s susy-sos-v2-clean/mca_2los_%s.txt susy-sos-v2-clean/2los_cuts.txt "%(CORE,YEAR)
 
         if YEAR == "2016": GO="%s -W '1.0*1.0'"%GO # to be fixed 
         if YEAR == "2017": GO="%s -W 'puWeight*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)'"%GO 
 
-        if dowhat in ["plots","ntuple"]: GO+=" susy-sos-v2-clean/2lss_3l_plots.txt "
         if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.52 ")
         if dowhat == "plots": GO=GO.replace(RATIO,  " --maxRatioRange 0.6  1.99 --ratioYNDiv 210 ")
         GO += " --binname 2los "
 
-    elif selection=='3l': # to be fixed
-        GO="%s ttH-multilepton/mca-3l-mc.txt ttH-multilepton/3l_tight.txt "%CORE
-        GO="%s -W 'puWeight*btagSF_shape*leptonSF_3l*triggerSF_3l'"%GO
+    elif selection=='3l':
+        GO="%s susy-sos-v2-clean/mca_3l_%s.txt susy-sos-v2-clean/3l_cuts.txt "%(CORE,YEAR)
 
-        if dowhat in ["plots","ntuple"]: GO+=" ttH-multilepton/2lss_3l_plots.txt --xP '^(2|4)lep_.*' --xP '^lep4_.*' --xP 'kinMVA_2lss_.*' "
+        #GO="%s -W 'puWeight*btagSF_shape*leptonSF_3l*triggerSF_3l'"%GO # to be fixed
+
         if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.42 ")
         GO += " --binname 3l "
 
-    elif selection=='4l': # to be fixed
-        GO="%s ttH-multilepton/mca-4l-mc.txt ttH-multilepton/4l_tight.txt "%CORE
-        GO="%s -W 'puWeight*btagSF_shape*leptonSF_4l*triggerSF_3l'"%GO
-        if dowhat in ["plots","ntuple"]: GO+=" ttH-multilepton/2lss_3l_plots.txt --xP '^(2|3)lep_.*' --xP '^lep(1|2|3|4)_.*' --xP 'kinMVA_.*' "
-        if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 2 --legendWidth 0.3 ")
-        if dowhat == "plots": GO=GO.replace(RATIO,  " --maxRatioRange 0.0  2.99 --ratioYNDiv 505 ")
-        GO += " --binname 4l "
-
     else:
-        raise RuntimeError, 'Unknown selection'
+        raise RuntimeError('Unknown selection')
 
-    if '_prescale' in torun:
-        GO = doprescale3l(GO,torun)
+    if dowhat in ["plots","ntuple"]: GO+=" susy-sos-v2-clean/2los_3l_plots.txt "
+
     return GO
 
 def promptsub(x):
@@ -82,7 +71,6 @@ def sigprocs(GO,mylist):
     return procs(GO,mylist)+' --showIndivSigs --noStackSig'
 
 def runIt(GO,name,plots=[],noplots=[]):
-    if '_74vs76' in name: GO = prep74vs76(GO)
     if dowhat == "plots":  
         if not ('forcePlotChoice' in sys.argv[4:]): print submit.format(command=' '.join(['python mcPlots.py',"--pdir %s/%s/%s"%(ODIR,YEAR,name),GO,' '.join(['--sP %r'%p for p in plots]),' '.join(['--xP %r'%p for p in noplots]),' '.join(sys.argv[4:])]))
         else: print 'python mcPlots.py',"--pdir %s/%s/%s"%(ODIR,YEAR,name),GO,' '.join([x for x in sys.argv[4:] if x!='forcePlotChoice'])
@@ -98,12 +86,6 @@ def setwide(x):
     x2 = x2.replace('--legendWidth 0.35','--legendWidth 0.20')
     return x2
 
-def fulltrees(x):
-    return x.replace(TREESONLYSKIM,TREESONLYFULL)
-
-def doprescale3l(x,torun):
-    return x.replace(TREESONLYSKIM,TREESONLYMEMZPEAK if any([(_y in torun) for _y in ['cr_wz','cr_ttz','cr_fourlep_onZ','_Zpeak']]) else TREESONLYMEMZVETO)
-
 def binChoice(x,torun):
     metBin = ''
     if '_low' in torun:
@@ -112,10 +94,11 @@ def binChoice(x,torun):
         metBin = 'met200'
     if '_high' in torun:
         metBin = 'met250'
-    x2 = add(x,'-E '+metBin+' -E '+metBin+'_trig ')
+    x2 = add(x,'-E ^'+metBin+' -E ^'+metBin+'_trig ')
     return x2
 
 allow_unblinding = False
+
 
 if __name__ == '__main__':
 
@@ -123,380 +106,105 @@ if __name__ == '__main__':
 
     if (not allow_unblinding) and '_data' in torun and (not any([re.match(x.strip()+'$',torun) for x in ['.*_appl.*','cr_.*','3l.*_Zpeak.*']])): raise RuntimeError, 'You are trying to unblind!'
 
-    x = base('2los')
-    x = fulltrees(x) # for mc same-sign
+
+    if '2los_' in torun:
+        x = base('2los')
+        if '_low' or '_med' or '_high' in torun: x = binChoice(x,torun)
+    
+        if 'sr' in torun:
+            if '_col' in torun:
+                x = add(x,"-X ^mT -X ^SF ")
+                if '_med' or '_high' in torun: x = add(x,"-X ^pt5sublep ")
+
+        if 'appl' in torun:
+            if '_col' in torun:
+                x = add(x,"-X ^mT -X ^SF ")
+                if '_med' or '_high' in torun: x = add(x,"-X ^pt5sublep ")
+            x = add(x,"-X ^twoTight ")
+            x = add(x,"-E ^oneNotTight ")
+
+        if 'cr_dy' in torun:
+            if '_med' in torun: x = x.replace('-E ^met200 ','-E ^met200_CR ')
+            x = add(x,"-X ^ledlepPt -X ^twoTight ")
+            x = add(x,"-I ^mtautau ")
+            x = add(x,"-E ^CRDYlepId -E ^CRDYledlepPtIp ")
+
+        if 'cr_tt' in torun:
+            if '_med' in torun: x = add(x,'-E ^met200_CR -X ^pt5sublep ')
+            x = add(x,"-X ^ledlepPt -X ^twoTight -X ^bveto -X ^mT ")
+            x = add(x,"-E ^CRTTlepId -E ^CRTTledlepPt -E ^btag ")
+
+        if 'cr_ww' in torun:
+            if '_med' in torun: x = add(x,'-E ^met200_CR -X ^pt5sublep ')
+            x = add(x,"-X ^ledlepPt -X ^twoTight -X ^mT ")
+            x = add(x,"-E ^CRWWlepId -E ^CRWWleplepPt -E ^CRWWmT ")
+
+        if 'cr_ss' in torun:
+            if '_med' in torun: x = add(x,'-E ^met200_CR -X ^pt5sublep ')
+            x = add(x,"-X ^mT ")
+            x = add(x,"-I ^OS ")
+
+        if '_data' not in torun: x = add(x,'--xp data ')
+        if '_unc' in torun: x = add(x,"--unc susy-sos-v2-clean/systsUnc.txt")
+        if '_norm' in torun: x = add(x,"--sp '.*' --scaleSigToData ")
+
+
+    elif '3l_' in torun:
+        x = base('3l')
+        if '_low' or '_med' or '_high' in torun: x = binChoice(x,torun)
+    
+        if 'appl' in torun:
+            x = add(x,"-X ^threeTight ")
+            x = add(x,"-E ^oneNotTight ")
+
+        if 'cr_wz' in torun:
+            x = add(x,"-X ^minMll -X ^ZvetoTrigger -X ^ledlepPt -X ^pt5sublep ")
+            x = x.replace('-E ^met200 ','-E ^met200_CR ')
+            if '_min' or '_low' in torun:
+                x = add(x,"-E ^CRWZPtLep_MuMu ")
+                if '_min' in torun: x = x.replace(x,'-E ^ -E ^_trig','-E ^met75_CR -E met75_trig_CR ')
+                if '_low' in torun: x = x.replace(x,'-E ^met125_trig','-E met125_trig_CR ')
+            if '_med' in torun: x = add(x,"-E ^CRWZPtLep_HighMET ")
+
+        if '_data' not in torun: x = add(x,'--xp data ')
+        if '_unc' in torun: x = add(x,"--unc ttH-multilepton/systsUnc.txt")
+        if '_norm' in torun: x = add(x,"--sp '.*' --scaleSigToData ")
+
+
+    else: raise RuntimeError("You must include either '2los' or '3l' in the command!" 
+
+
     if '_low' in torun and YEAR=="2016":
         x = x.replace(LUMI," -l 33.2 ")
     if '_low' in torun and YEAR=="2017":
         x = x.replace(LUMI," -l 36.74 ")
-        x = add(x,"--E xpRun2017B ")
-    if '_low' or '_med' or '_high' in torun: x = binChoice(x,torun)
-
-    if '2los_' in torun: # Which of all these options are actually useful?
-        if '_appl' in torun: x = add(x,'-I ^TT ')
-        if '_1fo' in torun:
-            x = add(x,"-A alwaystrue 1FO 'LepGood1_isLepTight+LepGood2_isLepTight==1'")
-        if '_2fo' in torun: x = add(x,"-A alwaystrue 2FO 'LepGood1_isLepTight+LepGood2_isLepTight==0'")
-        if '_relax' in torun: x = add(x,'-X ^TT ')
-        if '_extr' in torun:
-            x = x.replace('mca-2lss-mc.txt','mca-2lss-mc-sigextr.txt').replace('--showRatio --maxRatioRange 0 2','--showRatio --maxRatioRange 0 1 --ratioYLabel "S/B"')
-        if '_data' not in torun: x = add(x,'--xp data ')
-        if '_table' in torun:
-            x = x.replace('mca-2lss-mc.txt','mca-2lss-mc-table.txt')
-        if '_frdata' in torun: # Why?
-            x = promptsub(x)
-            if '_blinddata' in torun:
-                x = x.replace('mca-2lss-mc.txt','mca-2lss-mcdata.txt')
-                x = add(x,'--xp data ')
-            elif not '_data' in torun: raise RuntimeError
-            x = x.replace('mca-2lss-mcdata.txt','mca-2lss-mcdata-frdata.txt')
-            if '_table' in torun:
-                x = x.replace('mca-2lss-mcdata-frdata.txt','mca-2lss-mcdata-frdata-table.txt')
-    
-    if 'sr' in torun:
-        if '_col' in torun:
-            x = add(x,"-X mT -X SF ")
-            if '_med' or '_high' in torun: x = add(x,"-X pt5sublep ")
-
-        if '_data' not in torun: x = add(x,'--xp data ')
-
-
-    if 'cr_dy' in torun: # Which of all these options are actually useful?
-        if '_med' in torun: x = x.replace('-E met200 ','-E met200_CR ')
-        x = add(x,"-X ledlepPt -X twoTight ")
-        x = add(x,"-I mtautau ")
-        x = add(x,"-E CRDYlepId -E CRDYledlepPtIp ")
-
-        if '_data' not in torun: x = add(x,'--xp data ')
-        if '_unc' in torun: x = add(x,"--unc ttH-multilepton/systsUnc.txt")
-
-        #if '_appl' in torun: x = add(x,'-I ^TT ')
-        #if '_1fo' in torun: x = add(x,"-A alwaystrue 1FO 'LepGood1_isLepTight+LepGood2_isLepTight==1' ")
-        #if '_leadmupt25' in torun: x = add(x,"-A 'entry point' leadmupt25 'abs(LepGood1_pdgId)==13 && LepGood1_pt>25' ")
-        #if '_norm' in torun: x = add(x,"--sp '.*' --scaleSigToData ")
-        #if '_highMetNoBCut' in torun: x = add(x,"-A 'entry point' highMET 'met_pt>60'")
-        #else: x = add(x,"-E ^1B ")
-
-        #plots = ['2lep_.*','met','metLD','nVert','nJet25','nBJetMedium25','nBJetLoose25','nBJetLoose40','nBJetMedium40','era']
-        #runIt(x,'%s'%torun)#,plots)
-
-
-    if 'cr_tt' in torun:
-        if '_med' in torun: x = add(x,'-E met200_CR -X pt5sublep ')
-        x = add(x,"-X ledlepPt -X twoTight -X bveto -X mT ")
-        x = add(x,"-E CRTTlepId -E CRTTledlepPt -E btag ")
-
-        if '_data' not in torun: x = add(x,'--xp data ')
-        if '_norm' in torun: x = add(x,"--sp '.*' --scaleSigToData ")
-
-
-    if 'cr_ww' in torun:
-        if '_med' in torun: x = add(x,'-E met200_CR -X pt5sublep ')
-        x = add(x,"-X ledlepPt -X twoTight -X mT ")
-        x = add(x,"-E CRWWlepId -E CRWWleplepPt -E CRWWmT ")
-
-        if '_data' not in torun: x = add(x,'--xp data ')
-        if '_norm' in torun: x = add(x,"--sp '.*' --scaleSigToData ")
-
-
-    if 'cr_ss' in torun:
-        if '_med' in torun: x = add(x,'-E met200_CR -X pt5sublep ')
-        x = add(x,"-X mT ")
-        x = add(x,"-I OS ")
-
-        if '_data' not in torun: x = add(x,'--xp data ')
-        if '_norm' in torun: x = add(x,"--sp '.*' --scaleSigToData ")
+        x = add(x,"-E ^xpRun2017B ")
 
     runIt(x,'%s'%torun)
 
 ######################################################################################
+# Useful options for plotting, to be used when needed
 #
-#        if '_mll200' in torun:
-#            x = add(x,"-E ^mll200 ")
-#
-#        if '_splitfakes' in torun:
-#            x = x.replace('mca-2lss-mc.txt','mca-2lss-mc-flavsplit.txt')
-#            
-#        if '_closuretest' in torun:
-#            x = x.replace('mca-2lss-mc.txt','mca-2lss-mc-closuretest.txt')
-#            x = x.replace("--maxRatioRange 0.6  1.99 --ratioYNDiv 210", "--maxRatioRange 0.0 2.49 --fixRatioRange ")
-#            x = x.replace("--legendColumns 3", "--legendColumns 2")
-#            x = add(x,"--AP --plotmode nostack --sP 2lep_catIndex_nosign --sP 2lep_catIndex --sP kinMVA_2lss_ttbar --sP kinMVA_2lss_ttV --sP nBJetMedium25 --sP 2lep_nJet25_from4")
-#            x = add(x,"-p TT_FR_QCD -p TT_FR_TT -p TT_fake --ratioDen TT_FR_QCD --ratioNums TT_fake,TT_FR_TT --errors ")
-#            if '_closuretest_norm' in torun:
-#                x = x.replace("--plotmode nostack","--plotmode norm")
-#                x = x.replace("--ratioNums TT_fake,TT_FR_TT","--ratioNums TT_fake")
-#                x = add(x,"--fitRatio 1")
-#                if '_unc' in torun:
-#                    x = add(x,"--su CMS_ttHl_Clos_[em]_norm")
-#            else:
-#                if '_uncfull' in torun:
-#                    x = add(x,"--su 'CMS_ttHl_FR.*' ")
-#                elif '_unc' in torun:
-#                    x = add(x,"--su 'CMS_ttHl_Clos_[em].*_norm' ")
-#            if '_mufake' in torun: x = add(x,"-A alwaystrue mufake '(abs(LepGood1_pdgId)==13 && LepGood1_mcMatchId==0) || (abs(LepGood2_pdgId)==13 && LepGood2_mcMatchId==0)'")
-#            if '_elfake' in torun: x = add(x,"-A alwaystrue elfake '(abs(LepGood1_pdgId)==11 && LepGood1_mcMatchId==0) || (abs(LepGood2_pdgId)==11 && LepGood2_mcMatchId==0)'")
-#            if '_bloose' in torun: x = add(x,'-E ^BLoose ')
-#            if '_btight' in torun: x = add(x,'-E ^BTight ')
-#            if '_nobcut' in torun: x = add(x,'-X ^2b1B ')
-#            if '_notrigger' in torun: x = add(x,'-X ^trigger ' )
-#
-#        if '_unc' in torun:
-#            x = add(x,"--unc ttH-multilepton/systsUnc.txt")
-#
-#        if '_varsFR' in torun:
-#            x = x.replace('mca-2lss-mc.txt','mca-2lss-data-frdata-vars.txt')
-#            x = add(x,"--plotmode nostack --xP '.*Binning' --sP 'kinMVA_.*' --sP 2lep_catIndex")
-#            x = add(x,"--ratioDen data_fakes --ratioNums 'data_fakes_.*'")
-#            if '_norm' in torun:
-#                x = x.replace("--plotmode nostack","--plotmode norm")
-#            if '_fit' in torun:
-#                x = add(x,"--fitRatio 1")
-#            if '_varsFR_e' in torun: x = add(x,"--xp 'data_fakes_m_.*'")
-#            if '_varsFR_m' in torun: x = add(x,"--xp 'data_fakes_e_.*'")
-#
-#        if '_Xh' in torun:
-#            x = x.replace('4_BDTv8_Hj_230217_v6','4_BDTv8_Hj_Xmass_bkg')
-#            x = x.replace('mca-2lss-mc.txt','mca-2lss-mc-sigextr-Xh.txt').replace('--showRatio','')
-#            x = x.replace('--legendColumns 3 --legendWidth 0.46','--legendWidth 0.30')
-#            x = x.replace('--showMCError','')
-#            x = add(x,'--plotmode norm')
-#            x = add(x,"--sP kinMVA_input_BDTv8_eventReco_X_mass --sP kinMVA_2lss_ttbar_withBDTv8 --sP kinMVA_input_BDTv8_eventReco_MT_HadLepTop_MET")
-#
-#        #runIt(x,'%s'%torun)
-#        if '_flav' in torun:
-#            for flav in ['mm','ee','em']: 
-#                runIt(add(x,'-E ^%s'%flav).replace("--binname 2lss","--binname 2lss_"+flav),'%s/%s'%(torun,flav))
-#        if '_catnosign' in torun:
-#            for flav in ['mm','ee','em']: 
-#                runIt(add(x,'-E ^%s'%flav).replace("--binname 2lss","--binname 2lss_"+flav),'%s/%s'%(torun,flav))
-#            for flav in ['mm_bt','mm_bl','em_bt','em_bl']: 
-#                runIt(add(x,'-E ^%s -E ^B%s'%(flav[:2], ("Tight" if "bt" in flav else "Loose"))).replace("--binname 2lss","--binname 2lss_"+flav),'%s/%s'%(torun,flav))
-#            for flav in ['btight','bloose']: 
-#                runIt(add(x,' -E ^B%s'%("Tight" if "bt" in flav else "Loose")),'%s/%s'%(torun,flav))
-#        if '_cats' in torun:
-#            for cat in ['b2lss_ee_neg','b2lss_ee_pos',\
-#                            'b2lss_em_bl_neg','b2lss_em_bl_pos','b2lss_em_bt_neg','b2lss_em_bt_pos',\
-#                            'b2lss_mm_bl_neg','b2lss_mm_bl_pos','b2lss_mm_bt_neg','b2lss_mm_bt_pos']:
-#                runIt(add(x,'-E ^%s'%cat).replace("--binname 2lss","--binname %s" % cat[1:-4]),'%s/%s'%(torun,cat))
-#
-#
-#    if '3l_' in torun:
-#        x = base('3l')
-#        if '_appl' in torun: x = add(x,'-I ^TTT ')
+#        if '_appl' in torun: x = add(x,'-I ^TT ')
 #        if '_1fo' in torun:
-#            x = add(x,"-A alwaystrue 1FO 'LepGood1_isLepTight+LepGood2_isLepTight+LepGood3_isLepTight==2'")
-#            x = x.replace("--xP 'nT_.*'","")
-#        if '_relax' in torun: x = add(x,'-X ^TTT ')
+#            x = add(x,"-A alwaystrue 1FO 'LepGood1_isLepTight+LepGood2_isLepTight==1'")
+#        if '_2fo' in torun: x = add(x,"-A alwaystrue 2FO 'LepGood1_isLepTight+LepGood2_isLepTight==0'")
+#        if '_relax' in torun: x = add(x,'-X ^TT ')
 #        if '_extr' in torun:
-#            x = x.replace('mca-3l-mc.txt','mca-3l-mc-sigextr.txt').replace('--showRatio --maxRatioRange 0 2','--showRatio --maxRatioRange 0 1 --ratioYLabel "S/B"')
-#        if '_data' in torun: x = x.replace('mca-3l-mc.txt','mca-3l-mcdata.txt')
-#        if '_frdata' in torun:
+#            x = x.replace('mca-2lss-mc.txt','mca-2lss-mc-sigextr.txt').replace('--showRatio --maxRatioRange 0 2','--showRatio --maxRatioRange 0 1 --ratioYLabel "S/B"')
+#        if '_data' not in torun: x = add(x,'--xp data ')
+#        if '_table' in torun:
+#            x = x.replace('mca-2lss-mc.txt','mca-2lss-mc-table.txt')
+#        if '_frdata' in torun: # Why?
 #            x = promptsub(x)
 #            if '_blinddata' in torun:
-#                x = x.replace('mca-3l-mc.txt','mca-3l-mcdata.txt')
-#                x = add(x,'--xp data')
+#                x = x.replace('mca-2lss-mc.txt','mca-2lss-mcdata.txt')
+#                x = add(x,'--xp data ')
 #            elif not '_data' in torun: raise RuntimeError
-#            x = x.replace('mca-3l-mcdata.txt','mca-3l-mcdata-frdata.txt')
-#            if '_table' in torun:
-#                x = x.replace('mca-3l-mcdata-frdata.txt','mca-3l-mcdata-frdata-table.txt')
-#        if '_table' in torun:
-#            x = x.replace('mca-3l-mc.txt','mca-3l-mc-table.txt')
-#
-#        if '_closuretest' in torun:
-#            x = x.replace('mca-3l-mc.txt','mca-3l-mc-closuretest.txt')
-#            #x = x.replace("--maxRatioRange 0 3","--maxRatioRange 0.5 1.5")
-#            x = add(x,"--AP --plotmode nostack --sP kinMVA_3l_ttbar --sP kinMVA_3l_ttV --sP --sP 3lep_catIndex --sP nBJetMedium25 --sP 3lep_nJet25 --sP 3lep_n_ele")
-#            x = add(x,"-p TT_FR_QCD -p TT_FR_TT -p TT_fake --ratioDen TT_FR_QCD --ratioNums TT_fake,TT_FR_TT --errors ")
-#            x = x.replace('--showMCError','')
-#            x = x.replace('--legendWidth 0.42','--legendWidth 0.60')
-#            if '_closuretest_norm' in torun:
-#                x = x.replace("--plotmode nostack","--plotmode norm")
-#                x = x.replace("--ratioNums TT_fake,TT_FR_TT","--ratioNums TT_fake")
-#                x = add(x,"--fitRatio 1")
-#                if '_unc' in torun:
-#                    x = add(x,"--su CMS_ttHl_Clos_[em]_norm")
-#            else:
-#                if '_uncfull' in torun:
-#                    x = add(x,"--su 'CMS_ttHl_FR.*' ")
-#                elif '_unc' in torun:
-#                    x = add(x,"--su 'CMS_ttHl_Clos_[em].*_norm' ")
-#            if '_mufake' in torun: x = add(x,"-A alwaystrue mufake '(abs(LepGood1_pdgId)==13 && LepGood1_mcMatchId==0) || (abs(LepGood2_pdgId)==13 && LepGood2_mcMatchId==0) || (abs(LepGood3_pdgId)==13 && LepGood3_mcMatchId==0)'")
-#            if '_elfake' in torun: x = add(x,"-A alwaystrue elfake '(abs(LepGood1_pdgId)==11 && LepGood1_mcMatchId==0) || (abs(LepGood2_pdgId)==11 && LepGood2_mcMatchId==0) || (abs(LepGood3_pdgId)==11 && LepGood3_mcMatchId==0)'")
-#            if '_bloose' in torun: x = add(x,'-E ^BLoose ')
-#            if '_btight' in torun: x = add(x,'-E ^BTight ')
-#            if '_nobcut' in torun: x = add(x,'-X ^2b1B ')
-#            if '_notrigger' in torun: x = add(x,'-X ^trigger ')
-#
-#        if '_unc' in torun:
-#            x = add(x,"--unc ttH-multilepton/systsUnc.txt")
-#
-#        if '_varsFR' in torun:
-#            torun += "_"+sys.argv[-1]
-#            x = x.replace('mca-3l-mc.txt','mca-3l-data-frdata-%s.txt'%sys.argv[-1])
-#            x = x.replace("--maxRatioRange 0 3","--maxRatioRange 0 2")
-#            x = add(x,"--plotmode nostack --sP kinMVA_3l_ttbar --sP kinMVA_3l_ttV_withMEM --sP kinMVA_3l_ttV")
-#            x = add(x,"--ratioDen fakes_data --ratioNums fakes_data_%s --errors"%sys.argv[-1])
-#            if '_varsFR_norm' in torun:
-#                x = x.replace("--plotmode nostack","--plotmode norm")
-#                x = add(x,"--fitRatio 1")
-#        if '_x2j' in torun:
-#            x = add(x,"-E ^x2j ")
-#        if '_Zpeak' in torun:
-#            x = add(x,'-I ^Zveto')
-#        #runIt(x,'%s'%torun)
-#        if '_cats' in torun:
-#            for cat in ['b3l_bl_neg','b3l_bl_pos','b3l_bt_neg','b3l_bt_pos']:
-#                runIt(add(x,'-E ^%s'%cat).replace("--binname 3l","--binname %s" % cat[1:-4]),'%s/%s'%(torun,cat))
-#        if '_catnosign' in torun:
-#            for flav in ['btight','bloose']: 
-#                runIt(add(x,' -E ^B%s'%("Tight" if "bt" in flav else "Loose")).replace("--binname 3l","--binname 3l_%s" % flav[:2]),'%s/%s'%(torun,flav))
-#
-#
-#    if '4l_' in torun:
-#        x = base('4l')
-#        if '_appl' in torun: x = add(x,'-I ^TTTT ')
-#        if '_relax' in torun: x = add(x,'-X ^TTTT ')
-#        if '_data' in torun: x = x.replace('mca-4l-mc.txt','mca-4l-mcdata.txt')
-#        if '_frdata' in torun:
-#            x = promptsub(x)
-#            raise RuntimeError, 'Fakes estimation not implemented for 4l'
-#        if '_unc' in torun:
-#            x = add(x,"--unc ttH-multilepton/systsUnc.txt")
-#        runIt(x,'%s'%torun)
-#
-#    if 'cr_3j' in torun:
-#        x = base('2lss')
-#        if '_data' in torun: x = x.replace('mca-2lss-mc.txt','mca-2lss-mcdata.txt')
-#        if '_frdata' in torun:
-#            x = promptsub(x)
-#            if not '_data' in torun: raise RuntimeError
 #            x = x.replace('mca-2lss-mcdata.txt','mca-2lss-mcdata-frdata.txt')
-#        x = add(x,"-R ^4j 3j 'nJet25+nFwdJet==3'")
-#        if '_unc' in torun:
-#            x = add(x,"--unc ttH-multilepton/systsUnc.txt")
-#
-#        plots = ['2lep_.*','nJet25','nBJetLoose25','nBJetMedium25','met','metLD','htJet25j','mhtJet25','mtWmin','htllv','kinMVA_2lss_ttbar.*','kinMVA_2lss_ttV.*','kinMVA_2lss_bins7','kinMVA_input.*','era']
-#        runIt(x,'%s'%torun,plots)
-#        if '_flav' in torun:
-#            for flav in ['mm','ee','em']:
-#                runIt(add(x,'-E ^%s'%flav).replace("--binname 2lss","--binname 2lss_"+flav),'%s/%s'%(torun,flav))
-#
-#    if 'cr_ttbar' in torun:
-#        x = base('2lss')
-#        x = fulltrees(x) # for mc same-sign
-#        x = x.replace('mca-2lss-mc.txt','mca-2lss-mcdata-ttbar.txt')
-#        if '_data' not in torun: x = add(x,'--xp data')
-#        if '_appl' in torun: x = add(x,'-I ^TT ')
-#        if '_1fo' in torun: x = add(x,"-A alwaystrue 1FO 'LepGood1_isLepTight+LepGood2_isLepTight==1'")
-#        if '_leadmupt25' in torun: x = add(x,"-A 'entry point' leadmupt25 'abs(LepGood1_pdgId)==13 && LepGood1_pt>25'")
-#        if '_norm' in torun:
-#            x = add(x,"--sp '.*' --scaleSigToData")
-#        x = add(x,"-I same-sign -X ^4j -X ^2b1B -E ^2j -E ^em ")
-#        if '_highMetNoBCut' in torun: x = add(x,"-A 'entry point' highMET 'met_pt>60'")
-#        else: x = add(x,"-E ^1B ")
-#        if '_unc' in torun:
-#            x = add(x,"--unc ttH-multilepton/systsUnc.txt")
-#        plots = ['2lep_.*','met','metLD','nVert','nJet25','nBJetMedium25','nBJetLoose25','nBJetLoose40','nBJetMedium40','era']
-#        runIt(x,'%s'%torun)#,plots)
-#
-#    if 'cr_zjets' in torun:
-#        x = base('2lss')
-#        x = x.replace('mca-2lss-mc.txt','mca-2lss-mcdata-ttbar.txt')
-#        x = x.replace('--maxRatioRange 0 3','--maxRatioRange 0.8 1.2')
-#        x = x.replace('--rebin 4','')
-#        if '_appl' in torun:
-#            x = add(x,"-X ^TT")
-#        if '_noeleid' in torun: 
-#            x = add(x,"-X eleID -E loose_eleID")
-#        if '_ss' not in torun:
-#            x = fulltrees(x)
-#            x = add(x,"-I same-sign")
-#        else:
-#            x = add(x,"-X ^metLDee")
-#        if '_data' not in torun: x = add(x,'--xp data')
-#        x = add(x,"-X ^2b1B -X ^Zee_veto -A alwaystrue mllonZ 'mass_2(LepGood1_conePt,LepGood1_eta,LepGood1_phi,LepGood1_mass,LepGood2_conePt,LepGood2_eta,LepGood2_phi,LepGood2_mass)>60 && mass_2(LepGood1_conePt,LepGood1_eta,LepGood1_phi,LepGood1_mass,LepGood2_conePt,LepGood2_eta,LepGood2_phi,LepGood2_mass)<120'")
-#        if '_unc' in torun:
-#            x = add(x,"--unc ttH-multilepton/systsUnc.txt")
-#        for flav in ['mm','ee','em']:
-#            plots = ['nJet25_from0','nJet40_from0'] # 'lep1_.*','lep2_.*']# ,'2lep_.*','tot_weight','era']
-#            runIt(add(x,'-E ^%s -X ^4j'%flav),'%s/%s'%(torun,flav),plots)
-#
-#    if 'cr_wz' in torun:
-#        x = base('3l')
-#        x = x.replace("--binname 3l","--binname 3l_crwz")
-#        x = add(x,"-I 'Zveto' -I ^2b1B ")
-#        #x = add(x, " --Fs {P}/7_bestMTW3l_v1 ")
-#        if '_data' in torun: x = x.replace('mca-3l-mc.txt','mca-3l-mcdata.txt')
-#        if '_frdata' in torun:
-#            x = promptsub(x)
-#            if not '_data' in torun: raise RuntimeError
-#            x = x.replace('mca-3l-mcdata.txt','mca-3l-mcdata-frdata.txt')
-#        else: 
-#            print "ERROR: cr_wz with MC backgrounds does not work."
-#        if '_unc' in torun:
-#            x = add(x,"--unc ttH-multilepton/systsUnc.txt")
-#        if '_fit' in torun:
-#            if not '_data' in torun: raise RuntimeError
-#            x = add(x,"--sP tot_weight --preFitData tot_weight --sp WZ ")
-#            x = add(x,"--xu CMS_ttHl_ZZ_lnU ") # otherwise here we fit as ZZ
-#            if '_unc' not in torun:
-#                print "Will just float WZ freely"
-#                x = add(x,"--flp WZ")
-#        plots = ['3lep_mtW','3lep_nJet25','tot_weight','met','metLD','htJet25j','nBJetLoose25']
-#        if '_more' in torun:
-#            plots += ['lep3_pt','metLD','nBJetLoose25','3lep_worseIso','minMllAFAS','3lep_worseMVA','3lep_mtW','kinMVA.*','htJet25j','nJet25','era']
-#            plots += ['3lep_.*','nJet25','nBJetLoose25','nBJetMedium25','met','metLD','htJet25j','mhtJet25','mtWmin','htllv','kinMVA_3l_ttbar','kinMVA_3l_ttV','kinMVA_3l_ttV_withMEM']
-#        runIt(x,'%s'%torun,plots)
-#
-#    if 'cr_ttz' in torun:
-#        x = base('3l')
-#        if '_data' in torun: x = x.replace('mca-3l-mc.txt','mca-3l-mcdata.txt')
-#        if '_frdata' in torun:
-#            x = promptsub(x)
-#            if not '_data' in torun: raise RuntimeError
-#            x = x.replace('mca-3l-mcdata.txt','mca-3l-mcdata-frdata.txt')
-#        plots = ['lep2_pt','met','nJet25','mZ1']
-#        plots += ['3lep_.*','nJet25','nBJetLoose25','nBJetMedium25','met','metLD','htJet25j','mhtJet25','mtWmin','htllv','kinMVA_3l_ttbar','kinMVA_3l_ttV','kinMVA_3l_ttV_withMEM','era']
-#        x = add(x,"-I 'Zveto' -X ^2b1B -E ^gt2b -E ^1B ")
-#        if '_unc' in torun:
-#            x = add(x,"--unc ttH-multilepton/systsUnc.txt")
-#        if '_4j' in torun:
-#            x = add(x,"-E ^4j ")
-#            runIt(x,'%s/4j'%torun,plots)
-#        else:
-#            runIt(x,'%s'%torun,plots)
-#
-#    if 'cr_fourlep_onZ' in torun:
-#        x = base('4l').replace('mca-4l-mc.txt','mca-4l-mcdata.txt')
-#        if '_data' not in torun: x = add(x, "--xp data ")
-#        if '_frdata' in torun:
-#            x = promptsub(x)
-#            raise RuntimeError, 'Fakes estimation not implemented for 4l'
-#        if '_unc' in torun:
-#            x = add(x,"--unc ttH-multilepton/systsUnc.txt")
-#        x = add(x,"-I ^Zveto")
-#        plots = ['lep4_pt','met','mZ1','4lep_m4l_noRecl','4lep_mZ2_noRecl','minMllAFAS','tot_weight','4lep_nJet25','nBJetMedium25']
-#        runIt(x,'%s'%torun,plots)
-#    if 'cr_zz' in torun:
-#        x = base('4l')
-#        x = x.replace('mca-4l-mc.txt','mca-4l-mcdata.txt')
-#        x = x.replace("--binname 4l","--binname 4l_crzz")
-#        x = add(x,"-I ^Zveto -I ^2b1B")
-#        if '_data' not in torun: x = add(x, "--xp data ")
-#        if '_frdata' in torun:
-#            x = promptsub(x)
-#            raise RuntimeError, 'Fakes estimation not implemented for 4l'
-#        if '_unc' in torun:
-#            x = add(x,"--unc ttH-multilepton/systsUnc.txt")
-#        if '_fit' in torun:
-#            if not '_data' in torun: raise RuntimeError
-#            x = add(x,"--sP tot_weight --preFitData tot_weight --sp ZZ ")
-#            x = add(x,"--xu CMS_ttHl_WZ_lnU ") # otherwise here we fit as WZ
-#            if '_unc' not in torun:
-#                print "Will just float WZ freely"
-#                x = add(x,"--flp WZ")
-#        plots = ['lep4_pt','met','mZ1','4lep_m4l_noRecl','4lep_mZ2_noRecl','minMllAFAS','tot_weight','4lep_nJet25']
-#        runIt(x,'%s'%torun,plots)
-#
-#        
+#            if '_table' in torun:
+#                x = x.replace('mca-2lss-mcdata-frdata.txt','mca-2lss-mcdata-frdata-table.txt')
+###
+#            if '_leadmupt25' in torun: x = add(x,"-A 'entry point' leadmupt25 'abs(LepGood1_pdgId)==13 && LepGood1_pt>25' ")
+#            if '_highMetNoBCut' in torun: x = add(x,"-A 'entry point' highMET 'met_pt>60'")
+#            else: x = add(x,"-E ^1B ")

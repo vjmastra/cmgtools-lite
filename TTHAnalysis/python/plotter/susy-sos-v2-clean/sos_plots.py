@@ -6,8 +6,8 @@ import os
 ODIR=sys.argv[1]
 YEAR=sys.argv[2]
 lumis = {
-'2016': '35.9', # '33.2' for low MET bin, replaced below
-'2017': '41.53', # '36.74' for low MET bin, replaced below
+'2016': '35.9', # '34.0' for 2los_low (Cristina)
+'2017': '41.53', # '33.2' for 3l_low, '36.74' for 2los_low
 '2018': '59.74',
 }
 LUMI= " -l %s "%(lumis[YEAR])
@@ -35,17 +35,17 @@ def base(selection):
     if dowhat == "plots": CORE+=LUMI+RATIO+RATIO2+LEGEND+LEGEND2+SPAM+" --showMCError "
 
     if selection=='2los':
-        GO="%s susy-sos-v2-clean/mca_2los_%s.txt susy-sos-v2-clean/2los_cuts.txt "%(CORE,YEAR)
+        GO="%s susy-sos-v2-clean/mca/mca-2los-%s.txt susy-sos-v2-clean/2los_cuts.txt "%(CORE,YEAR)
 
-        if YEAR == "2016": GO="%s -W '1.0*1.0'"%GO # to be fixed 
-        if YEAR == "2017": GO="%s -W 'puWeight*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)'"%GO 
+        #if YEAR == "2016": GO="%s -W '1.0*1.0'"%GO # to be fixed 
+        #if YEAR == "2017": GO="%s -W 'puWeight*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)'"%GO 
 
         if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.52 ")
         if dowhat == "plots": GO=GO.replace(RATIO,  " --maxRatioRange 0.6  1.99 --ratioYNDiv 210 ")
         GO += " --binname 2los "
 
     elif selection=='3l':
-        GO="%s susy-sos-v2-clean/mca_3l_%s.txt susy-sos-v2-clean/3l_cuts.txt "%(CORE,YEAR)
+        GO="%s susy-sos-v2-clean/mca/mca-3l-%s.txt susy-sos-v2-clean/3l_cuts.txt "%(CORE,YEAR)
 
         #GO="%s -W 'puWeight*btagSF_shape*leptonSF_3l*triggerSF_3l'"%GO # to be fixed
 
@@ -144,6 +144,13 @@ if __name__ == '__main__':
             x = add(x,"-X ^mT ")
             x = add(x,"-I ^OS ")
 
+        if '_low' in torun :
+            if YEAR=="2016":
+                x = x.replace(LUMI," -l 34.0 ")
+            if YEAR=="2017":
+                x = x.replace(LUMI," -l 36.74 ")
+                x = add(x,"-E ^xpRun2017B ")
+
         if '_data' not in torun: x = add(x,'--xp data ')
         if '_unc' in torun: x = add(x,"--unc susy-sos-v2-clean/systsUnc.txt")
         if '_norm' in torun: x = add(x,"--sp '.*' --scaleSigToData ")
@@ -162,23 +169,21 @@ if __name__ == '__main__':
             x = x.replace('-E ^met200 ','-E ^met200_CR ')
             if '_min' or '_low' in torun:
                 x = add(x,"-E ^CRWZPtLep_MuMu ")
-                if '_min' in torun: x = x.replace(x,'-E ^ -E ^_trig','-E ^met75_CR -E met75_trig_CR ')
-                if '_low' in torun: x = x.replace(x,'-E ^met125_trig','-E met125_trig_CR ')
+                if '_min' in torun: x = x.replace('-E ^ -E ^_trig','-E ^met75_CR -E ^met75_trig_CR ')
+                if '_low' in torun: x = x.replace('-E ^met125_trig','-E ^met125_trig_CR ')
             if '_med' in torun: x = add(x,"-E ^CRWZPtLep_HighMET ")
+                
+        if '_low' in torun :
+            if YEAR=="2017":
+                x = x.replace(LUMI," -l 33.2 ")
 
         if '_data' not in torun: x = add(x,'--xp data ')
         if '_unc' in torun: x = add(x,"--unc ttH-multilepton/systsUnc.txt")
         if '_norm' in torun: x = add(x,"--sp '.*' --scaleSigToData ")
 
 
-    else: raise RuntimeError("You must include either '2los' or '3l' in the command!" 
+    else: raise RuntimeError("You must include either '2los' or '3l' in the command!" )
 
-
-    if '_low' in torun and YEAR=="2016":
-        x = x.replace(LUMI," -l 33.2 ")
-    if '_low' in torun and YEAR=="2017":
-        x = x.replace(LUMI," -l 36.74 ")
-        x = add(x,"-E ^xpRun2017B ")
 
     runIt(x,'%s'%torun)
 

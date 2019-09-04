@@ -1,7 +1,7 @@
 ##### Always applied cuts
 alwaystrue	: 1
 
-filtersAll	: ( year==2016 && $DATA{EventFilters16} && 0 ) || ( year==2017 && $DATA{EventFilters17} ) || ( year==2018 && $DATA{EventFilters18} && 0 )
+#filtersAll	: ( year==2016 && $DATA{EventFilters16} $MC{1} ) || ( year==2017 && $DATA{EventFilters17} $MC{1} ) || ( year==2018 && $DATA{EventFilters18} $MC{1} ) #Temporarily disabled
 
 dilep		: nLepGood == 3
 sublepPt	: (fabs(LepGood2_pdgId)==13 && LepGood2_pt > 3.5) || (fabs(LepGood2_pdgId)==11 && LepGood2_pt > 5)
@@ -37,7 +37,8 @@ pt5sublep	: LepGood2_pt > 5 && LepGood3_pt > 5
 
 
 ##### WZ CR
-### Disable minMll, ZvetoTrigger, ledlepPt, pt5sublep
+### Disable minMll, ZvetoTrigger, ledlepPt, threeTight, pt5sublep
+CRWZlepId		: LepGood1_isTightLepWZ && LepGood2_isTightLepWZ && LepGood3_isTightLepWZ	; Disable=True
 CRWZmll			: minMllSFOS > 4	; Disable=True
 ### Min and Low MET
 CRWZPtLep_MuMu		: (LepGood1_pt > 30 && LepGood2_pt > 10 && LepGood3_pt > 10) && ( (fabs(LepGood1_pdgId)==13 && LepGood1_pt > 20) || (fabs(LepGood2_pdgId)==13 && LepGood2_pt > 20) || (fabs(LepGood3_pdgId)==13 && LepGood3_pt > 20) ) && ( (fabs(LepGood1_pdgId)==13 && LepGood1_pt > 10) || (fabs(LepGood2_pdgId)==13 && LepGood2_pt > 10) || (fabs(LepGood3_pdgId)==13 && LepGood3_pt > 10) )	; Disable=True

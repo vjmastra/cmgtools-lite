@@ -6,8 +6,8 @@ import os
 ODIR=sys.argv[1]
 YEAR=sys.argv[2]
 lumis = {
-'2016': '35.9', # '34.0' for 2los_low (Cristina)
-'2017': '41.53', # '33.2' for 3l_low, '36.74' for 2los_low
+'2016': '35.9', # '33.2' for low MET
+'2017': '41.53', # '36.74' for low MET
 '2018': '59.74',
 }
 LUMI= " -l %s "%(lumis[YEAR])
@@ -134,22 +134,15 @@ if __name__ == '__main__':
             x = add(x,"-X ^ledlepPt -X ^twoTight -X ^bveto -X ^mT ")
             x = add(x,"-E ^CRTTlepId -E ^CRTTledlepPt -E ^btag ")
 
-        if 'cr_ww' in torun:
+        if 'cr_vv' in torun:
             if '_med' in torun: x = add(x,'-E ^met200_CR -X ^pt5sublep ')
             x = add(x,"-X ^ledlepPt -X ^twoTight -X ^mT ")
-            x = add(x,"-E ^CRWWlepId -E ^CRWWleplepPt -E ^CRWWmT ")
+            x = add(x,"-E ^CRVVlepId -E ^CRVVleplepPt -E ^CRVVmT ")
 
         if 'cr_ss' in torun:
             if '_med' in torun: x = add(x,'-E ^met200_CR -X ^pt5sublep ')
             x = add(x,"-X ^mT ")
             x = add(x,"-I ^OS ")
-
-        if '_low' in torun :
-            if YEAR=="2016":
-                x = x.replace(LUMI," -l 34.0 ")
-            if YEAR=="2017":
-                x = x.replace(LUMI," -l 36.74 ")
-                x = add(x,"-E ^xpRun2017B ")
 
         if '_data' not in torun: x = add(x,'--xp data ')
         if '_unc' in torun: x = add(x,"--unc susy-sos-v2-clean/systsUnc.txt")
@@ -165,22 +158,23 @@ if __name__ == '__main__':
             x = add(x,"-E ^oneNotTight ")
 
         if 'cr_wz' in torun:
-            x = add(x,"-X ^minMll -X ^ZvetoTrigger -X ^ledlepPt -X ^pt5sublep ")
+            x = add(x,"-X ^minMll -X ^ZvetoTrigger -X ^ledlepPt -X ^threeTight -X ^pt5sublep ")
+            x = add(x,"-E ^CRWZlepId -E ^CRWZmll ")
             x = x.replace('-E ^met200 ','-E ^met200_CR ')
             if '_min' or '_low' in torun:
                 x = add(x,"-E ^CRWZPtLep_MuMu ")
                 if '_min' in torun: x = x.replace('-E ^ -E ^_trig','-E ^met75_CR -E ^met75_trig_CR ')
                 if '_low' in torun: x = x.replace('-E ^met125_trig','-E ^met125_trig_CR ')
             if '_med' in torun: x = add(x,"-E ^CRWZPtLep_HighMET ")
-                
-        if '_low' in torun :
-            if YEAR=="2017":
-                x = x.replace(LUMI," -l 33.2 ")
 
         if '_data' not in torun: x = add(x,'--xp data ')
         if '_unc' in torun: x = add(x,"--unc ttH-multilepton/systsUnc.txt")
         if '_norm' in torun: x = add(x,"--sp '.*' --scaleSigToData ")
 
+
+    if '_low' in torun :
+        if YEAR=="2016": x = x.replace(LUMI," -l 33.2 ")
+        if YEAR=="2017": x = x.replace(LUMI," -l 36.74 ")
 
     else: raise RuntimeError("You must include either '2los' or '3l' in the command!" )
 

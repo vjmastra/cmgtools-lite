@@ -12,7 +12,7 @@ Fakes           : TTJets_DiLepton               : xsec  : LepGood1_mcMatchId==0 
 Fakes           : TTJets_SingleLeptonFromTbar   : xsec  : LepGood1_mcMatchId==0 || LepGood2_mcMatchId==0        ;  FillColor=ROOT.kGray+1, Label="tt(fakes)"
 Fakes           : TTJets_SingleLeptonFromT      : xsec  : LepGood1_mcMatchId==0 || LepGood2_mcMatchId==0        ;  FillColor=ROOT.kGray+1, Label="tt(fakes)"
 
-Fakes           : T_sch_lep                     : xsec  : LepGood1_mcMatchId==0 || LepGood2_mcMatchId==0        ;  FillColor=ROOT.kGray+2, Label="t(fakes)
+Fakes           : T_sch_lep                     : xsec  : LepGood1_mcMatchId==0 || LepGood2_mcMatchId==0        ;  FillColor=ROOT.kGray+2, Label="t(fakes)"
 Fakes           : T_tch                         : xsec  : LepGood1_mcMatchId==0 || LepGood2_mcMatchId==0        ;  FillColor=ROOT.kGray+2, Label="t(fakes)"
 Fakes           : TBar_tch                      : xsec  : LepGood1_mcMatchId==0 || LepGood2_mcMatchId==0        ;  FillColor=ROOT.kGray+2, Label="t(fakes)"
 

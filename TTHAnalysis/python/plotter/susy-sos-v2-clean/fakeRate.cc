@@ -570,3 +570,97 @@ float fakeRatePromptRateWeight_2l_23(float l1pt, float l1eta, int l1pdgId, float
     return fakeRatePromptRateWeight_2l_ij(l1pt, l1eta, l1pdgId, l1pass,
                             l2pt, l2eta, l2pdgId, l2pass, 2, 3);
 }
+float fakeRatePromptRateWeight_2l_23_1f(float l1pt, float l1eta, int l1pdgId, float l1pass,
+                            float l2pt, float l2eta, int l2pdgId, float l2pass)
+{
+    if((l1pass && !l2pass) || (!l1pass && l2pass))
+        return fakeRatePromptRateWeight_2l_23(l1pt, l1eta, l1pdgId, l1pass,
+                            l2pt, l2eta, l2pdgId, l2pass);
+    return 0;
+}
+
+float fakeRatePromptRateWeight_2l_23_2f(float l1pt, float l1eta, int l1pdgId, float l1pass,
+                            float l2pt, float l2eta, int l2pdgId, float l2pass)
+{
+    if(!l1pass && !l2pass)
+        return fakeRatePromptRateWeight_2l_23(l1pt, l1eta, l1pdgId, l1pass,
+                            l2pt, l2eta, l2pdgId, l2pass);
+    return 0;
+}
+
+float fakeRatePromptRateWeight_3l_ijk(float l1fr, float l1pr , bool l1pass,
+				      float l2fr, float l2pr , bool l2pass,
+				      float l3fr, float l3pr , bool l3pass,
+				      int selhyp=-1, int selfs=111)
+{
+    // selhyp: -1 = all with at least one fake; 00 = double-fakes; 01 = l1 is fake, 10 = l2 is fake
+    // selfs : 11 = pass-pass, 00 = fail-fail, 10 = pass-fail, 01 = fail-pass
+    // The math is:
+    // 1) 1/(p - f)   for each lepton
+    // 2) to predict the yield before selection in a given configuration of prompt and fake, get a factor
+    //         pass -> prompt :  ( 1 - f )
+    //         pass -> fake   : -( 1 - p )
+    //         fail -> prompt : -    f
+    //         fail -> fake   :      p
+    //  3) then add the various p, (1-p), f, (1-f) depending on what you want to predict
+    float f[3] = { l1fr, l2fr, l3fr };
+    float p[3] = { l1pr, l2pr, l3pr };
+    bool pass[3] = { l1pass, l2pass, l3pass };
+
+    int hypots[8] = { 0, 1, 10, 11, 100, 101, 110, 111 };
+    double weight = 0;
+    for (int h : hypots) {
+      if (!(selhyp == h || (selhyp == -1 && h != 111))) continue;
+      double myw = 1.0;
+      for (int i = 0; i < 3; ++i) {
+        int _h = h;
+        for (int j=0; j<2-i; j++) _h = _h/10;
+        int target = _h%2; // 1 if prompt, 0 if fake
+        // (1)
+        myw *= 1.0/(p[i]-f[i]);
+        // (2)
+        if (pass[i]) myw *= (target ? (1-f[i]) : -(1-p[i]) );
+        else         myw *= (target ? -  f[i]  :   p[i]    );
+        //(3)
+        int shouldpass = selfs;
+        for (int j=0; j<2-i; j++) shouldpass = shouldpass/10;
+        shouldpass = shouldpass%2; // 1 if I'm predicting a passing, 0 if I'm predicting a failing
+        if (shouldpass) myw *= (target ?    p[i]    :     f[i]   );
+        else            myw *= (target ? (1 - p[i]) : (1 - f[i]) );
+      }
+      weight += myw;
+    }
+
+ 
+    return weight;
+}
+
+float fakeRatePromptRateWeight_3l_ijk_1f(float l1fr, float l1pr , bool l1pass,
+				      float l2fr, float l2pr , bool l2pass,
+				      float l3fr, float l3pr , bool l3pass,
+				      int selhyp=-1, int selfs=111) {
+
+    if((!l1pass && l2pass && l3pass) || (l1pass && !l2pass && l3pass) || (l1pass && l2pass && !l3pass))
+		return fakeRatePromptRateWeight_3l_ijk(l1fr, l1pr, l1pass, l2fr, l2pr, l2pass, l3fr, l3pr, l3pass, selhyp, selfs);
+    return 0;
+}
+
+float fakeRatePromptRateWeight_3l_ijk_2f(float l1fr, float l1pr , bool l1pass,
+				      float l2fr, float l2pr , bool l2pass,
+				      float l3fr, float l3pr , bool l3pass,
+				      int selhyp=-1, int selfs=111) {
+
+    if((!l1pass && !l2pass && l3pass) || (l1pass && !l2pass && !l3pass) || (!l1pass && l2pass && !l3pass))
+		return fakeRatePromptRateWeight_3l_ijk(l1fr, l1pr, l1pass, l2fr, l2pr, l2pass, l3fr, l3pr, l3pass, selhyp, selfs);
+    return 0;
+}
+
+float fakeRatePromptRateWeight_3l_ijk_3f(float l1fr, float l1pr , bool l1pass,
+				      float l2fr, float l2pr , bool l2pass,
+				      float l3fr, float l3pr , bool l3pass,
+				      int selhyp=-1, int selfs=111) {
+
+    if(!l1pass && !l2pass && !l3pass)
+		return fakeRatePromptRateWeight_3l_ijk(l1fr, l1pr, l1pass, l2fr, l2pr, l2pass, l3fr, l3pr, l3pass, selhyp, selfs);
+    return 0;
+}

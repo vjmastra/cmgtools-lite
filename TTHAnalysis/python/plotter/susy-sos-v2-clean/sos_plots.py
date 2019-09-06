@@ -41,7 +41,7 @@ def base(selection):
          if YEAR == "2016": GO="%s -W 'wBG puw_nInt_Moriond(nTrueInt)*getLepSF(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF(LepGood2_pt, LepGood2_eta, LepGood2_pdgIdg)*bTagWeight*triggerSFfullsim(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt,LepGood2_phi, met_pt, met_phi))"%GO # to be fixed 
              #x=add(x, "--alias wFS getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*ISREwkCor*bTagWeightFS*triggerEff(LepGood1_pt, LepGood1_eta, LepGood2_pt,LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt, LepGood2_phi, met_pt, met_phi))")
 
-         if YEAR == "2017": GO="%s -W 'puWeight*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)'"%GO
+         if YEAR == "2017": GO="%s -W 'vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)'"%GO
 
          if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.52 ")
          if dowhat == "plots": GO=GO.replace(RATIO,  " --maxRatioRange 0.6  1.99 --ratioYNDiv 210 ")
@@ -55,7 +55,7 @@ def base(selection):
             GO="%s -W wBG" %GO
  
         if YEAR == "2017":
-            x = add(x, "--alias wBG 'puWeight*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_17(LepGood3_pt, LepGoog3_eta, LepGood3_pdgId)")
+            x = add(x, "--alias wBG 'vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_17(LepGood3_pt, LepGoog3_eta, LepGood3_pdgId)")
             x = add(x, "--alias wFS 1.0 ")
             GO="%s -W wBG"%GO
         #GO="%s -W 'puWeight*btagSF_shape*leptonSF_3l*triggerSF_3l'"%GO # to be fixed

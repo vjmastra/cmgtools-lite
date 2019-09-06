@@ -34,20 +34,31 @@ def base(selection):
     SPAM=" --noCms --topSpamSize 1.1 --lspam '#scale[1.1]{#bf{CMS}} #scale[0.9]{#it{Preliminary}}' "
     if dowhat == "plots": CORE+=LUMI+RATIO+RATIO2+LEGEND+LEGEND2+SPAM+" --showMCError "
 
+
     if selection=='2los':
-        GO="%s susy-sos-v2-clean/mca/mca-2los-%s.txt susy-sos-v2-clean/2los_cuts.txt "%(CORE,YEAR)
+         GO="%s susy-sos-v2-clean/mca/mca-2los-%s.txt susy-sos-v2-clean/2los_cuts.txt "%(CORE, YEAR)
 
-        #if YEAR == "2016": GO="%s -W '1.0*1.0'"%GO # to be fixed 
-        #if YEAR == "2017": GO="%s -W 'puWeight*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)'"%GO 
+         if YEAR == "2016":
+             wBG = " --alias wBG puw_nInt_Moriond(nTrueInt)*getLepSF(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF(LepGood2_pt, LepGood2_eta, LepGood2_pdgIdg)*bTagWeight*triggerSFfullsim(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt,LepGood2_phi, met_pt, met_phi)) "
+             #wFS = " --alias wFS getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*ISREwkCor*bTagWeightFS*triggerEff(LepGood1_pt, LepGood1_eta, LepGood2_pt,LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt, LepGood2_phi, met_pt, met_phi)) "
+         if YEAR == "2017": 
+             wBG = " --alias wBG vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId) "
+         GO="%s %s -W wBG"%(GO,wBG)
 
-        if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.52 ")
-        if dowhat == "plots": GO=GO.replace(RATIO,  " --maxRatioRange 0.6  1.99 --ratioYNDiv 210 ")
-        GO += " --binname 2los "
-
+         if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.52 ")
+         if dowhat == "plots": GO=GO.replace(RATIO,  " --maxRatioRange 0.6  1.99 --ratioYNDiv 210 ")
+         GO += " --binname 2los "
+ 
     elif selection=='3l':
-        GO="%s susy-sos-v2-clean/mca/mca-3l-%s.txt susy-sos-v2-clean/3l_cuts.txt "%(CORE,YEAR)
-
-        #GO="%s -W 'puWeight*btagSF_shape*leptonSF_3l*triggerSF_3l'"%GO # to be fixed
+        GO="%s susy-sos-v2-clean/mca-3l-%s.txt susy-sos-v2-clean/3l_cuts.txt "%(CORE,YEAR)
+        
+        if YEAR == "2016":
+            wBG = " --alias wBG puw_nInt_Moriond(nTrueInt) *getLepSF(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF(LepGood3_pt, LepGood3_eta, LepGood3_pdgId*bTagWeight*triggerSFfullsim3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, met_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, met_pt, met_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)) "
+            #wFS = " --alias wFS getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId) * getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId) * getLepSFFS(LepGood3_pt, LepGood3_eta, LepGood3_pdgId)*ISREwkCor*bTagWeightFS * triggerEff3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, met_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, met_pt, met_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood3_pdgId, LepGood3_pdgId, LepGood3_pdgId)) "
+        if YEAR == "2017":
+            wBG = " --alias wBG 'vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_17(LepGood3_pt, LepGoog3_eta, LepGood3_pdgId) "
+            #wFS = " --alias wFS 1.0 "
+        GO="%s %s -W wBG"%(GO,wBG)
 
         if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.42 ")
         GO += " --binname 3l "

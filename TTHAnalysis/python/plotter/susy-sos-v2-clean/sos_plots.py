@@ -38,10 +38,13 @@ def base(selection):
     if selection=='2los':
          GO="%s susy-sos-v2-clean/mca/mca-2los-%s.txt susy-sos-v2-clean/2los_cuts.txt "%(CORE, YEAR)
 
-         if YEAR == "2016": GO="%s -W 'wBG puw_nInt_Moriond(nTrueInt)*getLepSF(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF(LepGood2_pt, LepGood2_eta, LepGood2_pdgIdg)*bTagWeight*triggerSFfullsim(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt,LepGood2_phi, met_pt, met_phi))"%GO # to be fixed 
+         if YEAR == "2016":
+             x=add(x, "--alias wBG puw_nInt_Moriond(nTrueInt)*getLepSF(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF(LepGood2_pt, LepGood2_eta, LepGood2_pdgIdg)*bTagWeight*triggerSFfullsim(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt,LepGood2_phi, met_pt, met_phi))")
              #x=add(x, "--alias wFS getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*ISREwkCor*bTagWeightFS*triggerEff(LepGood1_pt, LepGood1_eta, LepGood2_pt,LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt, LepGood2_phi, met_pt, met_phi))")
-
-         if YEAR == "2017": GO="%s -W 'vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)'"%GO
+             GO="%s -W wBG" %GO
+         if YEAR == "2017": 
+             x=add(x, "--alias wBG vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)")
+             GO="%s -W wBG" %GO
 
          if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.52 ")
          if dowhat == "plots": GO=GO.replace(RATIO,  " --maxRatioRange 0.6  1.99 --ratioYNDiv 210 ")

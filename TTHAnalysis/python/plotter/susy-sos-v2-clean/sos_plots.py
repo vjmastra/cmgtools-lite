@@ -35,14 +35,16 @@ def base(selection):
     if dowhat == "plots": CORE+=LUMI+RATIO+RATIO2+LEGEND+LEGEND2+SPAM+" --showMCError "
 
 
+    wBG = " --alias wBG '1.0' "
+    #wFS = " --alias wFS '1.0' "
     if selection=='2los':
          GO="%s susy-sos-v2-clean/mca/mca-2los-%s.txt susy-sos-v2-clean/2los_cuts.txt "%(CORE, YEAR)
 
          if YEAR == "2016":
-             wBG = " --alias wBG puw_nInt_Moriond(nTrueInt)*getLepSF(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF(LepGood2_pt, LepGood2_eta, LepGood2_pdgIdg)*bTagWeight*triggerSFfullsim(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt,LepGood2_phi, met_pt, met_phi)) "
-             #wFS = " --alias wFS getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*ISREwkCor*bTagWeightFS*triggerEff(LepGood1_pt, LepGood1_eta, LepGood2_pt,LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt, LepGood2_phi, met_pt, met_phi)) "
+             wBG = " --alias wBG 'puw_nInt_Moriond(nTrueInt)*getLepSF_16(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_16(LepGood2_pt, LepGood2_eta, LepGood2_pdgIdg)*triggerSFfullsim(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt,LepGood2_phi, met_pt, met_phi))' " #*bTagWeight
+             #wFS = " --alias wFS 'getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*ISREwkCor*bTagWeightFS*triggerEff(LepGood1_pt, LepGood1_eta, LepGood2_pt,LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt, LepGood2_phi, met_pt, met_phi))' "
          if YEAR == "2017": 
-             wBG = " --alias wBG vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId) "
+             wBG = " --alias wBG 'vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)' "
          GO="%s %s -W wBG"%(GO,wBG)
 
          if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.52 ")
@@ -53,10 +55,10 @@ def base(selection):
         GO="%s susy-sos-v2-clean/mca-3l-%s.txt susy-sos-v2-clean/3l_cuts.txt "%(CORE,YEAR)
         
         if YEAR == "2016":
-            wBG = " --alias wBG puw_nInt_Moriond(nTrueInt) *getLepSF(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF(LepGood3_pt, LepGood3_eta, LepGood3_pdgId*bTagWeight*triggerSFfullsim3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, met_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, met_pt, met_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)) "
-            #wFS = " --alias wFS getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId) * getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId) * getLepSFFS(LepGood3_pt, LepGood3_eta, LepGood3_pdgId)*ISREwkCor*bTagWeightFS * triggerEff3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, met_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, met_pt, met_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood3_pdgId, LepGood3_pdgId, LepGood3_pdgId)) "
+            wBG = " --alias wBG 'puw_nInt_Moriond(nTrueInt) *getLepSF_16(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_16(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_16(LepGood3_pt, LepGood3_eta, LepGood3_pdgId)*triggerSFfullsim3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, met_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, met_pt, met_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId))' " #*bTagWeight
+            #wFS = " --alias wFS 'getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId) * getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId) * getLepSFFS(LepGood3_pt, LepGood3_eta, LepGood3_pdgId)*ISREwkCor*bTagWeightFS * triggerEff3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, met_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, met_pt, met_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood3_pdgId, LepGood3_pdgId, LepGood3_pdgId))' "
         if YEAR == "2017":
-            wBG = " --alias wBG 'vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_17(LepGood3_pt, LepGoog3_eta, LepGood3_pdgId) "
+            wBG = " --alias wBG 'vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_17(LepGood3_pt, LepGoog3_eta, LepGood3_pdgId)' "
             #wFS = " --alias wFS 1.0 "
         GO="%s %s -W wBG"%(GO,wBG)
 
@@ -115,7 +117,7 @@ if __name__ == '__main__':
 
     torun = sys.argv[3]
 
-    if (not allow_unblinding) and '_data' in torun and (not any([re.match(x.strip()+'$',torun) for x in ['.*_appl.*','cr_.*','3l.*_Zpeak.*']])): raise RuntimeError, 'You are trying to unblind!'
+    if (not allow_unblinding) and '_data' in torun and (not any([re.match(x.strip()+'$',torun) for x in ['.*appl.*','.*cr.*','3l.*_Zpeak.*']])): raise RuntimeError, 'You are trying to unblind!'
 
 
     if '2los_' in torun:
@@ -182,12 +184,12 @@ if __name__ == '__main__':
         if '_unc' in torun: x = add(x,"--unc ttH-multilepton/systsUnc.txt")
         if '_norm' in torun: x = add(x,"--sp '.*' --scaleSigToData ")
 
+    else: raise RuntimeError("You must include either '2los' or '3l' in the command!" )
+
 
     if '_low' in torun :
         if YEAR=="2016": x = x.replace(LUMI," -l 33.2 ")
         if YEAR=="2017": x = x.replace(LUMI," -l 36.74 ")
-
-    else: raise RuntimeError("You must include either '2los' or '3l' in the command!" )
 
 
     runIt(x,'%s'%torun)

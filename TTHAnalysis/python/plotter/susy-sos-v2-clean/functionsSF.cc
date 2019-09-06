@@ -384,12 +384,12 @@ float triggerEff3L(float _pt1, float _eta1, float _pt2, float _eta2, float _pt3,
 // -------------------------------------------------------------
 
 // electrons
-TFile* f_elSF_looseToTight_barrel      = new TFile(DATA_SF+"/sos_lepton_SF/el_SOS_barrel_36invfb.root", "read");
-TFile* f_elSF_looseToTight_endcap      = new TFile(DATA_SF+"/sos_lepton_SF/el_SOS_endcap_36invfb.root", "read");
-TGraphAsymmErrors* h_elSF_looseToTight_barrel      = (TGraphAsymmErrors*) f_elSF_looseToTight_barrel->Get("ratio");
-TGraphAsymmErrors* h_elSF_looseToTight_endcap      = (TGraphAsymmErrors*) f_elSF_looseToTight_endcap->Get("ratio");
+TFile* f_elSF_looseToTight_barrel_16      = new TFile(DATA_SF+"/sos_lepton_SF/el_SOS_barrel_36invfb.root", "read");
+TFile* f_elSF_looseToTight_endcap_16      = new TFile(DATA_SF+"/sos_lepton_SF/el_SOS_endcap_36invfb.root", "read");
+TGraphAsymmErrors* h_elSF_looseToTight_barrel_16      = (TGraphAsymmErrors*) f_elSF_looseToTight_barrel_16->Get("ratio");
+TGraphAsymmErrors* h_elSF_looseToTight_endcap_16      = (TGraphAsymmErrors*) f_elSF_looseToTight_endcap_16->Get("ratio");
 
-int getBinElectronLoose(float pt){
+int getBinElectronLoose_16(float pt){
 	if     (pt >  5.0 && pt <= 12.5) return 0;
 	else if(pt > 12.5 && pt <= 16.0) return 1;
 	else if(pt > 16.0 && pt <= 20.0) return 2;
@@ -400,37 +400,37 @@ int getBinElectronLoose(float pt){
 	}
 }
 
-float getElectronSFlooseToTight(float _pt, float eta, int var = 0){
+float getElectronSFlooseToTight_16(float _pt, float eta, int var = 0){
 	float pt = std::min(float(30.0), _pt); //protection
 	
 	if(abs(eta)<1.479){
-		if(var>0) return (h_elSF_looseToTight_barrel->Eval(pt) + h_elSF_looseToTight_barrel->GetErrorYhigh(getBinElectronLoose(pt))) ;
-		if(var<0) return (h_elSF_looseToTight_barrel->Eval(pt) - h_elSF_looseToTight_barrel->GetErrorYlow (getBinElectronLoose(pt))) ;
-		return  h_elSF_looseToTight_barrel->Eval(pt);
+		if(var>0) return (h_elSF_looseToTight_barrel_16->Eval(pt) + h_elSF_looseToTight_barrel_16->GetErrorYhigh(getBinElectronLoose_16(pt))) ;
+		if(var<0) return (h_elSF_looseToTight_barrel_16->Eval(pt) - h_elSF_looseToTight_barrel_16->GetErrorYlow (getBinElectronLoose_16(pt))) ;
+		return  h_elSF_looseToTight_barrel_16->Eval(pt);
 	}
 
-	if(var>0) return (h_elSF_looseToTight_endcap->Eval(pt) + h_elSF_looseToTight_endcap->GetErrorYhigh(getBinElectronLoose(pt))) ;
-	if(var<0) return (h_elSF_looseToTight_endcap->Eval(pt) - h_elSF_looseToTight_endcap->GetErrorYlow (getBinElectronLoose(pt))) ;
-	return h_elSF_looseToTight_endcap->Eval(pt);
+	if(var>0) return (h_elSF_looseToTight_endcap_16->Eval(pt) + h_elSF_looseToTight_endcap_16->GetErrorYhigh(getBinElectronLoose_16(pt))) ;
+	if(var<0) return (h_elSF_looseToTight_endcap_16->Eval(pt) - h_elSF_looseToTight_endcap_16->GetErrorYlow (getBinElectronLoose_16(pt))) ;
+	return h_elSF_looseToTight_endcap_16->Eval(pt);
 }
 
-float getElectronSF(float pt, float eta, int var = 0){
-	return getElectronSFlooseToTight(pt, eta, var);
+float getElectronSF_16(float pt, float eta, int var = 0){
+	return getElectronSFlooseToTight_16(pt, eta, var);
 }
 
 // muons
-TFile* f_muSF_recoToLoose_lowPt_barrel = new TFile(DATA_SF+"/sos_lepton_SF/mu_JDGauss_bern3_Loose_barrel_7invfb.root","read");
-TFile* f_muSF_recoToLoose_lowPt_endcap = new TFile(DATA_SF+"/sos_lepton_SF/mu_JDGauss_bern3_Loose_endcap_7invfb.root","read");
-TFile* f_muSF_recoToLoose_highPt       = new TFile(DATA_SF+"/sos_lepton_SF/MuonID_Z_RunBCD_prompt80X_7p65.root"      ,"read");
-TFile* f_muSF_looseToTight_barrel      = new TFile(DATA_SF+"/sos_lepton_SF/mu_SOS_comb_barrel_36invfb.root"          ,"read");
-TFile* f_muSF_looseToTight_endcap      = new TFile(DATA_SF+"/sos_lepton_SF/mu_SOS_comb_endcap_36invfb.root"          ,"read");
-TGraphAsymmErrors* h_muSF_recoToLoose_lowPt_barrel = (TGraphAsymmErrors*) f_muSF_recoToLoose_lowPt_barrel->Get("mu_JDGauss_bern3_Loose_barrel_ratio");
-TGraphAsymmErrors* h_muSF_recoToLoose_lowPt_endcap = (TGraphAsymmErrors*) f_muSF_recoToLoose_lowPt_endcap->Get("mu_JDGauss_bern3_Loose_endcap_ratio");
-TH1F* h_muSF_recoToLoose_highPt                    = (TH1F*) f_muSF_recoToLoose_highPt->Get("MC_NUM_LooseID_DEN_genTracks_PAR_pt_alleta_bin1/pt_ratio");
-TGraphAsymmErrors* h_muSF_looseToTight_barrel      = (TGraphAsymmErrors*) f_muSF_looseToTight_barrel->Get("ratio");
-TGraphAsymmErrors* h_muSF_looseToTight_endcap      = (TGraphAsymmErrors*) f_muSF_looseToTight_endcap->Get("ratio");
+TFile* f_muSF_recoToLoose_lowPt_barrel_16 = new TFile(DATA_SF+"/sos_lepton_SF/mu_JDGauss_bern3_Loose_barrel_7invfb.root","read");
+TFile* f_muSF_recoToLoose_lowPt_endcap_16 = new TFile(DATA_SF+"/sos_lepton_SF/mu_JDGauss_bern3_Loose_endcap_7invfb.root","read");
+TFile* f_muSF_recoToLoose_highPt_16       = new TFile(DATA_SF+"/sos_lepton_SF/MuonID_Z_RunBCD_prompt80X_7p65.root"      ,"read");
+TFile* f_muSF_looseToTight_barrel_16      = new TFile(DATA_SF+"/sos_lepton_SF/mu_SOS_comb_barrel_36invfb.root"          ,"read");
+TFile* f_muSF_looseToTight_endcap_16      = new TFile(DATA_SF+"/sos_lepton_SF/mu_SOS_comb_endcap_36invfb.root"          ,"read");
+TGraphAsymmErrors* h_muSF_recoToLoose_lowPt_barrel_16 = (TGraphAsymmErrors*) f_muSF_recoToLoose_lowPt_barrel_16->Get("mu_JDGauss_bern3_Loose_barrel_ratio");
+TGraphAsymmErrors* h_muSF_recoToLoose_lowPt_endcap_16 = (TGraphAsymmErrors*) f_muSF_recoToLoose_lowPt_endcap_16->Get("mu_JDGauss_bern3_Loose_endcap_ratio");
+TH1F* h_muSF_recoToLoose_highPt_16                    = (TH1F*) f_muSF_recoToLoose_highPt_16->Get("MC_NUM_LooseID_DEN_genTracks_PAR_pt_alleta_bin1/pt_ratio");
+TGraphAsymmErrors* h_muSF_looseToTight_barrel_16      = (TGraphAsymmErrors*) f_muSF_looseToTight_barrel_16->Get("ratio");
+TGraphAsymmErrors* h_muSF_looseToTight_endcap_16      = (TGraphAsymmErrors*) f_muSF_looseToTight_endcap_16->Get("ratio");
 
-int getBinMuonReco(float pt){
+int getBinMuonReco_16(float pt){
 	if     (pt >  3.0 && pt <=  3.5) return  0;
 	else if(pt >  3.5 && pt <=  4.0) return  1;
 	else if(pt >  4.0 && pt <=  4.5) return  2;
@@ -447,7 +447,7 @@ int getBinMuonReco(float pt){
 	}
 }
 
-int getBinMuonLoose(float pt){
+int getBinMuonLoose_16(float pt){
 	if     (pt >  3.5 && pt <=  7.5) return 0;
 	else if(pt >  7.5 && pt <= 10.0) return 1;
 	else if(pt > 10.0 && pt <= 15.0) return 2;
@@ -458,7 +458,7 @@ int getBinMuonLoose(float pt){
 	}
 }
 
-float getMuonSFtracking(float pt, float eta, int var = 0){
+float getMuonSFtracking_16(float pt, float eta, int var = 0){
 	//---pT>10 GeV-------
 	if(pt>10){
 		if     (abs(eta)>0.0  && abs(eta)<=0.20 ) return 0.9800;
@@ -494,57 +494,57 @@ float getMuonSFtracking(float pt, float eta, int var = 0){
 	}
 }
 
-float getMuonSFrecoToLoose(float _pt, float eta, int var = 0){
+float getMuonSFrecoToLoose_16(float _pt, float eta, int var = 0){
 	float pt = std::min(float(199.9),_pt);
 	if (pt<25){
 		if(abs(eta)<1.2){
-			if(var>0) return (h_muSF_recoToLoose_lowPt_barrel->Eval(pt) + h_muSF_recoToLoose_lowPt_barrel->GetErrorYhigh(getBinMuonReco(pt)));
-			if(var<0) return (h_muSF_recoToLoose_lowPt_barrel->Eval(pt) - h_muSF_recoToLoose_lowPt_barrel->GetErrorYlow (getBinMuonReco(pt)));
-			return h_muSF_recoToLoose_lowPt_barrel->Eval(pt);
+			if(var>0) return (h_muSF_recoToLoose_lowPt_barrel_16->Eval(pt) + h_muSF_recoToLoose_lowPt_barrel_16->GetErrorYhigh(getBinMuonReco_16(pt)));
+			if(var<0) return (h_muSF_recoToLoose_lowPt_barrel_16->Eval(pt) - h_muSF_recoToLoose_lowPt_barrel_16->GetErrorYlow (getBinMuonReco_16(pt)));
+			return h_muSF_recoToLoose_lowPt_barrel_16->Eval(pt);
 		}
 		else {
-			if(var>0) return (h_muSF_recoToLoose_lowPt_endcap->Eval(pt) + h_muSF_recoToLoose_lowPt_endcap->GetErrorYhigh(getBinMuonReco(pt)));
-			if(var<0) return (h_muSF_recoToLoose_lowPt_endcap->Eval(pt) - h_muSF_recoToLoose_lowPt_endcap->GetErrorYlow (getBinMuonReco(pt)));
-			return h_muSF_recoToLoose_lowPt_endcap->Eval(pt);
+			if(var>0) return (h_muSF_recoToLoose_lowPt_endcap_16->Eval(pt) + h_muSF_recoToLoose_lowPt_endcap_16->GetErrorYhigh(getBinMuonReco_16(pt)));
+			if(var<0) return (h_muSF_recoToLoose_lowPt_endcap_16->Eval(pt) - h_muSF_recoToLoose_lowPt_endcap_16->GetErrorYlow (getBinMuonReco_16(pt)));
+			return h_muSF_recoToLoose_lowPt_endcap_16->Eval(pt);
 		}
 	}
 	else{
-		Int_t binx = (h_muSF_recoToLoose_highPt->GetXaxis())->FindBin(pt);
-		if(var>0) return (h_muSF_recoToLoose_highPt->GetBinContent(binx) + 0.01);
-		if(var<0) return (h_muSF_recoToLoose_highPt->GetBinContent(binx) - 0.01);
-		return  h_muSF_recoToLoose_highPt->GetBinContent(binx);
+		Int_t binx = (h_muSF_recoToLoose_highPt_16->GetXaxis())->FindBin(pt);
+		if(var>0) return (h_muSF_recoToLoose_highPt_16->GetBinContent(binx) + 0.01);
+		if(var<0) return (h_muSF_recoToLoose_highPt_16->GetBinContent(binx) - 0.01);
+		return  h_muSF_recoToLoose_highPt_16->GetBinContent(binx);
 	}
 	assert(0);
 	return -999;
 }
 
-float getMuonSFlooseToTight(float _pt, float eta, int var = 0){
+float getMuonSFlooseToTight_16(float _pt, float eta, int var = 0){
 	float pt = std::min(float(119.9),_pt);
 	if(abs(eta)<1.2){
-		if(var>0) return (h_muSF_looseToTight_barrel->Eval(pt) + h_muSF_looseToTight_barrel->GetErrorYhigh(getBinMuonLoose(pt))) ;
-		if(var<0) return (h_muSF_looseToTight_barrel->Eval(pt) - h_muSF_looseToTight_barrel->GetErrorYlow (getBinMuonLoose(pt))) ;
-		return h_muSF_looseToTight_barrel->Eval(pt);
+		if(var>0) return (h_muSF_looseToTight_barrel_16->Eval(pt) + h_muSF_looseToTight_barrel_16->GetErrorYhigh(getBinMuonLoose_16(pt))) ;
+		if(var<0) return (h_muSF_looseToTight_barrel_16->Eval(pt) - h_muSF_looseToTight_barrel_16->GetErrorYlow (getBinMuonLoose_16(pt))) ;
+		return h_muSF_looseToTight_barrel_16->Eval(pt);
 	}
 	if(abs(eta)>1.2){
-		if(var>0) return (h_muSF_looseToTight_endcap->Eval(pt) + h_muSF_looseToTight_endcap->GetErrorYhigh(getBinMuonLoose(pt))) ;
-		if(var<0) return (h_muSF_looseToTight_endcap->Eval(pt) - h_muSF_looseToTight_endcap->GetErrorYlow (getBinMuonLoose(pt))) ;
-		return h_muSF_looseToTight_endcap->Eval(pt);
+		if(var>0) return (h_muSF_looseToTight_endcap_16->Eval(pt) + h_muSF_looseToTight_endcap_16->GetErrorYhigh(getBinMuonLoose_16(pt))) ;
+		if(var<0) return (h_muSF_looseToTight_endcap_16->Eval(pt) - h_muSF_looseToTight_endcap_16->GetErrorYlow (getBinMuonLoose_16(pt))) ;
+		return h_muSF_looseToTight_endcap_16->Eval(pt);
 	}
 	assert(0);
 	return -999;
 }
 
-float getMuonSF(float pt, float eta, int var = 0){
-	return getMuonSFtracking(pt, eta, var)*getMuonSFrecoToLoose(pt, eta, var)*getMuonSFlooseToTight(pt, eta, var);
+float getMuonSF_16(float pt, float eta, int var = 0){
+	return getMuonSFtracking_16(pt, eta, var)*getMuonSFrecoToLoose_16(pt, eta, var)*getMuonSFlooseToTight_16(pt, eta, var);
 }
 
 // leptons
-float getLepSF(float pt, float eta, int pdgId, int var = 0){
-	if(abs(pdgId)==11) return getElectronSF(pt, eta, var);
-	return getMuonSF(pt, eta, var);
+float getLepSF_16(float pt, float eta, int pdgId, int var = 0){
+	if(abs(pdgId)==11) return getElectronSF_16(pt, eta, var);
+	return getMuonSF_16(pt, eta, var);
 }
 
-float leptonSF(float lepSF1, float lepSF2, float lepSF3 = 1, float lepSF4 = 1){
+float leptonSF_16(float lepSF1, float lepSF2, float lepSF3 = 1, float lepSF4 = 1){
     return lepSF1*lepSF2*lepSF3*lepSF4;
 }
 

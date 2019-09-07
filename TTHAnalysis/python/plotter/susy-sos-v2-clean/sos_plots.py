@@ -2,14 +2,31 @@
 import sys
 import re
 import os
+import argparse
 
-ODIR=sys.argv[1]
-YEAR=sys.argv[2]
+helpText = "[leptons] = '2los', '3los'\n\
+[region] = 'sr', 'sr_col', 'cr_dy', 'cr_tt', cr_vv', 'cr_ss', 'cr_wz', 'appl'\n\
+[bin] = 'min', 'low', 'med', 'high'"
+parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter,
+                                 epilog=helpText)
+parser.add_argument("outDir", help="Choose the output directory.\nOutput will be saved to 'outDir/year/conf'")
+parser.add_argument("year", help="Choose the year: '2016', '2017' or '2018'")
+parser.add_argument("conf", help="Specify the configuration to run in the format:\n[leptons]_[region]_[bin]")
+parser.add_argument("--data", action="store_true", default=False, help="Include data")
+parser.add_argument("--norm", action="store_true", default=False, help="Normalize signal to data")
+parser.add_argument("--unc", action="store_true", default=False, help="Include uncertainties")
+parser.add_argument("--sP", nargs='*', default=[], help="Include specific plots")
+parser.add_argument("--xP", nargs='*', default=[], help="Exclude specific plots")
+args = parser.parse_args()
+
+ODIR=args.outDir
+YEAR=args.year
 lumis = {
 '2016': '35.9', # '33.2' for low MET
 '2017': '41.53', # '36.74' for low MET
 '2018': '59.74',
 }
+if YEAR not in ("2016","2017","2018"): raise RuntimeError("Unknown year: Please choose '2016', '2017' or '2018'")
 LUMI= " -l %s "%(lumis[YEAR])
 
 
@@ -43,8 +60,10 @@ def base(selection):
          if YEAR == "2016":
              wBG = " --alias wBG 'puw_nInt_Moriond(nTrueInt)*getLepSF_16(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_16(LepGood2_pt, LepGood2_eta, LepGood2_pdgIdg)*triggerSFfullsim(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt,LepGood2_phi, met_pt, met_phi))' " #*bTagWeight
              #wFS = " --alias wFS 'getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*ISREwkCor*bTagWeightFS*triggerEff(LepGood1_pt, LepGood1_eta, LepGood2_pt,LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt, LepGood2_phi, met_pt, met_phi))' "
-         if YEAR == "2017": 
+         elif YEAR == "2017": 
              wBG = " --alias wBG 'vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)' "
+         elif YEAR == "2018":
+             wBG = " --alias wBG '1.0' "
          GO="%s %s -W wBG"%(GO,wBG)
 
          if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.52 ")
@@ -57,9 +76,11 @@ def base(selection):
         if YEAR == "2016":
             wBG = " --alias wBG 'puw_nInt_Moriond(nTrueInt) *getLepSF_16(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_16(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_16(LepGood3_pt, LepGood3_eta, LepGood3_pdgId)*triggerSFfullsim3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, met_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, met_pt, met_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId))' " #*bTagWeight
             #wFS = " --alias wFS 'getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId) * getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId) * getLepSFFS(LepGood3_pt, LepGood3_eta, LepGood3_pdgId)*ISREwkCor*bTagWeightFS * triggerEff3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, met_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, met_pt, met_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood3_pdgId, LepGood3_pdgId, LepGood3_pdgId))' "
-        if YEAR == "2017":
+        elif YEAR == "2017":
             wBG = " --alias wBG 'vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_17(LepGood3_pt, LepGoog3_eta, LepGood3_pdgId)' "
             #wFS = " --alias wFS 1.0 "
+        elif YEAR == "2018":
+             wBG = " --alias wBG '1.0' "
         GO="%s %s -W wBG"%(GO,wBG)
 
         if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.42 ")
@@ -83,13 +104,15 @@ def procs(GO,mylist):
 def sigprocs(GO,mylist):
     return procs(GO,mylist)+' --showIndivSigs --noStackSig'
 
-def runIt(GO,name,plots=[],noplots=[]):
-    if dowhat == "plots":  
-        if not ('forcePlotChoice' in sys.argv[4:]): print submit.format(command=' '.join(['python mcPlots.py',"--pdir %s/%s/%s"%(ODIR,YEAR,name),GO,' '.join(['--sP %r'%p for p in plots]),' '.join(['--xP %r'%p for p in noplots]),' '.join(sys.argv[4:])]))
-        else: print 'python mcPlots.py',"--pdir %s/%s/%s"%(ODIR,YEAR,name),GO,' '.join([x for x in sys.argv[4:] if x!='forcePlotChoice'])
-    elif dowhat == "yields": print 'echo %s; python mcAnalysis.py'%name,GO,' '.join(sys.argv[4:])
-    elif dowhat == "dumps":  print 'echo %s; python mcDump.py'%name,GO,' '.join(sys.argv[4:])
-    elif dowhat == "ntuple": print 'echo %s; python mcNtuple.py'%name,GO,' '.join(sys.argv[4:])
+def runIt(GO,name):
+    if args.data: name=name+"_data"
+    if args.norm: name=name+"_norm"
+    if args.unc: name=name+"_unc"
+    if dowhat == "plots":  print submit.format(command=' '.join(['python mcPlots.py',"--pdir %s/%s/%s"%(ODIR,YEAR,name),GO,' '.join(['--sP %s'%p for p in args.sP]),' '.join(['--xP %s'%p for p in args.xP])]))
+    # What is supposed to be included in sys.argv[4] and after?
+    #elif dowhat == "yields": print 'echo %s; python mcAnalysis.py'%name,GO,' '.join(sys.argv[4:])
+    #elif dowhat == "dumps":  print 'echo %s; python mcDump.py'%name,GO,' '.join(sys.argv[4:])
+    #elif dowhat == "ntuple": print 'echo %s; python mcNtuple.py'%name,GO,' '.join(sys.argv[4:])
 
 def add(GO,opt):
     return '%s %s'%(GO,opt)
@@ -99,15 +122,19 @@ def setwide(x):
     x2 = x2.replace('--legendWidth 0.35','--legendWidth 0.20')
     return x2
 
-def binChoice(x,torun):
+def binYearChoice(x,torun,YEAR):
     metBin = ''
-    if '_low' in torun:
+    if '_min' in torun:
+        metBin = 'met75'
+    elif '_low' in torun:
         metBin = 'met125'
-    if '_med' in torun:
+    elif '_med' in torun:
         metBin = 'met200'
-    if '_high' in torun:
+    elif '_high' in torun:
         metBin = 'met250'
-    x2 = add(x,'-E ^'+metBin+' -E ^'+metBin+'_trig ')
+    x2 = add(x,'-E ^eventFilters_'+YEAR[-2:]+' ')
+    if metBin != '': x2 = add(x2,'-E ^'+metBin+' -E ^'+metBin+'_trig_'+YEAR[-2:]+' ')
+    else: print "\n--- NO TRIGGER APPLIED! ---\n"
     return x2
 
 allow_unblinding = False
@@ -115,14 +142,14 @@ allow_unblinding = False
 
 if __name__ == '__main__':
 
-    torun = sys.argv[3]
+    torun = args.conf
 
     if (not allow_unblinding) and '_data' in torun and (not any([re.match(x.strip()+'$',torun) for x in ['.*appl.*','.*cr.*','3l.*_Zpeak.*']])): raise RuntimeError, 'You are trying to unblind!'
 
 
     if '2los_' in torun:
         x = base('2los')
-        if '_low' or '_med' or '_high' in torun: x = binChoice(x,torun)
+        x = binYearChoice(x,torun,YEAR)
     
         if 'sr' in torun:
             if '_col' in torun:
@@ -157,14 +184,9 @@ if __name__ == '__main__':
             x = add(x,"-X ^mT ")
             x = add(x,"-I ^OS ")
 
-        if '_data' not in torun: x = add(x,'--xp data ')
-        if '_unc' in torun: x = add(x,"--unc susy-sos-v2-clean/systsUnc.txt")
-        if '_norm' in torun: x = add(x,"--sp '.*' --scaleSigToData ")
-
-
     elif '3l_' in torun:
         x = base('3l')
-        if '_low' or '_med' or '_high' in torun: x = binChoice(x,torun)
+        x = binYearChoice(x,torun,YEAR)
     
         if 'appl' in torun:
             x = add(x,"-X ^threeTight ")
@@ -176,16 +198,16 @@ if __name__ == '__main__':
             x = x.replace('-E ^met200 ','-E ^met200_CR ')
             if '_min' or '_low' in torun:
                 x = add(x,"-E ^CRWZPtLep_MuMu ")
-                if '_min' in torun: x = x.replace('-E ^ -E ^_trig','-E ^met75_CR -E ^met75_trig_CR ')
+                if '_min' in torun: x = x.replace('-E ^met75_trig','-E ^met75_trig_CR ')
                 if '_low' in torun: x = x.replace('-E ^met125_trig','-E ^met125_trig_CR ')
             if '_med' in torun: x = add(x,"-E ^CRWZPtLep_HighMET ")
 
-        if '_data' not in torun: x = add(x,'--xp data ')
-        if '_unc' in torun: x = add(x,"--unc ttH-multilepton/systsUnc.txt")
-        if '_norm' in torun: x = add(x,"--sp '.*' --scaleSigToData ")
-
     else: raise RuntimeError("You must include either '2los' or '3l' in the command!" )
 
+
+    if not args.data: x = add(x,'--xp data ')
+    if args.unc: x = add(x,"--unc susy-sos-v2-clean/systsUnc.txt")
+    if args.norm: x = add(x,"--sp '.*' --scaleSigToData ")
 
     if '_low' in torun :
         if YEAR=="2016": x = x.replace(LUMI," -l 33.2 ")

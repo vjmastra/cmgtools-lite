@@ -39,6 +39,7 @@ dowhat = "plots"
 P0="/eos/cms/store/cmst3/group/tthlep/peruzzi/NanoTrees_SOS_230819_v5/"
 nCores = 8
 TREESALL = " --Fs {P}/recleaner -P "+P0+"%s "%(YEAR,)
+#TREESALL = " --Fs /eos/cms/store/cmst3/user/vtavolar/susySOS/friends_fromv5/%s/recleaner -P "%(YEAR)+P0+"%s "%(YEAR)
 
 def base(selection):
     CORE=TREESALL
@@ -52,19 +53,19 @@ def base(selection):
     if dowhat == "plots": CORE+=LUMI+RATIO+RATIO2+LEGEND+LEGEND2+SPAM+" --showMCError "
 
 
-    wBG = " --alias wBG '1.0' "
-    #wFS = " --alias wFS '1.0' "
+    wBG = " '1.0' "
+    #wFS = " '1.0' "
     if selection=='2los':
          GO="%s susy-sos-v2-clean/mca/mca-2los-%s.txt susy-sos-v2-clean/2los_cuts.txt "%(CORE, YEAR)
 
          if YEAR == "2016":
-             wBG = " --alias wBG 'puw_nInt_Moriond(nTrueInt)*getLepSF_16(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_16(LepGood2_pt, LepGood2_eta, LepGood2_pdgIdg)*triggerSFfullsim(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt,LepGood2_phi, met_pt, met_phi))' " #*bTagWeight
-             #wFS = " --alias wFS 'getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*ISREwkCor*bTagWeightFS*triggerEff(LepGood1_pt, LepGood1_eta, LepGood2_pt,LepGood2_eta, met_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt, LepGood2_phi, met_pt, met_phi))' "
+             wBG = " 'getLepSF_16(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_16(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*triggerSFfullsim(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, MET_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt,LepGood2_phi, MET_pt, MET_phi))' " #puw_nInt_Moriond(nTrueInt)*bTagWeight
+             #wFS = " 'getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*ISREwkCor*bTagWeightFS*triggerEff(LepGood1_pt, LepGood1_eta, LepGood2_pt,LepGood2_eta, MET_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt, LepGood2_phi, MET_pt, MET_phi))' "
          elif YEAR == "2017": 
-             wBG = " --alias wBG 'vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)' "
+             wBG = " 'getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)' " #vtxWeight2017*
          elif YEAR == "2018":
-             wBG = " --alias wBG '1.0' "
-         GO="%s %s -W wBG"%(GO,wBG)
+             wBG = " '1.0' "
+         GO="%s -W %s"%(GO,wBG)
 
          if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.52 ")
          if dowhat == "plots": GO=GO.replace(RATIO,  " --maxRatioRange 0.6  1.99 --ratioYNDiv 210 ")
@@ -74,14 +75,13 @@ def base(selection):
         GO="%s susy-sos-v2-clean/mca-3l-%s.txt susy-sos-v2-clean/3l_cuts.txt "%(CORE,YEAR)
         
         if YEAR == "2016":
-            wBG = " --alias wBG 'puw_nInt_Moriond(nTrueInt) *getLepSF_16(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_16(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_16(LepGood3_pt, LepGood3_eta, LepGood3_pdgId)*triggerSFfullsim3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, met_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, met_pt, met_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId))' " #*bTagWeight
-            #wFS = " --alias wFS 'getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId) * getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId) * getLepSFFS(LepGood3_pt, LepGood3_eta, LepGood3_pdgId)*ISREwkCor*bTagWeightFS * triggerEff3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, met_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, met_pt, met_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood3_pdgId, LepGood3_pdgId, LepGood3_pdgId))' "
+            wBG = " 'getLepSF_16(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_16(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_16(LepGood3_pt, LepGood3_eta, LepGood3_pdgId)*triggerSFfullsim3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, MET_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, MET_pt, MET_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId))' " #puw_nInt_Moriond(nTrueInt)*bTagWeight
+            #wFS = " 'getLepSFFS(LepGood1_pt, LepGood1_eta, LepGood1_pdgId) * getLepSFFS(LepGood2_pt, LepGood2_eta, LepGood2_pdgId) * getLepSFFS(LepGood3_pt, LepGood3_eta, LepGood3_pdgId)*ISREwkCor*bTagWeightFS * triggerEff3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, MET_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, MET_pt, MET_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood3_pdgId, LepGood3_pdgId, LepGood3_pdgId))' "
         elif YEAR == "2017":
-            wBG = " --alias wBG 'vtxWeight2017*getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_17(LepGood3_pt, LepGoog3_eta, LepGood3_pdgId)' "
-            #wFS = " --alias wFS 1.0 "
+            wBG = " 'getLepSF_17(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_17(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_17(LepGood3_pt, LepGoog3_eta, LepGood3_pdgId)' " #vtxWeight2017*
         elif YEAR == "2018":
-             wBG = " --alias wBG '1.0' "
-        GO="%s %s -W wBG"%(GO,wBG)
+             wBG = " '1.0' "
+        GO="%s -W %s"%(GO,wBG)
 
         if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.42 ")
         GO += " --binname 3l "
@@ -132,8 +132,8 @@ def binYearChoice(x,torun,YEAR):
         metBin = 'met200'
     elif '_high' in torun:
         metBin = 'met250'
-    x2 = add(x,'-E ^eventFilters_'+YEAR[-2:]+' ')
-    if metBin != '': x2 = add(x2,'-E ^'+metBin+' -E ^'+metBin+'_trig_'+YEAR[-2:]+' ')
+    x2 = add(x,'-E ^eventFilters_'+YEAR[-2:]+'$ ')
+    if metBin != '': x2 = add(x2,'-E ^'+metBin+'$ -E ^'+metBin+'_trig_'+YEAR[-2:]+'$ ')
     else: print "\n--- NO TRIGGER APPLIED! ---\n"
     return x2
 
@@ -153,54 +153,60 @@ if __name__ == '__main__':
     
         if 'sr' in torun:
             if '_col' in torun:
-                x = add(x,"-X ^mT -X ^SF ")
-                if '_med' or '_high' in torun: x = add(x,"-X ^pt5sublep ")
+                x = add(x,"-X ^mT$ -X ^SF$ ")
+                if '_med' or '_high' in torun: x = add(x,"-X ^pt5sublep$ ")
 
         if 'appl' in torun:
             if '_col' in torun:
-                x = add(x,"-X ^mT -X ^SF ")
-                if '_med' or '_high' in torun: x = add(x,"-X ^pt5sublep ")
-            x = add(x,"-X ^twoTight ")
-            x = add(x,"-E ^oneNotTight ")
+                x = add(x,"-X ^mT$ -X ^SF$ ")
+                if '_med' or '_high' in torun: x = add(x,"-X ^pt5sublep$ ")
+            x = add(x,"-X ^twoTight$ ")
+            x = add(x,"-E ^oneNotTight$ ")
 
         if 'cr_dy' in torun:
-            if '_med' in torun: x = x.replace('-E ^met200 ','-E ^met200_CR ')
-            x = add(x,"-X ^ledlepPt -X ^twoTight ")
-            x = add(x,"-I ^mtautau ")
-            x = add(x,"-E ^CRDYlepId -E ^CRDYledlepPtIp ")
+            if '_med' in torun: x = x.replace('-E ^met200$','-E ^met200_CR$')
+            x = add(x,"-X ^ledlepPt$ -X ^twoTight$ ")
+            x = add(x,"-I ^mtautau$ ")
+            x = add(x,"-E ^CRDYlepId$ -E ^CRDYledlepPtIp$ ")
 
         if 'cr_tt' in torun:
-            if '_med' in torun: x = add(x,'-E ^met200_CR -X ^pt5sublep ')
-            x = add(x,"-X ^ledlepPt -X ^twoTight -X ^bveto -X ^mT ")
-            x = add(x,"-E ^CRTTlepId -E ^CRTTledlepPt -E ^btag ")
+            if '_med' in torun:
+                x = x.replace('-E ^met200$','-E ^met200_CR$')
+                x = add(x,'-X ^pt5sublep$ ')
+            x = add(x,"-X ^ledlepPt$ -X ^twoTight$ -X ^bveto$ -X ^mT$ ")
+            x = add(x,"-E ^CRTTlepId$ -E ^CRTTledlepPt$ -E ^btag$ ")
 
         if 'cr_vv' in torun:
-            if '_med' in torun: x = add(x,'-E ^met200_CR -X ^pt5sublep ')
-            x = add(x,"-X ^ledlepPt -X ^twoTight -X ^mT ")
-            x = add(x,"-E ^CRVVlepId -E ^CRVVleplepPt -E ^CRVVmT ")
+            if '_med' in torun:
+                x = x.replace('-E ^met200$','-E ^met200_CR$')
+                x = add(x,'-X ^pt5sublep$ ')
+            x = add(x,"-X ^ledlepPt$ -X ^twoTight$ -X ^mT$ ")
+            x = add(x,"-E ^CRVVlepId$ -E ^CRVVleplepPt$ -E ^CRVVmT$ ")
 
         if 'cr_ss' in torun:
-            if '_med' in torun: x = add(x,'-E ^met200_CR -X ^pt5sublep ')
-            x = add(x,"-X ^mT ")
-            x = add(x,"-I ^OS ")
+            if '_med' in torun:
+                x = x.replace('-E ^met200$','-E ^met200_CR$')
+                x = add(x,'-X ^pt5sublep$ ')
+            x = add(x,"-X ^mT$ ")
+            x = add(x,"-I ^OS$ ")
 
     elif '3l_' in torun:
         x = base('3l')
         x = binYearChoice(x,torun,YEAR)
     
         if 'appl' in torun:
-            x = add(x,"-X ^threeTight ")
-            x = add(x,"-E ^oneNotTight ")
+            x = add(x,"-X ^threeTight$ ")
+            x = add(x,"-E ^oneNotTight$ ")
 
         if 'cr_wz' in torun:
-            x = add(x,"-X ^minMll -X ^ZvetoTrigger -X ^ledlepPt -X ^threeTight -X ^pt5sublep ")
-            x = add(x,"-E ^CRWZlepId -E ^CRWZmll ")
-            x = x.replace('-E ^met200 ','-E ^met200_CR ')
+            x = add(x,"-X ^minMll$ -X ^ZvetoTrigger$ -X ^ledlepPt$ -X ^threeTight$ -X ^pt5sublep$ ")
+            x = add(x,"-E ^CRWZlepId$ -E ^CRWZmll$ ")
+            x = x.replace('-E ^met200$','-E ^met200_CR$')
             if '_min' or '_low' in torun:
-                x = add(x,"-E ^CRWZPtLep_MuMu ")
-                if '_min' in torun: x = x.replace('-E ^met75_trig','-E ^met75_trig_CR ')
-                if '_low' in torun: x = x.replace('-E ^met125_trig','-E ^met125_trig_CR ')
-            if '_med' in torun: x = add(x,"-E ^CRWZPtLep_HighMET ")
+                x = add(x,"-E ^CRWZPtLep_MuMu$ ")
+                if '_min' in torun: x = x.replace('-E ^met75_trig','-E ^met75_trig_CR')
+                if '_low' in torun: x = x.replace('-E ^met125_trig','-E ^met125_trig_CR')
+            if '_med' in torun: x = add(x,"-E ^CRWZPtLep_HighMET$ ")
 
     else: raise RuntimeError("You must include either '2los' or '3l' in the command!" )
 

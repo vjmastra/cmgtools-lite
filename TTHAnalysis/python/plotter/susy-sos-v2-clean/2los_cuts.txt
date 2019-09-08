@@ -2,7 +2,7 @@
 alwaystrue	: 1
 
 #eventFilters_16	: $DATA{EventFilters16} $MC{1}	; Disable=True # Temporarily disabled
-eventFilters_17	: $DATA{EventFilters17} $MC{1}	; Disable=True
+#eventFilters_17	: $DATA{EventFilters17} $MC{1}	; Disable=True
 #eventFilters_18	: $DATA{EventFilters18} $MC{1}	; Disable=True # Temporarily disabled
 
 dilep		: nLepGood == 2

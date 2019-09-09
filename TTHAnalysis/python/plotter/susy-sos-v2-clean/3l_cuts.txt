@@ -1,9 +1,9 @@
 ##### Always applied cuts
 alwaystrue	: 1
 
-#eventFilters_16	: $DATA{EventFilters16} $MC{1}	; Disable=True # Temporarily disabled
+eventFilters_16	: $DATA{EventFilters16} $MC{1}	; Disable=True
 eventFilters_17	: $DATA{EventFilters17} $MC{1}	; Disable=True
-#eventFilters_18	: $DATA{EventFilters18} $MC{1}	; Disable=True # Temporarily disabled
+eventFilters_18	: $DATA{EventFilters18} $MC{1}	; Disable=True
 
 dilep		: nLepGood == 3
 sublepPt	: (fabs(LepGood2_pdgId)==13 && LepGood2_pt > 3.5) || (fabs(LepGood2_pdgId)==11 && LepGood2_pt > 5)
@@ -21,6 +21,7 @@ met75_trig_CR_16	: HLT_MuMu16	; Disable=True
 met75_trig_CR_17	: HLT_MuMu17	; Disable=True
 met75_trig_CR_18	: HLT_MuMu18	; Disable=True
 ### Low MET
+xpRun2017B	: $DATA{!(run < 299330)} $MC{1}	; Disable=True # Should be enabled only in 2017 to exclude runs that don't have the low MET trigger
 met125		: MET_pt > 125 && metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi,LepGood3_pt,LepGood3_phi, MET_pt, MET_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)) > 125 && MET_pt < 200	; Disable=True 
 mml		: ((LepGood1_pdgId*LepGood2_pdgId < 0) && (fabs(LepGood1_pdgId) == 13 && fabs(LepGood2_pdgId) == 13)) || ((LepGood1_pdgId*LepGood3_pdgId < 0) && (fabs(LepGood1_pdgId) == 13 && fabs(LepGood3_pdgId) == 13)) || ((LepGood3_pdgId*LepGood2_pdgId < 0) && (fabs(LepGood2_pdgId) == 13 && fabs(LepGood3_pdgId) == 13))	; Disable=True
 met125_trig_16	: HLT_MuMuMET16	; Disable=True
@@ -44,6 +45,8 @@ ledlepPt	: 5.0 < LepGood1_pt && LepGood1_pt < 30.0
 threeTight	: LepGood1_isLepTight && LepGood2_isLepTight && LepGood3_isLepTight
 bveto		: nBJetLoose25 == 0
 pt5sublep	: LepGood2_pt > 5 && LepGood3_pt > 5
+### Low MET
+mm		: ( abs(LepGood1_pdgId)==13 && abs(LepGood2_pdgId)==13 ) || ( abs(LepGood1_pdgId)==13 && abs(LepGood3_pdgId)==13 ) || ( abs(LepGood2_pdgId)==13 && abs(LepGood3_pdgId)==13 )  
 
 
 ##### WZ CR

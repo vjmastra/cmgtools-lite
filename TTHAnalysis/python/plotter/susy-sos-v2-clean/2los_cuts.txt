@@ -1,9 +1,9 @@
 ##### Always applied cuts
 alwaystrue	: 1
 
-#eventFilters_16	: $DATA{EventFilters16} $MC{1}	; Disable=True # Temporarily disabled
-#eventFilters_17	: $DATA{EventFilters17} $MC{1}	; Disable=True
-#eventFilters_18	: $DATA{EventFilters18} $MC{1}	; Disable=True # Temporarily disabled
+eventFilters_16	: $DATA{EventFilters16} $MC{1}	; Disable=True
+eventFilters_17	: $DATA{EventFilters17} $MC{1}	; Disable=True
+eventFilters_18	: $DATA{EventFilters18} $MC{1}	; Disable=True
 
 dilep		: nLepGood == 2
 sublepPt	: (fabs(LepGood2_pdgId)==13 && LepGood2_pt > 3.5) || (fabs(LepGood2_pdgId)==11 && LepGood2_pt > 5)
@@ -19,11 +19,11 @@ minHT		: (htJet25j_Recl-LepGood1_pt-LepGood2_pt) > 100
 
 ##### Triggers and Binning
 ### Low MET
+xpRun2017B	: $DATA{!(run < 299330)} $MC{1}	; Disable=True # Should be enabled only in 2017 to exclude runs that don't have the low MET trigger
 met125		: MET_pt > 125 && metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt, LepGood2_phi, MET_pt, MET_phi) > 125 && MET_pt < 200 && abs(LepGood1_pdgId)==13 && abs(LepGood2_pdgId)==13	; Disable=True 
 met125_trig_16	: HLT_MuMuMET16	; Disable=True
 met125_trig_17	: HLT_MuMuMET17	; Disable=True
 met125_trig_18	: HLT_MuMuMET18	; Disable=True
-#xpRun2017B	: $DATA{!(run < 299330)}	; Disable=True # Should be enabled only in 2017 to exclude runs that don't have the low MET trigger
 ### Med MET	
 met200		: MET_pt > 200 && metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt, LepGood2_phi, MET_pt, MET_phi) > 200 && MET_pt < 250	; Disable=True
 met200_col	: MET_pt > 200 && metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt, LepGood2_phi, MET_pt, MET_phi) > 200 && MET_pt < 300	; Disable=True
@@ -48,6 +48,8 @@ mtautau		: 0.0 > mass_tautau(MET_pt,MET_phi,LepGood1_pt,LepGood1_eta,LepGood1_ph
 ### EWK
 mT		: mt_2(LepGood1_pt, LepGood1_phi, MET_pt, MET_phi) < 70. && mt_2(LepGood2_pt, LepGood2_phi, MET_pt, MET_phi) < 70.0
 SF		: abs(LepGood1_pdgId*LepGood2_pdgId)==169 || abs(LepGood1_pdgId*LepGood2_pdgId)==121
+### Low MET
+mm		: abs(LepGood1_pdgId)==13 && abs(LepGood2_pdgId)==13
 ### EWK OR Low MET
 pt5sublep	: (fabs(LepGood2_pdgId)==13 && LepGood2_pt > 5) || (fabs(LepGood2_pdgId)==11 && LepGood2_pt > 5)
 

@@ -57,6 +57,7 @@ def base(selection):
     #wFS = " '1.0' "
     if selection=='2los':
          GO="%s susy-sos-v2-clean/mca/mca-2los-%s.txt susy-sos-v2-clean/2los_cuts.txt "%(CORE, YEAR)
+         if dowhat in ["plots","ntuple"]: GO+=" susy-sos-v2-clean/2los_plots.txt "
 
          if YEAR == "2016":
              wBG = " 'getLepSF_16(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_16(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*triggerSFfullsim(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, MET_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt,LepGood2_phi, MET_pt, MET_phi))' " #puw_nInt_Moriond(nTrueInt)*bTagWeight
@@ -73,6 +74,7 @@ def base(selection):
  
     elif selection=='3l':
         GO="%s susy-sos-v2-clean/mca-3l-%s.txt susy-sos-v2-clean/3l_cuts.txt "%(CORE,YEAR)
+        if dowhat in ["plots","ntuple"]: GO+=" susy-sos-v2-clean/3l_plots.txt "
         
         if YEAR == "2016":
             wBG = " 'getLepSF_16(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_16(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_16(LepGood3_pt, LepGood3_eta, LepGood3_pdgId)*triggerSFfullsim3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, MET_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, MET_pt, MET_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId))' " #puw_nInt_Moriond(nTrueInt)*bTagWeight
@@ -88,8 +90,6 @@ def base(selection):
 
     else:
         raise RuntimeError('Unknown selection')
-
-    if dowhat in ["plots","ntuple"]: GO+=" susy-sos-v2-clean/2los_3l_plots.txt "
 
     return GO
 
@@ -124,16 +124,20 @@ def setwide(x):
 
 def binYearChoice(x,torun,YEAR):
     metBin = ''
+    x2 = add(x,'-E ^eventFilters_'+YEAR[-2:]+'$ ')
     if '_min' in torun:
         metBin = 'met75'
     elif '_low' in torun:
         metBin = 'met125'
     elif '_med' in torun:
         metBin = 'met200'
+        x2 = add(x2,'-X ^mm$ ')
     elif '_high' in torun:
         metBin = 'met250'
-    x2 = add(x,'-E ^eventFilters_'+YEAR[-2:]+'$ ')
-    if metBin != '': x2 = add(x2,'-E ^'+metBin+'$ -E ^'+metBin+'_trig_'+YEAR[-2:]+'$ ')
+        x2 = add(x2,'-X ^mm$ ')
+    if metBin != '':
+        if YEAR == '2017' and '_low' in torun: x2 = add(x2,'-E ^xpRun2017B$ ')
+        x2 = add(x2,'-E ^'+metBin+'$ -E ^'+metBin+'_trig_'+YEAR[-2:]+'$ ')
     else: print "\n--- NO TRIGGER APPLIED! ---\n"
     return x2
 
@@ -154,14 +158,23 @@ if __name__ == '__main__':
         if 'sr' in torun:
             if '_col' in torun:
                 x = add(x,"-X ^mT$ -X ^SF$ ")
-                if '_med' or '_high' in torun: x = add(x,"-X ^pt5sublep$ ")
+                if '_med' or '_high' in torun:
+                    x = add(x,"-X ^pt5sublep$ ")
+                    if '_med' in torun: x = x.replace('-E ^met200$','-E ^met200_col$')
+                    elif '_high' in torun: x = x.replace('-E ^met250$','-E ^met300_col$')
 
         if 'appl' in torun:
             if '_col' in torun:
                 x = add(x,"-X ^mT$ -X ^SF$ ")
-                if '_med' or '_high' in torun: x = add(x,"-X ^pt5sublep$ ")
+                if '_med' or '_high' in torun:
+                    x = add(x,"-X ^pt5sublep$ ")
+                    if '_med' in torun: x = x.replace('-E ^met200$','-E ^met200_col$')
+                    elif '_high' in torun: x = x.replace('-E ^met250$','-E ^met300_col$')
             x = add(x,"-X ^twoTight$ ")
             x = add(x,"-E ^oneNotTight$ ")
+
+        if 'cr' in torun:
+            x = add(x, "-X ^SF$ ")
 
         if 'cr_dy' in torun:
             if '_med' in torun: x = x.replace('-E ^met200$','-E ^met200_CR$')

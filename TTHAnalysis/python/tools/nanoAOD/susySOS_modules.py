@@ -226,7 +226,7 @@ def tightEleID(lep,year):# from https://twiki.cern.ch/twiki/pub/CMS/SUSLeptonSF/
 
 
 def clean_and_FO_selection_SOS(lep, year):
-    bTagCut = 0.2217 if year==2016 else 0.1552 if year==2017 else 0.1241
+    bTagCut = 0.4 if year==2016 else 0.1552 if year==2017 else 0.1241 ##2016 loose recomm is 0.2217, while 0.4 derived to match 2018 performance
 #    print "btagDeepB ",lep.btagDeepB
  #   print "jetBTagDeepCSV ",lep.jetBTagDeepCSV
     return lep.jetBTagDeepCSV < bTagCut and ( (abs(lep.pdgId)==11 and VLooseFOEleID(lep, year) and lep.lostHits==0 and lep.convVeto)
@@ -262,7 +262,7 @@ from CMGTools.TTHAnalysis.tools.nanoAOD.fastCombinedObjectRecleaner import fastC
 recleaner_step1 = lambda : CombinedObjectTaggerForCleaning("InternalRecl",
                                        #looseLeptonSel = lambda lep : lep.miniPFRelIso_all < 0.4 and lep.sip3d < 8,
 
-                                       looseLeptonSel = lambda lep : ((abs(lep.pdgId==11) and (VLooseFOEleID(lep, year) and lep.lostHits<=1))) or (abs(lep.pdgId==13) and lep.looseId),
+                                       looseLeptonSel = lambda lep,year : ((abs(lep.pdgId)==11 and (VLooseFOEleID(lep, year) and lep.lostHits<=1))) or (abs(lep.pdgId)==13 and lep.looseId),
 
                                        cleaningLeptonSel = lambda lep,year : clean_and_FO_selection_SOS(lep, year), #veryLooseFO wp
                                        FOLeptonSel = lambda lep,year : clean_and_FO_selection_SOS(lep, year), #veryLooseFO wp
@@ -323,12 +323,15 @@ isTightSOSLepGood = lambda : ObjTagger('isTightSOSLepGood', "LepGood", [ fullTig
 
 
 isTightLepDY = lambda : ObjTagger('isTightLepDY', "LepGood", [   lambda lep,year : clean_and_FO_selection_SOS(lep,year) and 
-                                                                 (
+                                                                (
                                                                      (abs(lep.pdgId)==13 or tightEleID(lep, year) 
                                                                   ) 
-                                                                     and lep.pfRelIso03_all<0.5 
-                                                                     and (lep.pfRelIso03_all*lep.pt)<5. 
-                                                                     and abs(lep.ip3d)<0.01)    ]) #no sip3d cut
+                                                                and lep.pfRelIso03_all<0.5 
+                                                                and (
+                                                                          (lep.pfRelIso03_all*lep.pt)<5. or lep.pfRelIso03_all<0.1 
+                                                                     ) 
+                                                                 )
+                                                             ]) #no sip3d cut, no ip3d cut, relax iso cut
 isTightLepTT = lambda : ObjTagger('isTightLepTT', "LepGood", [ lambda lep,year : clean_and_FO_selection_SOS(lep,year) and 
                                                                   ( 
                                                                       (abs(lep.pdgId)==13 or tightEleID(lep, year) 

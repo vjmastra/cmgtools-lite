@@ -59,7 +59,6 @@ pt5sublep	: (fabs(LepGood2_pdgId)==13 && LepGood2_pt > 5) || (fabs(LepGood2_pdgI
 ### Invert mtautau
 CRDYlepId	: LepGood1_isTightLepDY && LepGood2_isTightLepDY	; Disable=True
 CRDYledlepPt	: 20.0 < LepGood1_pt	; Disable=True
-CRDYlepIp	: ( fabs(LepGood1_ip3d) > 0.01 || fabs(LepGood1_sip3d) > 2 ) && ( fabs(LepGood2_ip3d) > 0.01 || fabs(LepGood2_sip3d) > 2 )	; Disable=True
 
 
 ##### TT CR
@@ -83,7 +82,7 @@ CRVVmT		: mt_2(LepGood1_pt, LepGood1_phi, MET_pt, MET_phi) > 90. || mt_2(LepGood
 
 #### Application Region
 ### Disable twoTight cut
-oneNotTight	: !(LepGood1_isTightString) || !(LepGood2_isTightString)	; Disable=True
+oneNotTight	: !(LepGood1_isLepTight) || !(LepGood2_isLepTight)	; Disable=True
 
 
 ######################################################################################

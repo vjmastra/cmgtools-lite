@@ -154,7 +154,7 @@ if __name__ == '__main__':
 
     torun = conf
 
-    if (not allow_unblinding) and '_data' in torun and (not any([re.match(x.strip()+'$',torun) for x in ['.*appl.*','.*cr.*','3l.*_Zpeak.*']])): raise RuntimeError, 'You are trying to unblind!'
+    if (not allow_unblinding) and args.data and (not any([re.match(x.strip()+'$',torun) for x in ['.*appl.*','.*cr.*','3l.*_Zpeak.*']])): raise RuntimeError, 'You are trying to unblind!'
 
 
     if '2los_' in torun:
@@ -186,7 +186,7 @@ if __name__ == '__main__':
             if '_med' in torun: x = x.replace('-E ^met200$','-E ^met200_CR$')
             x = add(x,"-X ^ledlepPt$ -X ^twoTight$ ")
             x = add(x,"-I ^mtautau$ ")
-            x = add(x,"-E ^CRDYlepId$ -E ^CRDYledlepPt$ -E ^CRDYlepIp$ ")
+            x = add(x,"-E ^CRDYlepId$ -E ^CRDYledlepPt$ ")
 
         if 'cr_tt' in torun:
             if '_med' in torun:
@@ -221,7 +221,7 @@ if __name__ == '__main__':
             x = add(x,"-X ^minMll$ -X ^ZvetoTrigger$ -X ^ledlepPt$ -X ^threeTight$ -X ^pt5sublep$ ")
             x = add(x,"-E ^CRWZlepId$ -E ^CRWZmll$ ")
             x = x.replace('-E ^met200$','-E ^met200_CR$')
-            if '_min' or '_low' in torun:
+            if ('_min' or '_low') in torun:
                 x = add(x,"-E ^CRWZPtLep_MuMu$ ")
                 if '_min' in torun: x = x.replace('-E ^met75_trig','-E ^met75_trig_CR')
                 if '_low' in torun: x = x.replace('-E ^met125_trig','-E ^met125_trig_CR')

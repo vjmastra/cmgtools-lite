@@ -8,7 +8,7 @@ Fakes_Wj           : WJetsToLNu_HT800to1200        : xsec  : LepGood1_mcMatchId=
 Fakes_Wj           : WJetsToLNu_HT1200to2500       : xsec  : LepGood1_mcMatchId==0 || LepGood2_mcMatchId==0        ;  FillColor=ROOT.kGray, Label="Wj(fakes)"
 Fakes_Wj           : WJetsToLNu_HT2500toInf        : xsec  : LepGood1_mcMatchId==0 || LepGood2_mcMatchId==0        ;  FillColor=ROOT.kGray, Label="Wj(fakes)"
 
-#Fakes_tt           : TTJets_DiLepton               : xsec  : LepGood1_mcMatchId==0 || LepGood2_mcMatchId==0        ;  FillColor=ROOT.kGray+1, Label="tt(fakes)"
+Fakes_tt           : TTJets_DiLepton               : xsec  : LepGood1_mcMatchId==0 || LepGood2_mcMatchId==0        ;  FillColor=ROOT.kGray+1, Label="tt(fakes)"
 Fakes_tt           : TTJets_SingleLeptonFromTbar   : xsec  : LepGood1_mcMatchId==0 || LepGood2_mcMatchId==0        ;  FillColor=ROOT.kGray+1, Label="tt(fakes)"
 Fakes_tt           : TTJets_SingleLeptonFromT      : xsec  : LepGood1_mcMatchId==0 || LepGood2_mcMatchId==0        ;  FillColor=ROOT.kGray+1, Label="tt(fakes)"
 

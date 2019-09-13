@@ -14,6 +14,4 @@ prompt_vv       : ZZTo2L2Nu                     : xsec  : LepGood1_mcMatchId!=0 
 #prompt_vv      : VHToNonbb                     : xsec  : LepGood1_mcMatchId!=0 && LepGood2_mcMatchId!=0        ; FillColor=ROOT.kViolet-4, Label="VV"
 #prompt_vv      : ZZTo2L2Q                      : xsec  : LepGood1_mcMatchId!=0 && LepGood2_mcMatchId!=0        ; FillColor=ROOT.kViolet-4, Label="VV"
 prompt_vv       : ZZTo4L                        : xsec  : LepGood1_mcMatchId!=0 && LepGood2_mcMatchId!=0        ; FillColor=ROOT.kViolet-4, Label="VV"
-prompt_vv       : WWTo2L2Nu             	: xsec  : LepGood1_mcMatchId!=0 && LepGood2_mcMatchId!=0        ; FillColor=ROOT.kViolet-4, Label="VV"
 prompt_vv       : WpWpJJ                        : xsec  : LepGood1_mcMatchId!=0 && LepGood2_mcMatchId!=0        ; FillColor=ROOT.kViolet-4, Label="VV"
-

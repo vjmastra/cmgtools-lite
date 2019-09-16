@@ -1,5 +1,5 @@
 ### DY
-prompt_dy       : DYJetsToLL_M50_HT70to100     : xsec  : LepGood1_mcMatchId!=0 && LepGood2_mcMatchId!=0        ; FillColor=ROOT.kCyan, Label="DY"  ##ScaleFactorDY ?
+prompt_dy       : DYJetsToLL_M50_HT70to100      : xsec  : LepGood1_mcMatchId!=0 && LepGood2_mcMatchId!=0        ; FillColor=ROOT.kCyan, Label="DY"  ##ScaleFactorDY ?
 prompt_dy       : DYJetsToLL_M5to50_HT100to200  : xsec  : LepGood1_mcMatchId!=0 && LepGood2_mcMatchId!=0        ; FillColor=ROOT.kCyan, Label="DY"  ##ScaleFactorDY ?
 prompt_dy       : DYJetsToLL_M5to50_HT200to400  : xsec  : LepGood1_mcMatchId!=0 && LepGood2_mcMatchId!=0        ; FillColor=ROOT.kCyan, Label="DY"  ##ScaleFactorDY ?
 prompt_dy       : DYJetsToLL_M5to50_HT400to600  : xsec  : LepGood1_mcMatchId!=0 && LepGood2_mcMatchId!=0        ; FillColor=ROOT.kCyan, Label="DY"  ##ScaleFactorDY ?

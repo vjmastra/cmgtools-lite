@@ -5,7 +5,7 @@ import os
 import argparse
 
 helpText = "LEP = '2los', '3los'\n\
-REG = 'sr', 'sr_col', 'cr_dy', 'cr_tt', 'cr_vv', 'cr_ss', 'cr_wz', 'appl'\n\
+REG = 'sr', 'sr_col', 'cr_dy', 'cr_tt', 'cr_vv', 'cr_ss', 'cr_wz', 'appl', 'appl_col'\n\
 BIN = 'min', 'low', 'med', 'high'"
 parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter,
                                  epilog=helpText)
@@ -27,7 +27,7 @@ conf="%s_%s_%s"%(args.lep,args.reg,args.bin)
 
 if YEAR not in ("2016","2017","2018"): raise RuntimeError("Unknown year: Please choose '2016', '2017' or '2018'")
 if args.lep not in ["2los","3l"]: raise RuntimeError("Unknown choice for LEP option. Please check help" )
-if args.reg not in ["sr", "sr_col", "cr_dy", "cr_tt", "cr_vv", "cr_ss", "cr_wz", "appl"]: raise RuntimeError("Unknown choice for REG option. Please check help." )
+if args.reg not in ["sr", "sr_col", "cr_dy", "cr_tt", "cr_vv", "cr_ss", "cr_wz", "appl", "appl_col"]: raise RuntimeError("Unknown choice for REG option. Please check help." )
 if args.bin not in ["min", "low", "med", "high"]: raise RuntimeError("Unknown choice for BIN option. Please check help." )
 
 lumis = {

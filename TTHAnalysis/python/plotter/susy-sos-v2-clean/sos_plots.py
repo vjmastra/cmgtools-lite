@@ -169,7 +169,7 @@ if __name__ == '__main__':
                 if '_med' in torun: 
                      x = add(x,"-X ^pt5sublep$ ")
                      x = x.replace('-E ^met200$','-E ^met200_col$')
-                elif '_high' in torun: 
+                if '_high' in torun: 
                      x = add(x,"-X ^pt5sublep$ ")
                      x = x.replace('-E ^met250$','-E ^met300_col$')
 
@@ -181,7 +181,7 @@ if __name__ == '__main__':
                 if '_med' in torun: 
                     x = add(x,"-X ^pt5sublep$ ")
                     x = x.replace('-E ^met200$','-E ^met200_col$')
-                elif '_high' in torun: 
+                if '_high' in torun: 
                     x = add(x,"-X ^pt5sublep$ ")
                     x = x.replace('-E ^met250$','-E ^met300_col$')
             x = add(x,"-X ^twoTight$ ")

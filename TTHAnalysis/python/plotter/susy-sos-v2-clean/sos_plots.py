@@ -164,8 +164,6 @@ if __name__ == '__main__':
         if 'sr' in torun:
             if '_col' in torun:
                 x = add(x,"-X ^mT$ -X ^SF$ ")
-                #if '_med' or '_high' in torun:
-                #    x = add(x,"-X ^pt5sublep$ ")
                 if '_med' in torun: 
                      x = add(x,"-X ^pt5sublep$ ")
                      x = x.replace('-E ^met200$','-E ^met200_col$')
@@ -176,8 +174,6 @@ if __name__ == '__main__':
         if 'appl' in torun:
             if '_col' in torun:
                 x = add(x,"-X ^mT$ -X ^SF$ ")
-                #if '_med' or '_high' in torun:
-                #    x = add(x,"-X ^pt5sublep$ ")
                 if '_med' in torun: 
                     x = add(x,"-X ^pt5sublep$ ")
                     x = x.replace('-E ^met200$','-E ^met200_col$')
@@ -229,8 +225,6 @@ if __name__ == '__main__':
             x = add(x,"-X ^minMll$ -X ^ZvetoTrigger$ -X ^ledlepPt$ -X ^threeTight$ -X ^pt5sublep$ ")
             x = add(x,"-E ^CRWZlepId$ -E ^CRWZmll$ ")
             x = x.replace('-E ^met200$','-E ^met200_CR$')
-            #if ('_min' or '_low') in torun:
-            #    x = add(x,"-E ^CRWZPtLep_MuMu$ ")
             if '_min' in torun: 
                 x = add(x,"-E ^CRWZPtLep_MuMu$ ")
                 x = x.replace('-E ^met75_trig','-E ^met75_trig_CR')

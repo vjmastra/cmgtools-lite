@@ -1,6 +1,6 @@
 ## TChiWZ Signal Points
 ---------------------------------------
-incl_signal	: + ; IncludeMca="susy-sos-v2-clean/mca-includes/2017/mca-signal.txt"
+incl_signal	: + ; IncludeMca="susy-sos-v2-clean/mca-includes/2017/mca-3l-signal.txt"
 
 ## Prompt bkg
 ---------------------------------------

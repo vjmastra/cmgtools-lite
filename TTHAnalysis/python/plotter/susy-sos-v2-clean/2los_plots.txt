@@ -51,6 +51,11 @@ lep2eta       : abs(LepGood2_eta)                                    : 10,0,2.5 
 # more plots
 lep1ptext     : LepGood1_pt                                              : 9,0,180  ; XTitle="Leading lepton p_{T} [GeV]"     , Legend='TR', IncludeOverflows=True, LegendCutoff=1e-10
 lep2ptext     : LepGood2_pt                                              : 9,0,180  ; XTitle="Subleading lepton p_{T} [GeV]"  , Legend='TR', IncludeOverflows=True, LegendCutoff=1e-10
+#PtLep1vsPtLep2: LepGood2_pt\: LepGood1_pt: 20,0,100,20, 0,100; YTitle="Lep2 Pt", XTitle="Lep1 Pt";
+#PtMu1vsPtMu2  : if3(abs(LepGood1_pdgId)==13  , LepGood1_pt      , -1)\: if3(abs(LepGood2_pdgId)==13  , LepGood2_pt      , -1) :9, 0, 180, 9, 0, 180; YTitle="Mu2 Pt", XTitle="Mu1 Pt";
+#PtEle1vsPtEle2  : if3(abs(LepGood1_pdgId)==11  , LepGood1_pt      , -1)\: if3(abs(LepGood2_pdgId)==11  , LepGood2_pt      , -1) :9, 0, 180, 9, 0, 180; YTitle="Ele2 Pt", XTitle="Ele1 Pt";
+#iLepFO1iLepFO2  : iLepFO_Recl[1]\: iLepFO_Recl[0]: 10, -2,10,10, -2, 10; YTitle="Index lep 2", XTitle="Index lep 1";
+
 #lep1_mcMatchID : LepGood1_mcMatchId      : 30, 0, 30 ; XTitle="mcMatchID lep1"
 #lep2_mcMatchID : LepGood2_mcMatchId      : 30, 0, 30 ; XTitle="mcMatchID lep2"
 #lep1_genPartFlav : LepGood1_genPartFlav : 30, 0,30; XTitle="Gen Part Flavor lep1"

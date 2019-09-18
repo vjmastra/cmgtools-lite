@@ -48,6 +48,7 @@ P0="/eos/cms/store/cmst3/group/tthlep/peruzzi/NanoTrees_SOS_230819_v5/"
 nCores = 8
 #TREESALL = " --Fs {P}/recleaner -P "+P0+"%s "%(YEAR,)
 TREESALL = " --Fs /eos/cms/store/cmst3/user/vtavolar/susySOS/friends_fromv5/%s/recleaner -P "%(YEAR)+P0+"%s "%(YEAR)
+if YEAR == "2018": TREESALL = " --Fs /eos/cms/store/cmst3/user/vtavolar/susySOS/friends_fromv5/%s/recleaner -P "%(YEAR)+P0+"%s "%(YEAR) + "-P /eos/cms/store/cmst3/user/vtavolar/susySOS/missingDYJets2018/"
 
 def base(selection):
     CORE=TREESALL

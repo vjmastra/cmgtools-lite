@@ -1,0 +1,8 @@
+### Signal
+## xsec in pb multiplied by 0.1 BR
+
+signal_TChiWZ_200_190+ : SMS_TChiWZ :  0.1*1.807 : LepGood1_mcMatchId!=0 && LepGood2_mcMatchId!=0 && LepGood3_mcMatchId!=0 ; genWeightName="genWeight*GenModel_TChiWZ_ZToLL_200_190", genSumWeightName="genEventSumw_TChiWZ_ZToLL_200_190"
+
+signal_TChiWZ_225_210+ : SMS_TChiWZ :  0.1*1.165 : LepGood1_mcMatchId!=0 && LepGood2_mcMatchId!=0 && LepGood3_mcMatchId!=0 ; genWeightName="genWeight*GenModel_TChiWZ_ZToLL_225_210", genSumWeightName="genEventSumw_TChiWZ_ZToLL_225_210"
+
+

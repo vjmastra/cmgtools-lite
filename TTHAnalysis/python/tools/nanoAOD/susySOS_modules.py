@@ -43,7 +43,7 @@ lepMasses = ttHLeptonCombMasses( [ ("Muon",muonSelection), ("Electron",electronS
 from CMGTools.TTHAnalysis.tools.nanoAOD.autoPuWeight import autoPuWeight
 from CMGTools.TTHAnalysis.tools.nanoAOD.yearTagger import yearTag
 from CMGTools.TTHAnalysis.tools.nanoAOD.xsecTagger import xsecTag
-from CMGTools.TTHAnalysis.tools.nanoAOD.lepJetBTagAdder import lepJetBTagCSV, lepJetBTagDeepCSV
+from CMGTools.TTHAnalysis.tools.nanoAOD.lepJetBTagAdder import lepJetBTagCSV, lepJetBTagDeepCSV, eleJetBTagDeepCSV, muonJetBTagDeepCSV
 
 susySOS_sequence_step1 = [lepSkim, lepMerge, autoPuWeight, yearTag, xsecTag, lepJetBTagCSV, lepJetBTagDeepCSV, lepMasses]
 
@@ -226,7 +226,7 @@ def tightEleID(lep,year):# from https://twiki.cern.ch/twiki/pub/CMS/SUSLeptonSF/
 
 
 def clean_and_FO_selection_SOS(lep, year):
-    bTagCut = 0.4 if year==2016 else 0.1552 if year==2017 else 0.1241 ##2016 loose recomm is 0.2217, while 0.4 derived to match 2018 performance
+    bTagCut = 0.4 if year==2016 else 0.1522 if year==2017 else 0.1241 ##2016 loose recomm is 0.2217, while 0.4 derived to match 2018 performance
 #    print "btagDeepB ",lep.btagDeepB
  #   print "jetBTagDeepCSV ",lep.jetBTagDeepCSV
     return lep.jetBTagDeepCSV < bTagCut and ( (abs(lep.pdgId)==11 and VLooseFOEleID(lep, year) and lep.lostHits==0 and lep.convVeto)
@@ -270,15 +270,15 @@ recleaner_step1 = lambda : CombinedObjectTaggerForCleaning("InternalRecl",
                                        FOTauSel = foTauSel,
                                        tightTauSel = tightTauSel,
                                        selectJet = lambda jet: abs(jet.eta)<2.4 and jet.pt > 25 and jet.jetId > 0, # FIXME need to select on pt or ptUp or ptDown
-                                       coneptdef = lambda lep: conept_TTH(lep))
+                                        coneptdef = lambda lep: lep.pt)
 recleaner_step2_mc = lambda : fastCombinedObjectRecleaner(label="Recl", inlabel="_InternalRecl",
                                        cleanTausWithLooseLeptons=True,
                                        cleanJetsWithFOTaus=True,
                                        doVetoZ=False, doVetoLMf=False, doVetoLMt=False,
                                        jetPts=[25,40],
                                        jetPtsFwd=[25,40],
-                                       btagL_thr=0.1522,
-                                       btagM_thr=0.4941,
+                                       btagL_thr=0.4,#0.1241,#0.1522,
+                                       btagM_thr=0.6324,#0.4184,#0.4941,
                                        isMC = True)
 recleaner_step2_data = lambda : fastCombinedObjectRecleaner(label="Recl", inlabel="_InternalRecl",
                                          cleanTausWithLooseLeptons=True,
@@ -286,8 +286,8 @@ recleaner_step2_data = lambda : fastCombinedObjectRecleaner(label="Recl", inlabe
                                          doVetoZ=False, doVetoLMf=False, doVetoLMt=False,
                                          jetPts=[25,40],
                                          jetPtsFwd=[25,40],
-                                         btagL_thr=0.1522,
-                                         btagM_thr=0.4941,
+                                         btagL_thr=0.4,#0.1241,#0.1522,
+                                         btagM_thr=0.6324,#0.4184,#0.4941,
                                          isMC = False)
 
 from CMGTools.TTHAnalysis.tools.eventVars_2lss import EventVars2LSS

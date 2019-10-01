@@ -14,6 +14,7 @@ parser.add_argument("year", help="Choose the year: '2016', '2017' or '2018'")
 parser.add_argument("--lep", default=None, required=True, help="Choose number of leptons to use (REQUIRED)")
 parser.add_argument("--reg", default=None, required=True, help="Choose region to use (REQUIRED)")
 parser.add_argument("--bin", default=None, required=True, help="Choose bin to use (REQUIRED)")
+parser.add_argument("--signal", action="store_true", default=False, help="Include signal")
 parser.add_argument("--data", action="store_true", default=False, help="Include data")
 parser.add_argument("--norm", action="store_true", default=False, help="Normalize signal to data")
 parser.add_argument("--unc", action="store_true", default=False, help="Include uncertainties")
@@ -60,6 +61,8 @@ def base(selection):
     LEGEND2=" --legendFontSize 0.042 "
     SPAM=" --noCms --topSpamSize 1.1 --lspam '#scale[1.1]{#bf{CMS}} #scale[0.9]{#it{Preliminary}}' "
     if dowhat == "plots": CORE+=LUMI+RATIO+RATIO2+LEGEND+LEGEND2+SPAM+" --showMCError "
+    if args.signal: CORE+=" --noStackSig --showIndivSigs "
+    else: CORE+=" --xp incl_signal "
 
 
     wBG = " '1.0' "

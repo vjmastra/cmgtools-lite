@@ -1,0 +1,7 @@
+python mcEfficiencies.py  --s2v --tree NanoAOD susy-sos-v2-clean/lepton-fr/lepton-mca-frstudies.txt object-studies/sos_fr_den.txt --Fs {P}/recleaner --ytitle 'Fake rate' -P /eos/cms/store/cmst3/group/tthlep/peruzzi/NanoTrees_SOS_230819_v5/2016/ susy-sos-v2-clean/lepton-fr/sos_fr_num.txt susy-sos-v2-clean/lepton-fr/make_fake_rates_xvars.txt --groupBy cut --sP lepton_tight  --legend=TR --sP pt_fine  -p WJets_light -o ~/www/plots/104X/ttH/lepMVA/v1.1/fr-mc/2016/test_dummy.root -j 8
+
+
+
+python mcEfficiencies.py  --s2v --tree NanoAOD susy-sos-v2-clean/lepton-fr/lepton-mca-frstudies.txt susy-sos-v2-clean/lepton-fr/sos_fr_den.txt --Fs {P}/recleaner --ytitle 'Fake rate'    -P /eos/cms/store/cmst3/group/tthlep/peruzzi/NanoTrees_SOS_230819_v5/2016 susy-sos-v2-clean/lepton-fr/sos_fr_num.txt susy-sos-v2-clean/lepton-fr/make_fake_rates_xvars.txt --groupBy cut  --sP lepton_tight  --legend=BR   --sP pt_fine -p WJets_light -o ~/www/FakeRate/104X/sos/fr-mc/2016//testEleFakeVsPt5.root  -E ^pt5$ -E ^ele$ -j 8
+
+python mcEfficiencies.py  --s2v --tree NanoAOD susy-sos-v2-clean/lepton-fr/lepton_mca2016_ftstudies.txt susy-sos-v2-clean/lepton-fr/sos_fr_den.txt --Fs {P}/recleaner --ytitle 'Fake rate'    -P /eos/cms/store/cmst3/group/tthlep/peruzzi/NanoTrees_SOS_230819_v5/2016 susy-sos-v2-clean/lepton-fr/sos_fr_num.txt susy-sos-v2-clean/lepton-fr/make_fake_rates_xvars.txt --groupBy cut  --sP lepton_tight  --legend=BR   --sP pt_fine -p WJets_light -o ~/www/FakeRate/104X/sos/fr-mc/2016//testEleFakeVsPt5.root  -E ^pt5$ -E ^ele$ -j 8 

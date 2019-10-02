@@ -8,11 +8,12 @@ sos)
     YEAR=$1; shift; 
     case $YEAR in 2016) L=35.9;; 2017) L=41.5;; 2018) L=59.7;; esac
     T=/eos/cms/store/cmst3/group/tthlep/peruzzi/NanoTrees_SOS_230819_v5/$YEAR
+    #T2=/eos/cms/store/cmst3/user/vtavolar/susySOS/friends_fromv5/$YEAR/recleaner_mc_new/
     #test -d /tmp/$USER/TREES_ttH_FR_nano_v5/$YEAR && T="/tmp/$USER/TREES_ttH_FR_nano_v5/$YEAR -P $T"
     #test -d /data/$USER/TREES_ttH_FR_nano_v5/$YEAR && T="/data/$USER/TREES_ttH_FR_nano_v5/$YEAR -P $T"
     #hostname | grep -q cmsco01 && T=/data1/gpetrucc/TREES_94X_FR_240518
     #hostname | grep -q cmsphys10 && T=/data/g/gpetrucc/TREES_94X_FR_240518
-    PBASE="~/www/FakeRate/104X/${ANALYSIS}/fr-mc/New/$YEAR"
+    PBASE="~/www/FakeRate_MC/104X/${ANALYSIS}/fr-mc/New/$YEAR"
     TREE="NanoAOD";
     ;;
 susy) 
@@ -25,7 +26,7 @@ esac;
 
 
 BCORE=" --s2v --tree ${TREE} susy-sos-v2-clean/lepton-fr/lepton_mca${YEAR}_frstudies.txt susy-sos-v2-clean/lepton-fr/sos_fr_den.txt"
-BCORE="${BCORE} --Fs {P}/recleaner"
+BCORE="${BCORE} --Fs /eos/cms/store/cmst3/user/vtavolar/susySOS/friends_fromv5/$YEAR/recleaner_mc_new/"
 BASE="python mcEfficiencies.py $BCORE --ytitle 'Fake rate'"
 PLOTTER="python mcPlots.py $BCORE   "
 
@@ -38,18 +39,18 @@ BG=" -j 8 "; if [[ "$1" == "-b" ]]; then BG=" -j 4 & "; shift; fi
 #if [[ "$LEPTON" == "muon" ]]; then Num='muon_tight'; else Num='ele_tight'; fi;
 
 
-B0="$BASE -P $T susy-sos-v2-clean/lepton-fr/sos_fr_num.txt susy-sos-v2-clean/lepton-fr/make_fake_rates_xvars.txt --groupBy cut --sP ${Num} " 
-B0="$B0 --legend=TR" #--showRatio --ratioRange 0.00 1.99   --yrange 0 0.35 " 
+B0="$BASE -P $T  susy-sos-v2-clean/lepton-fr/sos_fr_num.txt susy-sos-v2-clean/lepton-fr/make_fake_rates_xvars.txt --groupBy cut " 
+B0="$B0" #--showRatio --ratioRange 0.00 1.99   --yrange 0 0.35 " 
 B1="${PLOTTER} -P $T susy-sos-v2-clean/lepton-fr/make_fake_rates_plots.txt"
 B1="$B1 --showRatio --maxRatioRange 0 2 --plotmode=norm -f "
 
-CommonDen=""
-MuDen="--sP muon_tight ${CommonDen} -E ^mu$"
-ElDen="--sP ele_tight ${CommonDen} -E ^ele$"
-MuBarDen="--sP muon_tight_Barrel -E ^mu$ -E ^barrel$"
-ElBarDen="--sP ele_tight_Barrel  -E ^ele$ -E ^barrel$"
-MuEndDen="--sP muon_tight_End -E ^mu$ -E ^endcap$"
-ElEndDen="--sP ele_tight_End -E ^ele$ -E ^endcap$"
+CommonDen="-E ^FO$"
+MuDen="--sP muon_tight $CommonDen -E ^mu$"
+ElDen="--sP ele_tight $CommonDen -E ^ele$"
+MuBarDen="--sP muon_tight_Barrel $CommonDen -E ^mu$ -E ^barrel$"
+ElBarDen="--sP ele_tight_Barrel  $CommonDen -E ^ele$ -E ^barrel$"
+MuEndDen="--sP muon_tight_End $CommonDen -E ^mu$ -E ^endcap$"
+ElEndDen="--sP ele_tight_End $CommonDen -E ^ele$ -E ^endcap$"
 
 MuFakeVsPt="$MuDen --sP 'pt_fine'" 
 ElFakeVsPt="$ElDen --sP 'pt_fine'"
@@ -59,11 +60,16 @@ MuFakeVsPt_End="$MuEndDen --sP 'pt_fine'"
 ElFakeVsPt_End="$ElEndDen --sP 'pt_fine'"  
 #MuFakeVsPtLongBin="$MuDen ${BDen} --sP '${ptJI}_${XVar}_coarselongbin' --sp TT_red   --xcut 10 999 --xline 15 " 
 #ElFakeVsPtLongBin="$ElDen ${BDen} --sP '${ptJI}_${XVar}_coarselongbin' --sp TT_redNC --xcut 10 999 --xline 15 " 
-echo "( $B0 $MuFakeVsPt -p WJets_light -o $PBASE/$what/testMuFakeVsPt_muDen_muNum.root  ${BG} )"
-echo "( $B0 $EtaFakeVsPt -p WJets_light -o $PBASE/$what/testEleFakeVsPt_eleDen_eleNum.root  ${BG} )"
+echo "( $B0 --legend=BR $MuFakeVsPt -p WJets_light,DY_jets_light,TT_jets_light -o $PBASE/$what/MuFakeVsPt_InclusiveEta_LF.root  ${BG})"
+echo "( $B0 --legend=BR $ElFakeVsPt -p WJets_light,DY_jets_light,TT_jets_light -o $PBASE/$what/EleFakeVsPt_InclusiveEta_LF.root  ${BG})"
+echo "( $B0 --legend=BR $MuFakeVsPt_Barr -p WJets_light,DY_jets_light,TT_jets_light -o $PBASE/$what/MuFakeVsPt_Barrel_LF.root  ${BG})"
+echo "( $B0 --legend=BR $ElFakeVsPt_Barr -p WJets_light,DY_jets_light,TT_jets_light -o $PBASE/$what/EleFakeVsPt_Barrel_LF.root  ${BG})"
+echo "( $B0 --legend=BR $MuFakeVsPt_End -p WJets_light,DY_jets_light,TT_jets_light -o $PBASE/$what/MuFakeVsPt_Endcap_LF.root  ${BG})"
+echo "( $B0 --legend=BR $ElFakeVsPt_End -p WJets_light,DY_jets_light,TT_jets_light -o $PBASE/$what/EleFakeVsPt_Endcap_LF.root  ${BG})"
 
-echo "( $B0 $MuFakeVsPt_Barr -p WJets_light -o $PBASE/$what/testMuFakeVsPt_muDen_muNum_Barr.root  ${BG} )"
-echo "( $B0 $ElFakeVsPt_Barr -p WJets_light -o $PBASE/$what/testEleFakeVsPt_eleDen_eleNum_Barr.root  ${BG} )"
-
-echo "( $B0 $MuFakeVsPt_End -p WJets_light -o $PBASE/$what/testMuFakeVsPt_muDen_muNum_End.root  ${BG} )"
-echo "( $B0 $ElFakeVsPt_End -p WJets_light -o $PBASE/$what/testEleFakeVsPt_eleDen_eleNum_End.root  ${BG} )"
+echo "( $B0 --legend=TL $MuFakeVsPt -p WJets_HF,DY_jets_HF,TT_jets_HF -o $PBASE/$what/MuFakeVsPt_InclusiveEta_HF.root  ${BG})"
+echo "( $B0 --legend=TL $ElFakeVsPt -p WJets_HF,DY_jets_HF,TT_jets_HF -o $PBASE/$what/EleFakeVsPt_InclusiveEta_HF.root  ${BG})"
+echo "( $B0 --legend=TL $MuFakeVsPt_Barr -p WJets_HF,DY_jets_HF,TT_jets_HF -o $PBASE/$what/MuFakeVsPt_Barrel_HF.root  ${BG})"
+echo "( $B0 --legend=TL $ElFakeVsPt_Barr -p WJets_HF,DY_jets_HF,TT_jets_HF -o $PBASE/$what/EleFakeVsPt_Barrel_HF.root  ${BG})"
+echo "( $B0 --legend=TL $MuFakeVsPt_End -p WJets_HF,DY_jets_HF,TT_jets_HF -o $PBASE/$what/MuFakeVsPt_Endcap_HF.root  ${BG})"
+echo "( $B0 --legend=BR $ElFakeVsPt_End -p WJets_HF,DY_jets_HF,TT_jets_HF -o $PBASE/$what/EleFakeVsPt_Endcap_HF.root  ${BG})"

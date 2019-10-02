@@ -1,5 +1,4 @@
-#FO : LepGood_isLepFO_Recl
-pt5 : LepGood_pt >5 ; Disable=True
+FO : LepGood_isLepFO_Recl; Disable=True
 mu  : abs(LepGood_pdgId) ==13 ; Disable=True
 ele : abs(LepGood_pdgId) ==11 ; Disable=True
 barrel : abs(LepGood_eta) < 0.83; Disable=True

@@ -1,0 +1,2 @@
+muon:	(Muon_genPartFlav==1 || Muon_genPartFlav==15) && Muon_looseId==1 && Muon_isCleanMu_noBtag==1 && Muon_pt > 3.5	; Disable=True 
+ele:	(Electron_genPartFlav==1 || Electron_genPartFlav==15) && Electron_isCleanEle_noBtag==1 && Electron_pt > 5.0	; Disable=True

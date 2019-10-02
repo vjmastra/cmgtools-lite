@@ -7,7 +7,7 @@ from CMGTools.TTHAnalysis.tools.nanoAOD.friendVariableProducerTools import decla
 import inspect
 
 class ObjTagger(Module):
-    def __init__(self,label,coll,sel,sizelimit=10,linkColl='', linkVar=''):
+    def __init__(self,label,coll,sel,sizelimit=15,linkColl='', linkVar=''):
         self.label = "" if (label in ["",None]) else (label)
         self.coll = coll
         self.sel = sel

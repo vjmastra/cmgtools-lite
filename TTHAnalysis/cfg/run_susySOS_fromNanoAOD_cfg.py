@@ -46,95 +46,94 @@ if year == 2018:
         mcSamples = byCompName(mcSamples_, [
 
 ##            "DYJetsToLL_M10to50_LO",
-            "DYJetsToLL_M50_LO",
 ##            "DYJetsToLL_M50_LO_ext",
 
 
-##            "T_tWch_noFullyHad$",
-##            "TBar_tWch_noFullyHad$",
-##
-##            "DYJetsToLL_M4to50_HT70to100",
-##            "DYJetsToLL_M4to50_HT100to200",
-##            "DYJetsToLL_M4to50_HT200to400",
-##            "DYJetsToLL_M4to50_HT400to600",
-##            "DYJetsToLL_M4to50_HT600toInf",
-##
-##            "DYJetsToLL_M50_HT100to200",
-##            "DYJetsToLL_M50_HT200to400",
-##            "DYJetsToLL_M50_HT400to600," 
+            "T_tWch_noFullyHad$",
+            "TBar_tWch_noFullyHad$",
+
+            "DYJetsToLL_M4to50_HT70to100",
+            "DYJetsToLL_M4to50_HT100to200",
+            "DYJetsToLL_M4to50_HT200to400",
+            "DYJetsToLL_M4to50_HT400to600",
+            "DYJetsToLL_M4to50_HT600toInf",
+
+            "DYJetsToLL_M50_HT100to200",
+            "DYJetsToLL_M50_HT200to400",
+            "DYJetsToLL_M50_HT400to600," 
 ##            "DYJetsToLL_M50_HT400to600_ext2",
-##            "DYJetsToLL_M50_HT600to800",
-##            "DYJetsToLL_M50_HT800to1200",
-##            #"DYJetsToLL_M50_HT1200to2500",
-##            "DYJetsToLL_M50_HT2500toInf",
-##
-##            "TTJets_DiLepton$",
-##
-##            #check if VVTo2L2Nu is there
-##            "WWTo2L2Nu$",
-##            "ZZTo2L2Nu",
-##            "TTJets_SingleLeptonFromT$", "TTJets_SingleLeptonFromTbar$", 
-##            
-##            "WJetsToLNu_HT100to200",
-##            "WJetsToLNu_HT200to400",
-##            "WJetsToLNu_HT400to600",
-##            "WJetsToLNu_HT600to800",
-##            "WJetsToLNu_HT800to1200",
-##            "WJetsToLNu_HT1200to2500",
-##            "WJetsToLNu_HT2500toInf",
-##
-##            "WZTo3LNu_fxfx$",
-##            "WWToLNuQQ",
-##            #"WZTo1L1Nu2Q",
-##            "ZZTo4L$",
-##            "WWW",#_4F
-##            "WZZ$",
-##            "WWZ", #FIX! not _4F
-##            "ZZZ$",
-##            "T_tch$",
-##            "TBar_tch$",
-##            "T_sch_lep$",
-##            #"WWTo2L2Nu_DPS_hpp",           
-##            "TTWToLNu_fxfx$",
-##            "TTZToLLNuNu_amc$",
-##            "TTZToLLNuNu_m1to10$",
-##            "TTGJets$",
-##            "TGJets_lep", 
-##
-##            #missing tbc
-###            "ZZTo2L2Q", 
-##            "WpWpJJ",
-###            "WZTo1L3Nu",
-###            "WGToLNuG_amcatnlo_ext",
-###            "ZGTo2LG_ext",
-###            "WZTo2L2Q",
-##
-##            ##signal SUSY
-##            "SMS_TChiWZ"
-##            
-#####relics from tth             
-#####            "TT[WZ]_LO$",
-#####            "TTHnobb_pow$",
-#####            "TZQToLL$", "tWll$", "TTTT$", "TTWW$",
-#####            "WpWpJJ$",
-#####            "GGHZZ4L$", "VHToNonbb_ll$",
-#####            "WWW_ll$", "WWZ$", "WZG$",  "WW_DPS$", 
+            "DYJetsToLL_M50_HT600to800",
+            "DYJetsToLL_M50_HT800to1200",
+            "DYJetsToLL_M50_HT1200to2500",
+            "DYJetsToLL_M50_HT2500toInf",
+
+            "TTJets_DiLepton$",
+
+            #check if VVTo2L2Nu is there
+            "WWTo2L2Nu$",
+            "ZZTo2L2Nu",
+            "TTJets_SingleLeptonFromT$", "TTJets_SingleLeptonFromTbar$", 
+            
+            "WJetsToLNu_HT100to200",
+            "WJetsToLNu_HT200to400",
+            "WJetsToLNu_HT400to600",
+            "WJetsToLNu_HT600to800",
+            "WJetsToLNu_HT800to1200",
+            "WJetsToLNu_HT1200to2500",
+            "WJetsToLNu_HT2500toInf",
+
+            "WZTo3LNu_fxfx$",
+            "WWToLNuQQ",
+            #"WZTo1L1Nu2Q",
+            "ZZTo4L$",
+            "WWW",#_4F
+            "WZZ$",
+            "WWZ", #FIX! not _4F
+            "ZZZ$",
+            "T_tch$",
+            "TBar_tch$",
+            "T_sch_lep$",
+            #"WWTo2L2Nu_DPS_hpp",           
+            "TTWToLNu_fxfx$",
+            "TTZToLLNuNu_amc$",
+            "TTZToLLNuNu_m1to10$",
+            "TTGJets$",
+            "TGJets_lep", 
+
+            #missing tbc
+#            "ZZTo2L2Q", 
+            "WpWpJJ",
+#            "WZTo1L3Nu",
+#            "WGToLNuG_amcatnlo_ext",
+#            "ZGTo2LG_ext",
+#            "WZTo2L2Q",
+
+            ##signal SUSY
+            "SMS_TChiWZ"
+            
+###relics from tth             
+###            "TT[WZ]_LO$",
+###            "TTHnobb_pow$",
+###            "TZQToLL$", "tWll$", "TTTT$", "TTWW$",
+###            "WpWpJJ$",
+###            "GGHZZ4L$", "VHToNonbb_ll$",
+###            "WWW_ll$", "WWZ$", "WZG$",  "WW_DPS$", 
             
 
         ])
 
     if analysis == "main":
-        print "ciao"
-######        DatasetsAndTriggers.append( ("DoubleMuon", triggers["mumu_iso"] + triggers["3mu"]) )
-####        DatasetsAndTriggers.append( ("DoubleMuon", triggers["SOS_doublemulowMET"] + triggers["mumu_iso"] + triggers["3mu"]) )
-####        DatasetsAndTriggers.append( ("MET",     triggers["SOS_highMET"] ) )
-######        DatasetsAndTriggers.append( ("SingleMuon", triggers["1mu_iso"]) ) ##which one?? ##PD SingleMuon o MET?
-######conf db e cercare stream dato il nome del trigger
+##        DatasetsAndTriggers.append( ("DoubleMuon", triggers["mumu_iso"] + triggers["3mu"]) )
+        DatasetsAndTriggers.append( ("DoubleMuon", triggers["SOS_doublemulowMET"] + triggers["mumu_iso"] + triggers["3mu"]) )
+        DatasetsAndTriggers.append( ("MET",     triggers["SOS_highMET"] ) )
+##        DatasetsAndTriggers.append( ("SingleMuon", triggers["1mu_iso"]) ) ##which one?? ##PD SingleMuon o MET?
+##conf db e cercare stream dato il nome del trigger
 
 elif year == 2017:
     mcSamples = byCompName(mcSamples_, [
+        "DYJetsToLL_M10to50_LO_ext"
 ##        "DYJetsToLL_M50$", "TT(Lep|Semi)_pow", "TTHnobb_pow",
-        
+
         ##main bkgs
         "T_tWch_noFullyHad", "TBar_tWch_noFullyHad",
 
@@ -215,7 +214,7 @@ elif year == 2017:
 
 elif year == 2016:
     mcSamples = byCompName(mcSamples_, [
-
+        "DYJetsToLL_M10to50_LO$"
 
         ##main bkgs
         "T_tWch_noFullyHad", #extensions are to be included?
@@ -334,6 +333,9 @@ elif year == 2016:
     DatasetsAndTriggers.append( ("DoubleMuon", triggers["SOS_doublemulowMET"] + triggers["mumu_iso"] + triggers["3mu"]) )
     DatasetsAndTriggers.append( ("MET",     triggers["SOS_highMET"] ) )
 # make MC
+
+print "mcSamples ",mcSamples
+
 mcTriggers = sum((trigs for (pd,trigs) in DatasetsAndTriggers), [])
 for comp in mcSamples:
     comp.triggers = mcTriggers
@@ -347,12 +349,12 @@ for pd, triggers in DatasetsAndTriggers:
         dataSamples.append(comp)
     vetoTriggers += triggers[:]
 
-selectedComponents = mcSamples + dataSamples
+selectedComponents = mcSamples ##+ dataSamples
 if getHeppyOption('selectComponents'):
     selectedComponents = byCompName(selectedComponents, getHeppyOption('selectComponents').split(","))
 autoAAA(selectedComponents, quiet=False)##not(getHeppyOption("verboseAAA",False)))
 configureSplittingFromTime(mcSamples,250 if preprocessor else 10,10)
-configureSplittingFromTime(dataSamples,80 if preprocessor else 10,10)
+#configureSplittingFromTime(dataSamples,80 if preprocessor else 10,10)
 selectedComponents, _ = mergeExtensions(selectedComponents)
 
 # create and set preprocessor if requested

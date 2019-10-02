@@ -3,10 +3,12 @@ import os.path, types
 from array import array
 from math import log, exp
 
-from CMGTools.TTHAnalysis.treeReAnalyzer import ROOT, EventLoop, Module, Collection
+from PhysicsTools.NanoAODTools.postprocessing.framework.eventloop import Module
+from PhysicsTools.NanoAODTools.postprocessing.framework.datamodel import Collection 
+from CMGTools.TTHAnalysis.treeReAnalyzer import ROOT, EventLoop##,  Collection #Module,
 from BTagCSVFullShape import BTagCSVFullShape
 
-class BTagEventWeightFriend:
+class BTagEventWeightFriend(Module):
     def __init__(self,
                  csvfile,
                  label='eventBTagSF',
@@ -46,9 +48,10 @@ class BTagEventWeightFriend:
 
         return out
 
-    def __call__(self, event):
+#    def __call__(self, event):
+    def analyze(self, event):
         ret = {k:1.0 for k in self.branches}
-        if self.mcOnly and event.isData: return ret
+#        if self.mcOnly and event.isData: return ret
 
         jetscoll = {}
         for _var in self.systsJEC:
@@ -79,3 +82,5 @@ class BTagEventWeightFriend:
 
         return ret
 
+#    def analyze(self, event):
+#        return True

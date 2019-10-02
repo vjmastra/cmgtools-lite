@@ -1,3 +1,5 @@
+import os
+
 conf = dict(
     muPt = 3, 
     elePt = 5, 
@@ -277,8 +279,10 @@ recleaner_step2_mc = lambda : fastCombinedObjectRecleaner(label="Recl", inlabel=
                                        doVetoZ=False, doVetoLMf=False, doVetoLMt=False,
                                        jetPts=[25,40],
                                        jetPtsFwd=[25,40],
-                                       btagL_thr=0.4,#0.1241,#0.1522,
-                                       btagM_thr=0.6324,#0.4184,#0.4941,
+#                                       btagL_thr=0.4,#0.1241,#0.1522,
+#                                       btagM_thr=0.6324,#0.4184,#0.4941,
+                                       btagL_thr=lambda year : 0.4 if year==2016 else 0.1522 if year==2017 else 0.1241,#      0.4 if year == 2016 elif 0.1241 if #0.1241,#0.1522,
+                                       btagM_thr=lambda year : 0.6324 if year==2016 else 0.4941 if year==2017 else 0.4184,#0.6324,#0.4184,#0.4941,
                                        isMC = True)
 recleaner_step2_data = lambda : fastCombinedObjectRecleaner(label="Recl", inlabel="_InternalRecl",
                                          cleanTausWithLooseLeptons=True,
@@ -286,8 +290,10 @@ recleaner_step2_data = lambda : fastCombinedObjectRecleaner(label="Recl", inlabe
                                          doVetoZ=False, doVetoLMf=False, doVetoLMt=False,
                                          jetPts=[25,40],
                                          jetPtsFwd=[25,40],
-                                         btagL_thr=0.4,#0.1241,#0.1522,
-                                         btagM_thr=0.6324,#0.4184,#0.4941,
+#                                         btagL_thr=0.4,#0.1241,#0.1522,
+#                                         btagM_thr=0.6324,#0.4184,#0.4941,
+                                         btagL_thr=lambda year : 0.4 if year==2016 else 0.1522 if year==2017 else 0.1241,#0.4,#0.1241,#0.1522,
+                                         btagM_thr=lambda year : 0.6324 if year==2016 else 0.4941 if year==2017 else 0.4184,#0.6324,#0.4184,#0.4941,
                                          isMC = False)
 
 from CMGTools.TTHAnalysis.tools.eventVars_2lss import EventVars2LSS
@@ -347,3 +353,9 @@ isTightLepWZ = lambda : ObjTagger('isTightLepWZ', "LepGood", [ lambda lep,year :
 eleSel_seq = [isVLFOEle, isTightEle]
 tightLepCR_seq = [isTightLepDY,isTightLepTT,isTightLepVV,isTightLepWZ]
 
+
+#btag weights
+from CMGTools.TTHAnalysis.tools.bTagEventWeightsCSVFullShape import BTagEventWeightFriend
+eventBTagWeight_16 = lambda : BTagEventWeightFriend(csvfile=os.environ["CMSSW_BASE"]+"/src/CMGTools/TTHAnalysis/data/btag/DeepCSV_2016LegacySF_V1.csv", discrname="btagDeepB")
+eventBTagWeight_17 = lambda : BTagEventWeightFriend(csvfile=os.environ["CMSSW_BASE"]+"/src/CMGTools/TTHAnalysis/data/btag/DeepCSV_94XSF_V4_B_F.csv", discrname="btagDeepB")
+eventBTagWeight_18 = lambda : BTagEventWeightFriend(csvfile=os.environ["CMSSW_BASE"]+"/src/CMGTools/TTHAnalysis/data/btag/DeepCSV_102XSF_V1.csv", discrname="btagDeepB")

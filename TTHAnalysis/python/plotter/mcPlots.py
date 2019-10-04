@@ -201,7 +201,6 @@ def doStackSignalNorm(pspec,pmap,individuals,extrascale=1.0,norm=True):
     if individuals:
         sigs = []
         for sig in [pmap[x] for x in mca.listSignals() if pmap.has_key(x) and pmap[x].Integral() > 0]:
-            #print(sig)
             sig = sig.Clone(sig.GetName()+"_norm")
             sig.SetFillStyle(0)
             sig.SetLineColor(sig.GetFillColor())
@@ -989,9 +988,7 @@ class PlotMaker:
                 signorm = None; datnorm = None; sfitnorm = None
                 if options.showSigShape or options.showIndivSigShapes or options.showIndivSigs: 
                     signorms = doStackSignalNorm(pspec,pmap,options.showIndivSigShapes or options.showIndivSigs,extrascale=options.signalPlotScale, norm=not options.showIndivSigs)
-                    #print(signorms)
                     for signorm in signorms:
-                        #print(outputDir)
                         if outputDir: 
                             signorm.SetDirectory(outputDir); #outputDir.WriteObjectAny(signorm)
                         reMax(total,signorm,islog,doWide=doWide)

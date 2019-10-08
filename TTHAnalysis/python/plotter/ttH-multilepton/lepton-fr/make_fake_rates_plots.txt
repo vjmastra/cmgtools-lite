@@ -47,7 +47,7 @@ lep_mvaTTH_log: LepGood_mvaTTH: 20,-1,1; Logy, XTitle="Lepton mvaTTH", Legend='T
 ###lep_pixelLayers: LepGood_pixelLayers: 10,0,10; XTitle="Pixel Layers", Legend='TR', LegendCutoff=1e-2
 ###lep_trackerLayers: LepGood_trackerLayers: 20,0,20; XTitle="Tracker Layers", Legend='TL', LegendCutoff=1e-2
 #@lep_lostHits: LepGood_lostHits: 3,-0.5,2.5; XTitle="Lost hits on inner track", Legend='TR', LegendCutoff=1e-2
-#lep_jetBTagDeepCSV: LepGood_jetBTagDeepCSV: 20,0,1; XTitle="CSV btag of nearest jet ", Legend='TR'
+#lep_jetBTagDeepCSV: LepGood_jetBTagDeepCSV: 20,0,1; XTitle="CSV btag of nearest jet ", Legend='TR
 #lep_jetBTagDeepCSVCvsB: LepGood_jetBTagDeepCSVCvsB: 20,0,1; XTitle="CSV btag of nearest jet ", Legend='TR'
 #lep_jetBTagDeepCSVCvsL: LepGood_jetBTagDeepCSVCvsL: 20,0,1; XTitle="CSV btag of nearest jet ", Legend='TR'
 lep_jetBTagDeepFlav:  LepGood_jetBTagDeepFlav : 20,0,0.3; XTitle="lepton's jet b-tag", Legend='TR'

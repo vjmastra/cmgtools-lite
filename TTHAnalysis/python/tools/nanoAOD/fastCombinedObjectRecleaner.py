@@ -118,7 +118,6 @@ class fastCombinedObjectRecleaner(Module):
     def analyze(self, event):
         # Init
         year = event.year
-        print "year ",year
         # wpL = self.btagL_thr #_btagWPs["DeepFlav_%d_%s"%(event.year,"L")][1]
         # wpM = self.btagM_thr #_btagWPs["DeepFlav_%d_%s"%(event.year,"M")][1]
         wpL = self.btagL_thr(year) if type(self.btagL_thr) is types.LambdaType else self.btagL_thr #_btagWPs["DeepFlav_%d_%s"%(event.year,"L")][1]

@@ -20,6 +20,8 @@ parser.add_argument("--norm", action="store_true", default=False, help="Normaliz
 parser.add_argument("--unc", action="store_true", default=False, help="Include uncertainties")
 parser.add_argument("--inPlots", default=None, help="Select plots, separated by commas, no spaces")
 parser.add_argument("--exPlots", default=None, help="Exclude plots, separated by commas, no spaces")
+parser.add_argument("--signalMasses", default=None, help="Select only these signal samples, comma separated")
+parser.add_argument("--doWhat", default="plots", help="Do plots ot cards")
 args = parser.parse_args()
 
 ODIR=args.outDir
@@ -40,15 +42,14 @@ LUMI= " -l %s "%(lumis[YEAR])
 
 
 submit = '{command}' 
-dowhat = "plots" 
-#dowhat = "dumps" 
-#dowhat = "yields" 
-#dowhat = "ntuple"
+#args.doWhat = "dumps" 
+#args.doWhat = "yields" 
+#args.doWhat = "ntuple"
 
 P0="/eos/cms/store/cmst3/group/tthlep/peruzzi/NanoTrees_SOS_230819_v5/"
 nCores = 8
 #TREESALL = " --Fs {P}/recleaner -P "+P0+"%s "%(YEAR,)
-TREESALL = " --Fs /eos/cms/store/cmst3/user/vtavolar/susySOS/friends_fromv5/%s/recleaner -P "%(YEAR)+P0+"%s "%(YEAR)
+TREESALL = " --Fs /eos/cms/store/cmst3/user/vtavolar/susySOS/friends_fromv5/%s/recleaner_new/ -P "%(YEAR)+P0+"%s "%(YEAR)
 if YEAR == "2018": TREESALL = " --Fs /eos/cms/store/cmst3/user/vtavolar/susySOS/friends_fromv5/%s/recleaner -P "%(YEAR)+P0+"%s "%(YEAR) + "-P /eos/cms/store/cmst3/user/vtavolar/susySOS/missingDYJets2018/"
 
 def base(selection):
@@ -60,8 +61,8 @@ def base(selection):
     LEGEND=" --legendColumns 2 --legendWidth 0.25 "
     LEGEND2=" --legendFontSize 0.042 "
     SPAM=" --noCms --topSpamSize 1.1 --lspam '#scale[1.1]{#bf{CMS}} #scale[0.9]{#it{Preliminary}}' "
-    if dowhat == "plots": CORE+=LUMI+RATIO+RATIO2+LEGEND+LEGEND2+SPAM+" --showMCError "
-    if args.signal: CORE+=" --noStackSig --showIndivSigs "
+    if args.doWhat == "plots": CORE+=LUMI+RATIO+RATIO2+LEGEND+LEGEND2+SPAM+" --showMCError "
+    if args.doWhat == "plots" and args.signal: CORE+=" --noStackSig --showIndivSigs "
     else: CORE+=" --xp incl_signal "
 
 
@@ -69,7 +70,9 @@ def base(selection):
     #wFS = " '1.0' "
     if selection=='2los':
          GO="%s susy-sos-v2-clean/mca/mca-2los-%s.txt susy-sos-v2-clean/2los_cuts.txt "%(CORE, YEAR)
-         if dowhat in ["plots","ntuple"]: GO+=" susy-sos-v2-clean/2los_plots.txt "
+         if args.doWhat in ["plots","ntuple"]: GO+=" susy-sos-v2-clean/2los_plots.txt "
+         if args.doWhat in ["cards"]: GO+="  m2l [4,10,20,30,50] "
+         
 
          if YEAR == "2016":
              wBG = " 'puWeight' " #" 'getLepSF_16(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_16(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*triggerSFfullsim(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, MET_pt, metmm_pt(LepGood1_pdgId, LepGood1_pt, LepGood1_phi, LepGood2_pdgId, LepGood2_pt,LepGood2_phi, MET_pt, MET_phi))' " #bTagWeight
@@ -80,13 +83,17 @@ def base(selection):
              wBG = " 'puWeight' "
          GO="%s -W %s"%(GO,wBG)
 
-         if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.52 ")
-         if dowhat == "plots": GO=GO.replace(RATIO,  " --maxRatioRange 0.6  1.99 --ratioYNDiv 210 ")
-         GO += " --binname 2los "
+         if args.doWhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.52 ")
+         if args.doWhat == "plots": GO=GO.replace(RATIO,  " --maxRatioRange 0.6  1.99 --ratioYNDiv 210 ")
+         if args.doWhat == "cards":         
+             GO += " --binname %s "%args.bin
+         else:
+             GO += " --binname 2los "
+
  
     elif selection=='3l':
         GO="%s susy-sos-v2-clean/mca/mca-3l-%s.txt susy-sos-v2-clean/3l_cuts.txt "%(CORE,YEAR)
-        if dowhat in ["plots","ntuple"]: GO+=" susy-sos-v2-clean/3l_plots.txt "
+        if args.doWhat in ["plots","ntuple"]: GO+=" susy-sos-v2-clean/3l_plots.txt "
         
         if YEAR == "2016":
             wBG = " 'puWeight' " #" 'getLepSF_16(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_16(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_16(LepGood3_pt, LepGood3_eta, LepGood3_pdgId)*triggerSFfullsim3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, MET_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, MET_pt, MET_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId))' " #bTagWeight
@@ -97,8 +104,11 @@ def base(selection):
              wBG = " 'puWeight' "
         GO="%s -W %s"%(GO,wBG)
 
-        if dowhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.42 ")
-        GO += " --binname 3l "
+        if args.doWhat == "plots": GO=GO.replace(LEGEND, " --legendColumns 3 --legendWidth 0.42 ")
+        if args.doWhat == "cards":         
+            GO += " --binname %s "%args.bin
+        else:
+            GO += " --binname 3l "
 
     else:
         raise RuntimeError('Unknown selection')
@@ -107,7 +117,7 @@ def base(selection):
 
 def promptsub(x):
     procs = [ '' ]
-    if dowhat == "cards": procs += ['_FRe_norm_Up','_FRe_norm_Dn','_FRe_pt_Up','_FRe_pt_Dn','_FRe_be_Up','_FRe_be_Dn','_FRm_norm_Up','_FRm_norm_Dn','_FRm_pt_Up','_FRm_pt_Dn','_FRm_be_Up','_FRm_be_Dn']
+    if args.doWhat == "cards": procs += ['_FRe_norm_Up','_FRe_norm_Dn','_FRe_pt_Up','_FRe_pt_Dn','_FRe_be_Up','_FRe_be_Dn','_FRm_norm_Up','_FRm_norm_Dn','_FRm_pt_Up','_FRm_pt_Dn','_FRm_be_Up','_FRm_be_Dn']
     return x + ' '.join(["--plotgroup data_fakes%s+='.*_promptsub%s'"%(x,x) for x in procs])+" --neglist '.*_promptsub.*' "
 
 def procs(GO,mylist):
@@ -117,14 +127,24 @@ def sigprocs(GO,mylist):
     return procs(GO,mylist)+' --showIndivSigs --noStackSig'
 
 def runIt(GO,name):
+    print name
     if args.data: name=name+"_data"
     if args.norm: name=name+"_norm"
     if args.unc: name=name+"_unc"
-    if dowhat == "plots":  print submit.format(command=' '.join(['python mcPlots.py',"--pdir %s/%s/%s"%(ODIR,YEAR,name),GO,' '.join(['--sP %s'%p for p in (args.inPlots.split(",") if args.inPlots is not None else []) ]),' '.join(['--xP %s'%p for p in (args.exPlots.split(",") if args.exPlots is not None else []) ])]))
+#    if args.signalMasses: name=name+"_unc"
+    print name
+    print GO
+    if args.doWhat == "plots":  print submit.format(command=' '.join(['python mcPlots.py',"--pdir %s/%s/%s"%(ODIR,YEAR,name),GO,' '.join(['--sP %s'%p for p in (args.inPlots.split(",") if args.inPlots is not None else []) ]),' '.join(['--xP %s'%p for p in (args.exPlots.split(",") if args.exPlots is not None else []) ])]))
+
+    if args.doWhat == "cards":  
+#        print submit.format(command=' '.join(['python makeShapeCardsNew.py --savefile',"--outdir %s/%s/%s_bkg"%(ODIR,YEAR,name),GO,' '.join(['--sP %s'%p for p in (args.inPlots.split(",") if args.inPlots is not None else []) ]),' '.join(['--xP %s'%p for p in (args.exPlots.split(",") if args.exPlots is not None else []) ]), "--xp='^(?!.*signal).*'"   ]))
+        print submit.format(command=' '.join(['python makeShapeCardsNew.py --savefile',"--outdir %s/%s/%s"%(ODIR,YEAR,name),GO,' '.join(['--sP %s'%p for p in (args.inPlots.split(",") if args.inPlots is not None else []) ]),' '.join(['--xP %s'%p for p in (args.exPlots.split(",") if args.exPlots is not None else []) ]), "--xp='signal(?!.*%s).*'"%args.signalMasses.strip('signal') if args.signalMasses is not None else ''   ]))
+
+
     # What is supposed to be included in sys.argv[4] and after?
-    #elif dowhat == "yields": print 'echo %s; python mcAnalysis.py'%name,GO,' '.join(sys.argv[4:])
-    #elif dowhat == "dumps":  print 'echo %s; python mcDump.py'%name,GO,' '.join(sys.argv[4:])
-    #elif dowhat == "ntuple": print 'echo %s; python mcNtuple.py'%name,GO,' '.join(sys.argv[4:])
+    #elif args.doWhat == "yields": print 'echo %s; python mcAnalysis.py'%name,GO,' '.join(sys.argv[4:])
+    #elif args.doWhat == "dumps":  print 'echo %s; python mcDump.py'%name,GO,' '.join(sys.argv[4:])
+    #elif args.doWhat == "ntuple": print 'echo %s; python mcNtuple.py'%name,GO,' '.join(sys.argv[4:])
 
 def add(GO,opt):
     return '%s %s'%(GO,opt)
@@ -158,7 +178,7 @@ if __name__ == '__main__':
 
     torun = conf
 
-    if (not allow_unblinding) and args.data and (not any([re.match(x.strip()+'$',torun) for x in ['.*appl.*','.*cr.*','3l.*_Zpeak.*']])): raise RuntimeError, 'You are trying to unblind!'
+    if (not args.doWhat=="cards" ) and ((not allow_unblinding) and args.data and (not any([re.match(x.strip()+'$',torun) for x in ['.*appl.*','.*cr.*','3l.*_Zpeak.*']]))): raise RuntimeError, 'You are trying to unblind!'
 
 
     if '2los_' in torun:
@@ -246,7 +266,10 @@ if __name__ == '__main__':
         if YEAR=="2016": x = x.replace(LUMI," -l 33.2 ")
         if YEAR=="2017": x = x.replace(LUMI," -l 36.74 ")
 
-
+    if args.signalMasses:
+        masses=args.signalMasses.rstrip('+').split('_')
+        masses='_'.join(masses[-2:])
+        torun=torun+'_'+masses
     runIt(x,'%s'%torun)
 
 ######################################################################################

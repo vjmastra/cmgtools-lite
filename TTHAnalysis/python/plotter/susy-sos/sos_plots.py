@@ -54,8 +54,8 @@ TREESALL = " --Fs {P}/recleaner -P "+P0+"%s "%(YEAR,)
 
 def base(selection):
     CORE=TREESALL
-    CORE+=" -f -j %d --split-factor=-1 --year %s --s2v -L susy-sos-v2-clean/functionsSOS.cc -L susy-sos-v2-clean/functionsSF.cc --tree NanoAOD --mcc susy-sos-v2-clean/mcc_sos.txt --mcc susy-sos-v2-clean/mcc_triggerdefs.txt "%(nCores,YEAR) # --neg"
-    if YEAR == "2017": CORE += " --mcc susy-sos-v2-clean/mcc_METFixEE2017.txt "
+    CORE+=" -f -j %d --split-factor=-1 --year %s --s2v -L susy-sos/functionsSOS.cc -L susy-sos/functionsSF.cc --tree NanoAOD --mcc susy-sos/mcc_sos.txt --mcc susy-sos/mcc_triggerdefs.txt "%(nCores,YEAR) # --neg"
+    if YEAR == "2017": CORE += " --mcc susy-sos/mcc_METFixEE2017.txt "
     RATIO= " --maxRatioRange 0.0  1.99 --ratioYNDiv 505 "
     RATIO2=" --showRatio --attachRatioPanel --fixRatioRange "
     LEGEND=" --legendColumns 2 --legendWidth 0.25 "
@@ -69,8 +69,8 @@ def base(selection):
     wBG = " '1.0' "
     #wFS = " '1.0' "
     if selection=='2los':
-         GO="%s susy-sos-v2-clean/mca/mca-2los-%s.txt susy-sos-v2-clean/2los_cuts.txt "%(CORE, YEAR)
-         if args.doWhat in ["plots","ntuple"]: GO+=" susy-sos-v2-clean/2los_plots.txt "
+         GO="%s susy-sos/mca/mca-2los-%s.txt susy-sos/2los_cuts.txt "%(CORE, YEAR)
+         if args.doWhat in ["plots","ntuple"]: GO+=" susy-sos/2los_plots.txt "
          if args.doWhat in ["cards"]: GO+="  m2l [4,10,20,30,50] "
          
 
@@ -92,8 +92,8 @@ def base(selection):
 
  
     elif selection=='3l':
-        GO="%s susy-sos-v2-clean/mca/mca-3l-%s.txt susy-sos-v2-clean/3l_cuts.txt "%(CORE,YEAR)
-        if args.doWhat in ["plots","ntuple"]: GO+=" susy-sos-v2-clean/3l_plots.txt "
+        GO="%s susy-sos/mca/mca-3l-%s.txt susy-sos/3l_cuts.txt "%(CORE,YEAR)
+        if args.doWhat in ["plots","ntuple"]: GO+=" susy-sos/3l_plots.txt "
         
         if YEAR == "2016":
             wBG = " 'puWeight' " #" 'getLepSF_16(LepGood1_pt, LepGood1_eta, LepGood1_pdgId)*getLepSF_16(LepGood2_pt, LepGood2_eta, LepGood2_pdgId)*getLepSF_16(LepGood3_pt, LepGood3_eta, LepGood3_pdgId)*triggerSFfullsim3L(LepGood1_pt, LepGood1_eta, LepGood2_pt, LepGood2_eta, LepGood3_pt, LepGood3_eta, MET_pt, metmmm_pt(LepGood1_pt, LepGood1_phi, LepGood2_pt, LepGood2_phi, LepGood3_pt, LepGood3_phi, MET_pt, MET_phi, lepton_Id_selection(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId)), lepton_permut(LepGood1_pdgId, LepGood2_pdgId, LepGood3_pdgId))' " #bTagWeight
@@ -254,7 +254,7 @@ if __name__ == '__main__':
 
 
     if not args.data: x = add(x,'--xp data ')
-    if args.unc: x = add(x,"--unc susy-sos-v2-clean/systsUnc.txt")
+    if args.unc: x = add(x,"--unc susy-sos/systsUnc.txt")
     if args.norm: x = add(x,"--sp '.*' --scaleSigToData ")
 
     if '_low' in torun :

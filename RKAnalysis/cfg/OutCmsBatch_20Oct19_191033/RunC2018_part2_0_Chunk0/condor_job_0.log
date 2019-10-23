@@ -1,0 +1,44 @@
+000 (3356028.000.000) 10/20 19:12:31 Job submitted from host: <137.138.44.75:9618?addrs=137.138.44.75-9618+[2001-1458-d00-1a--b]-9618&alias=bigbird14.cern.ch&noUDP&sock=schedd_2873_37ae_40>
+...
+040 (3356028.000.000) 10/20 19:19:49 Started transferring input files
+	Transferring to host: <128.142.111.187:9618?addrs=128.142.111.187-9618+[--1]-9618&noUDP&sock=14036_61b4_26256>
+...
+040 (3356028.000.000) 10/20 19:19:49 Finished transferring input files
+...
+001 (3356028.000.000) 10/20 19:19:50 Job executing on host: <128.142.111.187:9618?addrs=128.142.111.187-9618+[--1]-9618&noUDP&sock=13921_3a00_3>
+...
+006 (3356028.000.000) 10/20 19:20:00 Image size of job updated: 27064
+	13  -  MemoryUsage of job (MB)
+	12468  -  ResidentSetSize of job (KB)
+...
+006 (3356028.000.000) 10/20 19:25:00 Image size of job updated: 206232
+	159  -  MemoryUsage of job (MB)
+	162560  -  ResidentSetSize of job (KB)
+...
+006 (3356028.000.000) 10/20 19:40:02 Image size of job updated: 207848
+	159  -  MemoryUsage of job (MB)
+	162560  -  ResidentSetSize of job (KB)
+...
+006 (3356028.000.000) 10/20 19:45:02 Image size of job updated: 245988
+	159  -  MemoryUsage of job (MB)
+	162560  -  ResidentSetSize of job (KB)
+...
+040 (3356028.000.000) 10/20 19:47:11 Started transferring output files
+...
+040 (3356028.000.000) 10/20 19:47:11 Finished transferring output files
+...
+005 (3356028.000.000) 10/20 19:47:11 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:18:40, Sys 0 00:01:31  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:18:40, Sys 0 00:01:31  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	172093  -  Run Bytes Sent By Job
+	2190  -  Run Bytes Received By Job
+	172093  -  Total Bytes Sent By Job
+	2190  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1           
+	   Disk (KB)            : 20843476        3   2171424 
+	   Memory (MB)          :      159     2000      2000 
+...

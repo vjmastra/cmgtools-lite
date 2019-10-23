@@ -1,0 +1,56 @@
+000 (3283391.000.000) 10/09 00:50:33 Job submitted from host: <137.138.44.75:9618?addrs=137.138.44.75-9618+[2001-1458-d00-1a--b]-9618&alias=bigbird14.cern.ch&noUDP&sock=schedd_2873_37ae_40>
+...
+040 (3283391.000.000) 10/09 00:57:26 Started transferring input files
+	Transferring to host: <188.185.197.30:9618?addrs=188.185.197.30-9618+[2001-1459-301-49--100-1c]-9618&noUDP&sock=17250_ef77_79729>
+...
+040 (3283391.000.000) 10/09 00:57:26 Finished transferring input files
+...
+001 (3283391.000.000) 10/09 00:57:27 Job executing on host: <188.185.197.30:9618?addrs=188.185.197.30-9618+[2001-1459-301-49--100-1c]-9618&noUDP&sock=17117_6aaf_3>
+...
+006 (3283391.000.000) 10/09 00:57:36 Image size of job updated: 72
+	1  -  MemoryUsage of job (MB)
+	72  -  ResidentSetSize of job (KB)
+...
+006 (3283391.000.000) 10/09 01:02:37 Image size of job updated: 12636
+	12  -  MemoryUsage of job (MB)
+	11296  -  ResidentSetSize of job (KB)
+...
+006 (3283391.000.000) 10/09 01:07:37 Image size of job updated: 81732
+	72  -  MemoryUsage of job (MB)
+	73356  -  ResidentSetSize of job (KB)
+...
+006 (3283391.000.000) 10/09 01:12:58 Image size of job updated: 271536
+	243  -  MemoryUsage of job (MB)
+	248548  -  ResidentSetSize of job (KB)
+...
+040 (3283391.000.000) 10/09 01:20:15 Finished transferring output files
+...
+022 (3283391.000.000) 10/09 01:22:00 Job disconnected, attempting to reconnect
+    Socket between submit and execute hosts closed unexpectedly
+    Trying to reconnect to slot1_1@b7w02n0349.cern.ch <188.185.197.30:9618?addrs=188.185.197.30-9618+[2001-1459-301-49--100-1c]-9618&noUDP&sock=17117_6aaf_3>
+...
+023 (3283391.000.000) 10/09 01:22:00 Job reconnected to slot1_1@b7w02n0349.cern.ch
+    startd address: <188.185.197.30:9618?addrs=188.185.197.30-9618+[2001-1459-301-49--100-1c]-9618&noUDP&sock=17117_6aaf_3>
+    starter address: <188.185.197.30:9618?addrs=188.185.197.30-9618+[2001-1459-301-49--100-1c]-9618&noUDP&sock=17250_ef77_79729>
+...
+040 (3283391.000.000) 10/09 01:23:08 Entered queue to transfer output files
+...
+040 (3283391.000.000) 10/09 01:25:17 Started transferring output files
+...
+040 (3283391.000.000) 10/09 01:25:18 Finished transferring output files
+...
+005 (3283391.000.000) 10/09 01:25:19 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:03:40, Sys 0 00:00:17  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:03:40, Sys 0 00:00:17  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	103944  -  Run Bytes Sent By Job
+	2236  -  Run Bytes Received By Job
+	103944  -  Total Bytes Sent By Job
+	2236  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1           
+	   Disk (KB)            :  4907959        3   3988260 
+	   Memory (MB)          :      243     2000      2000 
+...

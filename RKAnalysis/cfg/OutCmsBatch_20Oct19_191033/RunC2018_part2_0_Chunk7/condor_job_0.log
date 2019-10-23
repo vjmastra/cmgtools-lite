@@ -1,0 +1,48 @@
+000 (3356040.000.000) 10/20 19:12:47 Job submitted from host: <137.138.44.75:9618?addrs=137.138.44.75-9618+[2001-1458-d00-1a--b]-9618&alias=bigbird14.cern.ch&noUDP&sock=schedd_2873_37ae_40>
+...
+040 (3356040.000.000) 10/20 19:19:51 Started transferring input files
+	Transferring to host: <128.142.109.203:9618?addrs=128.142.109.203-9618+[--1]-9618&noUDP&sock=14025_a193_26187>
+...
+040 (3356040.000.000) 10/20 19:19:51 Finished transferring input files
+...
+001 (3356040.000.000) 10/20 19:19:52 Job executing on host: <128.142.109.203:9618?addrs=128.142.109.203-9618+[--1]-9618&noUDP&sock=13888_9760_3>
+...
+006 (3356040.000.000) 10/20 19:20:01 Image size of job updated: 8896
+	7  -  MemoryUsage of job (MB)
+	6252  -  ResidentSetSize of job (KB)
+...
+006 (3356040.000.000) 10/20 19:25:02 Image size of job updated: 203072
+	162  -  MemoryUsage of job (MB)
+	165232  -  ResidentSetSize of job (KB)
+...
+006 (3356040.000.000) 10/20 19:45:05 Image size of job updated: 204452
+	162  -  MemoryUsage of job (MB)
+	165232  -  ResidentSetSize of job (KB)
+...
+006 (3356040.000.000) 10/20 19:50:05 Image size of job updated: 267532
+	199  -  MemoryUsage of job (MB)
+	203672  -  ResidentSetSize of job (KB)
+...
+006 (3356040.000.000) 10/20 19:55:05 Image size of job updated: 267532
+	201  -  MemoryUsage of job (MB)
+	205076  -  ResidentSetSize of job (KB)
+...
+040 (3356040.000.000) 10/20 19:57:54 Started transferring output files
+...
+040 (3356040.000.000) 10/20 19:57:54 Finished transferring output files
+...
+005 (3356040.000.000) 10/20 19:57:54 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:22:02, Sys 0 00:01:39  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:22:02, Sys 0 00:01:39  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	172264  -  Run Bytes Sent By Job
+	2190  -  Run Bytes Received By Job
+	172264  -  Total Bytes Sent By Job
+	2190  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1           
+	   Disk (KB)            : 24068154        3   1994501 
+	   Memory (MB)          :      201     2000      2000 
+...

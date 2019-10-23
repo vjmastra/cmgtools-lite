@@ -1,0 +1,5 @@
+Could not find platform independent libraries <prefix>
+Could not find platform dependent libraries <exec_prefix>
+Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+ImportError: No module named site
+[eos-cp] copied 1/1 files and 9.92 MB in 0.22 seconds with 45.82 MB/s

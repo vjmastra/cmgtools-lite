@@ -1,0 +1,3 @@
+# hlsearch on (H) or off (h):
+
+# Jumplist (newest first):

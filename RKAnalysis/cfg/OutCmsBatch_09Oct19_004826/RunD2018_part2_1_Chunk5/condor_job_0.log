@@ -1,0 +1,42 @@
+000 (3283722.000.000) 10/09 00:55:54 Job submitted from host: <137.138.44.75:9618?addrs=137.138.44.75-9618+[2001-1458-d00-1a--b]-9618&alias=bigbird14.cern.ch&noUDP&sock=schedd_2873_37ae_40>
+...
+040 (3283722.000.000) 10/09 01:01:30 Started transferring input files
+	Transferring to host: <128.142.102.230:9618?addrs=128.142.102.230-9618+[2001-1458-301-89--100-2e0]-9618&noUDP&sock=3232_fc7d_30721>
+...
+040 (3283722.000.000) 10/09 01:01:30 Finished transferring input files
+...
+001 (3283722.000.000) 10/09 01:01:31 Job executing on host: <128.142.102.230:9618?addrs=128.142.102.230-9618+[2001-1458-301-89--100-2e0]-9618&noUDP&sock=1831_7dff_3>
+...
+006 (3283722.000.000) 10/09 01:01:40 Image size of job updated: 205412
+	154  -  MemoryUsage of job (MB)
+	156948  -  ResidentSetSize of job (KB)
+...
+006 (3283722.000.000) 10/09 01:06:41 Image size of job updated: 215752
+	157  -  MemoryUsage of job (MB)
+	160012  -  ResidentSetSize of job (KB)
+...
+006 (3283722.000.000) 10/09 01:24:41 Image size of job updated: 289776
+	245  -  MemoryUsage of job (MB)
+	250500  -  ResidentSetSize of job (KB)
+...
+040 (3283722.000.000) 10/09 01:24:49 Entered queue to transfer output files
+...
+040 (3283722.000.000) 10/09 01:25:31 Started transferring output files
+...
+040 (3283722.000.000) 10/09 01:25:32 Finished transferring output files
+...
+005 (3283722.000.000) 10/09 01:25:32 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:17:48, Sys 0 00:00:56  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:17:48, Sys 0 00:00:56  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	131043  -  Run Bytes Sent By Job
+	2232  -  Run Bytes Received By Job
+	131043  -  Total Bytes Sent By Job
+	2232  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1           
+	   Disk (KB)            : 19851409        3   2181279 
+	   Memory (MB)          :      245     2000      2000 
+...

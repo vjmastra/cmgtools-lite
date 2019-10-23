@@ -1,0 +1,82 @@
+Could not find platform independent libraries <prefix>
+Could not find platform dependent libraries <exec_prefix>
+Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+ImportError: No module named site
+Run: [ERROR] Server responded with an error: [3014] Unable to open file  /eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0001/BParkNANO_data_2019Sep12_1266.root; Network is unreachable
+
+Error in <TNetXNGFile::Open>: [ERROR] Server responded with an error: [3014] Unable to open file  /eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0001/BParkNANO_data_2019Sep12_1266.root; Network is unreachable
+
+Traceback (most recent call last):
+  File "/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMGforRk/CMSSW_10_4_0/bin/slc7_amd64_gcc700/nanopy.py", line 146, in <module>
+    _processOneComponent(copy(pp), comp, outdir, preprocessor, options)
+  File "/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMGforRk/CMSSW_10_4_0/bin/slc7_amd64_gcc700/nanopy.py", line 81, in _processOneComponent
+    pp.run()
+  File "/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMGforRk/CMSSW_10_4_0/python/PhysicsTools/NanoAODTools/postprocessing/framework/postprocessor.py", line 128, in run
+    inTree = inFile.Get("Events")
+ReferenceError: attempt to access a null-pointer
+[eos-cp] copied 1/1 files and 152.15 kB in 0.19 seconds with 808.39 kB/s
+[eos-cp] copied 1/1 files and 42.63 kB in 0.24 seconds with 177.63 kB/s
+[eos-cp] copied 1/1 files and 124.76 kB in 0.27 seconds with 468.79 kB/s
+[eos-cp] copied 1/1 files and 117.65 kB in 0.04 seconds with 2.82 MB/s
+[eos-cp] copied 1/1 files and 121.54 kB in 0.34 seconds with 357.39 kB/s
+[eos-cp] copied 1/1 files and 116.51 kB in 0.05 seconds with 2.36 MB/s
+[eos-cp] copied 1/1 files and 110.82 kB in 0.13 seconds with 854.58 kB/s
+[eos-cp] copied 1/1 files and 108.65 kB in 0.06 seconds with 1.88 MB/s
+[eos-cp] copied 1/1 files and 101.73 kB in 0.04 seconds with 2.37 MB/s
+[eos-cp] copied 1/1 files and 104.84 kB in 0.19 seconds with 539.51 kB/s
+[eos-cp] copied 1/1 files and 96.34 kB in 0.07 seconds with 1.30 MB/s
+[eos-cp] copied 1/1 files and 90.82 kB in 0.04 seconds with 2.04 MB/s
+[eos-cp] copied 1/1 files and 81.18 kB in 0.54 seconds with 148.97 kB/s
+[eos-cp] copied 1/1 files and 118.75 kB in 0.75 seconds with 158.75 kB/s
+[eos-cp] copied 1/1 files and 135.35 kB in 0.07 seconds with 1.88 MB/s
+[eos-cp] copied 1/1 files and 122.45 kB in 0.62 seconds with 197.15 kB/s
+[eos-cp] copied 1/1 files and 134.79 kB in 0.65 seconds with 208.19 kB/s
+[eos-cp] copied 1/1 files and 133.25 kB in 0.58 seconds with 231.37 kB/s
+[eos-cp] copied 1/1 files and 123.57 kB in 0.07 seconds with 1.70 MB/s
+[eos-cp] copied 1/1 files and 141.90 kB in 0.47 seconds with 301.69 kB/s
+[eos-cp] copied 1/1 files and 137.77 kB in 0.19 seconds with 707.38 kB/s
+[eos-cp] copied 1/1 files and 132.22 kB in 0.20 seconds with 660.15 kB/s
+[eos-cp] copied 1/1 files and 117.45 kB in 0.05 seconds with 2.32 MB/s
+[eos-cp] copied 1/1 files and 118.36 kB in 1.24 seconds with 95.49 kB/s
+[eos-cp] copied 1/1 files and 126.67 kB in 0.05 seconds with 2.41 MB/s
+[eos-cp] copied 1/1 files and 170.30 kB in 0.06 seconds with 3.09 MB/s
+[eos-cp] copied 1/1 files and 166.43 kB in 0.19 seconds with 886.29 kB/s
+[eos-cp] copied 1/1 files and 162.32 kB in 0.11 seconds with 1.41 MB/s
+[eos-cp] copied 1/1 files and 148.59 kB in 0.04 seconds with 3.37 MB/s
+[eos-cp] copied 1/1 files and 128.16 kB in 0.17 seconds with 737.43 kB/s
+[eos-cp] copied 1/1 files and 137.23 kB in 0.23 seconds with 587.56 kB/s
+[eos-cp] copied 1/1 files and 39.28 kB in 0.04 seconds with 920.92 kB/s
+[eos-cp] copied 1/1 files and 115.06 kB in 0.43 seconds with 269.84 kB/s
+[eos-cp] copied 1/1 files and 121.06 kB in 0.04 seconds with 2.78 MB/s
+[eos-cp] copied 1/1 files and 114.38 kB in 0.14 seconds with 835.85 kB/s
+[eos-cp] copied 1/1 files and 127.79 kB in 2.67 seconds with 47.84 kB/s
+[eos-cp] copied 1/1 files and 100.75 kB in 0.08 seconds with 1.21 MB/s
+[eos-cp] copied 1/1 files and 126.68 kB in 0.24 seconds with 534.88 kB/s
+[eos-cp] copied 1/1 files and 125.71 kB in 0.48 seconds with 262.02 kB/s
+[eos-cp] copied 1/1 files and 123.72 kB in 0.04 seconds with 2.79 MB/s
+[eos-cp] copied 1/1 files and 141.51 kB in 0.34 seconds with 416.63 kB/s
+[eos-cp] copied 1/1 files and 141.31 kB in 0.29 seconds with 485.23 kB/s
+[eos-cp] copied 1/1 files and 110.34 kB in 0.18 seconds with 601.25 kB/s
+[eos-cp] copied 1/1 files and 117.21 kB in 0.28 seconds with 413.13 kB/s
+[eos-cp] copied 1/1 files and 104.23 kB in 0.04 seconds with 2.56 MB/s
+[eos-cp] copied 1/1 files and 135.47 kB in 0.06 seconds with 2.19 MB/s
+[eos-cp] copied 1/1 files and 165.07 kB in 0.06 seconds with 2.80 MB/s
+[eos-cp] copied 1/1 files and 160.04 kB in 0.23 seconds with 685.63 kB/s
+[eos-cp] copied 1/1 files and 138.71 kB in 0.24 seconds with 570.95 kB/s
+[eos-cp] copied 1/1 files and 153.69 kB in 0.06 seconds with 2.39 MB/s
+[eos-cp] copied 1/1 files and 155.23 kB in 0.39 seconds with 398.67 kB/s
+[eos-cp] copied 1/1 files and 136.79 kB in 0.07 seconds with 1.92 MB/s
+[eos-cp] copied 1/1 files and 135.47 kB in 0.27 seconds with 503.77 kB/s
+[eos-cp] copied 1/1 files and 144.76 kB in 0.05 seconds with 3.05 MB/s
+[eos-cp] copied 1/1 files and 154.85 kB in 0.16 seconds with 952.29 kB/s
+[eos-cp] copied 1/1 files and 161.48 kB in 0.48 seconds with 334.00 kB/s
+[eos-cp] copied 1/1 files and 151.81 kB in 0.14 seconds with 1.11 MB/s
+[eos-cp] copied 1/1 files and 166.89 kB in 0.25 seconds with 675.59 kB/s
+[eos-cp] copied 1/1 files and 148.12 kB in 0.06 seconds with 2.66 MB/s
+[eos-cp] copied 1/1 files and 161.63 kB in 0.40 seconds with 409.11 kB/s
+[eos-cp] copied 1/1 files and 149.81 kB in 0.05 seconds with 2.77 MB/s
+[eos-cp] copied 1/1 files and 129.94 kB in 0.05 seconds with 2.61 MB/s
+[eos-cp] copied 1/1 files and 156.34 kB in 0.05 seconds with 2.85 MB/s
+[eos-cp] copied 1/1 files and 138.87 kB in 0.11 seconds with 1.29 MB/s
+[eos-cp] copied 1/1 files and 131.03 kB in 0.04 seconds with 2.93 MB/s
+[eos-cp] copied 1/1 files and 155.31 kB in 0.26 seconds with 604.07 kB/s

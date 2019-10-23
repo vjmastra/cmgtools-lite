@@ -1,0 +1,82 @@
+000 (3283475.000.000) 10/09 00:51:49 Job submitted from host: <137.138.44.75:9618?addrs=137.138.44.75-9618+[2001-1458-d00-1a--b]-9618&alias=bigbird14.cern.ch&noUDP&sock=schedd_2873_37ae_40>
+...
+040 (3283475.000.000) 10/09 00:57:21 Started transferring input files
+	Transferring to host: <188.185.217.34:9618?addrs=188.185.217.34-9618+[2001-1459-301-9c--100-1c]-9618&noUDP&sock=16462_b7d6_61753>
+...
+040 (3283475.000.000) 10/09 00:57:21 Finished transferring input files
+...
+001 (3283475.000.000) 10/09 00:57:22 Job executing on host: <188.185.217.34:9618?addrs=188.185.217.34-9618+[2001-1459-301-9c--100-1c]-9618&noUDP&sock=16329_ea0e_3>
+...
+006 (3283475.000.000) 10/09 00:57:30 Image size of job updated: 316
+	1  -  MemoryUsage of job (MB)
+	72  -  ResidentSetSize of job (KB)
+...
+006 (3283475.000.000) 10/09 01:02:30 Image size of job updated: 31668
+	25  -  MemoryUsage of job (MB)
+	25520  -  ResidentSetSize of job (KB)
+...
+006 (3283475.000.000) 10/09 01:07:30 Image size of job updated: 196956
+	168  -  MemoryUsage of job (MB)
+	171264  -  ResidentSetSize of job (KB)
+...
+006 (3283475.000.000) 10/09 01:18:24 Image size of job updated: 206896
+	177  -  MemoryUsage of job (MB)
+	180240  -  ResidentSetSize of job (KB)
+...
+007 (3283475.000.000) 10/09 01:18:24 Shadow exception!
+	Assertion ERROR on (result)
+	0  -  Run Bytes Sent By Job
+	2232  -  Run Bytes Received By Job
+...
+040 (3283475.000.000) 10/09 01:25:34 Started transferring input files
+	Transferring to host: <128.142.101.196:9618?addrs=128.142.101.196-9618+[2001-1458-301-89--100-1ce]-9618&noUDP&sock=3654_52ce_31977>
+...
+040 (3283475.000.000) 10/09 01:25:35 Finished transferring input files
+...
+001 (3283475.000.000) 10/09 01:25:36 Job executing on host: <128.142.101.196:9618?addrs=128.142.101.196-9618+[2001-1458-301-89--100-1ce]-9618&noUDP&sock=1824_b0d5_3>
+...
+006 (3283475.000.000) 10/09 01:25:44 Image size of job updated: 263208
+	203  -  MemoryUsage of job (MB)
+	207432  -  ResidentSetSize of job (KB)
+...
+006 (3283475.000.000) 10/09 01:30:44 Image size of job updated: 330624
+	290  -  MemoryUsage of job (MB)
+	296008  -  ResidentSetSize of job (KB)
+...
+006 (3283475.000.000) 10/09 01:31:48 Image size of job updated: 884280
+	290  -  MemoryUsage of job (MB)
+	296008  -  ResidentSetSize of job (KB)
+...
+040 (3283475.000.000) 10/09 01:31:56 Entered queue to transfer output files
+...
+040 (3283475.000.000) 10/09 01:33:46 Finished transferring output files
+...
+022 (3283475.000.000) 10/09 01:37:04 Job disconnected, attempting to reconnect
+    Socket between submit and execute hosts closed unexpectedly
+    Trying to reconnect to slot1_5@b7s02n0155.cern.ch <128.142.101.196:9618?addrs=128.142.101.196-9618+[2001-1458-301-89--100-1ce]-9618&noUDP&sock=1824_b0d5_3>
+...
+023 (3283475.000.000) 10/09 01:37:04 Job reconnected to slot1_5@b7s02n0155.cern.ch
+    startd address: <128.142.101.196:9618?addrs=128.142.101.196-9618+[2001-1458-301-89--100-1ce]-9618&noUDP&sock=1824_b0d5_3>
+    starter address: <128.142.101.196:9618?addrs=128.142.101.196-9618+[2001-1458-301-89--100-1ce]-9618&noUDP&sock=3654_52ce_31977>
+...
+040 (3283475.000.000) 10/09 01:37:09 Entered queue to transfer output files
+...
+040 (3283475.000.000) 10/09 01:37:19 Started transferring output files
+...
+040 (3283475.000.000) 10/09 01:37:28 Finished transferring output files
+...
+005 (3283475.000.000) 10/09 01:37:49 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:04:56, Sys 0 00:00:18  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:04:56, Sys 0 00:00:18  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	104180  -  Run Bytes Sent By Job
+	2232  -  Run Bytes Received By Job
+	104180  -  Total Bytes Sent By Job
+	4464  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1           
+	   Disk (KB)            :  5883464        3   2086339 
+	   Memory (MB)          :      290     2000      2000 
+...

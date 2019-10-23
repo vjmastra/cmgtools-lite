@@ -1,0 +1,36 @@
+000 (3282505.000.000) 10/09 00:31:40 Job submitted from host: <137.138.44.75:9618?addrs=137.138.44.75-9618+[2001-1458-d00-1a--b]-9618&alias=bigbird14.cern.ch&noUDP&sock=schedd_2873_37ae_40>
+...
+040 (3282505.000.000) 10/09 00:34:31 Started transferring input files
+	Transferring to host: <188.184.133.96:9618?addrs=188.184.133.96-9618+[2001-1458-301-a0--100-167]-9618&noUDP&sock=4274_2b67_19671>
+...
+040 (3282505.000.000) 10/09 00:34:31 Finished transferring input files
+...
+001 (3282505.000.000) 10/09 00:34:32 Job executing on host: <188.184.133.96:9618?addrs=188.184.133.96-9618+[2001-1458-301-a0--100-167]-9618&noUDP&sock=2387_dca7_3>
+...
+006 (3282505.000.000) 10/09 00:34:41 Image size of job updated: 136028
+	79  -  MemoryUsage of job (MB)
+	80468  -  ResidentSetSize of job (KB)
+...
+006 (3282505.000.000) 10/09 00:37:19 Image size of job updated: 286056
+	79  -  MemoryUsage of job (MB)
+	80468  -  ResidentSetSize of job (KB)
+...
+040 (3282505.000.000) 10/09 00:37:19 Started transferring output files
+...
+040 (3282505.000.000) 10/09 00:37:19 Finished transferring output files
+...
+005 (3282505.000.000) 10/09 00:37:20 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:01:58, Sys 0 00:00:08  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:01:58, Sys 0 00:00:08  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	97487  -  Run Bytes Sent By Job
+	2232  -  Run Bytes Received By Job
+	97487  -  Total Bytes Sent By Job
+	2232  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1           
+	   Disk (KB)            :  2256526        3   1879516 
+	   Memory (MB)          :       79     2000      2000 
+...

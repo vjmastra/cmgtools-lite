@@ -1,0 +1,3 @@
+*encoding=latin1
+# Search String History (newest to oldest):
+# File marks:

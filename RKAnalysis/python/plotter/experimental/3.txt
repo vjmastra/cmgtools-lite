@@ -1,0 +1,3 @@
+# Value of 'encoding' when this file was written
+
+

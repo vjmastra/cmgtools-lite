@@ -1,0 +1,56 @@
+000 (3283458.000.000) 10/09 00:51:34 Job submitted from host: <137.138.44.75:9618?addrs=137.138.44.75-9618+[2001-1458-d00-1a--b]-9618&alias=bigbird14.cern.ch&noUDP&sock=schedd_2873_37ae_40>
+...
+040 (3283458.000.000) 10/09 00:53:44 Started transferring input files
+	Transferring to host: <188.185.172.11:9618?addrs=188.185.172.11-9618+[2001-1459-301-5a--100-18]-9618&noUDP&sock=17452_433f_80252>
+...
+040 (3283458.000.000) 10/09 00:53:45 Finished transferring input files
+...
+001 (3283458.000.000) 10/09 00:53:45 Job executing on host: <188.185.172.11:9618?addrs=188.185.172.11-9618+[2001-1459-301-5a--100-18]-9618&noUDP&sock=17369_448d_3>
+...
+006 (3283458.000.000) 10/09 00:53:54 Image size of job updated: 692
+	1  -  MemoryUsage of job (MB)
+	596  -  ResidentSetSize of job (KB)
+...
+006 (3283458.000.000) 10/09 00:58:54 Image size of job updated: 249632
+	235  -  MemoryUsage of job (MB)
+	240020  -  ResidentSetSize of job (KB)
+...
+006 (3283458.000.000) 10/09 01:03:54 Image size of job updated: 310632
+	295  -  MemoryUsage of job (MB)
+	301220  -  ResidentSetSize of job (KB)
+...
+006 (3283458.000.000) 10/09 01:08:55 Image size of job updated: 310632
+	295  -  MemoryUsage of job (MB)
+	301368  -  ResidentSetSize of job (KB)
+...
+040 (3283458.000.000) 10/09 01:43:26 Entered queue to transfer output files
+...
+040 (3283458.000.000) 10/09 01:45:11 Finished transferring output files
+...
+022 (3283458.000.000) 10/09 01:45:44 Job disconnected, attempting to reconnect
+    Socket between submit and execute hosts closed unexpectedly
+    Trying to reconnect to slot1_11@b7w02n0303.cern.ch <188.185.172.11:9618?addrs=188.185.172.11-9618+[2001-1459-301-5a--100-18]-9618&noUDP&sock=17369_448d_3>
+...
+023 (3283458.000.000) 10/09 01:45:44 Job reconnected to slot1_11@b7w02n0303.cern.ch
+    startd address: <188.185.172.11:9618?addrs=188.185.172.11-9618+[2001-1459-301-5a--100-18]-9618&noUDP&sock=17369_448d_3>
+    starter address: <188.185.172.11:9618?addrs=188.185.172.11-9618+[2001-1459-301-5a--100-18]-9618&noUDP&sock=17452_433f_80252>
+...
+040 (3283458.000.000) 10/09 01:45:45 Started transferring output files
+...
+040 (3283458.000.000) 10/09 01:45:47 Finished transferring output files
+...
+005 (3283458.000.000) 10/09 01:45:51 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:11:00, Sys 0 00:01:04  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:11:00, Sys 0 00:01:04  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	130682  -  Run Bytes Sent By Job
+	2236  -  Run Bytes Received By Job
+	130682  -  Total Bytes Sent By Job
+	2236  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1           
+	   Disk (KB)            : 13376261        3   3928034 
+	   Memory (MB)          :      295     2000      2000 
+...

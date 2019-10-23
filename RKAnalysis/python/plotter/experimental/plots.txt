@@ -1,0 +1,27 @@
+#:instructions to comment use "#:" at the beggining of the line
+#:title:variable:denominator cuts:numerator EXTRA cuts:labelX:bins:start:end:canvas name: after that point optional configuration
+
+#:trgpt:TriggerMuon_pt:None:p_{T}:50:0:50:ctrgpt
+#:trgeta:TriggerMuon_eta:None:#eta:50:-2.4:2.4:ctrgeta
+
+fitmll:SkimBToKMuMu_mll_fullfit:SkimBToKMuMu_fit_mass>5.15 && SkimBToKMuMu_fit_mass<5.3:M(#mu #mu):50:0:5:cmll:Norm:LegName=fitted:LegPos=TL
+unfitmll:SkimBToKMuMu_mll_raw:SkimBToKMuMu_fit_mass>5.15 && SkimBToKMuMu_fit_mass<5.3:M(#mu #mu):50:0:5:cmll:Norm:LegName=unfitted
+
+
+mu1pt:SkimMuon1_pt:None:p_{T}:50:0:20:cdaughtpt:LogY:LegName=#mu1
+mu2pt:SkimMuon2_pt:None:p_{T}:50:0:20:cdaughtpt:LegName=#mu2
+Kpt:SkimTrack_pt:None:p_{T}:50:0:20:cdaughtpt:LegName=K
+
+Bm_nocuts:SkimBToKMuMu_fit_mass:None:M(B):50:4.7:5.7:cmassNocuts:Norm:LegName=q^<5GeV
+Bmll_nocuts:SkimBToKMuMu_fit_mass:SkimBToKMuMu_mll_fullfit<3.2 && SkimBToKMuMu_mll_fullfit>2.9:M(B):50:4.7:5.7:cmassNocuts:Norm:LegName=2.8GeV<q<3.2GeV
+
+Bmll_stdcuts:SkimBToKMuMu_fit_mass:SkimBToKMuMu_mll_fullfit<3.2 && SkimBToKMuMu_mll_fullfit>2.8 && SkimBToKMuMu_fit_pt>10 && SkimBToKMuMu_l_xy/SkimBToKMuMu_l_xy_unc>6.0 && SkimBToKMuMu_svprob>0.1 && SkimBToKMuMu_fit_cos2D>0.999 && SkimTrack_isMatchedToMuon==0 && SkimTrack_pt>1.5 && SkimMuon1_softId==1 && SkimMuon2_softId==1:M(B):50:4.7:5.7:cmllNewcuts:Norm:LegName=std cuts
+Bmll_newcuts:SkimBToKMuMu_fit_mass:SkimBToKMuMu_mll_fullfit<3.2 && SkimBToKMuMu_mll_fullfit>2.8 && SkimBToKMuMu_fit_pt>10 && SkimBToKMuMu_l_xy/SkimBToKMuMu_l_xy_unc>10.0 && SkimBToKMuMu_svprob>0.1 && SkimBToKMuMu_fit_cos2D>0.999 && SkimTrack_isMatchedToMuon==0 && SkimTrack_pt>1.5 && SkimMuon1_softId==1 && SkimMuon2_softId==1 && SkimMuon2_pt>2.0:M(B):50:4.7:5.7:cmllNewcuts:Norm:LegName=new cuts
+
+
+Bm_stdcuts:SkimBToKMuMu_fit_mass:SkimBToKMuMu_mll_fullfit<2.8 && SkimBToKMuMu_fit_pt>10 && SkimBToKMuMu_l_xy/SkimBToKMuMu_l_xy_unc>6.0 && SkimBToKMuMu_svprob>0.1 && SkimBToKMuMu_fit_cos2D>0.999 && SkimTrack_isMatchedToMuon==0 && SkimTrack_pt>1.5 && SkimMuon1_softId==1 && SkimMuon2_softId==1:M(B):25:4.7:5.7:cmNewcuts:Norm:LegName=std cuts
+Bm_newcuts:SkimBToKMuMu_fit_mass:SkimBToKMuMu_mll_fullfit<2.8 && SkimBToKMuMu_fit_pt>10 && SkimBToKMuMu_l_xy/SkimBToKMuMu_l_xy_unc>10.0 && SkimBToKMuMu_svprob>0.1 && SkimBToKMuMu_fit_cos2D>0.999 && SkimTrack_isMatchedToMuon==0 && SkimTrack_pt>1.5 && SkimMuon1_softId==1 && SkimMuon2_softId==1 && SkimMuon2_pt>2.0:M(B):25:4.7:5.7:cmNewcuts:Norm:LegName=new cuts
+
+
+
+#:instructions to comment use "#:" at the beggining of the line

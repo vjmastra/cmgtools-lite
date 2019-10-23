@@ -1,0 +1,5 @@
+drop *_*
+drop fixed*
+keep TriggerMuon_*
+keep HLT_*
+

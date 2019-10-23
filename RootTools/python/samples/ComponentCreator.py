@@ -96,6 +96,31 @@ class ComponentCreator(object):
         component.splitFactor = 100
         return component
 
+    def getDataFilesFromEOS(self,name,path,pattern=".*root"):
+        from CMGTools.Production.dataset import getDatasetFromCache, writeDatasetToCache
+        print path
+        try:
+            files = getDatasetFromCache('EOS%{path}%{pattern}.pck'.format(path = path.replace('/','_'), pattern = pattern))
+        except IOError:
+            files = [ 'root://eoscms.cern.ch/'+x for x in eostools.listFiles('/eos/cms'+path) if re.match(pattern,x) ]
+            if len(files) == 0:
+                raise RuntimeError, "ERROR making component %s: no files found under %s matching '%s'" % (name,path,pattern)
+            writeDatasetToCache('EOS%{path}%{pattern}.pck'.format(path = path.replace('/','_'), pattern = pattern), files)
+        return files
+
+
+    def makeDataComponentFromEOS(self,name,path,pattern=".*root",jsonFilter=None):
+        component = cfg.DataComponent(
+            name = name,
+            files = self.getDataFilesFromEOS(name,path,pattern),
+            intLumi=1,
+            triggers = [],
+            json=jsonFilter,
+        )
+        component.splitFactor = 100
+        return component
+
+
     def getFilesFromPSI(self,name,dataset,path,pattern=".*root"):
         from CMGTools.Production.dataset import getDatasetFromCache, writeDatasetToCache
         if "%" in path: path = path % dataset;

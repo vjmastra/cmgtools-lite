@@ -25,7 +25,8 @@ def _processOneComponent(pp, comp, outdir, preprocessor, options):
         cfo = imp.load_source(os.path.basename(pp).rstrip('.py'), pp, open(pp,'r'))
         pp = cfo.POSTPROCESSOR
 
-    pp.postfix = "_nanopy"
+#    pp.postfix = "_nanopy"
+    pp.postfix = "_nanopy%s"%comp.name # me default was very bad naming
     pp.noOut = options.noOut
     pp.justcount = options.justcount
     if options.prefetch is not None: 

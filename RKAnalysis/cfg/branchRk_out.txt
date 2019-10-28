@@ -1,5 +1,5 @@
 drop *_*
 drop fixed*
-keep TriggerMuon_*
+drop TriggerMuon_*
 keep HLT_*
 

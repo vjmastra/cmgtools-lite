@@ -118,7 +118,7 @@ if __name__ == "__main__":
 
     parser.add_option("-n","--ncore",dest="ncore",type="int",  default=-1, help="number of cores to use. -1 uses all")
 
-    parser.add_option("--tree",dest="tree",  default="Events", type="string", help="path for emulator IF we want data/emu superimposed")
+    parser.add_option("--tree",dest="tree",  default="Events", type="string", help="tree name. Default Events")
 
     (options, args) = parser.parse_args()
 

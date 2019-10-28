@@ -1,8 +1,1 @@
-/eos/cms/store/cmst3/group/bpark/gkaratha/cmg_ntuples_test/RunA2018_part2_0.root
-/eos/cms/store/cmst3/group/bpark/gkaratha/cmg_ntuples_test/RunA2018_part2_1.root
-/eos/cms/store/cmst3/group/bpark/gkaratha/cmg_ntuples_test/RunB2018_part2_0.root
-/eos/cms/store/cmst3/group/bpark/gkaratha/cmg_ntuples_test/RunB2018_part2_1.root
-/eos/cms/store/cmst3/group/bpark/gkaratha/cmg_ntuples_test/RunC2018_part2_0.root
-/eos/cms/store/cmst3/group/bpark/gkaratha/cmg_ntuples_test/RunC2018_part2_1.root
-/eos/cms/store/cmst3/group/bpark/gkaratha/cmg_ntuples_test/RunD2018_part2_0.root
-/eos/cms/store/cmst3/group/bpark/gkaratha/cmg_ntuples_test/RunD2018_part2_1.root
+/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMGforRk/CMSSW_10_4_0/src/CMGTools/RKAnalysis/cfg/valKMuMuCuts2/*.root

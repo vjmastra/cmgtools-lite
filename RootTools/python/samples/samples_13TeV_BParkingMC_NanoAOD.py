@@ -7,6 +7,8 @@ kreator = ComponentCreator()
 # ----------------------------- Run2018A 17Sep2018 ----------------------------------------
 MCBToKMuMu = kreator.makeDataComponentFromEOS("MCBToKMuMu", "/store/cmst3/group/bpark/BParkingNANO_2019Sep12/BuToKMuMu_probefilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BuToKMuMu/190912_160256/0000/", ".*root")
 
+#MCBToKMuMu = kreator.makeDataComponentFromEOS("MCBToKMuMu", "/store/group/cmst3/user/gkaratha/test_cmg6/", ".*root")
+
 MCBToKstarMuMu = kreator.makeDataComponentFromEOS("MCBToKstarMuMu", "/store/cmst3/group/bpark/BParkingNANO_2019Oct18/BdToKstarMuMu_probefilter_SoftQCDnonD_TuneCP5_13Tev-pythia8-evtgen/crab_BuToKstarMuMu/191017_221742/0000/", ".*root")
 
 MCBToKstarEE = kreator.makeDataComponentFromEOS("MCBToKstarEE", "/store/cmst3/group/bpark/BParkingNANO_2019Oct18/BdToKstaree_Mufilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BuToKstarEE/191017_221900/0000/", ".*root")
@@ -20,8 +22,9 @@ MCBToKstarEE = kreator.makeDataComponentFromEOS("MCBToKstarEE", "/store/cmst3/gr
 #dataSamples = RunA_part2 + RunB_part2 + RunC_part2 + RunD_part2
                 
 
-samples = [MCBToKMuMu]
+samples = [MCBToKMuMu,MCBToKstarMuMu,MCBToKstarEE]
 
+#samples =[MCBToKstarMuMu]
 
 # ---------------------------------------------------------------------
 

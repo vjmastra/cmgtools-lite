@@ -9,7 +9,7 @@
  mcStyle->SetLabelSize(0.03,"xyz"); 
  mcStyle->SetTitleSize(0.05,"xyz");
  mcStyle->SetLabelFont(22,"xyz");
- mcStyle->SetTitleOffset(1.2,"y");
+ mcStyle->SetTitleOffset(1.0,"y");
  mcStyle->SetTitleOffset(0.8,"x");
  mcStyle->SetCanvasDefW(700); 
  mcStyle->SetCanvasDefH(700); 
@@ -17,9 +17,9 @@
  mcStyle->SetCanvasBorderMode(0);
  mcStyle->SetCanvasBorderSize(0);
  mcStyle->SetPadBottomMargin(0.1);
- mcStyle->SetPadTopMargin(0.1); 
+ mcStyle->SetPadTopMargin(0.05); 
  mcStyle->SetPadLeftMargin(0.1); 
- mcStyle->SetPadRightMargin(0.1);
+ mcStyle->SetPadRightMargin(0.05);
  mcStyle->SetPadGridX(1); 
  mcStyle->SetPadGridY(1);
  mcStyle->SetPadTickX(1);

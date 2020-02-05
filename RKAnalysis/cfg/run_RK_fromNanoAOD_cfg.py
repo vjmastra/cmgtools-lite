@@ -1,4 +1,6 @@
-# condor usage: nanopy_batch.py -o <localOutput> -r /store/group/cmst3/group/bpark/gkaratha/<remoteOutput> -b 'run_condor_simple.sh -t 1200' run_RK_fromNanoAOD_cfg.py --option xxx=yyy
+# condor usage: nanopy_batch.py -o <localOutput> -r /store/group/cmst3/user/gkaratha/<remoteOutput> -b 'run_condor_simple.sh -t 1200' run_RK_fromNanoAOD_cfg.py --option xxx=yyy
+# /store/group/cmst3/user/gkaratha
+# /store/group/cmst3/group/bpark/gkaratha/
 # local run: nanopy.py <folder>  run_RK_fromNanoAOD_cfg.py -N <evts per dataset> -o xxx=yyy
 
 
@@ -21,9 +23,14 @@ filterSample = str(getHeppyOption("filterSample",""))
 mc = getHeppyOption("mc",False)
 data = getHeppyOption("data",False)
 njobs = getHeppyOption("njobs",10)
+nfiles = getHeppyOption("nfiles",1)
 kmumu = getHeppyOption("kmumu",False)
 kstarmumu = getHeppyOption("kstarmumu",False)
+kshortmumu = getHeppyOption("kshortmumu",False)
 kee = getHeppyOption("kee",False)
+onlyPFe = getHeppyOption("onlyPFe",False)
+jpsi = getHeppyOption("jpsi",False)
+psi2s = getHeppyOption("psi2s",False)
 test = getHeppyOption("test")
 start_time = time.time()
 
@@ -41,33 +48,36 @@ Ncomps=[]
 if data:
   from CMGTools.RootTools.samples.samples_13TeV_BParkingData_NanoAOD import samples as allData
   Ncomps = allData
+  if kee:
+    from CMGTools.RootTools.samples.samples_13TeV_BParkingDataPFe_NanoAOD import samples as allData
+    Ncomps = allData
 if mc:
   from CMGTools.RootTools.samples.samples_13TeV_BParkingMC_NanoAOD import samples as allMC
-  Ncomps = Ncomps + allMC    
+  Ncomps = allMC    
+  if kee:
+    from CMGTools.RootTools.samples.samples_13TeV_BParkingMCPFe_NanoAOD import samples as allData
+    Ncomps = allData
 
 
-
+print Ncomps[0].files
 #create components
 selectedComponents=[]
 if not test:
   for comp in Ncomps:
-     #comp.triggers = trigs[:]
-     # jobs per dataset
      if filterSample!="":
         if filterSample not in comp.name:
            continue
-     comp.splitFactor = njobs
-     selectedComponents.append(comp)
-else:
-   for comp in Ncomps:
-     comp.splitFactor = 1
-     comp.files=comp.files[:3]
-#     if filterSample != "":
-#        print filterSample
-     #if "KstarMuMu" not in comp.name:
-      #     continue
+     comp.splitFactor = int(njobs)
      selectedComponents.append(comp)
 
+else:
+   for comp in Ncomps:
+     if filterSample!="":
+        if filterSample not in comp.name:
+           continue
+     comp.splitFactor = 1
+     comp.files=comp.files[:int(nfiles)]
+     selectedComponents.append(comp)
 
 # status
 printSummary(selectedComponents)
@@ -91,22 +101,73 @@ br_in = ""
 if kmumu and not mc:
   br_in = "branchRkmumu_in.txt"
   Bdecay="BToKMuMu"
-  Bcuts=dict ( Pt= 5.0, MinMass=4.5, MaxMass=7.0, LxySign=2.0, Cos2D=0.9, Prob=0.1, L1Pt= -2.0, L2Pt= -1.0, KPt= -1.0 )
-  BKLLSelection = lambda l : l.fit_pt > Bcuts["Pt" ] and l.fit_cos2D > Bcuts["Cos2D"] and l.svprob > Bcuts["Prob"] and l.l_xy_unc >0 and l.l_xy/l.l_xy_unc > Bcuts["LxySign"] and l.fit_mass>Bcuts["MinMass"] and l.fit_mass<Bcuts["MaxMass"] and l.l1pt>Bcuts["L1Pt"]  and l.l2pt>Bcuts["L2Pt"]  and l.kpt>Bcuts["KPt"]
-  BparkSkim= SkimCuts(Bdecay,Bcuts)
+  # tag cuts
+ # Bcuts=dict ( Pt= 10.5, MinMass=4.7, MaxMass=6.0, LxySign=1.0, Cos2D=0.99, Prob=0.001, L1Pt= 7.2, L2Pt= 1.0, KPt= 1.0 )
+  # probe cuts 
+  Bcuts=dict ( Pt= 3.0, MinMass=4.7, MaxMass=6.0, LxySign=1.0, Cos2D=0.99, Prob=0.001, L1Pt= 1.0, L2Pt= 1.0, KPt= 1.0 )
+  BKLLSelection = lambda l : l.fit_pt > Bcuts["Pt" ] and l.fit_cos2D > Bcuts["Cos2D"] and l.svprob > Bcuts["Prob"] and l.l_xy_unc >0 and (l.l_xy)/l.l_xy_unc > Bcuts["LxySign"] and l.fit_mass>Bcuts["MinMass"] and l.fit_mass<Bcuts["MaxMass"] 
   modules = KMuMuData(modules,BKLLSelection)
 
 if kee and not mc:
   br_in = "branchRkee_in.txt"
   Bdecay="BToKEE"
-  Bcuts=dict ( Pt= 3.0, MinMass=4.7, MaxMass=6.0, LxySign=2.0, Cos2D=0.9, Prob=0.005, L1Pt= 2.0, L2Pt= 1.0, KPt= 1.0 )
-  BKLLSelection = lambda l : l.fit_pt > Bcuts["Pt" ] and l.fit_cos2D > Bcuts["Cos2D"] and l.svprob > Bcuts["Prob"] and l.l_xy_unc >0 and l.l_xy/l.l_xy_unc > Bcuts["LxySign"] and l.fit_mass>Bcuts["MinMass"] and l.fit_mass<Bcuts["MaxMass"] and l.l1pt>Bcuts["L1Pt"]  and l.l2pt>Bcuts["L2Pt"]  and l.kpt>Bcuts["KPt"]
-  BparkSkim= SkimCuts(Bdecay,Bcuts)
-  modules = KEEData(modules,BKLLSelection)  
+  EnableLowPtE=True
+  EnablePFE=True
+  if onlyPFe: EnableLowPtE=False
+  Bcuts=dict ( Pt= 3.0, MinMass=4.7, MaxMass=6.0, LxySign=0.0, Cos2D=0, Prob=0, L1Pt= 1.0, L2Pt= 1.0, KPt= 0.0 )
+  BKLLSelection = lambda l : l.fit_pt > Bcuts["Pt" ] and l.fit_cos2D > Bcuts["Cos2D"] and l.svprob > Bcuts["Prob"] and l.l_xy_unc >0 and (l.l_xy)/l.l_xy_unc > Bcuts["LxySign"] and l.fit_mass>Bcuts["MinMass"] and l.fit_mass<Bcuts["MaxMass"]
+  if not EnableLowPtE and not EnablePFE: print "Neither PF e nor low pt e enabled. Results may be invalid"
+  modules = KEEData(modules,BKLLSelection,EnablePFE,EnableLowPtE) 
+
+
+#################################### KsLL ###################################
+if kshortmumu and not mc:
+  br_in = "branchRkshortMuMu_in.txt"
+  
+  Bcuts=dict ( Pt= 3.0, MinMass=4.7, MaxMass=5.7, LxySign=1.0, Cos2D=0.9, Prob=0.005, L1Pt= 1.5, L2Pt=1.0, KsPt=1.0, KsProb=0.0005 )
+  
+
+  BKLLSelection = lambda l : l.fit_pt > Bcuts["Pt" ] and l.fit_cos2D > Bcuts["Cos2D"] and l.svprob > Bcuts["Prob"] and l.l_xy_unc >0 and l.l_xy/l.l_xy_unc > Bcuts["LxySign"] and l.fit_mass>Bcuts["MinMass"] and l.fit_mass<Bcuts["MaxMass"] and l.lep1pt_fullfit>Bcuts["L1Pt"]  and l.lep2pt_fullfit>Bcuts["L2Pt"]  and l.ptkshort_fullfit>Bcuts["KsPt"] and l.kshort_prob>Bcuts["KsProb"]
+
+  BparkSkim = ("Sum$( BToKshortMuMu_fit_pt>{ptmin} && "+
+                    "BToKshortMuMu_fit_mass>{mmin} && "+
+                    "BToKshortMuMu_fit_mass<{mmax} && "+
+                    "BToKshortMuMu_l_xy_unc>0 && "+
+                    "BToKshortMuMu_l_xy/BToKshortMuMu_l_xy_unc>{slxy} && "+
+                    "BToKshortMuMu_fit_cos2D>{cos} && "+
+                    "BToKshortMuMu_svprob>{prob} && "+
+                    "BToKshortMuMu_lep1pt_fullfit>{l1pt} && "+
+                    "BToKshortMuMu_lep2pt_fullfit>{l2pt} && "+
+                    "BToKshortMuMu_ptkshort_fullfit>{kspt} "+
+                   ")>0"
+               ).format( ptmin=Bcuts["Pt"], mmin=Bcuts["MinMass"], 
+                         mmax=Bcuts["MaxMass"], slxy=Bcuts["LxySign"], 
+                         cos=Bcuts["Cos2D"], prob=Bcuts["Prob"], 
+                         l1pt=Bcuts["L1Pt"], l2pt=Bcuts["L2Pt"], 
+                         kspt=Bcuts["KsPt"]
+                        )
+            
+  modules = KshortMuMuData(modules,BKLLSelection)  
 
 if kmumu and mc:
   br_in = "branchRkmumu_in.txt"
-  modules = KMuMuMC(modules)
+  if not jpsi and not psi2s:
+     modules = KMuMuMC(modules)
+  elif jpsi and not psi2s:
+     modules = KMuMuMC(modules,["443->13,-13"])
+  elif not jpsi and psi2s:
+     modules = KMuMuMC(modules,["100443->13,-13"])
+  BparkSkim=""
+
+if kee and mc:
+  br_in = "branchRkee_in.txt"
+  if not jpsi and not psi2s:
+     modules = KEEMC(modules)
+  elif jpsi and not psi2s:
+     modules = KEEMC(modules,["443->11,-11"])
+  elif not jpsi and psi2s:
+     modules = KEEMC(modules,["100443->11,-11"])
+  BparkSkim=""
 
 if kstarmumu and mc:
   modules = KstarMuMuMC(modules)

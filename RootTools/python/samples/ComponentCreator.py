@@ -171,11 +171,13 @@ class ComponentCreator(object):
         try:
             files = getDatasetFromCache('Local%{path}%{pattern}.pck'.format(path = path.replace('/','_'), pattern = pattern))
         except IOError:
+           
             files = [ x for x in eostools.listFiles(path,True) if re.match(pattern,x) ] 
             if len(files) == 0:
                 raise RuntimeError, "ERROR making component %s: no files found under %s matching '%s'" % (name,path,pattern)
             writeDatasetToCache('Local%{path}%{pattern}.pck'.format(path = path.replace('/','_'), pattern = pattern), files)
         return files
+
 
     def makeMCComponentFromLocal(self,name,dataset,path,pattern=".*root",xSec=1):
         component = cfg.MCComponent(
@@ -189,6 +191,31 @@ class ComponentCreator(object):
         )
         component.splitFactor = 100
         return component
+
+    def getDataFilesFromLocal(self,name,path, pattern=".*root"):
+        from CMGTools.Production.dataset import getDatasetFromCache, writeDatasetToCache
+        print path
+        files = [ x for x in eostools.listFiles(path,True) if re.match(pattern,x) ] 
+        if len(files) == 0:
+           raise RuntimeError, "ERROR making component %s: no files found under %s tching '%s'" % (name, path,pattern)
+        
+        return files
+
+    def makeDataComponentFromLocal(self,name,path,pattern,json=None,run_range=None,triggers=[],vetoTriggers=[],useAAA=False,jsonFilter=False):
+        component = cfg.DataComponent(
+            #dataset = dataset,
+            name = name,
+            files = self.getDataFilesFromLocal(name,path,pattern),
+            intLumi = 1,
+            triggers = triggers,
+            json = (json if jsonFilter else None)
+            )
+        component.json = json
+        component.vetoTriggers = vetoTriggers
+        component.run_range = run_range
+        component.splitFactor = 1
+        return component
+        
 
     def makeDataComponent(self,name,dataset,user,pattern,json=None,run_range=None,triggers=[],vetoTriggers=[],useAAA=False,jsonFilter=False):
         component = cfg.DataComponent(

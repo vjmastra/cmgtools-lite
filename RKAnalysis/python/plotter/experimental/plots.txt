@@ -1,20 +1,12 @@
-#:instructions to comment use "#:" at the beggining of the line
-#:title:variable:denominator cuts:numerator EXTRA cuts:labelX:bins:start:end:canvas name: after that point optional configuration
 
-#:trgpt:TriggerMuon_pt:None:p_{T}:50:0:50:ctrgpt
-#:trgeta:TriggerMuon_eta:None:#eta:50:-2.4:2.4:ctrgeta
-
-mB:SkimBToKMuMu_fit_mass:SkimBToKMuMu_fit_mass>4.5 && SkimBToKMuMu_fit_mass<6:M(B):50:4.5:6:cmb
-
-ptB:SkimBToKMuMu_fit_pt:SkimBToKMuMu_fit_mass>4.5 && SkimBToKMuMu_fit_mass<6:p_{T}(B):50:0:50:cptB
-
-etaB:SkimBToKMuMu_fit_eta:SkimBToKMuMu_fit_mass>4.5 && SkimBToKMuMu_fit_mass<6:#eta(B):50:-2.5:2.5:cetaB
-
-slxy:SkimBToKMuMu_l_xy/BToKMuMu_l_xy_unc:SkimBToKMuMu_fit_mass>4.5 && SkimBToKMuMu_fit_mass<6:L{xy}/#sigma:30:0:30:cslxy
-
-prob:SkimBToKMuMu_svprob:SkimBToKMuMu_fit_mass>4.5 && SkimBToKMuMu_fit_mass<6:Prob(B):100:0:1:cprob
-
-cos:SkimBToKMuMu_fit_cos2D:SkimBToKMuMu_fit_mass>4.5 && SkimBToKMuMu_fit_mass<6:cos:100:0.5:1:ccos
+#:### Tag side muon pT, eta mll ###############
+#:mu1Pt:SkimBToKMuMu_mu1Pt:SkimBToKMuMu_mu1SoftId==1:p_{T}:50:0:30:cdaupt:Norm:LegName=#mu1
+mu2Pt:SkimBToKMuMu_mu2Pt:SkimBToKMuMu_mu2SoftId==1:p_{T}:50:0:30:cdaupt:Norm:LegName=#mu2
+kPt:SkimBToKMuMu_kPt:None:p_{T}:50:0:30:cdaupt:Norm:LegName=K
 
 
-#:instructions to comment use "#:" at the beggining of the line
+
+
+hmBlowq:SkimBToKMuMu_fit_mass:SkimBToKMuMu_mu1SoftId==1 && SkimBToKMuMu_mu2SoftId==1 && SkimBToKMuMu_mll_fullfit<2.8 && SkimBToKMuMu_svprob>0.1 && SkimBToKMuMu_fit_cos2D>0.999 && SkimBToKMuMu_mu2Pt>1 && SkimBToKMuMu_kPt>1.5 && SkimBToKMuMu_mu1Pt>7 && (SkimBToKMuMu_l_xy*SkimBToKMuMu_l_xy)/SkimBToKMuMu_l_xy_unc>36.0 && SkimBToKMuMu_fit_pt>10:M(B):25:4.7:5.7:cmBlowq:LegName=q^{2}<2.8
+hmBhighq:SkimBToKMuMu_fit_mass:SkimBToKMuMu_mu1SoftId==1 && SkimBToKMuMu_mu2SoftId==1 && SkimBToKMuMu_mll_fullfit>3.85 && SkimBToKMuMu_mll_fullfit<5 && SkimBToKMuMu_svprob>0.1 && SkimBToKMuMu_fit_cos2D>0.999 && SkimBToKMuMu_mu2Pt>1 && SkimBToKMuMu_kPt>1.5 && SkimBToKMuMu_mu1Pt>7 && (SkimBToKMuMu_l_xy*SkimBToKMuMu_l_xy)/SkimBToKMuMu_l_xy_unc>36.0 && SkimBToKMuMu_fit_pt>10:M(B):25:4.7:5.7:cmBlowq:LegName=q^{2}>3.85
+

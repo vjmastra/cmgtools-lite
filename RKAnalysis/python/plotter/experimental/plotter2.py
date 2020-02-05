@@ -8,6 +8,7 @@ import time;
 
 def f(x):
   args = x.split(";")
+  print x
   qt= "\",\""
   os.system(  "root -l -b -q 'PlottingCore/plotSimple2.C(\""+args[0]+qt+args[1]+qt+args[2]+qt+args[3]+qt+args[4]+"\")'"   )
   print "core",(args[1].split("_"))[1],"done"
@@ -72,7 +73,7 @@ def legName( options,default):
 def cms():
   cms_label = TLatex()
   cms_label.SetTextSize(0.04)
-  cms_label.DrawLatexNDC(0.16, 0.92, "#bf{ #font[22]{CMS} #font[72]{Preliminary}}")
+  cms_label.DrawLatexNDC(0.16, 0.96, "#bf{ #font[22]{CMS} #font[72]{Preliminary}}")
   return cms_label
 
 
@@ -80,7 +81,7 @@ def cms():
 def head():
   header = TLatex()
   header.SetTextSize(0.03)
-  header.DrawLatexNDC(0.63, 0.92, "#sqrt{s} = 13 TeV, 2018 p-p ")
+  header.DrawLatexNDC(0.63, 0.96, "#sqrt{s} = 13 TeV, 2018 p-p ")
   return header
 
 

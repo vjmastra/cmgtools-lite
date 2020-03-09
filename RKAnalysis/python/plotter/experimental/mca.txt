@@ -1,0 +1,6 @@
+/eos/cms/store/group/cmst3/user/gkaratha/cmgTuple_TagKMuMu_3B/RunA2018_part2_0/*.root
+/eos/cms/store/group/cmst3/user/gkaratha/cmgTuple_TagKMuMu_3B/RunA2018_part2_1/*.root
+/eos/cms/store/group/cmst3/user/gkaratha/cmgTuple_TagKMuMu_3B/RunB2018_part2_0/*.root
+/eos/cms/store/group/cmst3/user/gkaratha/cmgTuple_TagKMuMu_3B/RunB2018_part2_1/*.root
+/eos/cms/store/group/cmst3/user/gkaratha/cmgTuple_TagKMuMu_3B/RunC2018_part2_0/*.root
+/eos/cms/store/group/cmst3/user/gkaratha/cmgTuple_TagKMuMu_3B/RunC2018_part2_1/*.root

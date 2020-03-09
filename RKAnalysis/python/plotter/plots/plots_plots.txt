@@ -1,0 +1,4 @@
+Trgmuonpt: TriggerMuon_pt : 40,0,50; XTitle="p_{T}",Logy
+Trgmuoneta: TriggerMuon_eta : 40,-3,3; XTitle="#eta"
+Bmnocuts: SkimBToKMuMu_fit_mass: 50,4.5,6; XTitle="B mass"
+Mllnocuts: SkimBToKMuMu_mll_fullfit: 50,0,5.0; XTitle="M(#mu #mu)"

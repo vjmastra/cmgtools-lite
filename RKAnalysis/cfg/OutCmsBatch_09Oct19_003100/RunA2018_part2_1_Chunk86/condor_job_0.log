@@ -1,0 +1,35 @@
+000 (3282944.000.000) 10/09 00:41:10 Job submitted from host: <137.138.44.75:9618?addrs=137.138.44.75-9618+[2001-1458-d00-1a--b]-9618&alias=bigbird14.cern.ch&noUDP&sock=schedd_2873_37ae_40>
+...
+040 (3282944.000.000) 10/09 00:44:13 Started transferring input files
+	Transferring to host: <188.184.133.199:9618?addrs=188.184.133.199-9618+[2001-1458-301-a0--100-1b6]-9618&noUDP&sock=4203_24c4_19832>
+...
+040 (3282944.000.000) 10/09 00:44:13 Finished transferring input files
+...
+001 (3282944.000.000) 10/09 00:44:14 Job executing on host: <188.184.133.199:9618?addrs=188.184.133.199-9618+[2001-1458-301-a0--100-1b6]-9618&noUDP&sock=2356_9938_3>
+...
+006 (3282944.000.000) 10/09 00:44:23 Image size of job updated: 249668
+	163  -  MemoryUsage of job (MB)
+	165948  -  ResidentSetSize of job (KB)
+...
+006 (3282944.000.000) 10/09 00:44:55 Image size of job updated: 255840
+	163  -  MemoryUsage of job (MB)
+	165948  -  ResidentSetSize of job (KB)
+...
+040 (3282944.000.000) 10/09 00:44:55 Started transferring output files
+...
+040 (3282944.000.000) 10/09 00:44:55 Finished transferring output files
+...
+004 (3282944.000.000) 10/09 00:44:55 Job was evicted.
+	(0) CPU times
+		Usr 0 00:00:27, Sys 0 00:00:02  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+	85736  -  Run Bytes Sent By Job
+	2236  -  Run Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1           
+	   Disk (KB)            :   718679        3   2128636 
+	   Memory (MB)          :      163     2000      2000 
+...
+009 (3282944.000.000) 10/09 00:44:55 Job was aborted by the user.
+	via condor_rm (by user gkaratha)
+...

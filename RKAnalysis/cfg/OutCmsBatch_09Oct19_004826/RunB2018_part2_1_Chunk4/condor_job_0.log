@@ -1,0 +1,46 @@
+000 (3283478.000.000) 10/09 00:51:52 Job submitted from host: <137.138.44.75:9618?addrs=137.138.44.75-9618+[2001-1458-d00-1a--b]-9618&alias=bigbird14.cern.ch&noUDP&sock=schedd_2873_37ae_40>
+...
+040 (3283478.000.000) 10/09 00:57:21 Started transferring input files
+	Transferring to host: <188.185.161.134:9618?addrs=188.185.161.134-9618+[2001-1459-301-12--100-180]-9618&noUDP&sock=16560_c49a_61301>
+...
+040 (3283478.000.000) 10/09 00:57:21 Finished transferring input files
+...
+001 (3283478.000.000) 10/09 00:57:22 Job executing on host: <188.185.161.134:9618?addrs=188.185.161.134-9618+[2001-1459-301-12--100-180]-9618&noUDP&sock=16466_e288_3>
+...
+006 (3283478.000.000) 10/09 00:57:30 Image size of job updated: 72
+	1  -  MemoryUsage of job (MB)
+	72  -  ResidentSetSize of job (KB)
+...
+006 (3283478.000.000) 10/09 01:02:30 Image size of job updated: 15716
+	11  -  MemoryUsage of job (MB)
+	10612  -  ResidentSetSize of job (KB)
+...
+006 (3283478.000.000) 10/09 01:07:31 Image size of job updated: 94484
+	75  -  MemoryUsage of job (MB)
+	76304  -  ResidentSetSize of job (KB)
+...
+006 (3283478.000.000) 10/09 01:17:22 Image size of job updated: 269420
+	239  -  MemoryUsage of job (MB)
+	243816  -  ResidentSetSize of job (KB)
+...
+040 (3283478.000.000) 10/09 01:25:16 Entered queue to transfer output files
+...
+040 (3283478.000.000) 10/09 01:25:18 Started transferring output files
+...
+040 (3283478.000.000) 10/09 01:25:18 Finished transferring output files
+...
+005 (3283478.000.000) 10/09 01:25:20 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:05:02, Sys 0 00:00:28  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:05:02, Sys 0 00:00:28  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	104004  -  Run Bytes Sent By Job
+	2232  -  Run Bytes Received By Job
+	104004  -  Total Bytes Sent By Job
+	2232  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1           
+	   Disk (KB)            :  5179498        3   2179936 
+	   Memory (MB)          :      239     2000      2000 
+...

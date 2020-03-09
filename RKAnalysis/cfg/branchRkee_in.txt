@@ -1,0 +1,10 @@
+drop SV_*
+drop PV_*
+drop L1_*
+drop HLT_*
+drop TrigObj_*
+drop fixedGrid*
+drop BToKMuMu_*
+drop Muon_*
+drop OtherPV_*
+drop TriggerMuon_*

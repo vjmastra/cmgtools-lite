@@ -1,0 +1,62 @@
+000 (3283299.000.000) 10/09 00:48:55 Job submitted from host: <137.138.44.75:9618?addrs=137.138.44.75-9618+[2001-1458-d00-1a--b]-9618&alias=bigbird14.cern.ch&noUDP&sock=schedd_2873_37ae_40>
+...
+040 (3283299.000.000) 10/09 00:49:37 Started transferring input files
+	Transferring to host: <188.185.232.66:9618?addrs=188.185.232.66-9618+[2001-1459-301-15--100-3c]-9618&noUDP&sock=16565_4a7b_60886>
+...
+040 (3283299.000.000) 10/09 00:49:37 Finished transferring input files
+...
+001 (3283299.000.000) 10/09 00:49:38 Job executing on host: <188.185.232.66:9618?addrs=188.185.232.66-9618+[2001-1459-301-15--100-3c]-9618&noUDP&sock=16432_9050_3>
+...
+006 (3283299.000.000) 10/09 00:49:46 Image size of job updated: 12364
+	10  -  MemoryUsage of job (MB)
+	10144  -  ResidentSetSize of job (KB)
+...
+006 (3283299.000.000) 10/09 00:54:46 Image size of job updated: 248288
+	208  -  MemoryUsage of job (MB)
+	212940  -  ResidentSetSize of job (KB)
+...
+006 (3283299.000.000) 10/09 00:59:48 Image size of job updated: 259540
+	245  -  MemoryUsage of job (MB)
+	250044  -  ResidentSetSize of job (KB)
+...
+006 (3283299.000.000) 10/09 01:04:48 Image size of job updated: 259540
+	245  -  MemoryUsage of job (MB)
+	250480  -  ResidentSetSize of job (KB)
+...
+006 (3283299.000.000) 10/09 01:14:50 Image size of job updated: 264988
+	245  -  MemoryUsage of job (MB)
+	250480  -  ResidentSetSize of job (KB)
+...
+040 (3283299.000.000) 10/09 01:29:26 Entered queue to transfer output files
+...
+040 (3283299.000.000) 10/09 01:31:10 Finished transferring output files
+...
+022 (3283299.000.000) 10/09 01:32:52 Job disconnected, attempting to reconnect
+    Socket between submit and execute hosts closed unexpectedly
+    Trying to reconnect to slot1_3@b7w10n0905.cern.ch <188.185.232.66:9618?addrs=188.185.232.66-9618+[2001-1459-301-15--100-3c]-9618&noUDP&sock=16432_9050_3>
+...
+023 (3283299.000.000) 10/09 01:32:52 Job reconnected to slot1_3@b7w10n0905.cern.ch
+    startd address: <188.185.232.66:9618?addrs=188.185.232.66-9618+[2001-1459-301-15--100-3c]-9618&noUDP&sock=16432_9050_3>
+    starter address: <188.185.232.66:9618?addrs=188.185.232.66-9618+[2001-1459-301-15--100-3c]-9618&noUDP&sock=16565_4a7b_60886>
+...
+040 (3283299.000.000) 10/09 01:37:14 Entered queue to transfer output files
+...
+040 (3283299.000.000) 10/09 01:37:23 Started transferring output files
+...
+040 (3283299.000.000) 10/09 01:37:35 Finished transferring output files
+...
+005 (3283299.000.000) 10/09 01:37:52 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:14:06, Sys 0 00:01:12  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:14:06, Sys 0 00:01:12  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	130820  -  Run Bytes Sent By Job
+	2232  -  Run Bytes Received By Job
+	130820  -  Total Bytes Sent By Job
+	2232  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1           
+	   Disk (KB)            : 12480253        3   2107647 
+	   Memory (MB)          :      245     2000      2000 
+...

@@ -1,0 +1,74 @@
+000 (3283452.000.000) 10/09 00:51:29 Job submitted from host: <137.138.44.75:9618?addrs=137.138.44.75-9618+[2001-1458-d00-1a--b]-9618&alias=bigbird14.cern.ch&noUDP&sock=schedd_2873_37ae_40>
+...
+040 (3283452.000.000) 10/09 00:53:44 Started transferring input files
+	Transferring to host: <188.185.193.16:9618?addrs=188.185.193.16-9618+[2001-1459-301-45--100-e]-9618&noUDP&sock=17238_7af6_80495>
+...
+040 (3283452.000.000) 10/09 00:53:44 Finished transferring input files
+...
+001 (3283452.000.000) 10/09 00:53:45 Job executing on host: <188.185.193.16:9618?addrs=188.185.193.16-9618+[2001-1459-301-45--100-e]-9618&noUDP&sock=17156_2ae1_3>
+...
+006 (3283452.000.000) 10/09 00:53:54 Image size of job updated: 72
+	1  -  MemoryUsage of job (MB)
+	72  -  ResidentSetSize of job (KB)
+...
+006 (3283452.000.000) 10/09 00:59:48 Image size of job updated: 34988
+	28  -  MemoryUsage of job (MB)
+	28136  -  ResidentSetSize of job (KB)
+...
+006 (3283452.000.000) 10/09 01:03:56 Image size of job updated: 92852
+	68  -  MemoryUsage of job (MB)
+	68708  -  ResidentSetSize of job (KB)
+...
+006 (3283452.000.000) 10/09 01:10:24 Image size of job updated: 216648
+	162  -  MemoryUsage of job (MB)
+	164916  -  ResidentSetSize of job (KB)
+...
+006 (3283452.000.000) 10/09 01:16:02 Image size of job updated: 217712
+	162  -  MemoryUsage of job (MB)
+	164916  -  ResidentSetSize of job (KB)
+...
+006 (3283452.000.000) 10/09 01:21:02 Image size of job updated: 221016
+	162  -  MemoryUsage of job (MB)
+	164916  -  ResidentSetSize of job (KB)
+...
+006 (3283452.000.000) 10/09 01:26:04 Image size of job updated: 276016
+	238  -  MemoryUsage of job (MB)
+	243444  -  ResidentSetSize of job (KB)
+...
+006 (3283452.000.000) 10/09 01:28:22 Image size of job updated: 276016
+	238  -  MemoryUsage of job (MB)
+	243612  -  ResidentSetSize of job (KB)
+...
+040 (3283452.000.000) 10/09 01:29:30 Entered queue to transfer output files
+...
+040 (3283452.000.000) 10/09 01:31:14 Finished transferring output files
+...
+022 (3283452.000.000) 10/09 01:36:14 Job disconnected, attempting to reconnect
+    Socket between submit and execute hosts closed unexpectedly
+    Trying to reconnect to slot1_11@b7w02n0002.cern.ch <188.185.193.16:9618?addrs=188.185.193.16-9618+[2001-1459-301-45--100-e]-9618&noUDP&sock=17156_2ae1_3>
+...
+023 (3283452.000.000) 10/09 01:36:14 Job reconnected to slot1_11@b7w02n0002.cern.ch
+    startd address: <188.185.193.16:9618?addrs=188.185.193.16-9618+[2001-1459-301-45--100-e]-9618&noUDP&sock=17156_2ae1_3>
+    starter address: <188.185.193.16:9618?addrs=188.185.193.16-9618+[2001-1459-301-45--100-e]-9618&noUDP&sock=17238_7af6_80495>
+...
+040 (3283452.000.000) 10/09 01:36:50 Entered queue to transfer output files
+...
+040 (3283452.000.000) 10/09 01:36:58 Started transferring output files
+...
+040 (3283452.000.000) 10/09 01:37:05 Finished transferring output files
+...
+005 (3283452.000.000) 10/09 01:37:23 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:12:16, Sys 0 00:00:52  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:12:16, Sys 0 00:00:52  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	130706  -  Run Bytes Sent By Job
+	2236  -  Run Bytes Received By Job
+	130706  -  Total Bytes Sent By Job
+	2236  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated 
+	   Cpus                 :                 1           
+	   Disk (KB)            : 14905547        3   4040097 
+	   Memory (MB)          :      238     2000      2000 
+...

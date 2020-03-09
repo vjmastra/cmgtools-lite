@@ -3,6 +3,10 @@ from CMGTools.RootTools.samples.ComponentCreator import ComponentCreator
 kreator = ComponentCreator()
 
 # QCD_Pt
+QCD_Pt15to30 = kreator.makeMCComponent("QCD_Pt15to30", "/QCD_Pt_15to30_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15_ext1-v2/MINIAODSIM", "CMS", ".*root", 1.243e+09)
+QCD_Pt30to50 = kreator.makeMCComponent("QCD_Pt30to50", "/QCD_Pt_30to50_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root", 1.069e+08)
+QCD_Pt50to80 = kreator.makeMCComponent("QCD_Pt50to80", "/QCD_Pt_50to80_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root", 1.567e+07)
+QCD_Pt50to80_ext1 = kreator.makeMCComponent("QCD_Pt50to80_ext1", "/QCD_Pt_50to80_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15_ext1-v2/MINIAODSIM", "CMS", ".*root", 1.567e+07)
 QCD_Pt80to120 = kreator.makeMCComponent("QCD_Pt80to120", "/QCD_Pt_80to120_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root", 2.345e+06*1.17805)
 QCD_Pt120to170 = kreator.makeMCComponent("QCD_Pt120to170", "/QCD_Pt_120to170_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root", 407800*1.15522)
 QCD_Pt170to300 = kreator.makeMCComponent("QCD_Pt170to300", "/QCD_Pt_170to300_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root", 103400*1.1342)
@@ -22,6 +26,10 @@ QCD_Pt3200toInf = kreator.makeMCComponent("QCD_Pt3200toInf", "/QCD_Pt_3200toInf_
 QCD_Pt3200toInf_ext2 = kreator.makeMCComponent("QCD_Pt3200toInf_ext2", "/QCD_Pt_3200toInf_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15_ext2-v2/MINIAODSIM", "CMS", ".*root", 0.0001349*1.22643)
 
 QCDPt = [
+    QCD_Pt15to30,
+    QCD_Pt30to50,
+    QCD_Pt50to80,
+    QCD_Pt50to80_ext1,
     QCD_Pt80to120,
     QCD_Pt120to170,
     QCD_Pt170to300,
@@ -123,20 +131,20 @@ QCD_EMs = [
     QCD_Pt300toInf_EMEnriched
 ]
 
-##QCD_Pt15to20_bcToE   = kreator.makeMCComponent("QCD_Pt15to20_bcToE",   "/QCD_Pt_15to20_bcToE_TuneCP5_13TeV_pythia8/RunIIFall17MiniAOD-94X_mc2017_realistic_v11-v1/MINIAODSIM"  , "CMS", ".*root", 187000)
-##QCD_Pt20to30_bcToE   = kreator.makeMCComponent("QCD_Pt20to30_bcToE",   "/QCD_Pt_20to30_bcToE_TuneCP5_13TeV_pythia8/RunIIFall17MiniAOD-94X_mc2017_realistic_v11-v1/MINIAODSIM"  , "CMS", ".*root", 313500)
-##QCD_Pt30to80_bcToE   = kreator.makeMCComponent("QCD_Pt30to80_bcToE",   "/QCD_Pt_30to80_bcToE_TuneCP5_13TeV_pythia8/RunIIFall17MiniAOD-94X_mc2017_realistic_v11-v1/MINIAODSIM"  , "CMS", ".*root", 361500)
-##QCD_Pt80to170_bcToE  = kreator.makeMCComponent("QCD_Pt80to170_bcToE",  "/QCD_Pt_80to170_bcToE_TuneCP5_13TeV_pythia8/RunIIFall17MiniAOD-94X_mc2017_realistic_v11-v1/MINIAODSIM" , "CMS", ".*root", 33770)
-##QCD_Pt170to250_bcToE = kreator.makeMCComponent("QCD_Pt170to250_bcToE", "/QCD_Pt_170to250_bcToE_TuneCP5_13TeV_pythia8/RunIIFall17MiniAOD-94X_mc2017_realistic_v11-v1/MINIAODSIM", "CMS", ".*root", 2126)
-##QCD_Pt250toInf_bcToE = kreator.makeMCComponent("QCD_Pt250toInf_bcToE", "/QCD_Pt_250toInf_bcToE_TuneCP5_13TeV_pythia8/RunIIFall17MiniAOD-94X_mc2017_realistic_v11-v1/MINIAODSIM", "CMS", ".*root", 563.1)
-
+##QCD_Pt15to20_bcToE   = kreator.makeMCComponent("QCD_Pt15to20_bcToE",   "/QCD_Pt_15to20_bcToE_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM"  , "CMS", ".*root", 187000)
+##QCD_Pt20to30_bcToE   = kreator.makeMCComponent("QCD_Pt20to30_bcToE",   "/QCD_Pt_20to30_bcToE_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM"  , "CMS", ".*root", 313500)
+##QCD_Pt30to80_bcToE   = kreator.makeMCComponent("QCD_Pt30to80_bcToE",   "/QCD_Pt_30to80_bcToE_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM"  , "CMS", ".*root", 361500)
+##QCD_Pt80to170_bcToE  = kreator.makeMCComponent("QCD_Pt80to170_bcToE",  "/QCD_Pt_80to170_bcToE_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM" , "CMS", ".*root", 33770)
+##QCD_Pt170to250_bcToE = kreator.makeMCComponent("QCD_Pt170to250_bcToE", "/QCD_Pt_170to250_bcToE_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root", 2126)
+##QCD_Pt250toInf_bcToE = kreator.makeMCComponent("QCD_Pt250toInf_bcToE", "/QCD_Pt_250toInf_bcToE_TuneCP5_13TeV_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root", 563.1)
+##
 QCD_bcToE = [
-#   QCD_Pt15to20_bcToE,
-#   QCD_Pt20to30_bcToE,
-#   QCD_Pt30to80_bcToE,
-#   QCD_Pt80to170_bcToE,
-#   QCD_Pt170to250_bcToE,
-#   QCD_Pt250toInf_bcToE,
+##   QCD_Pt15to20_bcToE,
+##   QCD_Pt20to30_bcToE,
+##   QCD_Pt30to80_bcToE,
+##   QCD_Pt80to170_bcToE,
+##   QCD_Pt170to250_bcToE,
+##   QCD_Pt250toInf_bcToE,
 ]
 
 # ====== W + Jets ======
@@ -226,7 +234,7 @@ DYJetsToLL_M50_HT400to600      = kreator.makeMCComponent("DYJetsToLL_M50_HT400to
 DYJetsToLL_M50_HT400to600_ext2 = kreator.makeMCComponent("DYJetsToLL_M50_HT400to600_ext2", "/DYJetsToLL_M-50_HT-400to600_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15_ext2-v3/MINIAODSIM",  "CMS", ".*root", 7.021*1.08)
 DYJetsToLL_M50_HT600to800      = kreator.makeMCComponent("DYJetsToLL_M50_HT600to800",      "/DYJetsToLL_M-50_HT-600to800_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/MINIAODSIM",       "CMS", ".*root", 1.743*1.08 )
 DYJetsToLL_M50_HT800to1200     = kreator.makeMCComponent("DYJetsToLL_M50_HT800to1200",     "/DYJetsToLL_M-50_HT-800to1200_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/MINIAODSIM",      "CMS", ".*root", 0.8082*1.08 )
-#DYJetsToLL_M50_HT1200to2500    = kreator.makeMCComponent("DYJetsToLL_M50_HT1200to2500",    "/DYJetsToLL_M-50_HT-1200to2500_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/MINIAODSIM",     "CMS", ".*root", 0.1925*1.08 )
+DYJetsToLL_M50_HT1200to2500    = kreator.makeMCComponent("DYJetsToLL_M50_HT1200to2500",    "/DYJetsToLL_M-50_HT-1200to2500_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/MINIAODSIM",     "CMS", ".*root", 0.1925*1.08 )##was commented out. why?
 DYJetsToLL_M50_HT2500toInf     = kreator.makeMCComponent("DYJetsToLL_M50_HT2500toInf",     "/DYJetsToLL_M-50_HT-2500toInf_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/MINIAODSIM",      "CMS", ".*root", 0.003486*1.08 )
 
 DYJetsToLLM50HT = [
@@ -235,7 +243,7 @@ DYJetsToLLM50HT = [
     DYJetsToLL_M50_HT400to600,     DYJetsToLL_M50_HT400to600_ext2,
     DYJetsToLL_M50_HT600to800,
     DYJetsToLL_M50_HT800to1200,
-    #DYJetsToLL_M50_HT1200to2500,
+    DYJetsToLL_M50_HT1200to2500,
     DYJetsToLL_M50_HT2500toInf,
 ]
 
@@ -314,20 +322,14 @@ tWll  = kreator.makeMCComponent("tWll","/ST_tWll_5f_LO_TuneCP5_PSweights_13TeV-m
 
 #-- OLD
 # These are the inverted coupling cross sections, i.e. cf = -1.0, cv = 1.0 (see https://twiki.cern.ch/twiki/bin/viewauth/CMS/SingleTopHiggsGeneration13TeV), which is the default weight configuration. Apply LHE event weights to recover other cases including the SM.
-#THQ = kreator.makeMCComponent("THQ", "/THQ_4f_Hincl_13TeV_madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root",  0.7927) # bug in LHE weights
-#THW = kreator.makeMCComponent("THW", "/THW_5f_Hincl_13TeV_madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root",  0.1472) # bug in LHE weights
-#THQ = kreator.makeMCComponentFromEOS("THQ", "THQ_4f_Hincl_13TeV_madgraph_pythia8_Fall17", "/store/cmst3/group/tthlep/peruzzi/%s/MINIAODSIM_merged", ".*root", 0.7927)
-#THW = kreator.makeMCComponentFromEOS("THW", "THW_5f_Hincl_13TeV_madgraph_pythia8_Fall17", "/store/cmst3/group/tthlep/peruzzi/%s/MINIAODSIM_merged", ".*root", 0.1472)
-#-- AVAILABLE:
-# /THQ_4f_Hincl_13TeV_madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM
-# /THQ_ctcvcp_4f_Hincl_13TeV_madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM
-# /THW_5f_Hincl_13TeV_madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM
-# /THW_ctcvcp_5f_Hincl_13TeV_madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM
+THQ = kreator.makeMCComponent("THQ", "/THQ_ctcvcp_4f_Hincl_13TeV_madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root",  0.7927)
+THW = kreator.makeMCComponent("THW", "/THW_ctcvcp_5f_Hincl_13TeV_madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root",  0.1472)
+TTH_ctcvcp = kreator.makeMCComponent("TTH_ctcvcp", "/TTH_4f_ctcvcp_TuneCP5_13TeV_madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v1/MINIAODSIM", "CMS", ".*root", 0.5071)
 
 TTXs = [ TTGJets, TGJets_lep,
          TTWToLNu_fxfx, TTW_LO, 
          TTZToLLNuNu_amc, TTZ_LO, TTZToLLNuNu_m1to10, 
-         TZQToLL, tWll, #THQ, THW,
+         TZQToLL, tWll, THQ, THW, TTH_ctcvcp,
          TTHnobb_pow, ]
 
 # ====== TT + DIBOSON, 4-top =====
@@ -414,10 +416,18 @@ GGHZZ4L,
 VHToNonbb, VHToNonbb_ll,
 ]
 
+##Signals for SUSY SOS
+##TChiWZ
+SMS_TChiWZ=kreator.makeMCComponent("SMS_TChiWZ","/SMS-TChiWZ_ZToLL_mZMin-0p1_TuneCP2_13TeV-madgraphMLM-pythia8/RunIIAutumn18MiniAOD-GridpackScan_102X_upgrade2018_realistic_v15-v1/MINIAODSIM","CMS",".*root",1)
+##FIXME! add other signal models
+SignalSUSY = [
+SMS_TChiWZ
+]
+
 # ----------------------------- summary ----------------------------------------
 
 
-mcSamples = QCDPt + QCDHT + QCD_Mus + QCD_EMs + QCD_bcToE + Ws + DYs + VJetsQQHT + TTs + Ts + TTXs + TTXXs + DiBosons + TriBosons + Higgs
+mcSamples = QCDPt + QCDHT + QCD_Mus + QCD_EMs + QCD_bcToE + Ws + DYs + VJetsQQHT + TTs + Ts + TTXs + TTXXs + DiBosons + TriBosons + Higgs + SignalSUSY
 
 
 samples = mcSamples

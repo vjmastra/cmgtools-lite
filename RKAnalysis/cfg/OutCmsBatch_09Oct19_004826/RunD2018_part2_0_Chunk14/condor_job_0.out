@@ -1,0 +1,1009 @@
+==== environment (before) ====
+
+ATLAS_CGROUPS_BASE=/cgroup/memory
+ATLAS_LOCAL_AREA=/afs/cern.ch/project/gd/apps/atlas/local
+BATCH_SYSTEM=HTCondor
+CASCADE_PDFPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cascade/2.2.04-ikaegh/share
+CASTOR_HOME=/castor/cern.ch/user/g/gkaratha
+CLHEP_PARAM_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/clhep/2.4.0.0-gnimlf
+CMSSW_BASE=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0
+CMSSW_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms
+CMSSW_FWLITE_INCLUDE_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/hepmc/2.06.07-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/clhep/2.4.0.0-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/boost/1.67.0/include
+CMSSW_GIT_HASH=CMSSW_10_4_0
+CMSSW_RELEASE_BASE=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0
+CMSSW_SEARCH_PATH=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/poison:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/external/slc7_amd64_gcc700/data:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/external/slc7_amd64_gcc700/data
+CMSSW_VERSION=CMSSW_10_4_0
+CMS_OPENLOOPS_PREFIX=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/openloops/2.0.b-ikaegh2
+CMS_ORACLEOCCI_LIB=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cms_oracleocci_abi_hack/20180210-omkpbe/lib/libcms_oracleocci_abi_hack.so
+CMS_PATH=/cvmfs/cms.cern.ch
+COLUMNS=80
+COMPILER_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2
+CONDA_SHLVL=0
+CSC_TRACK_FINDER_DATA_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/CSCTrackFinderEmulation/1.2-omkpbe2/data/
+CVSROOT=:gserver:cmssw.cvs.cern.ch:/local/reps/CMSSW
+CVS_RSH=ssh
+DISPLAY=localhost:45.0
+EDITOR=/bin/nano -w
+EOS_MGM_URL=root://eoscms.cern.ch
+EVTGENDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/evtgen/1.6.0-ikaegh/share
+FRONTIER_CLIENT=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/frontier_client/2.8.20-omkpbe4/
+G4ABLADATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4ABLA/3.0/data/G4ABLA3.0
+G4ENSDFSTATEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4ENSDFSTATE/2.2/data/G4ENSDFSTATE2.2
+G4FORCENUMBEROFTHREADS=max
+G4LEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4EMLOW/7.3/data/G4EMLOW7.3
+G4LEVELGAMMADATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4PhotonEvaporation/5.2/data/PhotonEvaporation5.2
+G4NEUTRONHPDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4NDL/4.5/data/G4NDL4.5
+G4NEUTRONXSDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4NEUTRONXS/1.4/data/G4NEUTRONXS1.4
+G4RADIOACTIVEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4RadioactiveDecay/5.2/data/RadioactiveDecay5.2
+G4SAIDXSDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4SAIDDATA/1.1/data/G4SAIDDATA1.1
+GCC_RUNTIME_ASAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libasan.so
+GCC_RUNTIME_LSAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libasan.so
+GCC_RUNTIME_TSAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libtsan.so
+GCC_RUNTIME_UBSAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libubsan.so
+GEANT4_PARFULLCMS_CONFIG_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-parfullcms/2014.01.27-gnimlf3/share/ParFullCMS
+GENEVA_DATA_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geneva/1.0-RC3/share/Geneva
+GENREFLEX=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/bin/genreflex
+GIT_EXEC_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/libexec/git-core
+GIT_SSL_CAINFO=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/share/ssl/certs/ca-bundle.crt
+GIT_TEMPLATE_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/share/git-core/templates
+GLEXEC_LOCATION=/usr
+GLITE_ENV_SET=TRUE
+GLITE_LOCATION=/usr
+GLITE_LOCATION_VAR=/var
+GOSAMCONTRIB_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gosamcontrib/2.0-20150803-omkpbe2
+GRIDMAPDIR=/etc/grid-security/gridmapdir
+GRID_ENV_LOCATION=/usr/libexec
+GRID_VO_ENV_SET=true
+GUESTFISH_OUTPUT=\e[0m
+GUESTFISH_RESTORE=\e[0m
+HEPPDT_PARAM_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/heppdt/3.03.00-ikaegh2
+HERWIGPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/herwigpp/7.1.4-ikaegh4/share/Herwig
+HISTCONTROL=ignoredups
+HISTSIZE=1000
+HOME=/afs/cern.ch/user/g/gkaratha
+HOSTNAME=b7w02n0432.cern.ch
+INTEL_LICENSE_FILE=28518@lxlicen01.cern.ch,28518@lxlicen02.cern.ch,28518@lxlicen03.cern.ch
+JOBFEATURES=
+KDEDIRS=/usr
+KRB5CCNAME=FILE:/pool/condor/dir_14627/gkaratha.cc
+LANG=C
+LCG_GFAL_INFOSYS=lcg-bdii.cern.ch:2170
+LCG_LOCATION=/usr
+LC_ADDRESS=en_US.UTF-8
+LC_IDENTIFICATION=en_US.UTF-8
+LC_MEASUREMENT=en_US.UTF-8
+LC_MONETARY=en_US.UTF-8
+LC_NAME=en_US.UTF-8
+LC_NUMERIC=en_US.UTF-8
+LC_PAPER=en_US.UTF-8
+LC_TELEPHONE=en_US.UTF-8
+LC_TIME=en_US.UTF-8
+LD_LIBRARY_PATH=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/biglib/slc7_amd64_gcc700:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/external/slc7_amd64_gcc700/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/biglib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/external/slc7_amd64_gcc700/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/llvm/7.0.0-ikaegh/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cuda/10.0.130/drivers
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LHAPDF_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/lhapdf/6.2.1-ikaegh/share/LHAPDF
+LINES=24
+LOADEDMODULES=
+LOCALRT=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0
+LOGNAME=gkaratha
+LS_SUBCWD=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src/CMGTools/RKAnalysis/cfg/OutCmsBatch_09Oct19_004826/RunD2018_part2_0_Chunk14
+MACHINEFEATURES=/etc/machinefeatures
+MAIL=/var/spool/mail/gkaratha
+MANPATH=/cvmfs/cms.cern.ch/share/man:/opt/glite/share/man:/cvmfs/cms.cern.ch/share/man::/opt/puppetlabs/puppet/share/man::
+MODULEPATH=/usr/share/Modules/modulefiles:/etc/modulefiles
+MODULESHOME=/usr/share/Modules
+MYPROXY_SERVER=myproxy.cern.ch
+OMP_NUM_THREADS=1
+OPAL_PREFIX=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/openmpi/2.1.5
+OPENBLAS_NUM_THREADS=1
+PATH=/afs/cern.ch/cms/caf/scripts:/cvmfs/cms.cern.ch/common:/cvmfs/cms.cern.ch/bin:/bin:/cvmfs/cms.cern.ch/share/overrides/bin:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/bin/slc7_amd64_gcc700:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/external/slc7_amd64_gcc700/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/bin/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/external/slc7_amd64_gcc700/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/llvm/7.0.0-ikaegh/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/bin:/afs/cern.ch/work/g/gkaratha/miniconda3/bin:/afs/cern.ch/cms/caf/scripts:/cvmfs/cms.cern.ch/common:/cvmfs/cms.cern.ch/bin:/usr/sue/bin:/usr/lib64/qt-3.3/bin:/usr/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/afs/cern.ch/user/g/gkaratha/bin
+PDFPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/share
+PERL5LIB=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/share/perl5
+PWD=/pool/condor/dir_14627
+PYTHIA8DATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pythia8/230-ikaegh/share/Pythia8/xmldoc
+PYTHON27PATH=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/python:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/coral/CORAL_2_3_21-ikaegh4/slc7_amd64_gcc700/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/coral/CORAL_2_3_21-ikaegh4/slc7_amd64_gcc700/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xrootd/4.8.4/lib/python2.7/site-packages:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fastjet/3.3.0-omkpbe/lib/python2.7/site-packages:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw-tool-conf/45.0-ikaegh6/lib/python2.7/site-packages
+PYTHON3PATH=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/python:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw-tool-conf/45.0-ikaegh6/lib/python3.6/site-packages
+PYTHON_VALGRIND_SUPP=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/python/2.7.14-omkpbe4/share/valgrind/valgrind-python.supp
+QTDIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh:/usr/lib64/qt-3.3
+QTINC=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include:/usr/lib64/qt-3.3/include
+QTLIB=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/lib:/usr/lib64/qt-3.3/lib
+QT_GRAPHICSSYSTEM=native
+QT_GRAPHICSSYSTEM_CHECKED=1
+QT_PLUGIN_PATH=/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+RIVET_ANALYSIS_PATH=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/lib
+ROOFITSYS=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/
+ROOTSYS=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3
+ROOT_GCC_TOOLCHAIN=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2
+ROOT_INCLUDE_PATH=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/coral/CORAL_2_3_21-ikaegh4/include/LCG:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/mctester/1.25.0a-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/dd4hep/v01-08x-ikaegh5/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtDesigner:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/herwigpp/7.1.4-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tauolapp/1.1.5-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/charybdis/1.003-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/include/SHERPA-MC:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtOpenGL:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtGui:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/thepeg/2.1.4-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pythia8/230-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/herwig/6.521-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/Qt3Support:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/lwtnn/2.4-ikaegh2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4/10.04-gnimlf3/include/Geant4:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/classlib/3.1.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/lhapdf/6.2.1-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cgal/4.2-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tkonlinesw/4.2.0-1_gcc7-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/starlight/r193-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/Qt:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtCore:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtXml:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/mcdb/1.0.3-omkpbe2/interface:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libungif/4.1.4-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libtiff/4.0.3-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libpng/1.6.16-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/frontier_client/2.8.20-omkpbe4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pcre/8.37-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/boost/1.67.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xrootd/4.8.4/include/xrootd/private:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/vdt/0.4.0-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/valgrind/3.13.0-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/utm/utm_0.7.1-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/toprex/4.23-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tbb/2019_U3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tauola/27.121.5-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sigcpp/2.6.2-omkpbe2/include/sigc++-2.0:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sqlite/3.22.0-omkpbe/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/protobuf/3.5.2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pacparser/1.3.5-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/oracle/12.1.0.2.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/py2-numpy/1.15.1/c-api/core/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/meschach/1.2.pCMS1-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libuuid/2.22.2-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libhepml/0.2.1-omkpbe2/interface:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/ktjet/1.06-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/jimmy/4.2-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/jemalloc/5.1.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/madgraph5amcatnlo/2.6.0-ikaegh4:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/heppdt/3.03.00-ikaegh2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/hector/1.3.4_patch1-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libjpeg-turbo/2.0.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/giflib/4.2.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gsl/2.2.1-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/vecgeom/v00.05.00-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gdbm/1.10-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/freetype/2.5.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fftw3/3.3.2-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fftjet/1.5.0-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fastjet/3.3.0-omkpbe/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/expat/2.1.0-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/dpm/1.8.0.1-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/hepmc/2.06.07-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xerces-c/3.1.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xz/5.2.2-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/dcap/2.47.8-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libxml2/2.9.1-omkpbe2/include/libxml2:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/curl/7.59.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cppunit/1.40.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/clhep/2.4.0.0-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/openssl/1.0.2d-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pythia6/426-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/photos/215.5-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/zlib-x86_64/1.2.11-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cascade/2.2.04-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/bz2lib/1.0.6-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/python/2.7.14-omkpbe4/include/python2.7:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tinyxml2/6.2.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/ittnotify/16.06.18-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gosamcontrib/2.0-20150803-omkpbe2/include:/usr/local/include:/usr/include
+ROOT_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/madgraph5amcatnlo/2.6.0-ikaegh4:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gosamcontrib/2.0-20150803-omkpbe2
+ROOT_TTREECACHE_PREFILL=0
+ROOT_TTREECACHE_SIZE=0
+SCONS_LIB_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/scons/3.0.1/lib
+SCRAMRT_SET=CMSSW:CMSSW_10_4_0:slc7_amd64_gcc700:V2_2_9_pre04:SRT_
+SCRAM_ARCH=slc7_amd64_gcc700
+SCRAM_CXX11_ABI=1
+SELINUX_LEVEL_REQUESTED=
+SELINUX_ROLE_REQUESTED=
+SELINUX_USE_CURRENT_RANGE=
+SHELL=/bin/bash
+SHERPA_INCLUDE_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/include/SHERPA-MC
+SHERPA_LIBRARY_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/lib/SHERPA-MC
+SHERPA_SHARE_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/share/SHERPA-MC
+SHLVL=4
+SITE_NAME=CERN-PROD
+SRM_PATH=/opt/d-cache/srm
+SRT_CASCADE_PDFPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cascade/2.2.04-ikaegh/share
+SRT_CLHEP_PARAM_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/clhep/2.4.0.0-gnimlf
+SRT_CMSSW_BASE_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0
+SRT_CMSSW_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms
+SRT_CMSSW_FWLITE_INCLUDE_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/hepmc/2.06.07-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/clhep/2.4.0.0-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/boost/1.67.0/include
+SRT_CMSSW_GIT_HASH_SCRAMRTDEL=CMSSW_10_4_0
+SRT_CMSSW_RELEASE_BASE_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0
+SRT_CMSSW_SEARCH_PATH_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/poison:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/external/slc7_amd64_gcc700/data:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/external/slc7_amd64_gcc700/data
+SRT_CMSSW_VERSION_SCRAMRTDEL=CMSSW_10_4_0
+SRT_CMS_OPENLOOPS_PREFIX_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/openloops/2.0.b-ikaegh2
+SRT_CMS_ORACLEOCCI_LIB_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cms_oracleocci_abi_hack/20180210-omkpbe/lib/libcms_oracleocci_abi_hack.so
+SRT_COMPILER_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2
+SRT_CSC_TRACK_FINDER_DATA_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/CSCTrackFinderEmulation/1.2-omkpbe2/data/
+SRT_EVTGENDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/evtgen/1.6.0-ikaegh/share
+SRT_FRONTIER_CLIENT_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/frontier_client/2.8.20-omkpbe4/
+SRT_G4ABLADATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4ABLA/3.0/data/G4ABLA3.0
+SRT_G4ENSDFSTATEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4ENSDFSTATE/2.2/data/G4ENSDFSTATE2.2
+SRT_G4FORCENUMBEROFTHREADS_SCRAMRTDEL=max
+SRT_G4LEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4EMLOW/7.3/data/G4EMLOW7.3
+SRT_G4LEVELGAMMADATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4PhotonEvaporation/5.2/data/PhotonEvaporation5.2
+SRT_G4NEUTRONHPDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4NDL/4.5/data/G4NDL4.5
+SRT_G4NEUTRONXSDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4NEUTRONXS/1.4/data/G4NEUTRONXS1.4
+SRT_G4RADIOACTIVEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4RadioactiveDecay/5.2/data/RadioactiveDecay5.2
+SRT_G4SAIDXSDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4SAIDDATA/1.1/data/G4SAIDDATA1.1
+SRT_GCC_RUNTIME_ASAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libasan.so
+SRT_GCC_RUNTIME_LSAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libasan.so
+SRT_GCC_RUNTIME_TSAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libtsan.so
+SRT_GCC_RUNTIME_UBSAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libubsan.so
+SRT_GEANT4_PARFULLCMS_CONFIG_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-parfullcms/2014.01.27-gnimlf3/share/ParFullCMS
+SRT_GENEVA_DATA_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geneva/1.0-RC3/share/Geneva
+SRT_GENREFLEX_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/bin/genreflex
+SRT_GIT_EXEC_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/libexec/git-core
+SRT_GIT_SSL_CAINFO_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/share/ssl/certs/ca-bundle.crt
+SRT_GIT_TEMPLATE_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/share/git-core/templates
+SRT_GOSAMCONTRIB_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gosamcontrib/2.0-20150803-omkpbe2
+SRT_HEPPDT_PARAM_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/heppdt/3.03.00-ikaegh2
+SRT_HERWIGPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/herwigpp/7.1.4-ikaegh4/share/Herwig
+SRT_INTEL_LICENSE_FILE_SCRAMRTDEL=28518@lxlicen01.cern.ch,28518@lxlicen02.cern.ch,28518@lxlicen03.cern.ch
+SRT_LANG_SCRAMRT=C
+SRT_LD_LIBRARY_PATH_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/biglib/slc7_amd64_gcc700:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/external/slc7_amd64_gcc700/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/biglib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/external/slc7_amd64_gcc700/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/llvm/7.0.0-ikaegh/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cuda/10.0.130/drivers
+SRT_LHAPDF_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/lhapdf/6.2.1-ikaegh/share/LHAPDF
+SRT_LOCALRT_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0
+SRT_OPAL_PREFIX_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/openmpi/2.1.5
+SRT_OPENBLAS_NUM_THREADS_SCRAMRTDEL=1
+SRT_PATH_SCRAMRT=/cvmfs/cms.cern.ch/share/overrides/bin:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/bin/slc7_amd64_gcc700:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/external/slc7_amd64_gcc700/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/bin/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/external/slc7_amd64_gcc700/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/llvm/7.0.0-ikaegh/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/bin
+SRT_PDFPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/share
+SRT_PERL5LIB_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/share/perl5
+SRT_PYTHIA8DATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pythia8/230-ikaegh/share/Pythia8/xmldoc
+SRT_PYTHON27PATH_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/python:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/coral/CORAL_2_3_21-ikaegh4/slc7_amd64_gcc700/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/coral/CORAL_2_3_21-ikaegh4/slc7_amd64_gcc700/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xrootd/4.8.4/lib/python2.7/site-packages:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fastjet/3.3.0-omkpbe/lib/python2.7/site-packages:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw-tool-conf/45.0-ikaegh6/lib/python2.7/site-packages
+SRT_PYTHON3PATH_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/python:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw-tool-conf/45.0-ikaegh6/lib/python3.6/site-packages
+SRT_PYTHON_VALGRIND_SUPP_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/python/2.7.14-omkpbe4/share/valgrind/valgrind-python.supp
+SRT_QTDIR_SCRAMRT=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh
+SRT_QTINC_SCRAMRT=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include
+SRT_QTLIB_SCRAMRT=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/lib
+SRT_RIVET_ANALYSIS_PATH_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/lib
+SRT_ROOFITSYS_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/
+SRT_ROOTSYS_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/
+SRT_ROOT_GCC_TOOLCHAIN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2
+SRT_ROOT_INCLUDE_PATH_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/coral/CORAL_2_3_21-ikaegh4/include/LCG:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/mctester/1.25.0a-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/dd4hep/v01-08x-ikaegh5/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtDesigner:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/herwigpp/7.1.4-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tauolapp/1.1.5-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/charybdis/1.003-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/include/SHERPA-MC:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtOpenGL:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtGui:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/thepeg/2.1.4-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pythia8/230-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/herwig/6.521-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/Qt3Support:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/lwtnn/2.4-ikaegh2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4/10.04-gnimlf3/include/Geant4:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/classlib/3.1.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/lhapdf/6.2.1-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cgal/4.2-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tkonlinesw/4.2.0-1_gcc7-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/starlight/r193-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/Qt:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtCore:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtXml:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/mcdb/1.0.3-omkpbe2/interface:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libungif/4.1.4-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libtiff/4.0.3-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libpng/1.6.16-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/frontier_client/2.8.20-omkpbe4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pcre/8.37-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/boost/1.67.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xrootd/4.8.4/include/xrootd/private:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/vdt/0.4.0-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/valgrind/3.13.0-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/utm/utm_0.7.1-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/toprex/4.23-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tbb/2019_U3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tauola/27.121.5-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sigcpp/2.6.2-omkpbe2/include/sigc++-2.0:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sqlite/3.22.0-omkpbe/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/protobuf/3.5.2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pacparser/1.3.5-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/oracle/12.1.0.2.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/py2-numpy/1.15.1/c-api/core/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/meschach/1.2.pCMS1-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libuuid/2.22.2-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libhepml/0.2.1-omkpbe2/interface:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/ktjet/1.06-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/jimmy/4.2-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/jemalloc/5.1.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/madgraph5amcatnlo/2.6.0-ikaegh4:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/heppdt/3.03.00-ikaegh2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/hector/1.3.4_patch1-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libjpeg-turbo/2.0.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/giflib/4.2.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gsl/2.2.1-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/vecgeom/v00.05.00-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gdbm/1.10-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/freetype/2.5.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fftw3/3.3.2-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fftjet/1.5.0-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fastjet/3.3.0-omkpbe/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/expat/2.1.0-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/dpm/1.8.0.1-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/hepmc/2.06.07-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xerces-c/3.1.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xz/5.2.2-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/dcap/2.47.8-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libxml2/2.9.1-omkpbe2/include/libxml2:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/curl/7.59.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cppunit/1.40.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/clhep/2.4.0.0-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/openssl/1.0.2d-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pythia6/426-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/photos/215.5-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/zlib-x86_64/1.2.11-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cascade/2.2.04-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/bz2lib/1.0.6-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/python/2.7.14-omkpbe4/include/python2.7:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tinyxml2/6.2.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/ittnotify/16.06.18-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gosamcontrib/2.0-20150803-omkpbe2/include:/usr/local/include:/usr/include
+SRT_ROOT_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/madgraph5amcatnlo/2.6.0-ikaegh4:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gosamcontrib/2.0-20150803-omkpbe2
+SRT_ROOT_TTREECACHE_PREFILL_SCRAMRTDEL=0
+SRT_ROOT_TTREECACHE_SIZE_SCRAMRTDEL=0
+SRT_SCONS_LIB_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/scons/3.0.1/lib
+SRT_SCRAM_CXX11_ABI_SCRAMRTDEL=1
+SRT_SHERPA_INCLUDE_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/include/SHERPA-MC
+SRT_SHERPA_LIBRARY_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/lib/SHERPA-MC
+SRT_SHERPA_SHARE_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/share/SHERPA-MC
+SRT_TEXMFHOME_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/share/Rivet/texmf
+SRT_THEPEGPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/thepeg/2.1.4-ikaegh4/share/ThePEG
+SRT_TNS_ADMIN_SCRAMRTDEL=/etc
+SRT_UTM_XSD_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/utm/utm_0.7.1-ikaegh
+SRT_VALGRIND_LIB_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/valgrind/3.13.0-omkpbe2/lib/valgrind
+SRT_VINCIADATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/vincia/2.2.01-ikaegh/share/Vincia/xmldoc
+SRT_WORKER_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/blackhat/0.9.9-omkpbe4/share/blackhat/datafiles/
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SSH_CLIENT=2001:1458:d00:1b::1c 36124 22
+SSH_CONNECTION=2001:1458:d00:1b::1c 36124 2001:1458:d00:1b::1c 22
+SSH_TTY=/dev/pts/98
+STAGE_HOST=castorcms
+TEMP=/pool/condor/dir_14627
+TERM=screen
+TEXINPUTS=:/cvmfs/cms.cern.ch/latex/styles
+TEXMFHOME=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/share/Rivet/texmf
+THEPEGPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/thepeg/2.1.4-ikaegh4/share/ThePEG
+TMP=/pool/condor/dir_14627
+TMPDIR=/pool/condor/dir_14627/tmp
+TNS_ADMIN=/etc
+USER=gkaratha
+UTM_XSD_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/utm/utm_0.7.1-ikaegh
+VALGRIND_LIB=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/valgrind/3.13.0-omkpbe2/lib/valgrind
+VINCIADATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/vincia/2.2.01-ikaegh/share/Vincia/xmldoc
+VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
+VO_ALICE_DEFAULT_SE=srm-alice.cern.ch
+VO_ALICE_SW_DIR=/afs/cern.ch/project/gd/apps/alice
+VO_ATLAS_DEFAULT_SE=srm-atlas.cern.ch
+VO_ATLAS_SW_DIR=/cvmfs/atlas.cern.ch/repo/sw
+VO_CMS_DEFAULT_SE=srm-cms.cern.ch
+VO_CMS_SW_DIR=/cvmfs/cms.cern.ch
+VO_DTEAM_DEFAULT_SE=srm-public.cern.ch
+VO_DTEAM_SW_DIR=/afs/cern.ch/project/gd/apps/dteam
+VO_GEANT4_DEFAULT_SE=lxdpm101.cern.ch
+VO_GEANT4_SW_DIR=/afs/cern.ch/project/gd/apps/geant4
+VO_ILC_DEFAULT_SE=srm-public.cern.ch
+VO_ILC_SW_DIR=/cvmfs/ilc.desy.de
+VO_LHCB_DEFAULT_SE=srm-lhcb.cern.ch
+VO_LHCB_SW_DIR=/cvmfs/lhcb.cern.ch
+VO_NA48_DEFAULT_SE=srm-public.cern.ch
+VO_NA48_SW_DIR=/afs/cern.ch/project/gd/apps/na48
+VO_OPS_DEFAULT_SE=srm-public.cern.ch
+VO_OPS_SW_DIR=/afs/cern.ch/project/gd/apps/ops
+VO_UNOSAT_DEFAULT_SE=srm-public.cern.ch
+VO_UNOSAT_SW_DIR=/afs/cern.ch/project/gd/apps/unosat
+VO_VO_ALEPH_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+VO_VO_ALEPH_CERN_CH_SW_DIR=/afs/cern.ch/aleph
+VO_VO_DELPHI_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+VO_VO_DELPHI_CERN_CH_SW_DIR=/afs/cern.ch/delphi
+VO_VO_GEAR_CERN_CH_DEFAULT_SE=lxdpm104.cern.ch
+VO_VO_GEAR_CERN_CH_SW_DIR=/afs/cern.ch/project/gd/apps/gear
+VO_VO_L3_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+VO_VO_L3_CERN_CH_SW_DIR=/afs/cern.ch/l3
+VO_VO_OPAL_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+VO_VO_OPAL_CERN_CH_SW_DIR=/afs/cern.ch/opal
+VO_VO_SIXT_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+VO_VO_SIXT_CERN_CH_SW_DIR=/afs/cern.ch/project/gd/apps/sixt
+WORKER_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/blackhat/0.9.9-omkpbe4/share/blackhat/datafiles/
+XDG_DATA_DIRS=/afs/cern.ch/user/g/gkaratha/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+XDG_RUNTIME_DIR=/run/user/43882
+XDG_SESSION_ID=c81463
+_=/bin/env
+_CHIRP_DELAYED_UPDATE_PREFIX=Chirp*
+_CONDOR_ANCESTOR_14627=19942:1570576955:482646553
+_CONDOR_ANCESTOR_16137=16220:1557850597:1633470186
+_CONDOR_ANCESTOR_16220=14627:1570576385:1957152107
+_CONDOR_CHIRP_CONFIG=/pool/condor/dir_14627/.chirp.config
+_CONDOR_JOB_AD=/pool/condor/dir_14627/.job.ad
+_CONDOR_JOB_IWD=/pool/condor/dir_14627
+_CONDOR_JOB_PIDS=
+_CONDOR_MACHINE_AD=/pool/condor/dir_14627/.machine.ad
+_CONDOR_PID_NS_INIT_STATUS_FILENAME=/pool/condor/dir_14627/.condor_pid_ns_status
+_CONDOR_SCRATCH_DIR=/pool/condor/dir_14627
+_CONDOR_SLOT=slot1_1
+_CONDOR_WRAPPER_ERROR_FILE=/pool/condor/dir_14627/.job_wrapper_failure
+_VIRTUALENVWRAPPER_API= mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv wipeenv allvirtualenv mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv wipeenv allvirtualenv
+
+/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src /pool/condor/dir_14627
+/pool/condor/dir_14627
+
+==== copying job dir to worker ====
+
+'/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src/CMGTools/RKAnalysis/cfg/OutCmsBatch_09Oct19_004826/RunD2018_part2_0_Chunk14/batchScript.sh' -> './batchScript.sh'
+'/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src/CMGTools/RKAnalysis/cfg/OutCmsBatch_09Oct19_004826/RunD2018_part2_0_Chunk14/condor_job_0.error' -> './condor_job_0.error'
+'/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src/CMGTools/RKAnalysis/cfg/OutCmsBatch_09Oct19_004826/RunD2018_part2_0_Chunk14/condor_job_0.log' -> './condor_job_0.log'
+'/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src/CMGTools/RKAnalysis/cfg/OutCmsBatch_09Oct19_004826/RunD2018_part2_0_Chunk14/condor_job_0.out' -> './condor_job_0.out'
+'/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src/CMGTools/RKAnalysis/cfg/OutCmsBatch_09Oct19_004826/RunD2018_part2_0_Chunk14/config.pck' -> './config.pck'
+'/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src/CMGTools/RKAnalysis/cfg/OutCmsBatch_09Oct19_004826/RunD2018_part2_0_Chunk14/job_desc.cfg' -> './job_desc.cfg'
+'/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src/CMGTools/RKAnalysis/cfg/OutCmsBatch_09Oct19_004826/RunD2018_part2_0_Chunk14/options.json' -> './options.json'
+'/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src/CMGTools/RKAnalysis/cfg/OutCmsBatch_09Oct19_004826/RunD2018_part2_0_Chunk14/pycfg.py' -> './pycfg.py'
+==== environment (after) ====
+
+ATLAS_CGROUPS_BASE=/cgroup/memory
+ATLAS_LOCAL_AREA=/afs/cern.ch/project/gd/apps/atlas/local
+BATCH_SYSTEM=HTCondor
+CASCADE_PDFPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cascade/2.2.04-ikaegh/share
+CASTOR_HOME=/castor/cern.ch/user/g/gkaratha
+CLHEP_PARAM_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/clhep/2.4.0.0-gnimlf
+CMSSW_BASE=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0
+CMSSW_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms
+CMSSW_FWLITE_INCLUDE_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/hepmc/2.06.07-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/clhep/2.4.0.0-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/boost/1.67.0/include
+CMSSW_GIT_HASH=CMSSW_10_4_0
+CMSSW_RELEASE_BASE=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0
+CMSSW_SEARCH_PATH=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/poison:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/external/slc7_amd64_gcc700/data:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/external/slc7_amd64_gcc700/data
+CMSSW_VERSION=CMSSW_10_4_0
+CMS_OPENLOOPS_PREFIX=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/openloops/2.0.b-ikaegh2
+CMS_ORACLEOCCI_LIB=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cms_oracleocci_abi_hack/20180210-omkpbe/lib/libcms_oracleocci_abi_hack.so
+CMS_PATH=/cvmfs/cms.cern.ch
+COLUMNS=80
+COMPILER_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2
+CONDA_SHLVL=0
+CSC_TRACK_FINDER_DATA_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/CSCTrackFinderEmulation/1.2-omkpbe2/data/
+CVSROOT=:gserver:cmssw.cvs.cern.ch:/local/reps/CMSSW
+CVS_RSH=ssh
+DISPLAY=localhost:45.0
+EDITOR=/bin/nano -w
+EOS_MGM_URL=root://eoscms.cern.ch
+EVTGENDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/evtgen/1.6.0-ikaegh/share
+FRONTIER_CLIENT=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/frontier_client/2.8.20-omkpbe4/
+G4ABLADATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4ABLA/3.0/data/G4ABLA3.0
+G4ENSDFSTATEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4ENSDFSTATE/2.2/data/G4ENSDFSTATE2.2
+G4FORCENUMBEROFTHREADS=max
+G4LEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4EMLOW/7.3/data/G4EMLOW7.3
+G4LEVELGAMMADATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4PhotonEvaporation/5.2/data/PhotonEvaporation5.2
+G4NEUTRONHPDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4NDL/4.5/data/G4NDL4.5
+G4NEUTRONXSDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4NEUTRONXS/1.4/data/G4NEUTRONXS1.4
+G4RADIOACTIVEDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4RadioactiveDecay/5.2/data/RadioactiveDecay5.2
+G4SAIDXSDATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4SAIDDATA/1.1/data/G4SAIDDATA1.1
+GCC_RUNTIME_ASAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libasan.so
+GCC_RUNTIME_LSAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libasan.so
+GCC_RUNTIME_TSAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libtsan.so
+GCC_RUNTIME_UBSAN=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libubsan.so
+GEANT4_PARFULLCMS_CONFIG_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-parfullcms/2014.01.27-gnimlf3/share/ParFullCMS
+GENEVA_DATA_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geneva/1.0-RC3/share/Geneva
+GENREFLEX=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/bin/genreflex
+GIT_EXEC_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/libexec/git-core
+GIT_SSL_CAINFO=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/share/ssl/certs/ca-bundle.crt
+GIT_TEMPLATE_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/share/git-core/templates
+GLEXEC_LOCATION=/usr
+GLITE_ENV_SET=TRUE
+GLITE_LOCATION=/usr
+GLITE_LOCATION_VAR=/var
+GOSAMCONTRIB_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gosamcontrib/2.0-20150803-omkpbe2
+GRIDMAPDIR=/etc/grid-security/gridmapdir
+GRID_ENV_LOCATION=/usr/libexec
+GRID_VO_ENV_SET=true
+GUESTFISH_OUTPUT=\e[0m
+GUESTFISH_RESTORE=\e[0m
+HEPPDT_PARAM_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/heppdt/3.03.00-ikaegh2
+HERWIGPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/herwigpp/7.1.4-ikaegh4/share/Herwig
+HISTCONTROL=ignoredups
+HISTSIZE=1000
+HOME=/afs/cern.ch/user/g/gkaratha
+HOSTNAME=b7w02n0432.cern.ch
+INTEL_LICENSE_FILE=28518@lxlicen01.cern.ch,28518@lxlicen02.cern.ch,28518@lxlicen03.cern.ch
+JOBFEATURES=
+KDEDIRS=/usr
+KRB5CCNAME=FILE:/pool/condor/dir_14627/gkaratha.cc
+LANG=C
+LCG_GFAL_INFOSYS=lcg-bdii.cern.ch:2170
+LCG_LOCATION=/usr
+LC_ADDRESS=en_US.UTF-8
+LC_IDENTIFICATION=en_US.UTF-8
+LC_MEASUREMENT=en_US.UTF-8
+LC_MONETARY=en_US.UTF-8
+LC_NAME=en_US.UTF-8
+LC_NUMERIC=en_US.UTF-8
+LC_PAPER=en_US.UTF-8
+LC_TELEPHONE=en_US.UTF-8
+LC_TIME=en_US.UTF-8
+LD_LIBRARY_PATH=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/biglib/slc7_amd64_gcc700:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/external/slc7_amd64_gcc700/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/biglib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/external/slc7_amd64_gcc700/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/llvm/7.0.0-ikaegh/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cuda/10.0.130/drivers
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LHAPDF_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/lhapdf/6.2.1-ikaegh/share/LHAPDF
+LINES=24
+LOADEDMODULES=
+LOCALRT=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0
+LOGNAME=gkaratha
+LS_SUBCWD=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src/CMGTools/RKAnalysis/cfg/OutCmsBatch_09Oct19_004826/RunD2018_part2_0_Chunk14
+MACHINEFEATURES=/etc/machinefeatures
+MAIL=/var/spool/mail/gkaratha
+MANPATH=/cvmfs/cms.cern.ch/share/man:/opt/glite/share/man:/cvmfs/cms.cern.ch/share/man::/opt/puppetlabs/puppet/share/man::
+MODULEPATH=/usr/share/Modules/modulefiles:/etc/modulefiles
+MODULESHOME=/usr/share/Modules
+MYPROXY_SERVER=myproxy.cern.ch
+OLDPWD=/pool/condor/dir_14627
+OMP_NUM_THREADS=1
+OPAL_PREFIX=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/openmpi/2.1.5
+OPENBLAS_NUM_THREADS=1
+PATH=/cvmfs/cms.cern.ch/share/overrides/bin:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/bin/slc7_amd64_gcc700:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/external/slc7_amd64_gcc700/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/bin/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/external/slc7_amd64_gcc700/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/llvm/7.0.0-ikaegh/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/bin:/afs/cern.ch/cms/caf/scripts:/cvmfs/cms.cern.ch/common:/cvmfs/cms.cern.ch/bin:/bin:/afs/cern.ch/work/g/gkaratha/miniconda3/bin:/afs/cern.ch/cms/caf/scripts:/cvmfs/cms.cern.ch/common:/cvmfs/cms.cern.ch/bin:/usr/sue/bin:/usr/lib64/qt-3.3/bin:/usr/condabin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/afs/cern.ch/user/g/gkaratha/bin
+PDFPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/share
+PERL5LIB=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/share/perl5
+PWD=/pool/condor/dir_14627/job
+PYTHIA8DATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pythia8/230-ikaegh/share/Pythia8/xmldoc
+PYTHON27PATH=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/python:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/coral/CORAL_2_3_21-ikaegh4/slc7_amd64_gcc700/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/coral/CORAL_2_3_21-ikaegh4/slc7_amd64_gcc700/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xrootd/4.8.4/lib/python2.7/site-packages:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fastjet/3.3.0-omkpbe/lib/python2.7/site-packages:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw-tool-conf/45.0-ikaegh6/lib/python2.7/site-packages
+PYTHON3PATH=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/python:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw-tool-conf/45.0-ikaegh6/lib/python3.6/site-packages
+PYTHON_VALGRIND_SUPP=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/python/2.7.14-omkpbe4/share/valgrind/valgrind-python.supp
+QTDIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh:/usr/lib64/qt-3.3
+QTINC=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include:/usr/lib64/qt-3.3/include
+QTLIB=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/lib:/usr/lib64/qt-3.3/lib
+QT_GRAPHICSSYSTEM=native
+QT_GRAPHICSSYSTEM_CHECKED=1
+QT_PLUGIN_PATH=/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+RIVET_ANALYSIS_PATH=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/lib
+ROOFITSYS=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/
+ROOTSYS=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/
+ROOT_GCC_TOOLCHAIN=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2
+ROOT_INCLUDE_PATH=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/coral/CORAL_2_3_21-ikaegh4/include/LCG:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/mctester/1.25.0a-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/dd4hep/v01-08x-ikaegh5/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtDesigner:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/herwigpp/7.1.4-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tauolapp/1.1.5-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/charybdis/1.003-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/include/SHERPA-MC:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtOpenGL:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtGui:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/thepeg/2.1.4-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pythia8/230-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/herwig/6.521-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/Qt3Support:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/lwtnn/2.4-ikaegh2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4/10.04-gnimlf3/include/Geant4:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/classlib/3.1.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/lhapdf/6.2.1-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cgal/4.2-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tkonlinesw/4.2.0-1_gcc7-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/starlight/r193-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/Qt:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtCore:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtXml:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/mcdb/1.0.3-omkpbe2/interface:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libungif/4.1.4-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libtiff/4.0.3-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libpng/1.6.16-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/frontier_client/2.8.20-omkpbe4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pcre/8.37-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/boost/1.67.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xrootd/4.8.4/include/xrootd/private:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/vdt/0.4.0-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/valgrind/3.13.0-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/utm/utm_0.7.1-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/toprex/4.23-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tbb/2019_U3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tauola/27.121.5-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sigcpp/2.6.2-omkpbe2/include/sigc++-2.0:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sqlite/3.22.0-omkpbe/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/protobuf/3.5.2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pacparser/1.3.5-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/oracle/12.1.0.2.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/py2-numpy/1.15.1/c-api/core/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/meschach/1.2.pCMS1-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libuuid/2.22.2-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libhepml/0.2.1-omkpbe2/interface:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/ktjet/1.06-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/jimmy/4.2-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/jemalloc/5.1.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/madgraph5amcatnlo/2.6.0-ikaegh4:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/heppdt/3.03.00-ikaegh2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/hector/1.3.4_patch1-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libjpeg-turbo/2.0.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/giflib/4.2.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gsl/2.2.1-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/vecgeom/v00.05.00-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gdbm/1.10-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/freetype/2.5.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fftw3/3.3.2-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fftjet/1.5.0-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fastjet/3.3.0-omkpbe/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/expat/2.1.0-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/dpm/1.8.0.1-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/hepmc/2.06.07-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xerces-c/3.1.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xz/5.2.2-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/dcap/2.47.8-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libxml2/2.9.1-omkpbe2/include/libxml2:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/curl/7.59.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cppunit/1.40.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/clhep/2.4.0.0-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/openssl/1.0.2d-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pythia6/426-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/photos/215.5-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/zlib-x86_64/1.2.11-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cascade/2.2.04-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/bz2lib/1.0.6-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/python/2.7.14-omkpbe4/include/python2.7:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tinyxml2/6.2.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/ittnotify/16.06.18-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gosamcontrib/2.0-20150803-omkpbe2/include:/usr/local/include:/usr/include
+ROOT_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/madgraph5amcatnlo/2.6.0-ikaegh4:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gosamcontrib/2.0-20150803-omkpbe2
+ROOT_TTREECACHE_PREFILL=0
+ROOT_TTREECACHE_SIZE=0
+SCONS_LIB_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/scons/3.0.1/lib
+SCRAMRT_SET=CMSSW:CMSSW_10_4_0:slc7_amd64_gcc700:V2_2_9_pre04:SRT_
+SCRAM_ARCH=slc7_amd64_gcc700
+SCRAM_CXX11_ABI=1
+SELINUX_LEVEL_REQUESTED=
+SELINUX_ROLE_REQUESTED=
+SELINUX_USE_CURRENT_RANGE=
+SHELL=/bin/bash
+SHERPA_INCLUDE_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/include/SHERPA-MC
+SHERPA_LIBRARY_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/lib/SHERPA-MC
+SHERPA_SHARE_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/share/SHERPA-MC
+SHLVL=4
+SITE_NAME=CERN-PROD
+SRM_PATH=/opt/d-cache/srm
+SRT_CASCADE_PDFPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cascade/2.2.04-ikaegh/share
+SRT_CLHEP_PARAM_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/clhep/2.4.0.0-gnimlf
+SRT_CMSSW_BASE_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0
+SRT_CMSSW_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms
+SRT_CMSSW_FWLITE_INCLUDE_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/hepmc/2.06.07-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/clhep/2.4.0.0-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/boost/1.67.0/include
+SRT_CMSSW_GIT_HASH_SCRAMRTDEL=CMSSW_10_4_0
+SRT_CMSSW_RELEASE_BASE_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0
+SRT_CMSSW_SEARCH_PATH_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/poison:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/external/slc7_amd64_gcc700/data:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/external/slc7_amd64_gcc700/data
+SRT_CMSSW_VERSION_SCRAMRTDEL=CMSSW_10_4_0
+SRT_CMS_OPENLOOPS_PREFIX_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/openloops/2.0.b-ikaegh2
+SRT_CMS_ORACLEOCCI_LIB_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cms_oracleocci_abi_hack/20180210-omkpbe/lib/libcms_oracleocci_abi_hack.so
+SRT_COMPILER_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2
+SRT_CSC_TRACK_FINDER_DATA_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/CSCTrackFinderEmulation/1.2-omkpbe2/data/
+SRT_EVTGENDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/evtgen/1.6.0-ikaegh/share
+SRT_FRONTIER_CLIENT_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/frontier_client/2.8.20-omkpbe4/
+SRT_G4ABLADATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4ABLA/3.0/data/G4ABLA3.0
+SRT_G4ENSDFSTATEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4ENSDFSTATE/2.2/data/G4ENSDFSTATE2.2
+SRT_G4FORCENUMBEROFTHREADS_SCRAMRTDEL=max
+SRT_G4LEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4EMLOW/7.3/data/G4EMLOW7.3
+SRT_G4LEVELGAMMADATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4PhotonEvaporation/5.2/data/PhotonEvaporation5.2
+SRT_G4NEUTRONHPDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4NDL/4.5/data/G4NDL4.5
+SRT_G4NEUTRONXSDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4NEUTRONXS/1.4/data/G4NEUTRONXS1.4
+SRT_G4RADIOACTIVEDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4RadioactiveDecay/5.2/data/RadioactiveDecay5.2
+SRT_G4SAIDXSDATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-G4SAIDDATA/1.1/data/G4SAIDDATA1.1
+SRT_GCC_RUNTIME_ASAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libasan.so
+SRT_GCC_RUNTIME_LSAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libasan.so
+SRT_GCC_RUNTIME_TSAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libtsan.so
+SRT_GCC_RUNTIME_UBSAN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64/libubsan.so
+SRT_GEANT4_PARFULLCMS_CONFIG_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4-parfullcms/2014.01.27-gnimlf3/share/ParFullCMS
+SRT_GENEVA_DATA_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geneva/1.0-RC3/share/Geneva
+SRT_GENREFLEX_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/bin/genreflex
+SRT_GIT_EXEC_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/libexec/git-core
+SRT_GIT_SSL_CAINFO_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/share/ssl/certs/ca-bundle.crt
+SRT_GIT_TEMPLATE_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/share/git-core/templates
+SRT_GOSAMCONTRIB_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gosamcontrib/2.0-20150803-omkpbe2
+SRT_HEPPDT_PARAM_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/heppdt/3.03.00-ikaegh2
+SRT_HERWIGPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/herwigpp/7.1.4-ikaegh4/share/Herwig
+SRT_INTEL_LICENSE_FILE_SCRAMRTDEL=28518@lxlicen01.cern.ch,28518@lxlicen02.cern.ch,28518@lxlicen03.cern.ch
+SRT_LANG_SCRAMRT=C
+SRT_LD_LIBRARY_PATH_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/biglib/slc7_amd64_gcc700:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/external/slc7_amd64_gcc700/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/biglib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/external/slc7_amd64_gcc700/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/llvm/7.0.0-ikaegh/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib64:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cuda/10.0.130/drivers
+SRT_LHAPDF_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/lhapdf/6.2.1-ikaegh/share/LHAPDF
+SRT_LOCALRT_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0
+SRT_OPAL_PREFIX_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/openmpi/2.1.5
+SRT_OPENBLAS_NUM_THREADS_SCRAMRTDEL=1
+SRT_PATH_SCRAMRT=/cvmfs/cms.cern.ch/share/overrides/bin:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/bin/slc7_amd64_gcc700:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/external/slc7_amd64_gcc700/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/bin/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/external/slc7_amd64_gcc700/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/llvm/7.0.0-ikaegh/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2/bin
+SRT_PDFPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/share
+SRT_PERL5LIB_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/git/2.19.0/share/perl5
+SRT_PYTHIA8DATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pythia8/230-ikaegh/share/Pythia8/xmldoc
+SRT_PYTHON27PATH_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/python:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/coral/CORAL_2_3_21-ikaegh4/slc7_amd64_gcc700/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/coral/CORAL_2_3_21-ikaegh4/slc7_amd64_gcc700/lib:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xrootd/4.8.4/lib/python2.7/site-packages:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fastjet/3.3.0-omkpbe/lib/python2.7/site-packages:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw-tool-conf/45.0-ikaegh6/lib/python2.7/site-packages
+SRT_PYTHON3PATH_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/python:/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/python:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw-tool-conf/45.0-ikaegh6/lib/python3.6/site-packages
+SRT_PYTHON_VALGRIND_SUPP_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/python/2.7.14-omkpbe4/share/valgrind/valgrind-python.supp
+SRT_QTDIR_SCRAMRT=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh
+SRT_QTINC_SCRAMRT=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include
+SRT_QTLIB_SCRAMRT=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/lib
+SRT_RIVET_ANALYSIS_PATH_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/lib/slc7_amd64_gcc700:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/lib
+SRT_ROOFITSYS_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/
+SRT_ROOTSYS_SCRAMRT=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/
+SRT_ROOT_GCC_TOOLCHAIN_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gcc/7.0.0-omkpbe2
+SRT_ROOT_INCLUDE_PATH_SCRAMRTDEL=/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw/CMSSW_10_4_0/src:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/coral/CORAL_2_3_21-ikaegh4/include/LCG:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/mctester/1.25.0a-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/lcg/root/6.12.07-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/dd4hep/v01-08x-ikaegh5/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtDesigner:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/herwigpp/7.1.4-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tauolapp/1.1.5-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/charybdis/1.003-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/include/SHERPA-MC:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtOpenGL:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtGui:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/thepeg/2.1.4-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pythia8/230-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/herwig/6.521-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/Qt3Support:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/lwtnn/2.4-ikaegh2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/geant4/10.04-gnimlf3/include/Geant4:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/classlib/3.1.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/lhapdf/6.2.1-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cgal/4.2-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tkonlinesw/4.2.0-1_gcc7-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/starlight/r193-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/Qt:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtCore:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/qt/4.8.7-ikaegh/include/QtXml:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/mcdb/1.0.3-omkpbe2/interface:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libungif/4.1.4-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libtiff/4.0.3-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libpng/1.6.16-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/frontier_client/2.8.20-omkpbe4/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pcre/8.37-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/boost/1.67.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xrootd/4.8.4/include/xrootd/private:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/vdt/0.4.0-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/valgrind/3.13.0-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/utm/utm_0.7.1-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/toprex/4.23-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tbb/2019_U3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tauola/27.121.5-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sigcpp/2.6.2-omkpbe2/include/sigc++-2.0:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sqlite/3.22.0-omkpbe/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/protobuf/3.5.2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pacparser/1.3.5-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/oracle/12.1.0.2.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/py2-numpy/1.15.1/c-api/core/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/meschach/1.2.pCMS1-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libuuid/2.22.2-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libhepml/0.2.1-omkpbe2/interface:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/ktjet/1.06-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/jimmy/4.2-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/jemalloc/5.1.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/madgraph5amcatnlo/2.6.0-ikaegh4:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/heppdt/3.03.00-ikaegh2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/hector/1.3.4_patch1-ikaegh3/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libjpeg-turbo/2.0.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/giflib/4.2.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gsl/2.2.1-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/vecgeom/v00.05.00-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gdbm/1.10-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/freetype/2.5.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fftw3/3.3.2-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fftjet/1.5.0-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/fastjet/3.3.0-omkpbe/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/expat/2.1.0-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/dpm/1.8.0.1-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/hepmc/2.06.07-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xerces-c/3.1.3-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/xz/5.2.2-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/dcap/2.47.8-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/libxml2/2.9.1-omkpbe2/include/libxml2:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/curl/7.59.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cppunit/1.40.1/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/clhep/2.4.0.0-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/openssl/1.0.2d-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/pythia6/426-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/photos/215.5-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/zlib-x86_64/1.2.11-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/cascade/2.2.04-ikaegh/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/bz2lib/1.0.6-omkpbe2/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/python/2.7.14-omkpbe4/include/python2.7:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/tinyxml2/6.2.0/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/ittnotify/16.06.18-gnimlf/include:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gosamcontrib/2.0-20150803-omkpbe2/include:/usr/local/include:/usr/include
+SRT_ROOT_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/madgraph5amcatnlo/2.6.0-ikaegh4:/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/gosamcontrib/2.0-20150803-omkpbe2
+SRT_ROOT_TTREECACHE_PREFILL_SCRAMRTDEL=0
+SRT_ROOT_TTREECACHE_SIZE_SCRAMRTDEL=0
+SRT_SCONS_LIB_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/scons/3.0.1/lib
+SRT_SCRAM_CXX11_ABI_SCRAMRTDEL=1
+SRT_SHERPA_INCLUDE_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/include/SHERPA-MC
+SRT_SHERPA_LIBRARY_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/lib/SHERPA-MC
+SRT_SHERPA_SHARE_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/sherpa/2.2.5-ikaegh4/share/SHERPA-MC
+SRT_TEXMFHOME_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/share/Rivet/texmf
+SRT_THEPEGPATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/thepeg/2.1.4-ikaegh4/share/ThePEG
+SRT_TNS_ADMIN_SCRAMRTDEL=/etc
+SRT_UTM_XSD_DIR_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/utm/utm_0.7.1-ikaegh
+SRT_VALGRIND_LIB_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/valgrind/3.13.0-omkpbe2/lib/valgrind
+SRT_VINCIADATA_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/vincia/2.2.01-ikaegh/share/Vincia/xmldoc
+SRT_WORKER_DATA_PATH_SCRAMRTDEL=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/blackhat/0.9.9-omkpbe4/share/blackhat/datafiles/
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SSH_CLIENT=2001:1458:d00:1b::1c 36124 22
+SSH_CONNECTION=2001:1458:d00:1b::1c 36124 2001:1458:d00:1b::1c 22
+SSH_TTY=/dev/pts/98
+STAGE_HOST=castorcms
+TEMP=/pool/condor/dir_14627
+TERM=screen
+TEXINPUTS=:/cvmfs/cms.cern.ch/latex/styles
+TEXMFHOME=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/rivet/2.5.4-ikaegh4/share/Rivet/texmf
+THEPEGPATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/thepeg/2.1.4-ikaegh4/share/ThePEG
+TMP=/pool/condor/dir_14627
+TMPDIR=/pool/condor/dir_14627/cache
+TNS_ADMIN=/etc
+USER=gkaratha
+UTM_XSD_DIR=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/utm/utm_0.7.1-ikaegh
+VALGRIND_LIB=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/valgrind/3.13.0-omkpbe2/lib/valgrind
+VINCIADATA=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/vincia/2.2.01-ikaegh/share/Vincia/xmldoc
+VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
+VO_ALICE_DEFAULT_SE=srm-alice.cern.ch
+VO_ALICE_SW_DIR=/afs/cern.ch/project/gd/apps/alice
+VO_ATLAS_DEFAULT_SE=srm-atlas.cern.ch
+VO_ATLAS_SW_DIR=/cvmfs/atlas.cern.ch/repo/sw
+VO_CMS_DEFAULT_SE=srm-cms.cern.ch
+VO_CMS_SW_DIR=/cvmfs/cms.cern.ch
+VO_DTEAM_DEFAULT_SE=srm-public.cern.ch
+VO_DTEAM_SW_DIR=/afs/cern.ch/project/gd/apps/dteam
+VO_GEANT4_DEFAULT_SE=lxdpm101.cern.ch
+VO_GEANT4_SW_DIR=/afs/cern.ch/project/gd/apps/geant4
+VO_ILC_DEFAULT_SE=srm-public.cern.ch
+VO_ILC_SW_DIR=/cvmfs/ilc.desy.de
+VO_LHCB_DEFAULT_SE=srm-lhcb.cern.ch
+VO_LHCB_SW_DIR=/cvmfs/lhcb.cern.ch
+VO_NA48_DEFAULT_SE=srm-public.cern.ch
+VO_NA48_SW_DIR=/afs/cern.ch/project/gd/apps/na48
+VO_OPS_DEFAULT_SE=srm-public.cern.ch
+VO_OPS_SW_DIR=/afs/cern.ch/project/gd/apps/ops
+VO_UNOSAT_DEFAULT_SE=srm-public.cern.ch
+VO_UNOSAT_SW_DIR=/afs/cern.ch/project/gd/apps/unosat
+VO_VO_ALEPH_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+VO_VO_ALEPH_CERN_CH_SW_DIR=/afs/cern.ch/aleph
+VO_VO_DELPHI_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+VO_VO_DELPHI_CERN_CH_SW_DIR=/afs/cern.ch/delphi
+VO_VO_GEAR_CERN_CH_DEFAULT_SE=lxdpm104.cern.ch
+VO_VO_GEAR_CERN_CH_SW_DIR=/afs/cern.ch/project/gd/apps/gear
+VO_VO_L3_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+VO_VO_L3_CERN_CH_SW_DIR=/afs/cern.ch/l3
+VO_VO_OPAL_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+VO_VO_OPAL_CERN_CH_SW_DIR=/afs/cern.ch/opal
+VO_VO_SIXT_CERN_CH_DEFAULT_SE=srm-public.cern.ch
+VO_VO_SIXT_CERN_CH_SW_DIR=/afs/cern.ch/project/gd/apps/sixt
+WORKER_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc700/external/blackhat/0.9.9-omkpbe4/share/blackhat/datafiles/
+XDG_DATA_DIRS=/afs/cern.ch/user/g/gkaratha/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+XDG_RUNTIME_DIR=/run/user/43882
+XDG_SESSION_ID=c81463
+_=/bin/env
+_CHIRP_DELAYED_UPDATE_PREFIX=Chirp*
+_CONDOR_ANCESTOR_14627=19942:1570576955:482646553
+_CONDOR_ANCESTOR_16137=16220:1557850597:1633470186
+_CONDOR_ANCESTOR_16220=14627:1570576385:1957152107
+_CONDOR_CHIRP_CONFIG=/pool/condor/dir_14627/.chirp.config
+_CONDOR_JOB_AD=/pool/condor/dir_14627/.job.ad
+_CONDOR_JOB_IWD=/pool/condor/dir_14627
+_CONDOR_JOB_PIDS=
+_CONDOR_MACHINE_AD=/pool/condor/dir_14627/.machine.ad
+_CONDOR_PID_NS_INIT_STATUS_FILENAME=/pool/condor/dir_14627/.condor_pid_ns_status
+_CONDOR_SCRATCH_DIR=/pool/condor/dir_14627
+_CONDOR_SLOT=slot1_1
+_CONDOR_WRAPPER_ERROR_FILE=/pool/condor/dir_14627/.job_wrapper_failure
+_VIRTUALENVWRAPPER_API= mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv wipeenv allvirtualenv mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv wipeenv allvirtualenv
+
+==== running ====
+/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2//crab_data_Run2018A_part2/190912_154729/0000/
+/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2//crab_data_Run2018A_part2/190912_154729/0001/
+/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018B_part2/190912_183627/0000/
+/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018B_part2/190912_183627/0001/
+/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018C_part2/190912_155245/0000/
+/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018C_part2/190912_155245/0001/
+/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000/
+/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0001/
+[<PhysicsTools.HeppyCore.framework.config.DataComponent object at 0x2b0a2b56cd50>]
+[<PhysicsTools.HeppyCore.framework.config.DataComponent object at 0x2b0a2b56cd90>]
+[<PhysicsTools.HeppyCore.framework.config.DataComponent object at 0x2b0a2b56cdd0>]
+[<PhysicsTools.HeppyCore.framework.config.DataComponent object at 0x2b0a2b56ce10>]
+[<PhysicsTools.HeppyCore.framework.config.DataComponent object at 0x2b0a2b56ced0>]
+[<PhysicsTools.HeppyCore.framework.config.DataComponent object at 0x2b0a2b578190>]
+[<PhysicsTools.HeppyCore.framework.config.DataComponent object at 0x2b0a2b5781d0>]
+[<PhysicsTools.HeppyCore.framework.config.DataComponent object at 0x2b0a2b578210>]
+Processing component RunD2018_part2_0_Chunk14 (50 files)
+Will write selected trees to Loop
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_73.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_73-long_cache-id43882-ed9081a770d7e9dd7501cc26c44c402c5b24517f.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 1192 entries out of 130029 (0.92%)
+Processed 1192 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_73.root (130029 entries). Finally selected 1192 entries
+Done Loop/BParkNANO_data_2019Sep12_73_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_730.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_730-long_cache-id43882-0d30552a14d732814b4b4809c0bf04ec51c5ff1c.root 
+Time used for transferring the file locally: 0.01 s
+Pre-select 1421 entries out of 131004 (1.08%)
+Processed 1421 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_730.root (131004 entries). Finally selected 1421 entries
+Done Loop/BParkNANO_data_2019Sep12_730_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_731.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_731-long_cache-id43882-8edb5cff8e81200638ac9bfc63c3ecb0ee2b9179.root 
+Time used for transferring the file locally: 0.01 s
+Pre-select 1365 entries out of 129082 (1.06%)
+Processed 1365 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_731.root (129082 entries). Finally selected 1365 entries
+Done Loop/BParkNANO_data_2019Sep12_731_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_732.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_732-long_cache-id43882-6c0e904377365f1071a51e26d485c656c00ba905.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 230 entries out of 34260 (0.67%)
+Processed 230 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_732.root (34260 entries). Finally selected 230 entries
+Done Loop/BParkNANO_data_2019Sep12_732_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_733.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_733-long_cache-id43882-cabba70731b19953a75835d53b9696cb1e0ba1b2.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 936 entries out of 74155 (1.26%)
+Processed 936 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_733.root (74155 entries). Finally selected 936 entries
+Done Loop/BParkNANO_data_2019Sep12_733_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_734.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_734-long_cache-id43882-b13b5410ed1a31756b1a55c72f13f3489b3c144f.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 472 entries out of 65185 (0.72%)
+Processed 472 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_734.root (65185 entries). Finally selected 472 entries
+Done Loop/BParkNANO_data_2019Sep12_734_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_735.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_735-long_cache-id43882-7fd037ab6c8dca834cd12e6f315c2ea2237ab1e6.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 1012 entries out of 70975 (1.43%)
+Processed 1012 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_735.root (70975 entries). Finally selected 1012 entries
+Done Loop/BParkNANO_data_2019Sep12_735_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_736.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_736-long_cache-id43882-459ba723c3b8871169ceacf04c39906c9240ef82.root 
+Time used for transferring the file locally: 0.01 s
+Pre-select 1348 entries out of 63591 (2.12%)
+Processed 1348 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_736.root (63591 entries). Finally selected 1348 entries
+Done Loop/BParkNANO_data_2019Sep12_736_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_737.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_737-long_cache-id43882-2d03df4cc058baaa7742a0ddc27bb558d932b032.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 1020 entries out of 44713 (2.28%)
+Processed 1020 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_737.root (44713 entries). Finally selected 1020 entries
+Done Loop/BParkNANO_data_2019Sep12_737_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_738.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_738-long_cache-id43882-1b9b45b04ad8eb0c4046c4369e75d09ab5d5bb41.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 1008 entries out of 58356 (1.73%)
+Processed 1008 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_738.root (58356 entries). Finally selected 1008 entries
+Done Loop/BParkNANO_data_2019Sep12_738_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_739.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_739-long_cache-id43882-097923b1a1e28d5bb697267629270d569251bf5c.root 
+Time used for transferring the file locally: 0.01 s
+Pre-select 1446 entries out of 64035 (2.26%)
+Processed 1446 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_739.root (64035 entries). Finally selected 1446 entries
+Done Loop/BParkNANO_data_2019Sep12_739_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_74.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_74-long_cache-id43882-e978c9236a6b9378cf730899f1804689a9b1e687.root 
+Time used for transferring the file locally: 0.01 s
+Pre-select 1167 entries out of 127494 (0.92%)
+Processed 1167 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_74.root (127494 entries). Finally selected 1167 entries
+Done Loop/BParkNANO_data_2019Sep12_74_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_740.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_740-long_cache-id43882-7899ac3595fc07a3a1f5d2c2fc59d4ced8f5a454.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 1546 entries out of 67933 (2.28%)
+Processed 1546 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_740.root (67933 entries). Finally selected 1546 entries
+Done Loop/BParkNANO_data_2019Sep12_740_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_741.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_741-long_cache-id43882-dbf51a36d7d44c55d415c95dc493bc7a39f4b7d3.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 1496 entries out of 66955 (2.23%)
+Processed 1496 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_741.root (66955 entries). Finally selected 1496 entries
+Done Loop/BParkNANO_data_2019Sep12_741_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_742.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_742-long_cache-id43882-6efb1b9dc35a6082122b2023d53d33131a56fd06.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 1151 entries out of 100479 (1.15%)
+Processed 1151 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_742.root (100479 entries). Finally selected 1151 entries
+Done Loop/BParkNANO_data_2019Sep12_742_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_743.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_743-long_cache-id43882-89ede755d17a208b84312a4f83b832533b7be2ee.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 718 entries out of 84874 (0.85%)
+Processed 718 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_743.root (84874 entries). Finally selected 718 entries
+Done Loop/BParkNANO_data_2019Sep12_743_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_744.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_744-long_cache-id43882-77d7efe81273a849f67a980b4685d31ffb8e82b9.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 346 entries out of 53488 (0.65%)
+Processed 346 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_744.root (53488 entries). Finally selected 346 entries
+Done Loop/BParkNANO_data_2019Sep12_744_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_745.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_745-long_cache-id43882-60ab605d20cdcf34b9034af9d7b0769d8a364dc4.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 142 entries out of 37387 (0.38%)
+Processed 142 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_745.root (37387 entries). Finally selected 142 entries
+Done Loop/BParkNANO_data_2019Sep12_745_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_746.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_746-long_cache-id43882-d5dd056425bb5da8269ebfd6b5c380263f5f8456.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 388 entries out of 52594 (0.74%)
+Processed 388 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_746.root (52594 entries). Finally selected 388 entries
+Done Loop/BParkNANO_data_2019Sep12_746_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_747.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_747-long_cache-id43882-c3f32188d6292b4237f537096f5e23b7f2e662b1.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 428 entries out of 58341 (0.73%)
+Processed 428 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_747.root (58341 entries). Finally selected 428 entries
+Done Loop/BParkNANO_data_2019Sep12_747_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_748.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_748-long_cache-id43882-4450f1f30d6c1c22514c2479f37ac124fb67d69a.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 607 entries out of 56737 (1.07%)
+Processed 607 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_748.root (56737 entries). Finally selected 607 entries
+Done Loop/BParkNANO_data_2019Sep12_748_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_749.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_749-long_cache-id43882-d87370de5468642350674574d57cdfb1c84a793b.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 1389 entries out of 68397 (2.03%)
+Processed 1389 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_749.root (68397 entries). Finally selected 1389 entries
+Done Loop/BParkNANO_data_2019Sep12_749_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_75.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_75-long_cache-id43882-9e058b831a07b5f84f9e19ed6f20ec583b198d43.root 
+Time used for transferring the file locally: 0.01 s
+Pre-select 1282 entries out of 127492 (1.01%)
+Processed 1282 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_75.root (127492 entries). Finally selected 1282 entries
+Done Loop/BParkNANO_data_2019Sep12_75_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_750.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_750-long_cache-id43882-59b87c7e7b08854dc9c2d372fd338aeb7ecb24ac.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 1408 entries out of 65490 (2.15%)
+Processed 1408 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_750.root (65490 entries). Finally selected 1408 entries
+Done Loop/BParkNANO_data_2019Sep12_750_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_751.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_751-long_cache-id43882-0796dd256d8581359036834af99adda604728a20.root 
+Time used for transferring the file locally: 0.02 s
+Pre-select 1066 entries out of 59535 (1.79%)
+Processed 1066 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_751.root (59535 entries). Finally selected 1066 entries
+Done Loop/BParkNANO_data_2019Sep12_751_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_752.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_752-long_cache-id43882-e0a0c49313370b85ffa99cb12742a85c22d905dd.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 1545 entries out of 66576 (2.32%)
+Processed 1545 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_752.root (66576 entries). Finally selected 1545 entries
+Done Loop/BParkNANO_data_2019Sep12_752_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_753.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_753-long_cache-id43882-0baea067907b439d2a93cccf8f892000e37dcb72.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 1052 entries out of 85490 (1.23%)
+Processed 1052 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_753.root (85490 entries). Finally selected 1052 entries
+Done Loop/BParkNANO_data_2019Sep12_753_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_754.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_754-long_cache-id43882-5e2cf31cdc682236089c40db8603fc785a206121.root 
+Time used for transferring the file locally: 0.01 s
+Pre-select 861 entries out of 102147 (0.84%)
+Processed 861 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_754.root (102147 entries). Finally selected 861 entries
+Done Loop/BParkNANO_data_2019Sep12_754_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_755.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_755-long_cache-id43882-c6fb0806438c671f89c6cdd5ad7f69000a7028de.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 894 entries out of 101550 (0.88%)
+Processed 894 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_755.root (101550 entries). Finally selected 894 entries
+Done Loop/BParkNANO_data_2019Sep12_755_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_756.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_756-long_cache-id43882-41e0e16a74d31e365e00d161d03ad8560618f17a.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 1163 entries out of 96310 (1.21%)
+Processed 1163 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_756.root (96310 entries). Finally selected 1163 entries
+Done Loop/BParkNANO_data_2019Sep12_756_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_757.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_757-long_cache-id43882-bee909eb252db86eee98046613f39f653f2b8921.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 845 entries out of 100114 (0.84%)
+Processed 845 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_757.root (100114 entries). Finally selected 845 entries
+Done Loop/BParkNANO_data_2019Sep12_757_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_758.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_758-long_cache-id43882-1a85a3640af8fd54d7407b5c8977a85e65c28989.root 
+Time used for transferring the file locally: 0.02 s
+Pre-select 856 entries out of 94200 (0.91%)
+Processed 856 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_758.root (94200 entries). Finally selected 856 entries
+Done Loop/BParkNANO_data_2019Sep12_758_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_759.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_759-long_cache-id43882-c25b6a57080e6fdd0f5d9251b47a72ed52ac2e30.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 758 entries out of 83844 (0.90%)
+Processed 758 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_759.root (83844 entries). Finally selected 758 entries
+Done Loop/BParkNANO_data_2019Sep12_759_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_76.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_76-long_cache-id43882-1da2ce532cc330d70e1c5132d114dc697eaefbc8.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 1203 entries out of 123778 (0.97%)
+Processed 1203 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_76.root (123778 entries). Finally selected 1203 entries
+Done Loop/BParkNANO_data_2019Sep12_76_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_760.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_760-long_cache-id43882-95e956a94138e4bf61ac66e32ae2fadc2eb883c1.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 920 entries out of 85180 (1.08%)
+Processed 920 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_760.root (85180 entries). Finally selected 920 entries
+Done Loop/BParkNANO_data_2019Sep12_760_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_761.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_761-long_cache-id43882-76fa6a620bab0952aae1296fc21c6274cddae7fc.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 710 entries out of 86808 (0.82%)
+Processed 710 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_761.root (86808 entries). Finally selected 710 entries
+Done Loop/BParkNANO_data_2019Sep12_761_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_762.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_762-long_cache-id43882-d50701797d2e0973956eff41c40cc7ddf06f0b3b.root 
+Time used for transferring the file locally: 0.02 s
+Pre-select 1142 entries out of 86343 (1.32%)
+Processed 1142 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_762.root (86343 entries). Finally selected 1142 entries
+Done Loop/BParkNANO_data_2019Sep12_762_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_763.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_763-long_cache-id43882-4d7b5ce9efa72d88a4d24bbb3850708b63f9a77a.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 1070 entries out of 87556 (1.22%)
+Processed 1070 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_763.root (87556 entries). Finally selected 1070 entries
+Done Loop/BParkNANO_data_2019Sep12_763_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_764.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_764-long_cache-id43882-6ebfdfe7c5c088f80c084faa7dc4abf94168c650.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 831 entries out of 80417 (1.03%)
+Processed 831 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_764.root (80417 entries). Finally selected 831 entries
+Done Loop/BParkNANO_data_2019Sep12_764_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_765.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_765-long_cache-id43882-97e79d7f372108325a672c695d01e7215a94ff09.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 959 entries out of 84975 (1.13%)
+Processed 959 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_765.root (84975 entries). Finally selected 959 entries
+Done Loop/BParkNANO_data_2019Sep12_765_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_766.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_766-long_cache-id43882-b6515d4033bcb4d3183925485b80d87759473e9b.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 1129 entries out of 87063 (1.30%)
+Processed 1129 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_766.root (87063 entries). Finally selected 1129 entries
+Done Loop/BParkNANO_data_2019Sep12_766_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_767.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_767-long_cache-id43882-5f2bb5da2c040679f41616eb5cb10ad8de474365.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 1773 entries out of 73921 (2.40%)
+Processed 1773 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_767.root (73921 entries). Finally selected 1773 entries
+Done Loop/BParkNANO_data_2019Sep12_767_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_768.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_768-long_cache-id43882-5a699e5de40003af2f31b773fbd3eccd55e7588c.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 1940 entries out of 78929 (2.46%)
+Processed 1940 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_768.root (78929 entries). Finally selected 1940 entries
+Done Loop/BParkNANO_data_2019Sep12_768_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_769.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_769-long_cache-id43882-8fcb5b7a53d65ddf43731ffb940c6c90580b6ece.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 1753 entries out of 78281 (2.24%)
+Processed 1753 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_769.root (78281 entries). Finally selected 1753 entries
+Done Loop/BParkNANO_data_2019Sep12_769_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_77.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_77-long_cache-id43882-d1deb36b5a0d14ca43c8d5cf1749ea866dd8ed6a.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 1076 entries out of 119335 (0.90%)
+Processed 1076 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_77.root (119335 entries). Finally selected 1076 entries
+Done Loop/BParkNANO_data_2019Sep12_77_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_770.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_770-long_cache-id43882-5070255e921fe2a8df1daf53962041d0f9b3c95a.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 1704 entries out of 79616 (2.14%)
+Processed 1704 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_770.root (79616 entries). Finally selected 1704 entries
+Done Loop/BParkNANO_data_2019Sep12_770_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_771.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_771-long_cache-id43882-ab31db8bd0b37d301ef20c6dfc545d3b7d2abb95.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 1326 entries out of 67414 (1.97%)
+Processed 1326 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_771.root (67414 entries). Finally selected 1326 entries
+Done Loop/BParkNANO_data_2019Sep12_771_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_RunAdding file Loop/BParkNANO_data_2019Sep12_73_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_730_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_731_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_732_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_733_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_734_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_735_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_736_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_737_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_738_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_739_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_74_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_740_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_741_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_742_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_743_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_744_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_745_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_746_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_747_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_748_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_749_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_75_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_750_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_751_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_752_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_753_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_754_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_755_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_756_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_757_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_758_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_759_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_76_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_760_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_761_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_762_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_763_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_764_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_765_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_766_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_767_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_768_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_769_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_77_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_770_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_771_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_772_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_773_nanopy.root
+Adding file Loop/BParkNANO_data_2019Sep12_774_nanopy.root
+Merging Events
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+missing: [] 
+ Additional: []
+Merging Runs
+Merging LuminosityBlocks
+Merging tag
+2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_772.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_772-long_cache-id43882-52557c7414774f5aba67da0740acd187e3e00b0e.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 971 entries out of 57165 (1.70%)
+Processed 971 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_772.root (57165 entries). Finally selected 971 entries
+Done Loop/BParkNANO_data_2019Sep12_772_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_773.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_773-long_cache-id43882-dbf77400e905e3230c2de75e1e857afa2608e2fa.root 
+Time used for transferring the file locally: 0.00999999999999 s
+Pre-select 867 entries out of 100499 (0.86%)
+Processed 867 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_773.root (100499 entries). Finally selected 867 entries
+Done Loop/BParkNANO_data_2019Sep12_773_nanopy.root
+Filename root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_774.root is remote, will do a copy to local path /pool/condor/dir_14627/cache/BParkNANO_data_2019Sep12_774-long_cache-id43882-b90a8527267a79fc5d0093f2dc520387d5577f53.root 
+Time used for transferring the file locally: 0.0 s
+Pre-select 867 entries out of 104441 (0.83%)
+Processed 867 preselected entries from root://eoscms.cern.ch//eos/cms/store/cmst3/group/bpark/BParkingNANO_2019Sep12/ParkingBPH2/crab_data_Run2018D_part2/190912_155004/0000//BParkNANO_data_2019Sep12_774.root (104441 entries). Finally selected 867 entries
+Done Loop/BParkNANO_data_2019Sep12_774_nanopy.root
+6574.51106021 Hz
+
+Done
+
+==== sending the files back ====
+
+==== sending root files to remote dir ====
+
+Loop/RunD2018_part2_0_Chunk14.root
+RunD2018_part2_0_Chunk14.root_RunD2018_part2_0_Chunk14
+Stageout try 1
+eos mkdir /eos/cms/store/group/cmst3/group/bpark/gkaratha/cmg_ntuples_test/RunD2018_part2_0
+eos cp /pool/condor/dir_14627/job/Loop/RunD2018_part2_0_Chunk14.root /eos/cms/store/group/cmst3/group/bpark/gkaratha/cmg_ntuples_test/RunD2018_part2_0/RunD2018_part2_0_Chunk14.root_RunD2018_part2_0_Chunk14_14.root
+remote copy succeeded
+everything ok
+
+==== sending local files back ====
+
+'Loop/RunD2018_part2_0_Chunk14.root.url' -> '/afs/cern.ch/work/g/gkaratha/private/SUSYCMG/HLT/efficiency/Analizer/CMSSW_10_4_0/src/CMGTools/RKAnalysis/cfg/OutCmsBatch_09Oct19_004826/RunD2018_part2_0_Chunk14/RunD2018_part2_0_Chunk14.root.url'
+job directory copy succeeded

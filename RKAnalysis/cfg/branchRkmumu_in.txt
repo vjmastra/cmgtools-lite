@@ -1,0 +1,9 @@
+drop SV_*
+drop PV_*
+drop L1_*
+drop HLT_*
+drop TrigObj_*
+drop fixedGrid*
+drop BToKEE_*
+drop Electron_*
+drop OtherPV_*

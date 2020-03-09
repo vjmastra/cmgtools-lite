@@ -1,0 +1,1 @@
+prompt_dy	: DYJetsToLL_M10to50_LO	: xsec	; # FillColor=ROOT.kCyan, Label="DY"
